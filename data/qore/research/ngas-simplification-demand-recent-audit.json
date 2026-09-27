@@ -1,0 +1,4822 @@
+{
+  "schemaVersion": 1,
+  "studyId": "ngas-simplification-demand-and-recent-v1",
+  "generatedAt": "2026-09-27T23:35:46.424445+00:00",
+  "executionEligible": false,
+  "selectionEligible": false,
+  "demandProtocol": {
+    "createdAt": "2026-09-27T23:25:31.421485+00:00",
+    "selectionEligible": false,
+    "role": "fixed diagnostic extensions; recent outage already observed; no tuning on results",
+    "base": "no-summer-fade",
+    "rules": {
+      "revision": {
+        "sameTarget": true,
+        "currentLeadDays": 7,
+        "previousIssueLeadDays": 8,
+        "bothModelsPositive": true,
+        "minimumEqualModelWeightedCDDRevisionF": 1,
+        "minimumWeightedLocationBreadth": 0.6666666666666666,
+        "locationPositiveThresholdF": 0.25,
+        "summerOnly": true
+      },
+      "storage": {
+        "vetoLongWhenLatestReleasedAboveSeasonalFiveYearMean": true,
+        "fiveYearWeekComparison": "same existing executable summerStorageContext"
+      },
+      "supply": {
+        "vetoLongWhenStorageSurplusAndDryProductionYoYGrowthBcfdExceedsLNGExportsYoYGrowthBcfd": true,
+        "vintages": "archived EIA releases only; no latest-vintage backfill as point-in-time",
+        "missing": "report unavailable; no fabricated result"
+      }
+    },
+    "variants": [
+      "no-summer-fade+revision",
+      "no-summer-fade+storage",
+      "no-summer-fade+revision+storage",
+      "no-summer-fade+supply-balance"
+    ],
+    "fitPeriods": {
+      "train": "through2023-12-31",
+      "validation": "2024",
+      "reportOnly": "2025 onward"
+    },
+    "historicalTemporalStatistic": "legacy hours0 if priorlead8 can be recovered; never mix corrected four-sample with legacy",
+    "recentTemporalStatistic": "four samples6,12,18,24 same corrected18-location basket",
+    "parametersTuned": false
+  },
+  "demandResults": [
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.53194541353586,
+      "maxDrawdownPct": -5.109610902195905,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 6.574133314602992
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.311072580899232,
+      "maxDrawdownPct": -20.935116135771647,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 5.428243243861942
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 35.85506689176985,
+      "maxDrawdownPct": -8.986200324614002,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 4.902288994708218
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.955125549878332,
+      "maxDrawdownPct": -9.022611723227191,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0.34274301384118644
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 12.95696744183552,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": -5.128568330994046
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615351555272984,
+      "maxDrawdownPct": -9.26954269602156,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": -8.881784197001252e-14
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 54.78465218812527,
+      "maxDrawdownPct": -20.93511613577148,
+      "activeSessions": 36,
+      "episodes": 12,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 21.97203406087742
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.955125549878332,
+      "maxDrawdownPct": -9.022611723227191,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0.34274301384118644
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 7.743606288219573,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": -4.891866872766504
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 40.05738076335885,
+      "maxDrawdownPct": -5.396396406228277,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 12.099568664425984
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -19.979481594570103,
+      "maxDrawdownPct": -25.204846244337297,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 0.7598342301910712
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 48.929936151063444,
+      "maxDrawdownPct": -8.986200324614014,
+      "activeSessions": 47,
+      "episodes": 22,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 17.97715825400181
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.87561205542905,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -4.736770480608097
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 31.14492464212708,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 50,
+      "episodes": 23,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 13.059388869297514
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.2123197057831816,
+      "maxDrawdownPct": -9.383140418850534,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 4.403031849489713
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 66.91269299836746,
+      "maxDrawdownPct": -26.678219535200466,
+      "activeSessions": 128,
+      "episodes": 56,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 34.10007487111961
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.87561205542905,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -4.736770480608097
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 30.86647812397736,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 77,
+      "episodes": 35,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 18.231004962991282
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 37.16719395254238,
+      "maxDrawdownPct": -5.109610902195905,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 9.20938185360951
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.23036123246522,
+      "maxDrawdownPct": -22.726743783097525,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 3.5089545922959537
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.952777897061633,
+      "maxDrawdownPct": -9.742712231822836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.612382536037146,
+      "maxDrawdownPct": -9.022611844238938,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 26.767984935526723,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 8.682449162697157
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.606879907982798,
+      "maxDrawdownPct": -9.26259320187367,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 0.008471647290097195
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.67434356272169,
+      "maxDrawdownPct": -22.72674378309738,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 15.861725435473836
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.612382536037146,
+      "maxDrawdownPct": -9.022611844238938,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 20.927936107777345,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 8.292462946791268
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 42.80086304111235,
+      "maxDrawdownPct": -5.396396406228277,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 14.843050942179485
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -21.792970859204065,
+      "maxDrawdownPct": -26.8997207346791,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": -1.0536550344428903
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.55584448771401,
+      "maxDrawdownPct": -9.742712231822825,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 12.603066590652379
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.546801785493372,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -5.0655807505437735
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 47.17186761906511,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 50,
+      "episodes": 22,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 29.086331846235545
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.2123197057831816,
+      "maxDrawdownPct": -9.383140418850534,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 4.403031849489713
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 60.32361583906807,
+      "maxDrawdownPct": -28.33970706555826,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 27.510997711820217
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.546801785493372,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -5.0655807505437735
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 46.85939274274071,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 77,
+      "episodes": 34,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 34.22391958175463
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.53194541353586,
+      "maxDrawdownPct": -5.109610902195905,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 6.574133314602992
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.311072580899232,
+      "maxDrawdownPct": -20.935116135771647,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 5.428243243861942
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.952777897061633,
+      "maxDrawdownPct": -9.742712231822836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.612382536037146,
+      "maxDrawdownPct": -9.022611844238938,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 18.085535772829566,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615351555272895,
+      "maxDrawdownPct": -9.269542696023713,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 49.199294833908525,
+      "maxDrawdownPct": -20.93511613577148,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 16.386676706660673
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.612382536037146,
+      "maxDrawdownPct": -9.022611844238938,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 12.635473160986077,
+      "maxDrawdownPct": -19.124363748602626,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 40.05738076335885,
+      "maxDrawdownPct": -5.396396406228277,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 12.099568664425984
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -19.979481594570103,
+      "maxDrawdownPct": -25.204846244337297,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 0.7598342301910712
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.55584448771401,
+      "maxDrawdownPct": -9.742712231822825,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 12.603066590652379
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.546801785493372,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -5.0655807505437735
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 37.09927804705426,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 41,
+      "episodes": 20,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 19.013742274224697
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.2123197057831816,
+      "maxDrawdownPct": -9.383140418850534,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 4.403031849489713
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 60.88969899775334,
+      "maxDrawdownPct": -26.678219535200466,
+      "activeSessions": 110,
+      "episodes": 50,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 28.07708087050549
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.546801785493372,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -5.0655807505437735
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 36.8081892632738,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 68,
+      "episodes": 32,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 24.172716102287726
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 37.16719395254238,
+      "maxDrawdownPct": -5.109610902195905,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 9.20938185360951
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.23036123246522,
+      "maxDrawdownPct": -22.726743783097525,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": 3.5089545922959537
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.952777897061633,
+      "maxDrawdownPct": -9.742712231822836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 22.52688739278903,
+      "maxDrawdownPct": -10.768257041024532,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -2.0854951432481172
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 25.43184363793525,
+      "maxDrawdownPct": -19.124363748602637,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 7.346307865105683
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.60687991534432,
+      "maxDrawdownPct": -9.262593196440761,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 0.008471639928575136
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.67434356272169,
+      "maxDrawdownPct": -22.72674378309738,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 15.861725435473836
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 22.52688739278903,
+      "maxDrawdownPct": -10.768257041024532,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -2.0854951432481172
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 19.65334922593305,
+      "maxDrawdownPct": -19.124363748602637,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 7.017876064946972
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 42.80086304111235,
+      "maxDrawdownPct": -5.396396406228277,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.957812098932866,
+      "edgePct": 14.843050942179485
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -21.792970859204065,
+      "maxDrawdownPct": -26.8997207346791,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.739315824761174,
+      "edgePct": -1.0536550344428903
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.55584448771401,
+      "maxDrawdownPct": -9.742712231822825,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.952777897061633,
+      "edgePct": 12.603066590652379
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 17.544014704249843,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -7.068367831787302
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 45.62278150749488,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 57,
+      "episodes": 25,
+      "fallbackReturnPct": 18.085535772829566,
+      "edgePct": 27.537245734665312
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.2123197057831816,
+      "maxDrawdownPct": -9.383140418850534,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615351555272895,
+      "edgePct": 4.403031849489713
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 60.32361583906807,
+      "maxDrawdownPct": -28.33970706555826,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.81261812724785,
+      "edgePct": 27.510997711820217
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 17.544014704249843,
+      "maxDrawdownPct": -11.464209858387376,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.612382536037146,
+      "edgePct": -7.068367831787302
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "baseline",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 45.313595646244885,
+      "maxDrawdownPct": -16.681788875215286,
+      "activeSessions": 84,
+      "episodes": 37,
+      "fallbackReturnPct": 12.635473160986077,
+      "edgePct": 32.67812248525881
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.39719191188393,
+      "maxDrawdownPct": -5.109771585426259,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 6.441459158390408
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.353904434656995,
+      "maxDrawdownPct": -20.9747980166919,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 5.386913060687606
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 35.69389880049594,
+      "maxDrawdownPct": -9.01290818117645,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 4.741871523143246
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.90079070207878,
+      "maxDrawdownPct": -9.022754848395852,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0.2898432214186286
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 12.890413619338048,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": -5.194245241197805
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615497863283602,
+      "maxDrawdownPct": -9.269672573245424,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": -4.11226608321158e-13
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 54.36805991231077,
+      "maxDrawdownPct": -20.974798016691864,
+      "activeSessions": 36,
+      "episodes": 12,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 21.560877498826244
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.90079070207878,
+      "maxDrawdownPct": -9.022754848395852,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0.2898432214186286
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 7.679958990885449,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": -4.9545049630771665
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 39.53173242546026,
+      "maxDrawdownPct": -5.439866592663501,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 11.575999671966741
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -20.27482768611143,
+      "maxDrawdownPct": -25.379895008253783,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 0.46598980923317157
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 48.36459323144475,
+      "maxDrawdownPct": -9.01290818117645,
+      "activeSessions": 47,
+      "episodes": 22,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 17.41256595409206
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.2816477308384,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.32929974982175
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 30.59753140691266,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 50,
+      "episodes": 23,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 12.512872546376805
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.44381542783804573,
+      "maxDrawdownPct": -9.56855315655888,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 4.171682435445145
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 65.04361337032319,
+      "maxDrawdownPct": -26.861549889332327,
+      "activeSessions": 128,
+      "episodes": 56,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 32.23643095683866
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.2816477308384,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.32929974982175
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 30.01791941415317,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 77,
+      "episodes": 35,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 17.383455460190554
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 36.897851939503056,
+      "maxDrawdownPct": -5.109771585426259,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 8.942119186009535
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.414145952966777,
+      "maxDrawdownPct": -22.898023162216997,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 3.3266715423778237
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.95202727735269,
+      "maxDrawdownPct": -9.742801358178976,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.61094748066015,
+      "maxDrawdownPct": -9.02275510064985,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 26.70641022414346,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 8.621751363607608
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.610834535317521,
+      "maxDrawdownPct": -9.265974538917165,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 0.004663327965670483
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.052083731535625,
+      "maxDrawdownPct": -22.898023162216894,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 15.244901318051099
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.61094748066015,
+      "maxDrawdownPct": -9.02275510064985,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 20.86418730306758,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 8.229723349104965
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 42.12792823057481,
+      "maxDrawdownPct": -5.439866592663501,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 14.172195477081289
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -22.215296230963023,
+      "maxDrawdownPct": -27.19591366512312,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": -1.4744787356184226
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.17993985494306,
+      "maxDrawdownPct": -9.742801358178998,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 12.227912577590367
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.00484422270894,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.606103257951212
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 46.57283951176105,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 50,
+      "episodes": 22,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 28.4881806512252
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.44381542783804573,
+      "maxDrawdownPct": -9.56855315655888,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 4.171682435445145
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 58.29084709019392,
+      "maxDrawdownPct": -28.641509726566248,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 25.483664676709395
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.00484422270894,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.606103257951212
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 45.922326636987584,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 77,
+      "episodes": 34,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 33.28786268302497
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.39719191188393,
+      "maxDrawdownPct": -5.109771585426259,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 6.441459158390408
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.353904434656995,
+      "maxDrawdownPct": -20.9747980166919,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 5.386913060687606
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.95202727735269,
+      "maxDrawdownPct": -9.742801358178976,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.61094748066015,
+      "maxDrawdownPct": -9.02275510064985,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 18.084658860535853,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615497863283191,
+      "maxDrawdownPct": -9.269672573253763,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.97361319177502,
+      "maxDrawdownPct": -20.974798016691864,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 16.166430778290497
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.61094748066015,
+      "maxDrawdownPct": -9.02275510064985,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 12.634463953962616,
+      "maxDrawdownPct": -19.12451786865128,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 39.53173242546026,
+      "maxDrawdownPct": -5.439866592663501,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 11.575999671966741
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -20.27482768611143,
+      "maxDrawdownPct": -25.379895008253783,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 0.46598980923317157
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.17993985494306,
+      "maxDrawdownPct": -9.742801358178998,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 12.227912577590367
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 19.00484422270894,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.606103257951212
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 36.60650574794029,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 41,
+      "episodes": 20,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 18.521846887404436
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.44381542783804573,
+      "maxDrawdownPct": -9.56855315655888,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 4.171682435445145
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 59.27610571439885,
+      "maxDrawdownPct": -26.861549889332327,
+      "activeSessions": 110,
+      "episodes": 50,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 26.468923300914327
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 19.00484422270894,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -5.606103257951212
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 36.00022500000044,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 68,
+      "episodes": 32,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 23.365761046037825
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 36.897851939503056,
+      "maxDrawdownPct": -5.109771585426259,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 8.942119186009535
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.414145952966777,
+      "maxDrawdownPct": -22.898023162216997,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": 3.3266715423778237
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.95202727735269,
+      "maxDrawdownPct": -9.742801358178976,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 22.42470090704969,
+      "maxDrawdownPct": -10.796125921246436,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -2.186246573610461
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 25.29837940366402,
+      "maxDrawdownPct": -19.124517868651136,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 7.213720543128165
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.610834561560651,
+      "maxDrawdownPct": -9.265974539004528,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 0.004663301722540147
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.052083731535625,
+      "maxDrawdownPct": -22.898023162216894,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 15.244901318051099
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 22.42470090704969,
+      "maxDrawdownPct": -10.796125921246436,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -2.186246573610461
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 19.521078421044425,
+      "maxDrawdownPct": -19.124517868651136,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 6.8866144670818095
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 42.12792823057481,
+      "maxDrawdownPct": -5.439866592663501,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.95573275349352,
+      "edgePct": 14.172195477081289
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -22.215296230963023,
+      "maxDrawdownPct": -27.19591366512312,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.7408174953446,
+      "edgePct": -1.4744787356184226
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 43.17993985494306,
+      "maxDrawdownPct": -9.742801358178998,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.95202727735269,
+      "edgePct": 12.227912577590367
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 16.917618589269278,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -7.693328891390873
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 44.940495374765455,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 57,
+      "episodes": 25,
+      "fallbackReturnPct": 18.084658860535853,
+      "edgePct": 26.8558365142296
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -0.44381542783804573,
+      "maxDrawdownPct": -9.56855315655888,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615497863283191,
+      "edgePct": 4.171682435445145
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 58.29084709019392,
+      "maxDrawdownPct": -28.641509726566248,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.807182413484526,
+      "edgePct": 25.483664676709395
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 16.917618589269278,
+      "maxDrawdownPct": -11.520438905378294,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.61094748066015,
+      "edgePct": -7.693328891390873
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "elevated",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 44.2972270951073,
+      "maxDrawdownPct": -16.756694191237276,
+      "activeSessions": 84,
+      "episodes": 37,
+      "fallbackReturnPct": 12.634463953962616,
+      "edgePct": 31.662763141144687
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.018978353758534,
+      "maxDrawdownPct": -5.110253741673221,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 6.069484034273387
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.474297397847547,
+      "maxDrawdownPct": -21.086280563911753,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": 5.271024284413606
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 35.23242807335851,
+      "maxDrawdownPct": -9.088933136575516,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 4.284766289384567
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.756738147548084,
+      "maxDrawdownPct": -9.023184351922332,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0.15009629106181777
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 12.698668815241465,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": -5.383358994572628
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615936862105197,
+      "maxDrawdownPct": -9.270062274365587,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": -3.1308289294429414e-12
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 53.19194779384966,
+      "maxDrawdownPct": -21.086280563911775,
+      "activeSessions": 36,
+      "episodes": 12,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 20.403214091300214
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.756738147548084,
+      "maxDrawdownPct": -9.023184351922332,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0.15009629106181777
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 7.496569418296795,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 9,
+      "episodes": 3,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": -5.1348665423265105
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 37.59228795389235,
+      "maxDrawdownPct": -5.61285733491742,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 9.642793634407205
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -21.368905498759915,
+      "maxDrawdownPct": -26.063635108812345,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": -0.6235838164987619
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 46.4152429859726,
+      "maxDrawdownPct": -9.088933136575527,
+      "activeSessions": 47,
+      "episodes": 22,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 15.467581201998652
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 16.915163851653393,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.691478004832874
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 28.63153516254595,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 50,
+      "episodes": 23,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 10.549507352731858
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -1.396478625454367,
+      "maxDrawdownPct": -10.356696152200218,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 3.2194582366476987
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 58.40712279593836,
+      "maxDrawdownPct": -27.609401032777082,
+      "activeSessions": 128,
+      "episodes": 56,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 25.61838909338892
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 16.915163851653393,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 46,
+      "episodes": 23,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.691478004832874
+    },
+    {
+      "candidateId": "no-summer-fade+revision",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 26.835223268407304,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 77,
+      "episodes": 35,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 14.203787307784
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 36.13446135889171,
+      "maxDrawdownPct": -5.110253741673221,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 8.184967039406565
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.939755314944584,
+      "maxDrawdownPct": -23.387832329528514,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": 2.805566367316569
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.947661783973945,
+      "maxDrawdownPct": -9.743068725714998,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.606641856486267,
+      "maxDrawdownPct": -9.023184999732836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 26.52738824799865,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 8.445360438184558
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.611342644541361,
+      "maxDrawdownPct": -9.266451610363912,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 0.00459421756070455
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 46.28460822994826,
+      "maxDrawdownPct": -23.387832329528468,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 13.495874527398819
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.606641856486267,
+      "maxDrawdownPct": -9.023184999732836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 20.692776836694303,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 9,
+      "episodes": 2,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 8.061340876070998
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 39.76417547593811,
+      "maxDrawdownPct": -5.61285733491742,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 11.814681156452963
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -23.66242793474953,
+      "maxDrawdownPct": -28.220019581152833,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": -2.9171062524883773
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 41.77615542459117,
+      "maxDrawdownPct": -9.743068725715066,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 10.828493640617221
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 16.774501850357517,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.83214000612875
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 44.40791644668285,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 50,
+      "episodes": 22,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 26.325888636868754
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -1.396478625454367,
+      "maxDrawdownPct": -10.356696152200218,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 3.2194582366476987
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 51.264635460384,
+      "maxDrawdownPct": -29.720702606584283,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 18.475901757834556
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 16.774501850357517,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.83214000612875
+    },
+    {
+      "candidateId": "no-summer-fade+storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 42.391290760041024,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 77,
+      "episodes": 34,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 29.759854799417717
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 34.018978353758534,
+      "maxDrawdownPct": -5.110253741673221,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 6.069484034273387
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -15.474297397847547,
+      "maxDrawdownPct": -21.086280563911753,
+      "activeSessions": 6,
+      "episodes": 2,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": 5.271024284413606
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.947661783973945,
+      "maxDrawdownPct": -9.743068725714998,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 24.606641856486267,
+      "maxDrawdownPct": -9.023184999732836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 18.082027809814093,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.615936862102066,
+      "maxDrawdownPct": -9.270062274416835,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 48.33814384265385,
+      "maxDrawdownPct": -21.086280563911775,
+      "activeSessions": 18,
+      "episodes": 6,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 15.549410140104406
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 24.606641856486267,
+      "maxDrawdownPct": -9.023184999732836,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 12.631435960623305,
+      "maxDrawdownPct": -19.124980422358572,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 37.59228795389235,
+      "maxDrawdownPct": -5.61285733491742,
+      "activeSessions": 44,
+      "episodes": 16,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 9.642793634407205
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -21.368905498759915,
+      "maxDrawdownPct": -26.063635108812345,
+      "activeSessions": 37,
+      "episodes": 18,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": -0.6235838164987619
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 41.77615542459117,
+      "maxDrawdownPct": -9.743068725715066,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 10.828493640617221
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 16.774501850357517,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.83214000612875
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 34.77597076829062,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 41,
+      "episodes": 20,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 16.693942958476526
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -1.396478625454367,
+      "maxDrawdownPct": -10.356696152200218,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 3.2194582366476987
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 53.38807902692824,
+      "maxDrawdownPct": -27.609401032777082,
+      "activeSessions": 110,
+      "episodes": 50,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 20.599345324378795
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 16.774501850357517,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 40,
+      "episodes": 21,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -7.83214000612875
+    },
+    {
+      "candidateId": "no-summer-fade+revision-storage",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 32.8938531442629,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 68,
+      "episodes": 32,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 20.26241718363959
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 36.13446135889171,
+      "maxDrawdownPct": -5.110253741673221,
+      "activeSessions": 27,
+      "episodes": 8,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 8.184967039406565
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -17.939755314944584,
+      "maxDrawdownPct": -23.387832329528514,
+      "activeSessions": 32,
+      "episodes": 9,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": 2.805566367316569
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 30.947661783973945,
+      "maxDrawdownPct": -9.743068725714998,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 0
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 22.14661269172311,
+      "maxDrawdownPct": -10.871413704239574,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -2.4600291647631565
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 24.91058591038886,
+      "maxDrawdownPct": -19.12498042235856,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 6.828558100574767
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -4.611342709846589,
+      "maxDrawdownPct": -9.266451610557203,
+      "activeSessions": 0,
+      "episodes": 0,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 0.004594152255476658
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 46.28460822994826,
+      "maxDrawdownPct": -23.387832329528468,
+      "activeSessions": 59,
+      "episodes": 17,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 13.495874527398819
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 22.14661269172311,
+      "maxDrawdownPct": -10.871413704239574,
+      "activeSessions": 12,
+      "episodes": 4,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -2.4600291647631565
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "summer-only",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 19.150530713183468,
+      "maxDrawdownPct": -19.12498042235856,
+      "activeSessions": 16,
+      "episodes": 5,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 6.519094752560163
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2021",
+      "sessions": 252,
+      "returnPct": 39.76417547593811,
+      "maxDrawdownPct": -5.61285733491742,
+      "activeSessions": 59,
+      "episodes": 20,
+      "fallbackReturnPct": 27.949494319485147,
+      "edgePct": 11.814681156452963
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2022",
+      "sessions": 251,
+      "returnPct": -23.66242793474953,
+      "maxDrawdownPct": -28.220019581152833,
+      "activeSessions": 63,
+      "episodes": 25,
+      "fallbackReturnPct": -20.745321682261153,
+      "edgePct": -2.9171062524883773
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2023",
+      "sessions": 250,
+      "returnPct": 41.77615542459117,
+      "maxDrawdownPct": -9.743068725715066,
+      "activeSessions": 29,
+      "episodes": 16,
+      "fallbackReturnPct": 30.947661783973945,
+      "edgePct": 10.828493640617221
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2024",
+      "sessions": 252,
+      "returnPct": 14.46920072991924,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -10.137441126567026
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2025",
+      "sessions": 250,
+      "returnPct": 42.5644116343137,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 57,
+      "episodes": 25,
+      "fallbackReturnPct": 18.082027809814093,
+      "edgePct": 24.482383824499607
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "2026",
+      "sessions": 61,
+      "returnPct": -1.396478625454367,
+      "maxDrawdownPct": -10.356696152200218,
+      "activeSessions": 27,
+      "episodes": 12,
+      "fallbackReturnPct": -4.615936862102066,
+      "edgePct": 3.2194582366476987
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "train",
+      "sessions": 753,
+      "returnPct": 51.264635460384,
+      "maxDrawdownPct": -29.720702606584283,
+      "activeSessions": 151,
+      "episodes": 61,
+      "fallbackReturnPct": 32.78873370254944,
+      "edgePct": 18.475901757834556
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "validation",
+      "sessions": 252,
+      "returnPct": 14.46920072991924,
+      "maxDrawdownPct": -11.71000642130643,
+      "activeSessions": 52,
+      "episodes": 25,
+      "fallbackReturnPct": 24.606641856486267,
+      "edgePct": -10.137441126567026
+    },
+    {
+      "candidateId": "no-summer-fade+supply-balance",
+      "lane": "all-year",
+      "scenarioId": "stress",
+      "period": "holdout",
+      "sessions": 311,
+      "returnPct": 40.573530098335794,
+      "maxDrawdownPct": -17.07500278717332,
+      "activeSessions": 84,
+      "episodes": 37,
+      "fallbackReturnPct": 12.631435960623305,
+      "edgePct": 27.942094137712488
+    }
+  ],
+  "recentResults": [
+    {
+      "variantId": "current",
+      "label": "Current strategy",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 97568.78892144572,
+        "pnlUsd": -261.4810785542795,
+        "returnPct": -0.26728034028147274,
+        "maxDrawdownPct": -7.0382651344567115,
+        "costUsd": 144.79349664618775,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 34,
+        "relativeToFallbackUsd": -4125.931447260533
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 97568.78892144572,
+        "pnlUsd": -2464.7933785061614,
+        "returnPct": -2.463965922079492,
+        "maxDrawdownPct": -5.63503197531201,
+        "costUsd": 130.93094406684241,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 11,
+        "relativeToFallbackUsd": -4125.931447260533
+      }
+    },
+    {
+      "variantId": "current",
+      "label": "Current strategy",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 97473.76919028547,
+        "pnlUsd": -356.5008097145328,
+        "returnPct": -0.36440746786708944,
+        "maxDrawdownPct": -7.119897373936512,
+        "costUsd": 238.96982140108574,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 34,
+        "relativeToFallbackUsd": -4210.763463755182
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 97473.76919028547,
+        "pnlUsd": -2549.9178832391917,
+        "returnPct": -2.5493140253516344,
+        "maxDrawdownPct": -5.708620045759504,
+        "costUsd": 215.79389911357023,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 11,
+        "relativeToFallbackUsd": -4210.763463755182
+      }
+    },
+    {
+      "variantId": "current",
+      "label": "Current strategy",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 97178.13472578264,
+        "pnlUsd": -652.1352742173622,
+        "returnPct": -0.6665986654410316,
+        "maxDrawdownPct": -7.3771229732622405,
+        "costUsd": 533.4218604228905,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 34,
+        "relativeToFallbackUsd": -4477.888156650195
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 97178.13472578264,
+        "pnlUsd": -2817.886285427201,
+        "returnPct": -2.8179984132681746,
+        "maxDrawdownPct": -5.943308110151291,
+        "costUsd": 483.5999184229094,
+        "longDays": 8,
+        "shortDays": 2,
+        "fallbackDays": 11,
+        "relativeToFallbackUsd": -4477.888156650195
+      }
+    },
+    {
+      "variantId": "no-summer-shorts",
+      "label": "Remove automatic Summer shorts",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": 1206.6631872295402,
+        "returnPct": 1.2334251834626775,
+        "maxDrawdownPct": -5.6395337127659655,
+        "costUsd": 71.76685361408175,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2657.787181476713
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": -996.6491127223417,
+        "returnPct": -0.9963145273892859,
+        "maxDrawdownPct": -4.2151870673627245,
+        "costUsd": 57.90430103473644,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2657.787181476713
+      }
+    },
+    {
+      "variantId": "no-summer-shorts",
+      "label": "Remove automatic Summer shorts",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": 1155.3907929034322,
+        "returnPct": 1.181015643627914,
+        "maxDrawdownPct": -5.675888355833514,
+        "costUsd": 119.75685564689067,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2698.871861137217
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": -1038.0262806212268,
+        "returnPct": -1.0377804608004526,
+        "maxDrawdownPct": -4.242669867695293,
+        "costUsd": 96.5809333593752,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2698.871861137217
+      }
+    },
+    {
+      "variantId": "no-summer-shorts",
+      "label": "Remove automatic Summer shorts",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": 1017.594932135893,
+        "returnPct": 1.0401636754512555,
+        "maxDrawdownPct": -5.7811392129159085,
+        "costUsd": 256.7533974727926,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2808.15795029694
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": -1148.1560790739459,
+        "returnPct": -1.1482017658934973,
+        "maxDrawdownPct": -4.322618301900539,
+        "costUsd": 206.93145547281154,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2808.15795029694
+      }
+    },
+    {
+      "variantId": "ung-price",
+      "label": "Measure price moves in UNG",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 99038.9478899441,
+        "pnlUsd": 1208.6778899440978,
+        "returnPct": 1.2354845692893468,
+        "maxDrawdownPct": -5.63752490030478,
+        "costUsd": 111.59085505191865,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 35,
+        "relativeToFallbackUsd": -2655.7724787621555
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 99038.9478899441,
+        "pnlUsd": -994.634410007784,
+        "returnPct": -0.994300501031109,
+        "maxDrawdownPct": -4.213147932400996,
+        "costUsd": 97.72830247257335,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 12,
+        "relativeToFallbackUsd": -2655.7724787621555
+      }
+    },
+    {
+      "variantId": "ung-price",
+      "label": "Measure price moves in UNG",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98963.3294420746,
+        "pnlUsd": 1133.059442074591,
+        "returnPct": 1.1581890166250108,
+        "maxDrawdownPct": -5.700535937489004,
+        "costUsd": 186.02849247526518,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 35,
+        "relativeToFallbackUsd": -2721.203211966058
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 98963.3294420746,
+        "pnlUsd": -1060.3576314500679,
+        "returnPct": -1.0601065232384688,
+        "maxDrawdownPct": -4.26769195984551,
+        "costUsd": 162.85257018774973,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 12,
+        "relativeToFallbackUsd": -2721.203211966058
+      }
+    },
+    {
+      "variantId": "ung-price",
+      "label": "Measure price moves in UNG",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98735.53264793697,
+        "pnlUsd": 905.2626479369646,
+        "returnPct": 0.9253400281292956,
+        "maxDrawdownPct": -5.892728601704844,
+        "costUsd": 411.6268318781936,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 35,
+        "relativeToFallbackUsd": -2920.490234495868
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 98735.53264793697,
+        "pnlUsd": -1260.4883632728743,
+        "returnPct": -1.2605385199592756,
+        "maxDrawdownPct": -4.435935109760736,
+        "costUsd": 361.8048898782126,
+        "longDays": 8,
+        "shortDays": 1,
+        "fallbackDays": 12,
+        "relativeToFallbackUsd": -2920.490234495868
+      }
+    },
+    {
+      "variantId": "no-summer-shorts-ung-price",
+      "label": "No Summer shorts + UNG price",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": 1206.6631872295402,
+        "returnPct": 1.2334251834626775,
+        "maxDrawdownPct": -5.6395337127659655,
+        "costUsd": 71.76685361408175,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2657.787181476713
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": -996.6491127223417,
+        "returnPct": -0.9963145273892859,
+        "maxDrawdownPct": -4.2151870673627245,
+        "costUsd": 57.90430103473644,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2657.787181476713
+      }
+    },
+    {
+      "variantId": "no-summer-shorts-ung-price",
+      "label": "No Summer shorts + UNG price",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": 1155.3907929034322,
+        "returnPct": 1.181015643627914,
+        "maxDrawdownPct": -5.675888355833514,
+        "costUsd": 119.75685564689067,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2698.871861137217
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": -1038.0262806212268,
+        "returnPct": -1.0377804608004526,
+        "maxDrawdownPct": -4.242669867695293,
+        "costUsd": 96.5809333593752,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2698.871861137217
+      }
+    },
+    {
+      "variantId": "no-summer-shorts-ung-price",
+      "label": "No Summer shorts + UNG price",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": 1017.594932135893,
+        "returnPct": 1.0401636754512555,
+        "maxDrawdownPct": -5.7811392129159085,
+        "costUsd": 256.7533974727926,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2808.15795029694
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": -1148.1560790739459,
+        "returnPct": -1.1482017658934973,
+        "maxDrawdownPct": -4.322618301900539,
+        "costUsd": 206.93145547281154,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2808.15795029694
+      }
+    },
+    {
+      "variantId": "fallback",
+      "label": "Index fallback only",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 3864.4503687062534,
+        "returnPct": 3.950158134804549,
+        "maxDrawdownPct": -3.1049756051577004,
+        "costUsd": 13.99039278342491,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 1661.1380687543715,
+        "returnPct": 1.6605804076609276,
+        "maxDrawdownPct": -2.278736217670907,
+        "costUsd": 0.12784020407959407,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "fallback",
+      "label": "Index fallback only",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 3854.262654040649,
+        "returnPct": 3.9397444717679475,
+        "maxDrawdownPct": -3.105037022509527,
+        "costUsd": 23.431564678855704,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 1660.8455805159902,
+        "returnPct": 1.660452267966428,
+        "maxDrawdownPct": -2.278737324350011,
+        "costUsd": 0.25564239134023214,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "fallback",
+      "label": "Index fallback only",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 3825.752882432833,
+        "returnPct": 3.9106023957951264,
+        "maxDrawdownPct": -3.1052213408816143,
+        "costUsd": 50.46077578768804,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 1660.001871222994,
+        "returnPct": 1.660067925139641,
+        "maxDrawdownPct": -2.278740645522215,
+        "costUsd": 0.6388337877069381,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision",
+      "label": "no-summer-shorts+revision",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": 1206.6631872295402,
+        "returnPct": 1.2334251834626775,
+        "maxDrawdownPct": -5.6395337127659655,
+        "costUsd": 71.76685361408175,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2657.787181476713
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 99036.93318722954,
+        "pnlUsd": -996.6491127223417,
+        "returnPct": -0.9963145273892859,
+        "maxDrawdownPct": -4.2151870673627245,
+        "costUsd": 57.90430103473644,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2657.787181476713
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision",
+      "label": "no-summer-shorts+revision",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": 1155.3907929034322,
+        "returnPct": 1.181015643627914,
+        "maxDrawdownPct": -5.675888355833514,
+        "costUsd": 119.75685564689067,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2698.871861137217
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 98985.66079290344,
+        "pnlUsd": -1038.0262806212268,
+        "returnPct": -1.0377804608004526,
+        "maxDrawdownPct": -4.242669867695293,
+        "costUsd": 96.5809333593752,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2698.871861137217
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision",
+      "label": "no-summer-shorts+revision",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": 1017.594932135893,
+        "returnPct": 1.0401636754512555,
+        "maxDrawdownPct": -5.7811392129159085,
+        "costUsd": 256.7533974727926,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 36,
+        "relativeToFallbackUsd": -2808.15795029694
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 98847.8649321359,
+        "pnlUsd": -1148.1560790739459,
+        "returnPct": -1.1482017658934973,
+        "maxDrawdownPct": -4.322618301900539,
+        "costUsd": 206.93145547281154,
+        "longDays": 8,
+        "shortDays": 0,
+        "fallbackDays": 13,
+        "relativeToFallbackUsd": -2808.15795029694
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+storage",
+      "label": "no-summer-shorts+storage",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 3864.4503687062534,
+        "returnPct": 3.950158134804549,
+        "maxDrawdownPct": -3.1049756051577004,
+        "costUsd": 13.99039278342491,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 1661.1380687543715,
+        "returnPct": 1.6605804076609276,
+        "maxDrawdownPct": -2.278736217670907,
+        "costUsd": 0.12784020407959407,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+storage",
+      "label": "no-summer-shorts+storage",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 3854.262654040649,
+        "returnPct": 3.9397444717679475,
+        "maxDrawdownPct": -3.105037022509527,
+        "costUsd": 23.431564678855704,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 1660.8455805159902,
+        "returnPct": 1.660452267966428,
+        "maxDrawdownPct": -2.278737324350011,
+        "costUsd": 0.25564239134023214,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+storage",
+      "label": "no-summer-shorts+storage",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 3825.752882432833,
+        "returnPct": 3.9106023957951264,
+        "maxDrawdownPct": -3.1052213408816143,
+        "costUsd": 50.46077578768804,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 1660.001871222994,
+        "returnPct": 1.660067925139641,
+        "maxDrawdownPct": -2.278740645522215,
+        "costUsd": 0.6388337877069381,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision-storage",
+      "label": "no-summer-shorts+revision-storage",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 3864.4503687062534,
+        "returnPct": 3.950158134804549,
+        "maxDrawdownPct": -3.1049756051577004,
+        "costUsd": 13.99039278342491,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 1661.1380687543715,
+        "returnPct": 1.6605804076609276,
+        "maxDrawdownPct": -2.278736217670907,
+        "costUsd": 0.12784020407959407,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision-storage",
+      "label": "no-summer-shorts+revision-storage",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 3854.262654040649,
+        "returnPct": 3.9397444717679475,
+        "maxDrawdownPct": -3.105037022509527,
+        "costUsd": 23.431564678855704,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 1660.8455805159902,
+        "returnPct": 1.660452267966428,
+        "maxDrawdownPct": -2.278737324350011,
+        "costUsd": 0.25564239134023214,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+revision-storage",
+      "label": "no-summer-shorts+revision-storage",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 3825.752882432833,
+        "returnPct": 3.9106023957951264,
+        "maxDrawdownPct": -3.1052213408816143,
+        "costUsd": 50.46077578768804,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 1660.001871222994,
+        "returnPct": 1.660067925139641,
+        "maxDrawdownPct": -2.278740645522215,
+        "costUsd": 0.6388337877069381,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+supply-balance",
+      "label": "no-summer-shorts+supply-balance",
+      "scenarioId": "baseline",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 3864.4503687062534,
+        "returnPct": 3.950158134804549,
+        "maxDrawdownPct": -3.1049756051577004,
+        "costUsd": 13.99039278342491,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100033.58229995189,
+        "finalEquity": 101694.72036870626,
+        "pnlUsd": 1661.1380687543715,
+        "returnPct": 1.6605804076609276,
+        "maxDrawdownPct": -2.278736217670907,
+        "costUsd": 0.12784020407959407,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+supply-balance",
+      "label": "no-summer-shorts+supply-balance",
+      "scenarioId": "elevated",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 3854.262654040649,
+        "returnPct": 3.9397444717679475,
+        "maxDrawdownPct": -3.105037022509527,
+        "costUsd": 23.431564678855704,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 100023.68707352466,
+        "finalEquity": 101684.53265404065,
+        "pnlUsd": 1660.8455805159902,
+        "returnPct": 1.660452267966428,
+        "maxDrawdownPct": -2.278737324350011,
+        "costUsd": 0.25564239134023214,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    },
+    {
+      "variantId": "no-summer-shorts+supply-balance",
+      "label": "no-summer-shorts+supply-balance",
+      "scenarioId": "stress",
+      "fullPeriod": {
+        "initialClose": "2026-07-24",
+        "firstSession": "2026-07-27",
+        "finalClose": "2026-09-25",
+        "sessions": 44,
+        "startingEquity": 97830.27,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 3825.752882432833,
+        "returnPct": 3.9106023957951264,
+        "maxDrawdownPct": -3.1052213408816143,
+        "costUsd": 50.46077578768804,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 44,
+        "relativeToFallbackUsd": 0
+      },
+      "lastMonth": {
+        "initialClose": "2026-08-26",
+        "firstSession": "2026-08-27",
+        "finalClose": "2026-09-25",
+        "sessions": 21,
+        "startingEquity": 99996.02101120984,
+        "finalEquity": 101656.02288243284,
+        "pnlUsd": 1660.001871222994,
+        "returnPct": 1.660067925139641,
+        "maxDrawdownPct": -2.278740645522215,
+        "costUsd": 0.6388337877069381,
+        "longDays": 0,
+        "shortDays": 0,
+        "fallbackDays": 21,
+        "relativeToFallbackUsd": 0
+      }
+    }
+  ],
+  "recentVerification": {
+    "current": {
+      "largestCashLedgerDifferenceUsd": 0.0003502267354633659,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts": {
+      "largestCashLedgerDifferenceUsd": 0.0003502267354633659,
+      "futureStorageRemovalInvariant": true
+    },
+    "ung-price": {
+      "largestCashLedgerDifferenceUsd": 0.0003502267354633659,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts-ung-price": {
+      "largestCashLedgerDifferenceUsd": 0.0003502267354633659,
+      "futureStorageRemovalInvariant": true
+    },
+    "fallback": {
+      "largestCashLedgerDifferenceUsd": 0.00035092658072244376,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts+revision": {
+      "largestCashLedgerDifferenceUsd": 0.0003502267354633659,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts+storage": {
+      "largestCashLedgerDifferenceUsd": 0.00035092658072244376,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts+revision-storage": {
+      "largestCashLedgerDifferenceUsd": 0.00035092658072244376,
+      "futureStorageRemovalInvariant": true
+    },
+    "no-summer-shorts+supply-balance": {
+      "largestCashLedgerDifferenceUsd": 0.00035092658072244376,
+      "futureStorageRemovalInvariant": true
+    }
+  },
+  "recentBaselineExactlyMatchesOriginal": true,
+  "methodology": "docs/research/ngas-simplification-results.md",
+  "demandInputHashes": [
+    {
+      "path": "scripts/research-ngas-demand-overlays.mjs",
+      "sha256": "68b21c48cd85572dc34919335c53036e50e696a048741226452d92708de0ccab"
+    },
+    {
+      "path": "scripts/lib/qore-simplification-demand.mjs",
+      "sha256": "448f63c24d7ad26365ed8eb97e709c0feda2c9a15b448dc7aa84a40a7ed4e086"
+    },
+    {
+      "path": "scripts/collect-ngas-supply-vintages.py",
+      "sha256": "1f9bde1bc9e8151aa8a424952f7c569d00902d2a9bf392e223f4d85a5966b019"
+    },
+    {
+      "path": "scripts/collect-ngas-simplification-revisions.py",
+      "sha256": "62a3df406479a8eded947fc28e2f6ad3ae5ac6d4bc1c867d1eec6c84eec1c990"
+    },
+    {
+      "path": "config/qore-research-execution.json",
+      "sha256": "c18dea27526796dd6ad06ecffaa5cb1a32ac34fc587bc0cf79e0a007626e106d"
+    },
+    {
+      "path": "docs/research/ngas-demand-overlay-protocol.json",
+      "sha256": "4ef0a29692f3df31936421764737fcb3763f164a8f102d5b46d6d5f4ff72846c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/demand-protocol.json",
+      "sha256": "4ef0a29692f3df31936421764737fcb3763f164a8f102d5b46d6d5f4ff72846c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/supply-vintages/observations.json",
+      "sha256": "66ab7b9383ec6466986647b25093a14467c17b75b012d73626b479bfcfcab574"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/targets.csv",
+      "sha256": "7ab02423926f8ba271b799520dcb70ca06421ad65e61f4d1daef3742d3a6eee7"
+    },
+    {
+      "path": "data/qore/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-location-anomalies.csv",
+      "sha256": "dfe06fcab6fe2d6e5783cadfa29b2479539bcb12055ee35effaaa7ba8a065d29"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-05-14/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "7ec8a1b02d937758acf08a7f2955b16097ba59c97d88e26be95567432c92614f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-05-14/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "9af772019b7326538641f65e8760a0b48a6f0784a01aa7136b3c23315f47f2f2"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-05-30/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "06b6f0bda96c2a2620d9e86f31b53c62d727ed579f1ce7dc0d65d4acdfb2bd17"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-05-30/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "ca36f387904bfa2dae37a7febd167b59227dbd3ccad0db96970a01eacb506b28"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-06-30/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "0e3b2a09ae20cf5fe3989044acad495f681df49072000c768b6f700f4c020c3b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-06-30/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "4142775f79a2994d559240e75373079c38096dba81a191b4d3a911668fd04080"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-07-19/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "a470a97656c6dedad59cf821260ac328147ed4bede04e8f074e09d9e5431831b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-07-19/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "0c764aa7755fc2126617347f98aa0bc0496067abd4876a2ac8e2b74eac5d40a0"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-02/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "664ed8990ab3c721bd4c4fc069ab0ec0864deaf29e0c022b7ae54f09fec095bc"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-02/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "a5b0fc79bbd9da8a39bd7ebd65224a8e4211790c5c30193bb18618797d10e7d9"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-17/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "5706bd97764b4fd41162b379f1c005723c247664e1721a0021903f15350303fb"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-17/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "40eecfaf848f0e0830b6c082b39669cbf9a7c084e1a418acc7752b4b4a88ec1c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "bbd7abc95bb539010319bec895615dba8b3307d3ab8f5aeff2fa3541189b54af"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-08-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "293fdb87e4518952b8611a967c773967234f9b62048d50530eec24c3329511f2"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-09-06/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "0c492918df1f7e8e77f69d1f83561257974b79f2874775142fb9767bd842dfd1"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-09-06/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "41c1b0077781aa87cf4d6657020464634facb93b3d2dce6058260ac6bd26b6b6"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-09-21/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "7429a0497296e1737afe80ea8f47dffc87b7b15ff59fe0a51448bd7f7baab248"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2021-09-21/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "eae8e83d9c34fb2573248bafd4ce810170a893b05fa19179a73a2161900631ba"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-05-03/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "6d39fca56da4407f1adc87b7cf24190b19403cb076c9c3c978c7d98d0b2ae489"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-05-03/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "5389401846570060d0209a24ba9cd93ca4272f1364de814ae3bd7a6733da7c85"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-05-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "12a1bb28f3aae7c949e64f1ac8c21c8c2c056e110f9b5e01a914633e4558cd70"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-05-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "aa615d249fb58308bcc4e79d022ed4bc1082e6dff6a32bba297a6a662e8a6f05"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-08/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "90ab992867e29af28f34339def1d4ad1df8eea4c757eaca7a69b7fd2c6629966"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-08/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "fe66c947f9183faa17f5f3aa719364db0fed22deea497f0553a4f6a2d3fce8b9"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-24/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "5281e8bf3ad898664b02bde6b814f373a21c827726fb3eaa0e0518a12d176900"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-24/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "0ee26e5c2f0ea6da93bc6d15e3cabf514e2bd748e8d4ba6fadad4bf34a121fcf"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-29/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "ec4edc784fc3e5e77d57c3d1f1b9dc57f41fe0cf46570e1fadad93dd9f22be5e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-06-29/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "5b2d0f30249560ffa23b0ae1f8c800b00bfb3640cb29e856827235024a3621f4"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-04/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "a5d5452db8becfb65d3e7db486be62ecdf8bfb42593448d0d43dac64a2be10c5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-04/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "2f5f37b4c31eaafe8f872c090941dbaf546faa2f1a13990b352ed3dfb51447dc"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-13/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "235106cd476ac578e2d9288b007974515fd43d5ac1de1961579820c316a09359"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-13/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "d4b3b60a22270073fc799a9fe2a5f9b2e47d38b51c189d87bc992674292c992b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-27/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "b180bceafdc46819709e02b7878d90a3bee805f7af93c6d40422dedb0d4dc90e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-07-27/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "c48e9cfd779dbf9cff44a1c4e0fc11a6379c3b017c5d0c1b7e2addc2739e2fdc"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-08-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "0939b6b816e8544eb4810847d1e1687755b81c39b7f086cd57d6f7dc8f015fc6"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-08-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "ddb03f4d6da1faa6ec03fa2637b8978a403d3e874971b1980eb83b8a122f4c74"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-08-29/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "0bb6d6f02ef74c24f087b849413a0d0568b1d0be43065f93f7312898f5203d55"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-08-29/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "f9553e45fe6eda1cbf24551cea3f99f3c066d90dae2a790c81718d3d630dfdff"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-09-09/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "496a4e9113eb6b1e273e6950e7475bd4d6291846b7f69ab5308efd48286f4a24"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2022-09-09/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "6fbf87f36290632cec99f5ffe878532ae546b265ca4ae06b4ad2ce4e61e98232"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-05-03/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "5b78ba4b398bbac5412354f499ab510d303ba324b6c1e85745986288dfe9967f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-05-03/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "c46a1d4737915a8a2b8e4f708e57cf4b397bec4828e2970f8ac56055fa8f77b8"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-05-25/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "9826b299f418de5630f864b16b403c75ff6dc1364e67ac255c1236dbfa1f95c5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-05-25/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "0a34e800f44c40d90ef4b06fa1df0399be5214eb820645a8ef38893a0d595cc7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-06-19/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "6eb93102dbf8a99a0b6b6da16c87f22d1d88aa03835017d46dc4f67106986403"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-06-19/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "6c7189d38e0780289b1cfa9c1341766f5759c8d2a612e76fb6cbd94542d81978"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-06-24/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "064b79cf91ab7d4ae88454f3a535795a72b1c4d140199b6154fd9bbddf7d5358"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-06-24/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "d28b5558fac4527165a7458c04bf53c53598c8dd0b957ab6c4159a3616ddbe79"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-06/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "e60ed56a66e7e2b33037ee50002e6c8fa225708ea89b5ee6ca7451e60b2e26ec"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-06/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "81e2877a598fae5c6d0d844a4eb952ba64aeb583c1d7712b0dc0e1e0213a0ccf"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-12/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "787826c5d154f0ff0b8c0104e9f57f847c4126e9246f81cdaa43510110ca8236"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-12/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "234485aa31dd2ab7fcfbc09acc1d36e7d21a2822b3c381167b5cac8b2110f461"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-18/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "fcf6c10da6e2d94d99b82f59677d19f52f7cfc7e9d555683c68cd035e7949aca"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-07-18/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "969eae27364e500617b8cf4f4341b9bd6715a14a2883734cb2bddee40c17b65d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-03/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "1940e74acb48393ce708d4d7b01727dbe80393fe0fd24c3b17c35f8a410647b7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-03/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "8aa23d59138a36b4023486365e2c178a7dcc42e9b0f0e8a12839237b95261c14"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-08/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "64413b33b1d7a3eab69ca1598f91fa3e945565fe1387a79db0d88c9dc1de37b1"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-08/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "f2db02ac780f6e99bef27c4506efde26c9f5bdc972c7f4b9276ec4ae05c5dbfa"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-27/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "6ba868c57c1a4d7d6e2ecd8d1b8beba5f8442b287ba02d6824fc6189eec738b0"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-08-27/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "ff5049040bcf96e276d7fa74167f9a2c4d76de724a286d8e8a9d063fb285fb5a"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-09-12/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "fd70c1c634877d08f187ab1c8e4f5fe9fbfec13da46fc5fad9036fb07955fcbe"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-09-12/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "cd78be32e7bdc2ccffeb5d8a4f802f112e432a55d5f8c86489116314db4426a9"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-09-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "a25ffa6620d33eee9d7c3fa0c8c2654f3f87dce2a41d597803a790b64a941909"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2023-09-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "c57a29098f069ff1b4e7f4e15dbbc3c563014ffb8531b457d2c7d682d388e7b1"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-04-24/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "c4460ac534e1052dfb3d82174fe09cd8c54aeb4d7859f4469ac87682876a8c2d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-04-24/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "044c31558929641b1ccf3bddce446c12d108c28147d11f1695987b97153de610"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-05-12/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "591ba9d3d4edda346dc4bf954217204cc9ba64e2e6b48af0bfe8f5f279b27fa7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-05-12/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "b06ef59e58236610371759bd321a366c639dcc05fa81913ec5bce92c0690c29f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-05-28/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "80d23cdc2b46a0d5133a827bd9b50639bb919505656c38337ff951e36f71b798"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-05-28/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "f8a458b0f5607a77ebeb14c0414652e5361c57aaed8a8dd39c60c694f3bb22e3"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-06-10/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "3399fd428ca28fc71cb30512653a1d4a93ed417761fcae70da5bb50a9e431c88"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-06-10/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "5c7a84db620af858d424172908247aed4cf38484d45ed09fb88101cdd3c53d7b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-07-07/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "6c1f509a17169caa5d80c79ce4d54c96dc1ce2bcf6b550ddc4189e5964fa4327"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-07-07/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "2afa418c9b1572c8c5bb19e2dfb186793b18a90205f9d7b670707261727c361c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-07-23/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "39c048bcdd1097c11e8a489707a897e564173b7f707bdbd6b03bec771c199447"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-07-23/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "0ea61dc45b6d75212d93270b18f4ad9dac4343619d80b0990d0492c612118505"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-08-18/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "1620ed0796a7269719fb570ca00eb05f8ddc18123ce39c6b672f7549f35c9a5c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-08-18/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "ed003df27ceb7d4d8b832b1d4c408eb1688af453dec9d07cd7909b991e29087e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-09-04/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "88cda7b4cc6f8c214ebdb55f8d803a530cb2379a556bf287888d1db3d034c40c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-09-04/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "4b906ca7bf7271e521bcc6254fcbfc9f8c008c69a1232fffee99dc82e25b5942"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-09-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "f48183feb3cd17b4f08d8870b866b2bdfd46549e942ccdc7d61bc1c938da7227"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2024-09-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "bd83332097506cbd228f159d87ff75ea1991794f7c233b0a586c0946bbdd2c8a"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-04-24/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "5c633e342050ecc6a2e0817c402c54f6c68911215fb0967e56605a28edec5473"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-04-24/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "7abe26b70876536bdc002d1c12ec9fa8d166b626f189e810e52b89bf11e2868b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-04-30/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "e563cf4b0cedeaf1d63d36fce6a13517ce04c0b7bde7157f3c6c18e9ad658f40"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-04-30/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "a9d25eb3227fb5e3c5d3d0bbb80c4e2d3aa38a30a656d07dcc4249a7a2b56bad"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-05-05/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "97ec0733df47494423998e894b6e68f7d4d46f04ad69ad939d7ae1850bf1b378"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-05-05/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "e093e593ab618be4289f7617cba29b3e492e76badfebc4a7120442204fafa604"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-05-28/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "aa59bb316d2f257a85731819ba41e25609edcae37bb35b6118ac8d537da9356a"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-05-28/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "29dbc63fe003eee278cea4530b9265aa5b1f573f91f6cdbe356b7ae1eb08a373"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-06-06/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "3be7cc90d871afb85cf507451df8d03d5e020a7c14996bed1e9364e4e281082e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-06-06/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "a6ced5498a2397f92463b5d36b80b67ff7e508c52a5bad3cb121bc0d77756a23"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-06-12/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "a32719fb2accbff3c105519ced3b6e9d74788d88fa5687ec1e716de7e6612d1b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-06-12/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "47c90c3f08cea32babb0cb5deed8ec5c6411c4202df8e3947d6a20f290f0adbf"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-07-08/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "fc3a03626dfee3c96c73e130018946374805353b49dc0490e4b3cad8549893a6"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-07-08/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "b8a05286e2c71370eddbdfb60a51a2a826e3dc8353fa49715e95050192b26856"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-07-16/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "9c9386d59d5a272ebf8704efe7c9e1f5faac17f1b05bfe9150c9fa965f29a9ea"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-07-16/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "dbaea5136f570b4cbbb0a9686cbf66644c2593d7b47c7f6ab18a111ac64910f8"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-08-05/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "00d2d5ad0080d0db6c5155c82b12a2f7af29cc9768c51d9c620820ad4f57c6df"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-08-05/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "6afe9a9549c74628ad6005940b5812f3001049c69e462b4d86456ffcf5d8231a"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-09-07/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "3bd3bcea67c241f85b523b488a1339917d0cd35ca0a8149661b087e4f5bda922"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-09-07/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "18c20b8c4f3f592ede9b7612317de2994b6339594e39039f135983a4a186bc92"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-09-22/weather/noaa-gfs/prior-manifest.json",
+      "sha256": "85cff841fb7d476d8b3429684a0ed152481dce1f68deae446490ebddadf71069"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gfs/2025-09-22/weather/noaa-gfs/prior-location-anomalies.csv",
+      "sha256": "359f43c9ad0cbb801668d6bb7bda34f560675f45c2ac301fca0ce4297d2f0701"
+    },
+    {
+      "path": "data/qore/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-location-anomalies.csv",
+      "sha256": "792ce1730c23ed43a7379c466ec574206126a2ad5b252e674c56b1570aa5d94d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-05-14/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "fd05ab9094a68b058d1aefd6b61146bb8dc92cbbe048f02d492872e4ac735544"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-05-14/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "a968246b9d7b1f5992ea02ad1eb1d0fe2b2d49e9e2229d11d029bd980bdc8e45"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-05-30/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "c023dc2d8639c45434931c030b3fd2b09e39b214cc557f4714ef01c17fc86f68"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-05-30/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "ac3f8ffed8d8cbc50c446d2cf6cfb779fde539048c2c53faaf9990ce4232174f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-06-30/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "dd09127bfd0c27a9578473990bcdfa9a0f33d77d949439a3e92a011030d1fe4f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-06-30/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "391adf2d7dd3768791af6651dc2a8b716e109158082f7837218ef817c4df1161"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-07-19/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "48af118d1a6abfbd83a45c8954c26bd7419158de369aa536ebac908935b7d011"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-07-19/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "e77600a0eab989780d97bcb7b822af5640725a50f3f0f0b24cbaf6722a2691bb"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-02/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "94c3ffdbfc0ad4b8fb845e1a83a7e057eb23d3cc341fc803b14f17683d298649"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-02/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "110a4bc0c2a2e258730a5f335a589f7384dbc65e8bdb89bd334ec28f0b3ec3ec"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-17/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "988907f29408f77049f66f02c2f306785dcc682d4854531d5b6dac21b447cf87"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-17/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "4e673ef6ef5bd20cfb9ec2af928b8fd48c28943902c5f9500bd7f87aba4c0d34"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "c48d2aef577ee0d73abcfba01b3acabf24e7b782370e759d6a2532eb6550d6cf"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-08-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "963d381aa514ab596a3572a7766d96e1d0a6708ecf7f6cc12392eb6aab3299b5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-09-06/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "cb69e3c79b0b98bdef16d18db54028ea6d5407d75feaae351b0bf643582c79db"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-09-06/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "49d6a6e3a1cdfd9999587a8431848f10c513664a3ea2182998d12bf960bb7bde"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-09-21/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "b97e3ac1fb1c96406cfc03bfc294ab63d7d4a01fcff1a46dc4d2a36bb207b64b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2021-09-21/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "96130c67599e4dab075672fafb7df6845308643b62dc104178b09fbe0b96f8c5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-05-03/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "29e23197cf929dae2eeac425989523d7a7396487c9d204fdaa58aa6f96a3aced"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-05-03/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "10c30088619708172f0960b6ed826a8adc926a9c64703815f4d48f3a17bf410c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-05-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "e7005da8ff20d437c1a433428f7e9cc9a21be2ce5bdae1cde9f37f29e67edc01"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-05-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "4095794b4926ace1c110677334c3645fd886f0874bd8d592e7c2156197f38cfd"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-08/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "2b0756e3ed328d281ca897248559653c787f0dfd8b9f63f48f2d0bdfa5835097"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-08/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "0d18325aca0e581841f42b8da8a385168abd6d96d55744d4924a25dca51459d6"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-24/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "5e3734ef3c13dff5e097b622a3b72adbf016651b90feba1843b6e1821170cd03"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-24/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "109cee07dcd64ed016a8d9d8a80bf3b0636b2ea5589b147de2ba22a4eb10b654"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-29/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "c561999068398c22c82a31a96c1e25e2568058c3fadbfe232e0a51354db8ea4d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-06-29/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "aa22006edb7b6a3a238d18d81f02fba8d8cf6e81b8c074e91bc7a8df3d970b4f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-04/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "99dc35ee31ba3797f89d06c0da81c90baa7316224953db8f8ed260d2bad50c41"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-04/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "ab357ef7b5dc838058674e2071f5a5d731657f078ac5df189d46f40635051618"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-13/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "8c527b5261486c1c0e42d6bc14b7d19e4c5405f280b5ef8107a204467d84a24e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-13/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "9e4609f0d0ccc6a0c5ede59239d277b148ea90db7adcd12210053ed2b4b39d72"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-27/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "89ca42bf6903a8475f38ec97a7b46dac9dd4739f7f2fdf1e031f1893818e111e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-07-27/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "a4613f8dc5b158be765c2f366d62f216b174b6ba9ec221ca294d21d5c0e942f8"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-08-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "5f83c8d6ecaf39a8acaefde0a1c69eca7e0a8753a9d1c23ea3cb21b52a15404d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-08-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "5ff5c931551f4b8cd24489a9df3ca11e982708d0077e85c7de298cfe79047f92"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-08-29/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "0660c4aad5fafdcde29d10432ca71a36f18e321bdafcfbd8c14ebc1925a76237"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-08-29/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "ca40e8223e3f8584fa8bf9d7b1d0510a4c60d8941c76e32734af9a18a5d88a38"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-09-09/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "1a2aa7561d81c8408caf2774587bd07a6fe289ccec064a50d5c75b3eb051ceb7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2022-09-09/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "193036972aa24ba7c2f0e91978da6d3f10bb472f149f2ada3e13b903d1dbffc4"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-05-03/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "98041a57af7a4273cd3163b42e0e3fbeed9977987c9992e6a5d4df116ac718ef"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-05-03/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "bf4a73fec299a262ede7d656fe857d0f536c463ecaa98dea86f5a11916ddc57d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-05-25/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "53ebdc2fc6c7b0d1e00498c8f6b5a6ef0dc959444a154dc257f9b2618b6979a0"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-05-25/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "e55b6dd0dd95d3048cdc3485710df94672298e19daca49aaa8979ebb5f08acdd"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-06-19/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "fcd57b882a38152d401f7dd08e38a236b007b36c07abee8a5c8f6c1894333a0f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-06-19/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "a95d3fc6acc11d357aad7fbe51873c1fe24845b39b7dabcb4d6aa470ee10a380"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-06-24/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "82e3a92a9fd25a7ca3f0f6ff59e54d10527d8a56e5f9b59b7f13abbdfbd72a17"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-06-24/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "fc59ee369671f373218c10fb98ce56a2e11a03fce21bf612457413a42830b5af"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-06/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "1422fc0561ff624873d5d1b3b03866b952fdf7f0363519be445dda18d4920d15"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-06/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "7aefb590f832e1bbb1c697ea19fb82aa3457fdc620a2759591d19286f1c08097"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-12/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "c7036931fac410f8978c476a856b6b5209d17a71107a5643b6e62374aa92dd82"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-12/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "186b0f923ee1b8ce9817dadb4ff455d6f75eba1437f37fcc95b5507075d81c85"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-18/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "5d89058fee753577e3b08cb0dfd0f64949ef142c66320844e2b826fcb38a62ba"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-07-18/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "4663ef5c2c4c639f8d62b6abe54b87d2ca93b30d39a629b8b7b466493715c067"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-03/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "31ba3525b4079ebb5c68234724cf5b9a82982d5c6ed3487658a8eb63e1e983ec"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-03/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "b3a9b16f223a5155164f9057a3abf3b0c29cf8d814212ac98efec5b95521e351"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-08/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "1b5c1cda47f2c2c33d87aaa2422e791f62834fc2d7f2596ea94bdaee1025025e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-08/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "ca069f5f3b34651a52d5578ea3b8c7b225eecdcb38a986aa0bf8332b1adf0ffd"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-27/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "d0febaab9bb2660c5a2319088177191087b35c5eff6cc98a5f077d15f3ba82f7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-08-27/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "5eef6fa85e6550f6231df96bd65a4b5050d0dabc6fa7d3309517ff6287145f28"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-09-12/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "63a3db274d517f5c2b941fe7649a79e3843db108cd9b359d2676a58170c54826"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-09-12/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "4c35c3e6c72bf631d4cd448a9ffa0a520f28a084c84b000c450e0c54f7b279cc"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-09-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "940ba27abdef7d19d228a7c6cf5bb6846af6c87c35460120693eddafa3d2542e"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2023-09-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "837d08d44663ca434d0319d0b274944b0d115a9fed0c2ab5ddacb89e8c33f952"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-04-24/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "74fa3d7a10f3edf1370b68eed3f3bed9a4f80391a068f023581211fb365cd773"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-04-24/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "c2ca1089201cd283f0a26c3fb31722522f4c1190f81a8ec239d6b67848187f25"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-05-12/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "e47a4a304b21960bfb604c14ea1a2012f9468ed93278c4cac868715f5ad96fc8"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-05-12/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "8039a9b7c4bd10ae472e517e3cda63786d0a70c7837562ca8a6423fbc30263b6"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-05-28/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "572edc89ef72889d9137973f17a66f93e1ed1d17aeac4b7a6279a57f8dc12887"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-05-28/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "4b124af17ce9914751358983b551d2653c632da8a742bacb01fefdf8885ef2c9"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-06-10/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "489e3839d4de54916dcd6176cd17d9c47cf98d64262e97412b79a784c52ac31f"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-06-10/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "8deb0b27b3db9b6549a169d38d1ec8bfbbb6a664de63dcb19f07c29f926881a7"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-07-07/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "9aa065001fbafa6a207f0d2bd18c4eb0ac7866f4a7470298bd37fba86f5174c8"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-07-07/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "8b310a48d737b62ea60e7e7361f5556824237764e55bdb01da459fd43c09c6f5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-07-23/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "bcfe992c3735e3c8243efd32afe83088377c020e38ca99d05e6fd30d9da4ec81"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-07-23/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "27d8a03bbf47da1775f5b6ad03b943b1d1c040e4fc57694a2ded2447f9e6af84"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-08-18/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "ff7a4ef386c6a1d5d494d8fc708e3d3662599fefa94911499f5f1bc268001e14"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-08-18/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "a1c85a9626cfd06858e312b37813db2f11328e777410947d0f7bb482b91ff081"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-09-04/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "2e7d34b72331abf5e050f3f76e8b3365dae8dcb1719eebd2f1b3e1afd66e1de3"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-09-04/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "6b244cd39c6f0fb914cd6c556933e7b05eb66ff1039e57e3704555346c79f4c2"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-09-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "13a4e31321baec7ec7113a0ba4b3f029ad818eb228c79c68485b688a8b0d9674"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2024-09-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "95f4950255a5a7973b5bee0f8c904be4f7159a41234020855d9297fe7c274008"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-04-24/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "56407c2c8442655ecaebd5686350ae8ca55b1c95401dca750db376f0cc73e4f4"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-04-24/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "9bd0a3a7962cf2e2c83510eb7053712285ddf9a8695e3441e98c0d18419ea058"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-04-30/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "cecf70961f13bdac119d3d085d1d57ac744c3dc9463385dedaf5a9066dbcc0e0"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-04-30/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "77fd5908e1acc869bb2593665c4c9c588ab2016654a8799a51376b56dc8bf1ac"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-05-05/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "b5e7daf2d08e23cd8a21ea0747bec6c07f6ef0c4c70ac3a03bb687b74605fe07"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-05-05/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "72ef9cd64a9c7b3c9985dd020ada9d1153543c19603ac1f4cba8c19d5dc20a05"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-05-28/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "dc749ffe20af185b3ed71989eef9f72eb3834c66a4b3c79abe163eb138ad2c64"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-05-28/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "8cc1d75fe915f8ea2cb14cdaf20557d271487793001c52c1d8bcaf96cae41b9a"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-06-06/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "0ddff5596bb04b802f07c0bd4ff5e6256e6713cc185c5bbff53191c6b8b186b5"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-06-06/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "b75bef2dbeefc77cb2fae5fc159096d9cec889647eefbd928c4fcf60f8d2df5d"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-06-12/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "c77b35c1dfe09298710af83ef2238ffe695d31e3592f9e76f02cad4d043e872b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-06-12/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "f465a2ab446fe243a61883c5dfd01365f091a7d3b9175a94fe4361c5a930dd5b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-07-08/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "46b239a6ee165b1ac24fdba736926e601f26e178b967aeaa2cc640d59249e4cc"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-07-08/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "152c438113c5abb9671ec0a152ac83ff66cc31a6b84ccb26a25f6efa0f36d326"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-07-16/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "dd6d49d60d571203290fdfa180c2df6fc5a87954a54289138ed3cfcfbc5d4422"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-07-16/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "9e71ccc0b79795302a4dabdd94015cacd7c3a0c418fdc9edefe8cc70be9122a2"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-08-05/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "03d234e2bc4d1c31bc36b16abb9f27efd4be61712fed3bf90a2d155e4b5c880c"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-08-05/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "09cf3bc5452d72781b37dd922e2f5d8d4b58abd69b959b12b2f49e34e0f85665"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-09-07/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "ad625483162512474b2b76a4d69cb3eb937cc91aa3fc76e84a9779faa6d2ac47"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-09-07/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "c1fcc4c8a39a91fc21b18ebaa8759d1c5573eba61205909005f846a15ec0b46b"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-09-22/weather/noaa-gefs/prior-manifest.json",
+      "sha256": "e115044f4de761d57a83ba201b8b6f364d265419985e468933969d7cb370a3fe"
+    },
+    {
+      "path": ".local/qore/research/ngas-simplification/revision-atoms/gefs-mean/2025-09-22/weather/noaa-gefs/prior-location-anomalies.csv",
+      "sha256": "55c415e9d492c5a7e3a867338f418ccee8988091e21f604e01496bad4367ef5b"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/variants-targets.json",
+      "sha256": "9c9b09c6020a9b3f044d89f7acb44bf1416ef18fc49e28502297332916cd65f0"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/noaa/weather/noaa-gfs/outage-gfs-location-anomalies.csv",
+      "sha256": "6f7300b1a638dbfa01773078a64a0be1150a8365084dbca833bdfc636f3c6e2e"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/revisions-noaa/weather/noaa-gfs/revision-gfs-manifest.json",
+      "sha256": "1a9fc9e826cf764ca9d8373cce379f86750843115ce1c33faef5f3b5c9e5d819"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/revisions-noaa/weather/noaa-gfs/revision-gfs-location-anomalies.csv",
+      "sha256": "5274f84a8cdd0ab1ec8ac892ee14c4e03ac4688b6e8c14416f635b2e2899cbc5"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/noaa/weather/noaa-gefs/outage-gefs-mean-location-anomalies.csv",
+      "sha256": "3729e89380ead812dd22166448ae00d1101d93127c80add34f021bbd537d4abb"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/revisions-noaa/weather/noaa-gefs/revision-gefs-mean-manifest.json",
+      "sha256": "7d5e8fd1ef79a327f7007198517d37671a1e2da77bf2a47c29eb07bfb9b4c8fc"
+    },
+    {
+      "path": ".local/qore/outage-counterfactual/revisions-noaa/weather/noaa-gefs/revision-gefs-mean-location-anomalies.csv",
+      "sha256": "08f5cedb8f8efd30cba3a93ea6a1fd6ea22a930ecc03f669832ba878b176dc34"
+    }
+  ],
+  "recentInputHashes": {
+    ".local/qore/outage-counterfactual/UNG-yahoo.json": "7a1fe2f8b84e123cc1f31b6f66fb0fd6eed9001bc47cdd39206728233af2b60e",
+    ".local/qore/outage-counterfactual/VOO-yahoo.json": "fa9f17df7e63f040d862f740a9d299554c358ab31563cbacb3e26928fd373853",
+    ".local/qore/outage-counterfactual/QQQM-yahoo.json": "85b6faea7963d363aa50df0a486fa5e1c6020dea89ef6579d63cf472ff8799e8",
+    ".local/qore/outage-counterfactual/NG-F-yahoo.json": "fc6b3339c9567ab04da9eef8795d1ae18a0bed3d84f1c09ee508b9a397d3e996",
+    ".local/qore/outage-counterfactual/noaa/research/outage-gfs-signal-scores.csv": "a8da2d89264d5e0383ad7012b7effa7e317998a0af8ef890c9630fc7a5f4fa64",
+    ".local/qore/outage-counterfactual/noaa/weather/noaa-gfs/outage-gfs-location-anomalies.csv": "6f7300b1a638dbfa01773078a64a0be1150a8365084dbca833bdfc636f3c6e2e",
+    ".local/qore/outage-counterfactual/noaa/weather/noaa-gfs/outage-gfs-manifest.json": "178ae0ede251e835ac17c7d9323bd37b84c84759859c3be817e07684289e1ef1",
+    ".local/qore/outage-counterfactual/noaa/research/outage-gefs-mean-signal-scores.csv": "9662f53974f2d9e3148f3847de16bedb44a3a1cc14b971c4abdebfd80ab7a2dc",
+    ".local/qore/outage-counterfactual/noaa/weather/noaa-gefs/outage-gefs-mean-location-anomalies.csv": "3729e89380ead812dd22166448ae00d1101d93127c80add34f021bbd537d4abb",
+    ".local/qore/outage-counterfactual/noaa/weather/noaa-gefs/outage-gefs-mean-manifest.json": "85a4d5024d06b72cbe588abdf02efdabc65ec791174a2955cd69cb80f33cbb3e",
+    ".local/qore/outage-counterfactual/storage.json": "5bd0c47415f81adcb3d1bae9ba3e4461ec8708e55246de641e567f7e8a1aa779",
+    ".local/qore/outage-counterfactual/account-snapshot.json": "862079134b6eada695b7094207d6797dcf8daefe40ed43804ec9dfe5bc5fb816",
+    ".local/qore/research/ngas-simplification/recent-extra-targets.json": "baba328c1333c0e366dd8ec8c13bd21be317658c6f9b9a8411423e30816bae1d",
+    "/Users/jamesdunkin/.codex/worktrees/paper-trading-recovery/QORE/scripts/lib/qore-live-all-year-inference.mjs": "e04cf7ca22ca8da6c247aa2f4bb87568bfa7279bc140cacbb955dfebe473fe1f",
+    "/Users/jamesdunkin/.codex/worktrees/paper-trading-recovery/QORE/.local/qore/outage-counterfactual/inference-no-summer-reversion.generated.mjs": "589017c13306e20c3ff54d08433bb39814249a0cf9a1ae54f6ac6fc88d0d9c1b"
+  }
+}
