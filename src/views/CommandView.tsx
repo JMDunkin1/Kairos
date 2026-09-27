@@ -438,6 +438,12 @@ export function CommandView() {
           <span>{telemetry.execution.reasons.join(' ')} Last successful inference: {timestampLabel(telemetry.execution.lastInferenceAt)}. Account gains or losses can come from existing holdings while trading is blocked.</span>
         </div>
       )}
+      {telemetry?.execution?.state === 'waiting' && (
+        <div className="warning-line" role="status">
+          <strong>WAITING FOR MARKET OPEN</strong>
+          <span>{telemetry.execution.reasons.join(' ')}</span>
+        </div>
+      )}
 
       <MetricRail metrics={accountMetrics(telemetry, performance)} ariaLabel={`${accountModeLabel} metrics`} />
 
