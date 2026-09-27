@@ -16,6 +16,7 @@ Do not reintroduce crop, generic rotation, volatility-only, broad model-zoo, Git
 - The dashboard telemetry API stays read-only with respect to orders. `POST /api/live/refresh` may run broker `--status`; it must never reconcile or submit.
 - Browser DTOs must not contain credentials, account identifiers, raw broker payloads, or unbounded log content.
 - Alpaca execution is limited to `UNG`, `VOO`, and `QQQM`. Futures symbols remain blocked.
+- Paper execution must not depend on research performance, historical artifact parity, or promotion approval. Bind it to the current executable strategy; keep real-money promotion gates separate.
 - Paper and live routes fail closed on stale/missing inference, risk limits, broker/account state, quote quality, venue state, or the operator kill switch.
 
 ## Code map

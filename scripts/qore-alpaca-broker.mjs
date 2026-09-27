@@ -22,7 +22,7 @@ import {
   resolveBrokerExecutionProfile,
 } from './lib/qore-broker-execution-profile.mjs'
 import { resolveLiveWeatherPaths } from './lib/qore-live-paths.mjs'
-import { loadAllYearStrategyArtifact, strategyArtifactBindingBlocks } from './lib/qore-live-strategy-artifact.mjs'
+import { loadExecutionStrategy, executionStrategyBindingBlocks } from './lib/qore-execution-strategy.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -1752,9 +1752,9 @@ function signalAgeBlock(signalSnapshot, asOf = currentTime()) {
 
 function liveStrategyArtifactBlocks(signalSnapshot) {
   try {
-    return strategyArtifactBindingBlocks(
+    return executionStrategyBindingBlocks(
       signalSnapshot?.inference?.strategyArtifact,
-      loadAllYearStrategyArtifact(repoDir),
+      loadExecutionStrategy(repoDir, { mode: brokerMode }),
       { mode: brokerMode },
     )
   } catch (error) {

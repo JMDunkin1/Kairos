@@ -121,7 +121,7 @@ globalThis.fetch = async (input) => {
     request,
     response: {
       data: [{
-        period: \`2026-07-10-\${doubleEncoded}\`,
+        period: process.env.QORE_TEST_EIA_VALID_DATE === '1' ? '2026-07-10' : \`2026-07-10-\${doubleEncoded}\`,
         series: \`NW2_\${mixedDoubleEncoded}\`,
         value: 3142,
         'unit-name': \`Bcf \${doubleFormEncoded}\`,
@@ -227,13 +227,14 @@ async function testLiveEiaSuccessTelemetry() {
     '--no-forecast-calendar',
   ], {
     ...collectorBaseEnv,
+    QORE_TEST_EIA_VALID_DATE: '1',
     ...disabledLiveJobs,
     QORE_LIVE_WEATHER_STATE_DIR: stateDir,
     QORE_LIVE_EIA_STORAGE_RELEASE_WINDOW_ENABLED: '1',
   })
   assert.equal(result.code, 0, result.stderr)
   const snapshot = JSON.parse(await readFile(path.join(stateDir, 'eia-storage-release-window.json'), 'utf8'))
-  assert.match(snapshot.storageRows[0].date, /REDACTED/)
+  assert.equal(snapshot.storageRows[0].date, '2026-07-10')
   assert.match(snapshot.storageRows[0].series, /REDACTED/)
   assert.match(snapshot.storageRows[0].unit, /REDACTED/)
   assert.match(snapshot.storageRows[0].areaName, /REDACTED/)

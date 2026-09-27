@@ -749,9 +749,21 @@ async function dashboardStatus() {
   }
   if (lastRefreshError) sourceWarnings.push(`The last read-only broker refresh failed: ${lastRefreshError}`)
 
+  // Fresh account telemetry does not imply that the strategy is executing.
+  const executionBlocks = []
+  if (!supervisorSource || !sourceIsFresh(supervisorSource.generatedAt)) executionBlocks.push('Trading supervisor is missing or stale.')
+  else if (supervisorSource.jobs?.some((job) => job.enabled && job.id !== 'brokerAccountRefresh' && job.state?.ok === false)) executionBlocks.push('Automated trading is blocked: a supervisor job failed. Existing positions remain exposed to market moves.')
+  if (supervisorSource && !supervisorSource.jobs?.some((job) => job.id === 'brokerReconcile' && job.enabled === true)) executionBlocks.push('Automated order reconciliation is disabled.')
+  if (!signal || !sourceIsFresh(signal.generatedAt)) executionBlocks.push('Automated trading has no fresh signal intent.')
+  for (const id of ['strategyInference', 'signalIntentReconcile']) {
+    const job = weather?.liveJobs?.[id]
+    if (job?.ok === false) executionBlocks.push(`${id === 'strategyInference' ? 'Strategy inference' : 'Signal handoff'} failed: ${safeText(job.error, 180)}`)
+  }
+
   const blockedReasons = uniqueMessages([
     killSwitchEngaged === true ? ['The trading kill switch is engaged.'] : [],
     safetyBlocks,
+    executionBlocks,
     readinessBlocks(readiness, riskFreshness.fresh),
     riskState?.blockedReasons ?? [],
     brokerStatusMatchesActiveMode ? brokerStatus?.blockedReasons ?? [] : [],
@@ -781,6 +793,13 @@ async function dashboardStatus() {
       portfolioHistorySource?.portfolioHistory,
       portfolioHistoryGeneratedAt,
     ),
+    execution: {
+      state: executionBlocks.length ? 'blocked' : 'running',
+      reasons: uniqueMessages([executionBlocks]),
+      lastSignalAt: isoTimestamp(signal?.generatedAt),
+      lastInferenceAt: isoTimestamp(inference?.generatedAt),
+      lastReconcileAt: isoTimestamp(supervisorSource?.jobs?.find((job) => job.id === 'brokerReconcile')?.state?.lastFinishedAt),
+    },
     strategy: {
       intent: normalizedIntent(signal?.intent),
       inference: normalizedInference(signal?.inference, inference),

@@ -990,6 +990,33 @@ async function testBrokerStatusErrorRoutingAndOperationLock() {
   console.log('ok - broker status errors stay isolated and every pre-existing operation lock fails closed')
 }
 
+async function testFreshAccountDoesNotHideFailedTrading() {
+  const fixture = await createTelemetryFixture()
+  const supervisorPath = path.join(fixture, '.local/qore/live-trading-supervisor/status.json')
+  const weatherPath = path.join(fixture, '.local/qore/live-weather/status.json')
+  const now = new Date().toISOString()
+  await writeJson(supervisorPath, { generatedAt: now, mode: 'paper', ok: false, jobs: [
+    { id: 'liveWeatherOnce', enabled: true, state: { ok: false } },
+    { id: 'brokerReconcile', enabled: true, state: null },
+  ] })
+  const weather = JSON.parse(await readFile(weatherPath, 'utf8'))
+  weather.liveJobs = { strategyInference: { ok: false, error: 'No fresh NOAA inputs account_id=DO-NOT-EXPOSE' } }
+  await writeJson(weatherPath, weather)
+  const service = await startService(fixture)
+  try {
+    const { payload } = await request(service.baseUrl, '/api/live/status')
+    assert.equal(payload.brokerConnected, true)
+    assert.equal(payload.execution.state, 'blocked')
+    assert.match(payload.execution.reasons.join(' '), /Strategy inference failed/)
+    assert.match(payload.risk.blockedReasons.join(' '), /Automated trading is blocked/)
+    assert.ok(!JSON.stringify(payload).includes('DO-NOT-EXPOSE'))
+  } finally {
+    await stopChild(service.child)
+    await rm(fixture, { recursive: true, force: true })
+  }
+  console.log('ok - fresh account gains cannot hide a failed trading pipeline')
+}
+
 await testSanitizedDtoAndRefreshGuard()
 await testMissingSourcesDegradeCleanly()
 await testBrowserOriginsAreDeniedByDefault()
@@ -1002,3 +1029,5 @@ await testBrokerPortfolioHistoryIsBestEffort()
 await testStandaloneOrderHistoryIsSanitizedAndReadOnly()
 await testOfflineStatusMarksCachedSnapshotDisconnected()
 await testBrokerStatusErrorRoutingAndOperationLock()
+
+await testFreshAccountDoesNotHideFailedTrading()

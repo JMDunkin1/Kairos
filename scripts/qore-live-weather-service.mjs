@@ -14,9 +14,11 @@ import {
   liveTargetAllocationBlocks,
 } from './lib/qore-live-inference-provenance.mjs'
 import { resolveLiveWeatherPaths } from './lib/qore-live-paths.mjs'
-import { loadAllYearStrategyArtifact, strategyArtifactBindingBlocks } from './lib/qore-live-strategy-artifact.mjs'
+import { loadExecutionStrategy, executionStrategyBindingBlocks } from './lib/qore-execution-strategy.mjs'
 import { assertForecastLocationTemperatures } from './lib/qore-weather-data-quality.mjs'
 import { omitApiKeyFields, redactSecretText } from './lib/secret-redaction.mjs'
+
+import { EIA_STORAGE_REPORT_URL, storageRowsFromWeeklyReport, mergeStorageRows } from './lib/qore-eia-live-storage.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -297,11 +299,11 @@ function validatedLiveTargetContract(target, inference) {
 function validatedStrategyArtifactBinding(inference) {
   let currentArtifact
   try {
-    currentArtifact = loadAllYearStrategyArtifact(repoDir)
+    currentArtifact = loadExecutionStrategy(repoDir, { mode: process.env.QORE_BROKER_MODE ?? 'dry-run' })
   } catch (error) {
     throw new Error(`Validated live inference cannot verify its reviewed strategy artifact: ${error.message}`)
   }
-  const blocks = strategyArtifactBindingBlocks(inference?.strategyArtifact, currentArtifact)
+  const blocks = executionStrategyBindingBlocks(inference?.strategyArtifact, currentArtifact, { mode: process.env.QORE_BROKER_MODE ?? 'dry-run' })
   if (blocks.length) {
     throw new Error(`Validated live inference strategy artifact is invalid: ${blocks.join('; ')}.`)
   }
@@ -463,7 +465,7 @@ async function fetchJson(url, options = {}) {
       const safeText = redactSecrets.length ? redactSecretText(text, redactSecrets) : text
       throw new Error(`HTTP ${response.status}: ${safeText.slice(0, 180)}`)
     }
-    const json = JSON.parse(text)
+    const json = JSON.parse(text.replace(/^\uFEFF/, ''))
     if (json?.error) {
       const detail = json.reason ?? JSON.stringify(json.error)
       throw new Error(redactSecrets.length ? redactSecretText(detail, redactSecrets) : detail)
@@ -1048,7 +1050,8 @@ async function collectStrategyInference() {
 async function collectEiaStorageReleaseWindow() {
   const generatedAt = new Date().toISOString()
   const releaseCalendarCoverage = assertEiaStorageReleaseCalendarCoverage(generatedAt.slice(0, 10))
-  const eiaApiKey = process.env.EIA_API_KEY ?? 'DEMO_KEY'
+  const eiaApiKey = process.env.EIA_API_KEY
+  const previous = await readJsonIfExists(eiaStoragePath)
   const localRows = parseCsv(await readFile(localEiaStoragePath, 'utf8'))
   const localLatest = latestRow(localRows)
   let liveRows = []
@@ -1056,6 +1059,7 @@ async function collectEiaStorageReleaseWindow() {
 
   if (jobSettingBool('eiaStorageReleaseWindow', 'fetchLive', true)) {
     try {
+      if (!eiaApiKey || eiaApiKey === 'DEMO_KEY') throw new Error('Using the public EIA weekly report instead of the shared demo API key.')
       const url = new URL('https://api.eia.gov/v2/natural-gas/stor/wkly/data/')
       url.searchParams.set('api_key', eiaApiKey)
       url.searchParams.set('frequency', 'weekly')
@@ -1077,16 +1081,27 @@ async function collectEiaStorageReleaseWindow() {
         }))
         .filter((row) => row.date && Number.isFinite(row.storageBcf))
     } catch (error) {
-      liveError = redactSecretText(error.message, [eiaApiKey])
+      liveError = redactSecretText(error.message, [eiaApiKey].filter(Boolean))
+    }
+    if (!liveRows.length) {
+      try {
+        liveRows = storageRowsFromWeeklyReport(await fetchJson(EIA_STORAGE_REPORT_URL))
+        liveError = null
+      } catch (error) {
+        liveError = `${liveError ?? 'EIA API returned no storage rows.'} Public report: ${error.message}`
+      }
     }
   }
 
+  const fetchedRowCount = liveRows.length
+  liveRows = mergeStorageRows(previous?.storageRows, liveRows)
   const liveLatest = latestRow(liveRows)
-  const latest = liveLatest ?? localLatest
+  const latest = latestRow([liveLatest, localLatest].filter(Boolean))
   const snapshot = {
     generatedAt,
     serviceId: 'qore-live-eia-storage-release-window',
-    source: liveLatest ? 'EIA Open Data API' : 'local-cache',
+    source: latest?.source ?? 'local-cache',
+    fetchedRowCount,
     releaseCalendarCoverage,
     liveFetchAttempted: jobSettingBool('eiaStorageReleaseWindow', 'fetchLive', true),
     liveError,

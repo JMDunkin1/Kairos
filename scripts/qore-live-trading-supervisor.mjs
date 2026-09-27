@@ -252,7 +252,11 @@ function nodeJob(id, label, scriptPath, intervalEnv, fallbackIntervalMs, enabled
 function jobs() {
   const brokerReconcile = nodeJob('brokerReconcile', 'Reconcile Alpaca target weights', 'scripts/qore-alpaca-broker.mjs', 'QORE_LIVE_BROKER_RECONCILE_INTERVAL_MS', 60 * 1000, 'QORE_LIVE_BROKER_RECONCILE_ENABLED', true, ['--reconcile'])
   brokerReconcile.enabled = !prepareOnly && brokerReconcile.enabled
+  const accountRefresh = nodeJob('brokerAccountRefresh', 'Refresh read-only Alpaca account telemetry', 'scripts/qore-alpaca-broker.mjs', 'QORE_LIVE_ACCOUNT_REFRESH_INTERVAL_MS', 5 * 60 * 1000, 'QORE_LIVE_ACCOUNT_REFRESH_ENABLED', ['paper', 'live'].includes(process.env.QORE_BROKER_MODE), ['--status'])
+  accountRefresh.enabled = !prepareOnly && accountRefresh.enabled
+  accountRefresh.readOnly = true
   return [
+    accountRefresh,
     nodeJob('liveWeatherOnce', 'Refresh live weather, market, risk, and signal handoff', 'scripts/qore-live-weather-service.mjs', 'QORE_LIVE_HANDOFF_REFRESH_INTERVAL_MS', 5 * 60 * 1000, 'QORE_LIVE_WEATHER_HANDOFF_ENABLED', true, ['--once', '--respect-cadence', '--no-performance-test']),
     brokerReconcile,
   ]
@@ -454,7 +458,7 @@ async function schedulerPass() {
     if (shuttingDown) break
     const priorState = jobState.get(job.id)
     if (!shouldRun(job, now)) {
-      if (priorState?.ok === false) break
+      if (priorState?.ok === false && !job.readOnly) break
       continue
     }
     await writeSupervisorStatus({ id: job.id, label: job.label, startedAt: new Date().toISOString() })
@@ -463,7 +467,7 @@ async function schedulerPass() {
     results.push(result)
     jobState.set(job.id, result)
     await writeSupervisorStatus()
-    if (!result.ok) {
+    if (!result.ok && !job.readOnly) {
       if (!jsonOutput) console.error(`QORE live supervisor: stopping pass after failed ${job.label}.`)
       break
     }
