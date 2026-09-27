@@ -799,6 +799,7 @@ async function scenario({
   quoteOverridesByRead = [],
   expectedSubmittedQuantityBySymbol = null,
   expectedSubmittedSymbols = null,
+  expectedDeferredSymbols = null,
   expectedBrokerLockPresent = null,
   handoffNow = null,
   nowAfterFreshQuote = null,
@@ -1335,6 +1336,9 @@ async function scenario({
       expectedBrokerLockPresent,
       `${name}: broker operation lock retention`,
     )
+  }
+  if (expectedDeferredSymbols) {
+    assert.deepEqual(status.deferredOrders.map((order) => order.symbol), expectedDeferredSymbols, `${name}: deferred additions`)
   }
   console.log(`ok - ${name}`)
 }
@@ -3980,9 +3984,41 @@ try {
     expectedFirstSide: 'sell',
   })
   await scenario({
-    name: 'an over-cap batch blocks a later prefix that increases projected gross',
+    name: 'an over-cap paper batch submits reductions and defers additions',
     positions: [{ symbol: 'VOO', qty: '110', side: 'long', current_price: '100', market_value: '11000' }],
-    expectedBlock: /does not strictly reduce projected gross exposure/,
+    expectedOrderCount: 1,
+    expectedFirstSide: 'sell',
+    expectedSubmittedSymbols: ['VOO'],
+    expectedDeferredSymbols: ['QQQM'],
+    expectedExposurePrefixes: [8000],
+  })
+  await scenario({
+    name: 'paper recovers from cash-buffer drift by selling gas before adding index holdings',
+    positions: [
+      { symbol: 'UNG', qty: '233.333333', side: 'long', current_price: '15', market_value: '3500' },
+      { symbol: 'VOO', qty: '51', side: 'long', current_price: '100', market_value: '5100' },
+      { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
+    ],
+    minCashBufferPct: '2',
+    expectedOrderCount: 1,
+    expectedFirstSide: 'sell',
+    expectedSubmittedSymbols: ['UNG'],
+    expectedDeferredSymbols: ['VOO', 'QQQM'],
+    expectedExposurePrefixes: [6400],
+  })
+  await scenario({
+    name: 'paper automatically completes deferred additions after the reduction fills',
+    positions: [
+      { symbol: 'UNG', qty: '233.333333', side: 'long', current_price: '15', market_value: '3500' },
+      { symbol: 'VOO', qty: '51', side: 'long', current_price: '100', market_value: '5100' },
+      { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
+    ],
+    minCashBufferPct: '2',
+    fillSubmittedOrders: true,
+    reconcileCount: 2,
+    expectedOrderCount: 3,
+    expectedSubmittedSymbols: ['UNG', 'VOO', 'QQQM'],
+    expectedDeferredSymbols: [],
   })
   await scenario({
     name: 'kill switch engagement before replacement prevents cancellations and all new orders',
