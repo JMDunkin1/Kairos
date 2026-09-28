@@ -5,12 +5,18 @@ import Papa from 'papaparse'
 import { loadSimplificationResearchEngine, simplificationSummerTargets } from './lib/qore-simplification-research.mjs'
 import { loadEiaStorageReleaseCalendar } from './lib/eia-release-time.mjs'
 const csv = (p) => Papa.parse(fs.readFileSync(p, 'utf8'), { header: true, skipEmptyLines: true }).data
-const dir = '.local/qore/research/ngas-simplification'
-const forecasts = JSON.parse(fs.readFileSync(`${dir}/summer-enriched-forecasts.json`))
+const engine = await loadSimplificationResearchEngine()
+// Rebuild from checked-in inputs so a clean checkout needs no local research cache.
+const scores = [], locations = []
+for (const [sourceId, subdir] of [['gfs', 'noaa-gfs'], ['gefs-mean', 'noaa-gefs']]) {
+  const prefix = `${sourceId}-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0`
+  scores.push(...csv(`data/qore/research/${prefix}-signal-scores.csv`).map(row => ({ ...row, sourceId })))
+  locations.push(...csv(`data/qore/weather/${subdir}/${prefix}-location-anomalies.csv`).map(row => ({ ...row, sourceId })))
+}
+const forecasts = engine.enrichForecastRows(scores, locations, 'summer', { temperatureQualityMode: 'quarantine' })
 const storageRows = csv('data/qore/fundamentals/eia/working-gas-storage-lower48-weekly.csv')
 const storageReleaseCalendar = loadEiaStorageReleaseCalendar()
 const marketDays = csv('data/qore/market/yahoo/NG-F-qore-market.csv').map((r) => ({ date: r.date, gasClose: Number(r.close) }))
-const engine = await loadSimplificationResearchEngine()
 const args = { engine, forecasts, storageRows, storageReleaseCalendar, marketDays, candidate: { disableSummerFade: false } }
 const targets = simplificationSummerTargets(args)
 const changedFuturePrices = marketDays.map((r) => r.date > '2023-12-31' ? { ...r, gasClose: r.gasClose * 9 } : r)
