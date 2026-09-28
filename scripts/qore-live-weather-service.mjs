@@ -1359,7 +1359,14 @@ function jobIsDue(job, nowMs) {
 function persistedOutputIsUsable(job, output) {
   if (!output || typeof output !== 'object') return false
   if (job.id === 'strategyInference') {
-    return Boolean(output.validated && output.liveForecastAppliedToTarget && output.target)
+    if (!output.validated || !output.liveForecastAppliedToTarget || !output.target) return false
+    try {
+      validatedStrategyArtifactBinding(output)
+      return true
+    } catch {
+      // A recent file from a previous deployment cannot satisfy the new strategy's cadence.
+      return false
+    }
   }
   return true
 }

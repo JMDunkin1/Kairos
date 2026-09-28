@@ -1956,7 +1956,7 @@ function riskSnapshotSafetyChecks(riskSnapshot, asOf = currentTime()) {
   return checks
 }
 
-function liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan }) {
+function liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan, executionQuotesDeferred = false }) {
   const blocks = []
   const warnings = []
   const checks = []
@@ -2028,6 +2028,10 @@ function liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quot
     addCheck(check.id, check.label, check.status, check.detail)
   }
 
+  // A fresh closed venue cannot execute. Keep the independent checks above,
+  // then defer execution-price checks until an open-venue reconciliation.
+  if (executionQuotesDeferred) return { blocks, warnings, checks }
+
   const market = riskSnapshot?.market
   const marketPriceUpdatedAt = quoteSnapshot?.generatedAt ?? market?.priceUpdatedAt ?? marketSnapshot?.freshness?.freshestPriceUpdatedAt
   if (alpacaLiveRiskPolicy.requireMarketContext && !marketPriceUpdatedAt) {
@@ -2098,7 +2102,7 @@ function liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quot
   return { blocks, warnings, checks }
 }
 
-function contextBlocks({ signalSnapshot, sourceInferenceSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, quoteError, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan }) {
+function contextBlocks({ signalSnapshot, sourceInferenceSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, quoteError, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan, executionQuotesDeferred = false }) {
   const blocks = []
   const warnings = []
   const staleBlock = signalAgeBlock(signalSnapshot)
@@ -2136,7 +2140,7 @@ function contextBlocks({ signalSnapshot, sourceInferenceSnapshot, riskSnapshot, 
   }
   if (quoteError) blocks.push(`Alpaca latest quote check failed: ${quoteError}`)
 
-  for (const symbol of Object.keys(targets)) {
+  for (const symbol of executionQuotesDeferred ? [] : Object.keys(targets)) {
     if (!Number.isFinite(Number(prices[symbol])) || Number(prices[symbol]) <= 0) {
       blocks.push(`Missing positive reference price for ${symbol}.`)
     }
@@ -2148,7 +2152,7 @@ function contextBlocks({ signalSnapshot, sourceInferenceSnapshot, riskSnapshot, 
     )
   }
   if (!marketSnapshot?.freshness?.freshestPriceUpdatedAt) warnings.push('Market reference freshness timestamp is missing.')
-  const riskGate = liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan })
+  const riskGate = liveRiskPolicyGate({ signalSnapshot, riskSnapshot, marketSnapshot, quoteSnapshot, brokerSnapshot, prices, targets, current, plannedOrders, skippedOrders, exposurePlan, executionQuotesDeferred })
   return {
     blocks: [...blocks, ...riskGate.blocks],
     warnings: [...warnings, ...riskGate.warnings],
@@ -2568,6 +2572,13 @@ async function reconcileOnce() {
     riskSnapshot,
   )
   const brokerSnapshot = await getAlpacaBrokerSnapshot({ allowOffline: brokerMode === 'dry-run' })
+  const initialClockBlocks = brokerMode === 'dry-run'
+    ? [] : clockSafetyBlocks(brokerSnapshot?.marketClock, 'Initial Alpaca market clock')
+  // With isOpen exactly false, the sole permissible clock block is closure;
+  // any missing, stale, or future timestamp adds another block.
+  const executionQuotesDeferred = brokerMode !== 'dry-run'
+    && brokerSnapshot?.marketClock?.isOpen === false
+    && initialClockBlocks.length === 1
   const accountEquityUsd = Number(brokerSnapshot?.account?.equityUsd ?? 0)
   const targets = buildTargets(signalSnapshot, accountEquityUsd)
   const current = currentNotionalsFromPositions(brokerSnapshot.positions)
@@ -2575,7 +2586,7 @@ async function reconcileOnce() {
   const quoteSymbols = [...new Set([...Object.keys(targets), ...Object.keys(current)])]
   let quoteSnapshot = null
   let quoteError = null
-  if (alpacaConfig.apiKey && alpacaConfig.secretKey) {
+  if (!executionQuotesDeferred && alpacaConfig.apiKey && alpacaConfig.secretKey) {
     try {
       quoteSnapshot = await getAlpacaLatestQuotes(quoteSymbols)
     } catch (error) {
@@ -2583,15 +2594,17 @@ async function reconcileOnce() {
     }
   }
   const prices = referencePricesFor(marketSnapshot, brokerSnapshot.positions, quoteSnapshot)
-  const { plannedOrders: candidateOrders, skippedOrders } = buildPlannedOrders({
-    signalSnapshot,
-    targets,
-    current,
-    currentQuantities,
-    prices,
-    openOrders: brokerSnapshot.openOrders,
-    accountEquityUsd,
-  })
+  const { plannedOrders: candidateOrders, skippedOrders } = executionQuotesDeferred
+    ? { plannedOrders: [], skippedOrders: [] }
+    : buildPlannedOrders({
+        signalSnapshot,
+        targets,
+        current,
+        currentQuantities,
+        prices,
+        openOrders: brokerSnapshot.openOrders,
+        accountEquityUsd,
+      })
   let plannedOrders = candidateOrders
   let exposurePlan = evaluateGrossExposurePlan({
     current,
@@ -2622,6 +2635,7 @@ async function reconcileOnce() {
     marketSnapshot,
     quoteSnapshot,
     quoteError,
+    executionQuotesDeferred,
     brokerSnapshot,
     prices,
     targets,
@@ -2760,6 +2774,7 @@ async function reconcileOnce() {
     riskPolicyChecks: gateResult.riskPolicyChecks,
     rawAccount: brokerSnapshot.rawAccount ?? null,
     marketClock: brokerSnapshot.marketClock ?? null,
+    executionQuotesDeferred,
     marketData: quoteSnapshot
       ? {
           source: quoteSnapshot.source,

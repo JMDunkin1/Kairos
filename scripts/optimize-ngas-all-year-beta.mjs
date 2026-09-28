@@ -66,7 +66,7 @@ const BLOCK_LENGTH = 10
 const MAX_DRAWDOWN_PROMOTION_FLOOR_PCT = -20
 const EXECUTION_CONTRACT = loadResearchExecutionContract(REPO_ROOT)
 const BROKER_EXECUTION = loadReviewedBrokerExecutionProfile(REPO_ROOT)
-const VALIDATION_INTEGRITY = loadValidationIntegrityManifest(REPO_ROOT)
+const VALIDATION_INTEGRITY = loadValidationIntegrityManifest(REPO_ROOT, { allowInvalidForResearchReport: true })
 const OVERNIGHT_POLICY_CONTRACT = JSON.parse(fs.readFileSync(OVERNIGHT_POLICY_FILE, 'utf8'))
 if (
   OVERNIGHT_POLICY_CONTRACT?.schemaVersion !== 1 ||
@@ -632,10 +632,12 @@ ${STRATEGY_NAME} is the checked-in all-year artifact for the existing NGAS Summe
 - Overnight policy: ${summary.contract.overnightRisk.deployedPolicyId}. The separately versioned audit reports a train/validation recommendation, but close-side execution remains research-only; prior-close holdings therefore stay in place until the next causal open execution.
 - Row policy: ${selected.rowSelectionPolicy}
 - Material row definition: ${selected.materialRowDefinition}
-- Selection: no independent all-year parameter search; the component ledgers remain selected by their own train/validation contracts.
+- Selection: no independent all-year parameter search; Summer is the operator-selected fixed paper experiment and Winter retains its declared historical selection contract.
 - P-values: a direct component-safe centered circular block bootstrap through ${summary.contract.selectionEnd} controls eligibility; a separate full-calendar bootstrap is report-only. Neither uses Fisher-combined component p-values.
 
 ## Metrics
+
+${summary.data.historicalCoverageWarning ?? ''}
 
 | split | executed rows | strategy | index | edge | CAGR | Sharpe | Sortino | maxDD | exposure |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -655,6 +657,7 @@ ${STRATEGY_NAME} is the checked-in all-year artifact for the existing NGAS Summe
 
 ## Anti-Overfit Check
 
+- Manifest integrity matches current implementation: ${summary.validation.integrity.integrityValid ? 'yes' : 'no; retained prior seal is invalid for this implementation, so research generation cannot grant execution approval'}.
 - Candidate count: ${summary.search.candidateCount}.
 - Eligible candidates: ${summary.search.eligibleCandidateCount}.
 - Return-based promotion gates use only rows through ${summary.contract.selectionEnd}: positive train edge ${summary.validation.promotionGates.positiveTrainEdge ? 'pass' : 'fail'}; positive validation edge ${summary.validation.promotionGates.positiveValidationEdge ? 'pass' : 'fail'}; component-safe bootstrap p-value below 0.05 ${summary.validation.promotionGates.preHoldoutBootstrapSignificance ? 'pass' : 'fail'}; train and validation max drawdowns above ${summary.contract.maxDrawdownPromotionFloorPct}% ${summary.validation.promotionGates.trainMaxDrawdown && summary.validation.promotionGates.validationMaxDrawdown ? 'pass' : 'fail'}. Component gates use declared historical splits only as diagnostics: Summer statistical and forecast-coverage promotion ${summary.validation.promotionGates.summerComponent ? 'pass' : 'fail'}; Winter statistical promotion ${summary.validation.promotionGates.winterComponent ? 'pass' : 'fail'}; canonical live signal contract ${summary.validation.promotionGates.liveContract ? 'pass' : 'fail'}; production-source exact-target parity ${summary.validation.promotionGates.liveTargetParity ? 'pass' : `fail (Summer ${summary.validation.liveTargetParity.components.summer.mismatchCount}/${summary.validation.liveTargetParity.components.summer.comparedRowCount}; Winter ${summary.validation.liveTargetParity.components.winter.mismatchCount}/${summary.validation.liveTargetParity.components.winter.comparedRowCount} mismatches)`}; research-tied broker execution profile ${summary.validation.promotionGates.brokerExecution ? 'pass' : 'fail'}; exact strategy-contract seal ${summary.validation.promotionGates.strategyContractSeal ? 'pass' : 'fail'}; paper approval ${summary.validation.promotionGates.paperApproval ? 'pass' : 'fail'}; pristine prospective evidence ${summary.validation.promotionGates.pristineForwardEvidence ? 'pass' : 'fail'}; reviewed paper fills/slippage evidence ${summary.validation.promotionGates.paperExecutionEvidence ? 'pass' : 'fail'}; live approval ${summary.validation.promotionGates.liveApproval ? 'pass' : 'fail'}.
@@ -764,7 +767,11 @@ function main() {
       VALIDATION_INTEGRITY.manifest.forwardOutcomePolicy,
     ),
   }
-  const rows = createCompositeRows(summer.rows, winter.rows, contractsByStrategyId, splitContract, executionByDate)
+  const completeThrough = summerSummary.data?.completeThrough ?? null
+  const retainCompleteHistory = (candidateRows) => completeThrough
+    ? candidateRows.filter((row) => row.entryTradeDate <= completeThrough)
+    : candidateRows
+  const rows = retainCompleteHistory(createCompositeRows(summer.rows, winter.rows, contractsByStrategyId, splitContract, executionByDate))
   const splits = splitRows(rows)
   const edges = splitEdges(splits)
   const annualEdges = splitAnnualEdges(splits)
@@ -785,7 +792,7 @@ function main() {
     Object.keys(EXECUTION_CONTRACT.scenarios).map((scenarioId) => {
       const scenarioRows = scenarioId === EXECUTION_CONTRACT.selectionScenarioId
         ? rows
-        : createCompositeRows(summer.rows, winter.rows, contractsByStrategyId, splitContract, executionByDate, scenarioId)
+        : retainCompleteHistory(createCompositeRows(summer.rows, winter.rows, contractsByStrategyId, splitContract, executionByDate, scenarioId))
       const scenarioSplits = splitRows(scenarioRows)
       const scenarioMetrics = Object.fromEntries(
         Object.entries(scenarioSplits).map(([split, splitRowsForMetrics]) => [split, metricsFromReturns(splitRowsForMetrics)]),
@@ -849,8 +856,11 @@ function main() {
   const validationIntegrity = {
     ...VALIDATION_INTEGRITY.binding,
     strategyContractDigestSha256,
+    integrityValid: VALIDATION_INTEGRITY.integrityValid,
+    integrityFailures: VALIDATION_INTEGRITY.integrityFailures,
   }
   const promotionGates = {
+    validationIntegrity: VALIDATION_INTEGRITY.integrityValid,
     positiveTrainEdge: selectionEdges.train > 0,
     positiveValidationEdge: selectionEdges.validation > 0,
     preHoldoutBootstrapSignificance: selectionRealityCheck.pValue < 0.05,
@@ -870,6 +880,7 @@ function main() {
     liveApproval: VALIDATION_INTEGRITY.binding.liveApprovalStatus === 'approved',
   }
   const paperEligible = [
+    'validationIntegrity',
     'positiveTrainEdge',
     'positiveValidationEdge',
     'preHoldoutBootstrapSignificance',
@@ -939,6 +950,12 @@ function main() {
       marketStartDate: selected.allMetrics.firstEntry,
       marketEndDate: selected.allMetrics.lastExit,
       marketDays: rows.length,
+      historicalCoverageComplete: summerSummary.data?.historicalCoverageComplete ?? true,
+      completeThrough,
+      incompleteSummer2026: summerSummary.data?.incompleteSummer2026 ?? false,
+      historicalCoverageWarning: completeThrough
+        ? `Chart and metrics stop at ${completeThrough}; Summer 2026 forecast coverage is incomplete. Summer historical inputs remain legacy hours-0 rather than the corrected live statistic.`
+        : null,
       ...outputArtifactBindings,
     },
     contract: {

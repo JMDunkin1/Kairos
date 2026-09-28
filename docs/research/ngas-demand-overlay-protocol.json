@@ -1,0 +1,41 @@
+{
+  "createdAt": "2026-09-27T23:25:31.421485+00:00",
+  "selectionEligible": false,
+  "role": "fixed diagnostic extensions; recent outage already observed; no tuning on results",
+  "base": "no-summer-fade",
+  "rules": {
+    "revision": {
+      "sameTarget": true,
+      "currentLeadDays": 7,
+      "previousIssueLeadDays": 8,
+      "bothModelsPositive": true,
+      "minimumEqualModelWeightedCDDRevisionF": 1,
+      "minimumWeightedLocationBreadth": 0.6666666666666666,
+      "locationPositiveThresholdF": 0.25,
+      "summerOnly": true
+    },
+    "storage": {
+      "vetoLongWhenLatestReleasedAboveSeasonalFiveYearMean": true,
+      "fiveYearWeekComparison": "same existing executable summerStorageContext"
+    },
+    "supply": {
+      "vetoLongWhenStorageSurplusAndDryProductionYoYGrowthBcfdExceedsLNGExportsYoYGrowthBcfd": true,
+      "vintages": "archived EIA releases only; no latest-vintage backfill as point-in-time",
+      "missing": "report unavailable; no fabricated result"
+    }
+  },
+  "variants": [
+    "no-summer-fade+revision",
+    "no-summer-fade+storage",
+    "no-summer-fade+revision+storage",
+    "no-summer-fade+supply-balance"
+  ],
+  "fitPeriods": {
+    "train": "through2023-12-31",
+    "validation": "2024",
+    "reportOnly": "2025 onward"
+  },
+  "historicalTemporalStatistic": "legacy hours0 if priorlead8 can be recovered; never mix corrected four-sample with legacy",
+  "recentTemporalStatistic": "four samples6,12,18,24 same corrected18-location basket",
+  "parametersTuned": false
+}

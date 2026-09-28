@@ -471,17 +471,6 @@ const reviewedGasPositionCapCases = [
     cap: 0.4375,
   },
   {
-    id: 'summer-heat-reversion',
-    season: 'summer',
-    targetDate: '2026-07-21',
-    handoffNow: '2026-07-21T15:00:00.000Z',
-    componentStrategyId: 'ngas-summer-alpha',
-    windowId: 'weather-reversion',
-    thesisKind: 'reversion-short',
-    direction: -1,
-    cap: 0.5,
-  },
-  {
     id: 'winter-follow',
     season: 'winter',
     targetDate: '2026-01-21',
@@ -791,6 +780,8 @@ async function scenario({
   assetOverrides = {},
   assetOverridesByRead = [],
   expectedAssetRequestCount = null,
+  expectedQuoteRequestCount = null,
+  expectedClosedVenueWait = false,
   expectedRiskLedgerHighWatermark = null,
   fillDuringCancelSymbol = null,
   cancelOrderLookupFailureSymbol = null,
@@ -856,6 +847,7 @@ async function scenario({
   let requestCount = 0
   let boundaryFixtureMutationApplied = false
   let replacementFixtureMutationApplied = false
+  let quoteRequestCount = 0
   let scenarioNow = handoffNow
   const orderHistory = new Map()
   const server = createServer(async (request, response) => {
@@ -979,6 +971,7 @@ async function scenario({
       return
     }
     if (request.method === 'GET' && url.pathname === '/v2/stocks/quotes/latest') {
+      quoteRequestCount += 1
       quoteReadCount += 1
       const timestamp = scenarioNow ?? new Date().toISOString()
       const readOverrides = quoteOverridesByRead[quoteReadCount - 1] ?? {}
@@ -1309,6 +1302,16 @@ async function scenario({
   }
   if (expectedRequestCount !== null) {
     assert.equal(requestCount, expectedRequestCount, `${name}: endpoint rejection must occur before any request`)
+  }
+  if (expectedQuoteRequestCount !== null) {
+    assert.equal(quoteRequestCount, expectedQuoteRequestCount, `${name}: execution quote request count`)
+  }
+  if (expectedClosedVenueWait) {
+    assert.deepEqual(status.blockedReasons, ['Execution venue is closed; Initial Alpaca market clock is_open is false.'])
+    assert.equal(status.executionQuotesDeferred, true)
+    assert.equal(status.marketData, null)
+    assert.deepEqual(status.plannedOrders, [])
+    assert.equal(canceledOrders.length, 0, `${name}: closed venue must not cancel orders`)
   }
   if (expectedAssetRequestCount !== null) {
     assert.equal(assetReadCount, expectedAssetRequestCount, `${name}: UNG asset/borrow request count`)
@@ -1993,6 +1996,7 @@ async function testSupervisorWeatherCadence() {
     generatedAt: now,
     validated: true,
     liveForecastAppliedToTarget: true,
+    strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
     storageValidation: { latestInputDate: today(), latestPolledDate: today(), latestPolledStorageBcf: 3000 },
     target: { targetDate: today(), gasPosition: 0, indexFraction: 1, cashFraction: 0 },
   })
@@ -2060,6 +2064,46 @@ async function testSupervisorWeatherCadence() {
   console.log('ok - supervisor one-shot preserves cadences and hydrates fresh risk dependencies')
 }
 
+async function testStaleStrategyBindingRefreshesImmediately() {
+  const cadenceDir = path.join(scratch, 'stale-strategy-cadence')
+  const weatherDir = path.join(cadenceDir, 'weather')
+  const inferencePath = path.join(cadenceDir, 'all-year-target.json')
+  const priorDeployment = {
+    generatedAt: new Date().toISOString(),
+    validated: true,
+    liveForecastAppliedToTarget: true,
+    strategyArtifact: { ...loadExecutionStrategy(repoDir, { mode: 'paper' }).binding, digestSha256: '0'.repeat(64) },
+    target: { targetDate: today(), gasPosition: 0, indexFraction: 1, cashFraction: 0 },
+  }
+  await writeJson(inferencePath, priorDeployment)
+  assert.ok(Date.now() - (await stat(inferencePath)).mtimeMs < 10_000)
+  const result = await runNode(['scripts/qore-live-weather-service.mjs', '--once', '--respect-cadence', '--no-performance-test', '--no-forecast-calendar'], {
+    QORE_BROKER_MODE: 'paper',
+    QORE_LIVE_WEATHER_STATE_DIR: weatherDir,
+    QORE_LIVE_INFERENCE_FILE: inferencePath,
+    QORE_LIVE_INFERENCE_STATE_DIR: path.join(cadenceDir, 'empty-inference-inputs'),
+    QORE_LIVE_INFERENCE_SKIP_FETCH: '1',
+    QORE_LIVE_INFERENCE_SKIP_MARKET_REFRESH: '1',
+    QORE_LIVE_INFERENCE_SKIP_SUPPLY_REFRESH: '1',
+    QORE_LIVE_WEATHER_CURRENT_FORECAST: '0',
+    QORE_LIVE_MARKET_REFERENCE_PRICES_ENABLED: '0',
+    QORE_LIVE_BROKER_ACCOUNT_AND_POSITIONS_ENABLED: '0',
+    QORE_LIVE_EIA_STORAGE_RELEASE_WINDOW_ENABLED: '0',
+    QORE_LIVE_RISK_AND_KILL_SWITCH_STATE_ENABLED: '0',
+    QORE_LIVE_SIGNAL_INTENT_RECONCILE_ENABLED: '0',
+    QORE_LIVE_STRATEGY_INFERENCE_ENABLED: '1',
+    QORE_LIVE_STRATEGY_INFERENCE_INTERVAL_MS: String(60 * 60 * 1000),
+  })
+  // Empty isolated forecast inputs make the attempted refresh fail without network or orders.
+  assert.equal(result.code, 1, result.stderr)
+  const status = JSON.parse(await readFile(path.join(weatherDir, 'status.json'), 'utf8'))
+  assert.deepEqual(status.cycle.dueJobs, ['strategyInference'])
+  assert.equal(status.liveJobs.strategyInference.ok, false)
+  assert.equal(status.strategyInference, null, 'Old-contract output must not be hydrated after refresh failure')
+  assert.match(status.liveJobs.strategyInference.error, /ENOENT|No valid|forecast|calendar/i)
+  console.log('ok - fresh prior-deployment inference refreshes immediately despite its one-hour cadence')
+}
+
 async function testStorageInferenceCoherencyFailsClosed() {
   const coherencyDir = path.join(scratch, 'storage-coherency')
   const weatherDir = path.join(coherencyDir, 'weather')
@@ -2069,6 +2113,7 @@ async function testStorageInferenceCoherencyFailsClosed() {
     generatedAt: now,
     validated: true,
     liveForecastAppliedToTarget: true,
+    strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
     storageValidation: { latestInputDate: '2026-01-09', latestPolledDate: '2026-01-09', latestPolledStorageBcf: 4100 },
     target: { targetDate: today(), gasPosition: 0, indexFraction: 1, cashFraction: 0 },
   })
@@ -2105,6 +2150,7 @@ async function testContinuousHydratedCadenceSleeps() {
     strategyId: 'ngas-all-year-beta',
     validated: true,
     liveForecastAppliedToTarget: true,
+    strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
     target: { targetDate: today(), gasPosition: 0, indexFraction: 1, cashFraction: 0 },
   })
   const child = spawn(process.execPath, ['scripts/qore-live-weather-service.mjs', '--respect-cadence', '--no-performance-test', '--no-forecast-calendar'], {
@@ -2778,11 +2824,15 @@ try {
     windowId: 'weather-follow',
     thesisKind: currentTestInferenceSeason === 'summer' ? 'summer-heat-long' : 'cold-long',
   })
-  const currentTestShortGasPositionCap = executableLiveGasPositionCapForTarget({
-    season: currentTestInferenceSeason,
-    componentStrategyId: `ngas-${currentTestInferenceSeason}-alpha`,
-    windowId: currentTestInferenceSeason === 'summer' ? 'weather-reversion' : 'weather-follow',
-    thesisKind: currentTestInferenceSeason === 'summer' ? 'reversion-short' : 'warm-short',
+  const winterShortFixture = {
+    targetDate: '2026-01-21',
+    handoffNow: '2026-01-21T15:00:00.000Z',
+  }
+  const winterShortGasPositionCap = executableLiveGasPositionCapForTarget({
+    season: 'winter',
+    componentStrategyId: 'ngas-winter-alpha',
+    windowId: 'weather-follow',
+    thesisKind: 'warm-short',
   })
   const indexPositionsForFraction = (fraction) => [
     {
@@ -2806,7 +2856,6 @@ try {
   assert.deepEqual(executableLiveGasPositionCaps, {
     summer: {
       'weather-follow': { 'summer-heat-long': 0.4375 },
-      'weather-reversion': { 'reversion-short': 0.5 },
     },
     winter: {
       'weather-follow': { 'cold-long': 0.5625, 'warm-short': 0.5625 },
@@ -2837,7 +2886,13 @@ try {
     componentStrategyId: 'ngas-summer-alpha',
     windowId: 'weather-reversion',
     thesisKind: 'reversion-short',
-  }), [-0.5, -0.4, -0.2])
+  }), [])
+  assert.equal(executableLiveGasPositionCapForTarget({
+    season: 'summer',
+    componentStrategyId: 'ngas-summer-alpha',
+    windowId: 'weather-reversion',
+    thesisKind: 'reversion-short',
+  }), null)
   const mutatedLatticeContract = structuredClone(executableLiveComponentContract)
   mutatedLatticeContract.summer.targetLattice.targetsByWindowAndThesis['weather-follow']['summer-heat-long'].push(0.1234)
   assert.notEqual(
@@ -3010,22 +3065,24 @@ try {
   })
   await scenario({
     name: 'paper reconcile can route the strategy short leg when Alpaca confirms borrowability',
+    ...winterShortFixture,
     allowShorts: true,
-    gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap,
+    gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap,
     cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     expectedOrderCount: 1,
     expectedFirstSide: 'sell',
     expectedAssetRequestCount: 2,
   })
   await scenario({
     name: 'paper reconcile blocks when UNG borrowability is revoked at the final submission boundary',
+    ...winterShortFixture,
     allowShorts: true,
-    gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap,
+    gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap,
     cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverridesByRead: [{}, { shortable: false }],
     expectedAssetRequestCount: 2,
     expectedMutationHalt: {
@@ -3036,43 +3093,48 @@ try {
   })
   await scenario({
     name: 'paper reconcile requires Alpaca shortable to be exactly true',
-    allowShorts: true, gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap, cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    ...winterShortFixture,
+    allowShorts: true, gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap, cashFraction: 0,
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverrides: { shortable: false },
     expectedBlock: /shortable=true/,
   })
   await scenario({
     name: 'paper reconcile blocks unknown UNG borrow availability even with the HTB override',
-    allowShorts: true, gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap, cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    ...winterShortFixture,
+    allowShorts: true, gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap, cashFraction: 0,
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverrides: { easy_to_borrow: null, borrow_status: null },
     commandEnvOverrides: { QORE_ALPACA_ALLOW_HARD_TO_BORROW: '1' },
     expectedBlock: /easy_to_borrow must be explicitly boolean/,
   })
   await scenario({
     name: 'paper reconcile rejects status-only HTB when easy_to_borrow is missing',
-    allowShorts: true, gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap, cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    ...winterShortFixture,
+    allowShorts: true, gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap, cashFraction: 0,
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverrides: { easy_to_borrow: null, borrow_status: 'hard_to_borrow' },
     commandEnvOverrides: { QORE_ALPACA_ALLOW_HARD_TO_BORROW: '1' },
     expectedBlock: /easy_to_borrow must be explicitly boolean/,
   })
   await scenario({
     name: 'paper reconcile blocks recognized hard-to-borrow UNG without explicit permission',
-    allowShorts: true, gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap, cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    ...winterShortFixture,
+    allowShorts: true, gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap, cashFraction: 0,
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverrides: { easy_to_borrow: false, borrow_status: null },
     expectedBlock: /hard-to-borrow/,
   })
   await scenario({
     name: 'paper reconcile permits positively recognized HTB only with explicit permission',
-    allowShorts: true, gasPosition: -currentTestShortGasPositionCap,
-    indexFraction: 1 - currentTestShortGasPositionCap, cashFraction: 0,
-    positions: indexPositionsForFraction(1 - currentTestShortGasPositionCap),
+    ...winterShortFixture,
+    allowShorts: true, gasPosition: -winterShortGasPositionCap,
+    indexFraction: 1 - winterShortGasPositionCap, cashFraction: 0,
+    positions: indexPositionsForFraction(1 - winterShortGasPositionCap),
     assetOverrides: { easy_to_borrow: false, borrow_status: null },
     commandEnvOverrides: { QORE_ALPACA_ALLOW_HARD_TO_BORROW: '1' },
     expectedOrderCount: 1,
@@ -3080,6 +3142,8 @@ try {
   })
   await scenario({
     name: 'paper reconcile permits a risk-reducing UNG buy-to-cover without current borrow permission',
+    ...winterShortFixture,
+    inferenceProvenanceOverrides: { windowId: 'weather-reversion', thesisKind: 'reversion-short' },
     positions: [
       { symbol: 'UNG', qty: '166.666667', side: 'short', current_price: '15', market_value: '2500' },
       ...indexPositionsForFraction(0.8),
@@ -3165,6 +3229,8 @@ try {
   })
   await scenario({
     name: 'paper reconcile never suppresses a UNG direction reversal inside the deadband',
+    ...winterShortFixture,
+    inferenceProvenanceOverrides: { windowId: 'weather-reversion', thesisKind: 'reversion-short' },
     positions: [
       { symbol: 'UNG', qty: '0.666666', side: 'long', current_price: '15', market_value: '10' },
       { symbol: 'VOO', qty: '64', side: 'long', current_price: '100', market_value: '6400' },
@@ -3310,8 +3376,6 @@ try {
     expectedBlock: new RegExp(`windowId/thesisKind is not a reviewed ${currentTestInferenceSeason} target combination`),
   })
   const currentSeasonLongThesis = currentTestInferenceSeason === 'summer' ? 'summer-heat-long' : 'cold-long'
-  const currentSeasonShortWindow = currentTestInferenceSeason === 'summer' ? 'weather-reversion' : 'weather-follow'
-  const currentSeasonShortThesis = currentTestInferenceSeason === 'summer' ? 'reversion-short' : 'warm-short'
   await scenario({
     name: `paper reconcile rejects positive ${currentSeasonLongThesis} provenance with a negative target`,
     gasPosition: -0.2, indexFraction: 0.8, cashFraction: 0,
@@ -3319,12 +3383,14 @@ try {
     expectedBlock: new RegExp(`${currentSeasonLongThesis} provenance requires intent gasPosition greater than zero`),
   })
   await scenario({
-    name: `paper reconcile rejects negative ${currentSeasonShortThesis} provenance with a positive target`,
+    name: 'paper reconcile rejects negative Winter warm-short provenance with a positive target',
+    ...winterShortFixture,
     gasPosition: 0.2, indexFraction: 0.8, cashFraction: 0,
-    inferenceProvenanceOverrides: { windowId: currentSeasonShortWindow, thesisKind: currentSeasonShortThesis },
-    expectedBlock: new RegExp(`${currentSeasonShortThesis} provenance requires intent gasPosition less than zero`),
+    inferenceProvenanceOverrides: { windowId: 'weather-follow', thesisKind: 'warm-short' },
+    expectedBlock: /warm-short provenance requires intent gasPosition less than zero/,
   })
   for (const blockedSummerProvenance of [
+    { windowId: 'weather-reversion', thesisKind: 'reversion-short', gasPosition: -0.2 },
     { windowId: 'weather-follow', thesisKind: 'summer-cold-short', gasPosition: -0.2 },
     { windowId: 'weather-reversion', thesisKind: 'reversion-long', gasPosition: 0.2 },
   ]) {
@@ -3431,6 +3497,37 @@ try {
     name: 'authoritative Alpaca market clock blocks a closed venue',
     marketOpen: false,
     expectedBlock: /Execution venue is closed/,
+  })
+  await scenario({
+    name: 'fresh closed venue defers invalid after-hours quotes without planning or canceling orders',
+    marketOpen: false,
+    quoteOverrides: { VOO: { bp: 0, ap: 0, t: '2000-01-01T00:00:00.000Z' } },
+    expectedBlock: /Execution venue is closed/,
+    expectedQuoteRequestCount: 0,
+    expectedClosedVenueWait: true,
+  })
+  for (const failure of [
+    { name: 'kill switch', killSwitchEngaged: true, expectedBlock: /kill switch/i },
+    { name: 'account permission', accountOverrides: { trading_blocked: true }, expectedBlock: /trading_blocked/ },
+    { name: 'daily loss', accountOverrides: { equity: '8500', last_equity: '10000', cash: '8500', buying_power: '8500' }, expectedBlock: /Daily P&L/ },
+    { name: 'input validation', inferenceValidated: false, expectedBlock: /inference is not validated/ },
+    { name: 'missing risk state', riskStateMissing: true, expectedBlock: /Risk snapshot generatedAt is missing or invalid/ },
+    { name: 'current gross exposure', positions: [{ symbol: 'VOO', qty: '120', side: 'long', current_price: '100', market_value: '12000' }], expectedBlock: /starts over|gross exposure/i },
+  ]) {
+    await scenario({
+      ...failure,
+      name: `closed venue still blocks independent ${failure.name} failure`,
+      marketOpen: false,
+      expectedQuoteRequestCount: 0,
+    })
+  }
+  await scenario({
+    name: 'stale closed clock cannot defer execution quote validation',
+    marketOpen: false,
+    marketClockOverrides: { timestamp: '2000-01-01T00:00:00.000Z' },
+    quoteOverrides: { VOO: { bp: 0, ap: 0, t: '2000-01-01T00:00:00.000Z' } },
+    expectedBlock: /invalid bid\/ask quote for VOO/,
+    expectedQuoteRequestCount: 1,
   })
   await scenario({
     name: 'missing Alpaca market-clock state remains unknown and blocks',
@@ -4263,6 +4360,7 @@ try {
   await testStatusDoesNotSynthesizeOrRewriteInvalidRiskLedger()
   await testPrepareDisablesBrokerOverride()
   await testSupervisorWeatherCadence()
+  await testStaleStrategyBindingRefreshesImmediately()
   await testStorageInferenceCoherencyFailsClosed()
   await testContinuousHydratedCadenceSleeps()
   await testInvalidInferenceRetriesWithoutReplacingLastSuccess()

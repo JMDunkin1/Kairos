@@ -1,0 +1,18 @@
+[
+  {
+    "source": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/selected-trades.csv",
+    "sourceSha256": "9911ee0e91910033d0459ad2559b46428dec7a7510c46489daa96d762b0e8aef",
+    "projection": "data/qore/research/ngas-simplification-baseline/summer-targets.csv",
+    "projectionSha256": "b23ac3aa3aa0033de832c7c8e1a97485c392a7785fac5f1e8c772a38e282fc01",
+    "rows": 1387,
+    "serialization": "CSV with LF line endings; projected values unchanged"
+  },
+  {
+    "source": "data/qore/research/strategy-agent-runs/ngas-all-year-beta/selected-trades.csv",
+    "sourceSha256": "ff39c0755c4777550113419e32a000e41a625612b30cedefa6103f2f8c2f04ea",
+    "projection": "data/qore/research/ngas-simplification-baseline/all-year-targets.csv",
+    "projectionSha256": "38bd15f32167711cd1d20eda7c327bd59dd4d57837e0abe91c3dd8655fd867d5",
+    "rows": 1387,
+    "serialization": "CSV with LF line endings; projected values unchanged"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "capturedAt": "2026-09-28T00:32:17.261346+00:00",
+  "purpose": "Freeze historical structural-study baseline before user-authorized no-shorts/supply production change. Shared unchanged utilities remain imports.",
+  "files": [
+    {
+      "originalPath": "scripts/lib/qore-live-all-year-inference.mjs",
+      "originalSha256": "e04cf7ca22ca8da6c247aa2f4bb87568bfa7279bc140cacbb955dfebe473fe1f",
+      "snapshotPath": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs",
+      "snapshotSha256": "320255e8829299d89fce0c8aff0f0b6f0a248a82c336500d88978e0ac629a29d"
+    },
+    {
+      "originalPath": "scripts/lib/qore-live-contract.mjs",
+      "originalSha256": "eee7fe8e32990b9d18a16448596d1fc3cc56c20c9f169b291874a5ec43ea8c72",
+      "snapshotPath": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs",
+      "snapshotSha256": "08e0bb0250916e84ee10778b71cb43c4f19e83b9175c1d37d45f7a240e7998ff"
+    },
+    {
+      "originalPath": "scripts/lib/qore-live-target-lattice.mjs",
+      "originalSha256": "a7e54523f236cce8c5f8b740cedd77fb3c9d6e2869609505b538dcf191e03034",
+      "snapshotPath": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-target-lattice.mjs",
+      "snapshotSha256": "a7e54523f236cce8c5f8b740cedd77fb3c9d6e2869609505b538dcf191e03034"
+    }
+  ]
+}

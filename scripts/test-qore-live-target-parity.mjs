@@ -302,8 +302,8 @@ assert.match(versioned.inputContractFailureDigestSha256, /^[a-f0-9]{64}$/)
 assert.equal(Object.hasOwn(versioned, 'inputContractFailures'), false)
 assert.ok(versioned.inputContractFailureSamples.some((failure) =>
   failure.includes('corrected Summer contract')))
-assert.equal(versioned.comparedRowCount, 1947)
-assert.equal(versioned.matchedRowCount, 1947)
+assert.equal(versioned.comparedRowCount, 1946)
+assert.equal(versioned.matchedRowCount, 1946)
 assert.equal(versioned.mismatchCount, 0)
 assert.equal(versioned.gasPositionMismatchCount, 0)
 assert.equal(versioned.indexFractionMismatchCount, 0)
@@ -332,8 +332,8 @@ assert.ok(versioned.components.summer.temporalInputs.every((input) =>
   && input.failureSamples.length < input.failureCount
   && /^[a-f0-9]{64}$/.test(input.failureDigestSha256)
   && !Object.hasOwn(input, 'failures')))
-assert.equal(versioned.components.summer.comparedRowCount, 585)
-assert.equal(versioned.components.summer.matchedRowCount, 585)
+assert.equal(versioned.components.summer.comparedRowCount, 584)
+assert.equal(versioned.components.summer.matchedRowCount, 584)
 assert.equal(versioned.components.summer.mismatchCount, 0)
 assert.equal(versioned.components.summer.componentStrategyIdMismatchCount, 0)
 assert.equal(versioned.components.summer.windowIdMismatchCount, 0)
@@ -392,6 +392,7 @@ const storageReleaseCalendar =
 assert.equal(versioned.inputFiles.storageReleaseCalendar, storageReleaseCalendar)
 const versionedInputFiles = new Set([
   versioned.inputFiles.storage,
+  versioned.inputFiles.supply,
   versioned.inputFiles.storageReleaseCalendar,
   versioned.inputFiles.summer.expectedTargets,
   ...versioned.inputFiles.summer.forecastCalendars,
@@ -414,6 +415,16 @@ try {
     versioned.inputDigestSha256,
     'the scratch replay must begin with the same versioned input digest',
   )
+
+  const scratchSupplyPath = path.join(scratchRepo, versioned.inputFiles.supply)
+  const originalSupply = fs.readFileSync(scratchSupplyPath, 'utf8')
+  const mutatedSupply = JSON.parse(originalSupply)
+  mutatedSupply[0].supplyGrowthLessLngGrowthBcfd += 1
+  fs.unlinkSync(scratchSupplyPath)
+  fs.writeFileSync(scratchSupplyPath, `${JSON.stringify(mutatedSupply)}\n`)
+  assert.notEqual(versionedLiveTargetParityInputDigestSha256(scratchRepo), versioned.inputDigestSha256,
+    'mutating released supply observations must invalidate the parity input digest')
+  fs.writeFileSync(scratchSupplyPath, originalSupply)
 
   const scratchCalendarPath = path.join(scratchRepo, storageReleaseCalendar)
   const mutatedCalendar = JSON.parse(fs.readFileSync(scratchCalendarPath, 'utf8'))

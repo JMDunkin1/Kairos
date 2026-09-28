@@ -1,0 +1,61 @@
+{
+  "studyId": "ngas-supply-thresholds-v1",
+  "frozenAt": "2026-09-28T00:26:22.858769+00:00",
+  "researchOnly": true,
+  "executionGate": false,
+  "baseStrategy": "No automatic Summer shorts; unchanged inherited Summer signal thresholds/sizing and Winter targets. Threshold nomination uses Summer-only portfolios with fallback in Winter.",
+  "rule": "Suppress Summer gas long iff storageSurplusPct > storageThresholdPct AND productionYoYChangeBcfd - lngYoYChangeBcfd > flowThresholdBcfd. Equality does not suppress. All released exposure returns to the index fallback. Missing required inputs are invalid, not a numeric zero.",
+  "family": {
+    "storageThresholds": [
+      "zero",
+      "positive-training-feature-median",
+      "positive-training-feature-75th-percentile"
+    ],
+    "flowThresholds": [
+      "zero",
+      "positive-training-feature-median",
+      "positive-training-feature-75th-percentile"
+    ],
+    "maximumCandidateCount": 9,
+    "quantileDefinition": "Linear interpolation, sorted positive values, index=(n-1)*q; retain exact computed thresholds; identical numerical pairs collapse.",
+    "featureSample": "Unique causally available storage period-end reports and unique STEO release vintages observed on May-September trading sessions in2021-2023. Values determined without reading portfolio returns. A report can enter distribution only if available before that session open."
+  },
+  "splits": {
+    "trainStart": "2021-01-01",
+    "trainEnd": "2023-12-31",
+    "validationStart": "2024-01-01",
+    "validationEnd": "2024-12-31",
+    "holdoutStart": "2025-01-01",
+    "holdoutEnd": "2025-12-31",
+    "excluded": "All2026 observations/outcomes; especially July27-September25 outage."
+  },
+  "costs": "Exactly frozen baseline scenario selects; elevated/stress are report-only. Existing causal adjusted-open execution,2% cash buffer,80/20 VOO/QQQM fallback, deadband and borrow conventions remain.",
+  "uncertainty": {
+    "resamples": 2000,
+    "blockLengthSessions": 10,
+    "seed": 20260927,
+    "familyConfidence": 0.9,
+    "method": "Paired circular block bootstrap on chronological training daily log-return differences against zero/zero, using identical resampled indices for every candidate. Simultaneous two-sided max-t confidence bands across nonzero threshold cells; centered-bootstrap single-step family-adjusted one-sided p-values also reported. Block-bootstrap standard deviation estimates standard error of mean."
+  },
+  "selection": {
+    "default": "zero/zero: interpretable economic sign boundaries, not a fitted optimum",
+    "replacementRequirements": [
+      "Simultaneous90% lower band for training mean daily log-return excess versus zero/zero strictly positive.",
+      "Positive aggregate after-cost training excess versus both unfiltered no-shorts and fallback.",
+      "At least2of3 training calendar years have positive after-cost excess versus both unfiltered no-shorts and fallback.",
+      "At least10 affected baseline-gas episodes after merging any separated by fewer than10 flat trading sessions; minimum is a conservative preregistered sufficiency heuristic, not a universal statistical law."
+    ],
+    "plateauRule": "Among eligible cells within one paired-block standard error of the training-best eligible mean log return, choose smallest sum of grid indices, then smaller storage index, then smaller flow index. These are simpler/closer-to-zero boundaries.",
+    "validation": "Freeze training nomination before computing2024 results. Report whether chosen thresholds improve2024 after-cost returns versus zero/zero, unfiltered no-shorts, and fallback. No challenger substitution or retuning from validation; failed validation means unsupported optimization, with zero/zero the stated operational fallback. This never blocks existing paper operation.",
+    "holdout": "2025 is reporting-only and must not change nominee, validation interpretation, or fallback.",
+    "fallback": "If no cell meets replacement requirements, state no statistically supported best threshold identified and retain zero/zero as user-chosen economic convention. No global optimality claim."
+  },
+  "limitations": [
+    "Historical Summer weather uses legacy hours-0; current live uses corrected four-sample statistic.",
+    "Inherited thresholds and historical data were seen during earlier research, including2025 and the recent episode. This study excludes2024-2026 from current fitting, not from all prior development.",
+    "Only three training summers; overlapping exposures and monthly STEO vintages limit independent sample size. Bootstrap approximations do not create missing independent observations.",
+    "Production-minus-LNG growth is a partial supply-pressure proxy, not total gas supply/demand balance; other demand, pipeline trade, and future market expectations are omitted.",
+    "Storage historical observations may be revised; STEO monthly values are contemporaneously released estimates and admit only after stated release date.",
+    "This research protocol does not modify or suspend paper trading."
+  ]
+}

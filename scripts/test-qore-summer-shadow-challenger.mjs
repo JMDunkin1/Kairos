@@ -9,11 +9,11 @@ import {
   executableLiveComponentContract,
   liveComponentContractDigestSha256,
   selectedContracts,
-} from './lib/qore-live-contract.mjs'
+} from './research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs'
 import {
   inferAllYearTarget,
   inferSummerShadowTarget,
-} from './lib/qore-live-all-year-inference.mjs'
+} from './research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs'
 import {
   SUMMER_SHADOW_CHALLENGER,
   SUMMER_SHADOW_CHALLENGER_DIGEST_SHA256,
@@ -27,10 +27,13 @@ import {
   validateSummerShadowTargetRecord,
 } from './lib/qore-summer-shadow-challenger.mjs'
 
+import { selectedContracts as currentContracts } from './lib/qore-live-contract.mjs'
+assert.throws(() => summerShadowCandidate(currentContracts.summer), /does not match the frozen comparator/, 'Archived fade challenger must not authorize the new Summer strategy')
+
 const repoDir = process.cwd()
 const summerSummaryPath = path.join(
   repoDir,
-  'data/qore/research/strategy-agent-runs/ngas-summer-alpha/run-summary.json',
+  'data/qore/research/ngas-simplification-baseline/summer-run-summary.json',
 )
 const winterSummaryPath = path.join(
   repoDir,

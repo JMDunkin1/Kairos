@@ -24,6 +24,8 @@ import {
   validateForecastCalendarTemperatures,
 } from './qore-weather-data-quality.mjs'
 
+import { evaluateSummerSupplyPolicy, latestSummerSupplyRow } from './qore-summer-supply-policy.mjs'
+
 export { selectedContracts }
 
 const { summer: SUMMER_IMPLEMENTATION, winter: WINTER_IMPLEMENTATION } = liveAllYearImplementation
@@ -233,6 +235,7 @@ function schedule(days, signals, candidate, season) {
         put(index, { ...signal, position: signal.direction * fraction, windowId: 'weather-follow', rank: signal.rank + 10 })
       }
     }
+    if (candidate.useReversionLeg === false || candidate.reversionHoldDays <= 0) continue
     const priorClose = days[Math.max(0, entry - 1)]?.gasClose
     const exitClose = days[followEnd]?.gasClose
     const move = priorClose && exitClose ? ((exitClose - priorClose) / priorClose) * 100 : 0
@@ -387,6 +390,9 @@ function summerStorageContext(storageRows, date) {
   if (!latest) {
     return {
       summerStorageDeficit: false,
+      storageSurplusPct: null,
+      storageSeasonalAverageBcf: null,
+      storageSeasonalPeerCount: 0,
       storageDate: '',
       storageReleaseAt: '',
       releaseCalendarStatus: 'versioned',
@@ -395,8 +401,12 @@ function summerStorageContext(storageRows, date) {
   const day = Math.floor((Date.parse(latest.date) - Date.parse(`${latest.date.slice(0, 4)}-01-01`)) / 86400000)
   const peers = storageRows.filter((row) => Number(row.date.slice(0, 4)) < Number(latest.date.slice(0, 4)) && Number(row.date.slice(0, 4)) >= Number(latest.date.slice(0, 4)) - SUMMER_IMPLEMENTATION.storageSeasonalLookbackYears)
     .filter((row) => Math.floor((Date.parse(row.date) - Date.parse(`${row.date.slice(0, 4)}-01-01`)) / 86400000 / 7) === Math.floor(day / 7))
+  const seasonalAverage = peers.length >= 3 ? mean(peers.map((row) => row.value)) : null
   return {
-    summerStorageDeficit: peers.length >= 3 && latest.value <= mean(peers.map((row) => row.value)),
+    summerStorageDeficit: seasonalAverage > 0 && latest.value <= seasonalAverage,
+    storageSurplusPct: seasonalAverage > 0 ? 100 * (latest.value / seasonalAverage - 1) : null,
+    storageSeasonalAverageBcf: seasonalAverage,
+    storageSeasonalPeerCount: peers.length,
     storageDate: latest.date,
     storageReleaseAt: latest.releasedAt,
     releaseCalendarStatus: 'versioned',
@@ -480,6 +490,7 @@ export function inferSummerShadowTarget({
 }
 
 export function inferAllYearTarget({
+  supplyRows = [],
   forecastRows,
   actualWeatherRows = [],
   marketDays,
@@ -502,12 +513,27 @@ export function inferAllYearTarget({
       storageDate: targetDay.storageDate,
       storageReleaseAt: targetDay.storageReleaseAt,
       storageDeficit: targetDay.summerStorageDeficit,
+      storageSurplusPct: targetDay.storageSurplusPct,
+      storageSeasonalAverageBcf: targetDay.storageSeasonalAverageBcf,
+      storageSeasonalPeerCount: targetDay.storageSeasonalPeerCount,
       releaseCalendarStatus: targetDay.releaseCalendarStatus,
     }
   }
   if (summerActive && summer) {
     component = 'ngas-summer-alpha'; position = summer.position; selected = summer
     windowId = summer.windowId
+    if (position < 0) throw new Error('Summer gas shorts are outside the current strategy contract.')
+    if (position > 0) {
+      diagnostics.supply = evaluateSummerSupplyPolicy({
+        storageSurplusPct: targetDay?.storageSurplusPct,
+        supplyRow: latestSummerSupplyRow(supplyRows, targetDate),
+        targetDate,
+      })
+      if (diagnostics.supply.veto) {
+        diagnostics.supply.blockedGasPosition = position
+        component = 'index-fallback'; position = 0; selected = null; windowId = 'index-fallback'
+      }
+    }
   } else if (winterActive) {
     const storage = winterStorageContext(prepared.releasedStorageRows, targetDate)
     const vol = volatilityDirection(days, targetDate)

@@ -762,9 +762,12 @@ assert.equal(rejectedSettlementOverride.code, 1)
 assert.match(rejectedSettlementOverride.stderr, /forbids test mode and endpoint overrides/)
 
 const manifestPath = path.join(process.cwd(), 'config', 'qore-spatial-demand-revision-shadow.json')
-const { manifest: sealedManifest } = await readSpatialDemandRevisionManifest(
-  process.cwd(),
-  manifestPath,
+// The archived shadow's original seal must reject the changed main strategy.
+const sealedManifest = JSON.parse(await readFile(manifestPath, 'utf8'))
+await assert.rejects(
+  readSpatialDemandRevisionManifest(process.cwd(), manifestPath),
+  /implementation file digest changed/,
+  'The old shadow cannot silently adopt a new production contract',
 )
 const manifestScratch = await mkdtemp(path.join(tmpdir(), 'qore-spatial-manifest-'))
 try {

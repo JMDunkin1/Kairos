@@ -1,0 +1,52 @@
+{
+  "studyId": "ngas-simplification-v1",
+  "frozenAt": "2026-09-27T23:24:46.315156+00:00",
+  "candidates": [
+    {
+      "id": "baseline",
+      "disableSummerFade": false,
+      "summerSignalInstrument": "NG=F",
+      "selectionEligible": true
+    },
+    {
+      "id": "no-summer-fade",
+      "disableSummerFade": true,
+      "summerSignalInstrument": "NG=F",
+      "selectionEligible": true
+    },
+    {
+      "id": "ung-price",
+      "disableSummerFade": false,
+      "summerSignalInstrument": "UNG",
+      "selectionEligible": true
+    },
+    {
+      "id": "ung-price-no-summer-fade",
+      "disableSummerFade": true,
+      "summerSignalInstrument": "UNG",
+      "selectionEligible": true
+    },
+    {
+      "id": "all-year-long-only",
+      "disableSummerFade": true,
+      "summerSignalInstrument": "UNG",
+      "suppressWinterShorts": true,
+      "selectionEligible": false
+    }
+  ],
+  "splits": {
+    "trainEnd": "2023-12-31",
+    "validationEnd": "2024-12-31",
+    "holdoutStart": "2025-01-01",
+    "outageStart": "2026-07-27",
+    "outageEnd": "2026-09-25"
+  },
+  "selection": "Rank eligible candidates by baseline-cost cumulative summer-only portfolio return minus persistent fallback over 2021-2023. Exact ties prefer fewer changes: baseline, no-summer-fade, ung-price, combined. Lock rank winner before calculating 2024 or holdout metrics. Accept research nomination only if train edge > 0, validation2024 edge > 0 and >=20 gas-active validation sessions. No replacement if validation fails. Elevated/stress, all-year-long-only, 2025+ and outage are report-only. Summer-only portfolios use fallback on every winter session; all-year portfolios retain original winter targets except explicitly diagnostic all-year-long-only.",
+  "unchanged": "Existing anomaly/confidence/breadth thresholds, sizing, freshness, follow duration, storage-release timing, and costs; no parameter grid or hindsight tuning. No broker submission or production strategy change.",
+  "limitations": [
+    "Historical summer calendars use legacy hours-0, unlike corrected four-sample current live weather. Results diagnose changes on old inputs, not exact current deployed input contract.",
+    "Winter remains fitted on original train<=2024-03-31, validation<=2025-10-31. All-year2025 is not fully held out even though summer2025 is excluded from this selection.",
+    "Existing2021-2026 data already observed in prior development; held out from this fitting only, not pristine.",
+    "Ongoing outage period cannot select or alter candidates."
+  ]
+}
