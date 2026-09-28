@@ -12,6 +12,7 @@ type SimulatedPath = {
 type PromotionGateKey = keyof typeof allYearBacktest.validation.promotionGates
 
 const promotionGateLabels = {
+  validationIntegrity: 'CURRENT IMPLEMENTATION SEAL',
   positiveTrainEdge: 'POSITIVE TRAIN EDGE',
   positiveValidationEdge: 'POSITIVE VALIDATION EDGE',
   preHoldoutBootstrapSignificance: 'SELECTION BOOTSTRAP P < 0.05',
