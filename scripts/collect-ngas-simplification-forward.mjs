@@ -5,11 +5,13 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import Papa from 'papaparse'
 import { enrichForecastRows, inferAllYearTarget } from './lib/qore-live-all-year-inference.mjs'
+import { inferAllYearTarget as inferOriginalAllYearTarget } from './research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs'
+import { loadLiveSupplyContext } from './lib/qore-live-supply-context.mjs'
 import { assertSummerForecastTemporalInputs } from './lib/qore-summer-forecast-contract.mjs'
 import { summarizeSummerForecastLocationBreadth } from './lib/qore-summer-forecast-coverage.mjs'
 import { executableLiveComponentActiveForDate } from './lib/qore-live-contract.mjs'
 import { loadNoSummerReversionEngine, causalSimplificationMarketDays } from './lib/qore-simplification-replay.mjs'
-import { revisionFeature, latestSupplyVintage, demandDecision, DEMAND_OVERLAY_IDS } from './lib/qore-simplification-demand.mjs'
+import { revisionFeature, demandDecision, DEMAND_OVERLAY_IDS } from './lib/qore-simplification-demand.mjs'
 import { simplificationNewYorkDate, simplificationPreopenTiming, appendSimplificationForwardRecord, validateSimplificationForwardRecord } from './lib/qore-simplification-forward.mjs'
 
 // Reads current caches only. Refreshing weather/market data is a separate no-order operation.
@@ -52,8 +54,18 @@ assert.ok(now - Date.parse(snapshot.generatedAt) >= 0 && now - Date.parse(snapsh
 const candidates = {}, details = {}, available = target => ({ status: 'available', executionEligible: false, target: { ...target, executionEligible: false } })
 const flatten = t => ({ ...t, gasPosition: 0, indexFraction: 1, cashFraction: 0, direction: 'flat', componentStrategyId: 'index-fallback', thesisKind: 'index-fallback', windowId: 'index-fallback' })
 const summer = executableLiveComponentActiveForDate({ season: 'summer', targetDate })
-let locations = [], noFade = snapshot.target
+let locations = [], noFade = snapshot.target, verifiedSupply = null
 if (summer) {
+  if (snapshot.supplyValidation?.available) {
+    const supplyPath = path.join(runtime, 'live-weather/eia-supply-context.json')
+    const retainedSupply = json(supplyPath)
+    verifiedSupply = loadLiveSupplyContext(repo, { targetDate, now, snapshotPath: supplyPath })
+    assert.equal(verifiedSupply.sha256, snapshot.supplyValidation.sourceDigestSha256, 'Supply vintage must match current inference')
+    for (const reference of [retainedSupply.archiveIndex, ...retainedSupply.observations.flatMap(row => [row, ...row.notices])]) {
+      // readBoundPayload already validated these relative references and hashes.
+      text(path.resolve(path.dirname(supplyPath), reference.payloadFile))
+    }
+  }
   const forecastRoot = path.join(runtime, 'live-inference/noaa-calendar'), scores = []
   for (const [sourceId, weatherDir] of [['gfs', 'noaa-gfs'], ['gefs-mean', 'noaa-gefs']]) {
     const base = `qore-live-${sourceId}-00z`
@@ -86,7 +98,7 @@ if (summer) {
   assert.equal(Number(polled.latestStorage.storageBcf), Number(snapshot.storageValidation.latestPolledStorageBcf))
   const storageRows = [...storageMap.values()].sort((a,b) => a.date.localeCompare(b.date))
   const input = { forecastRows, storageRows, targetDate }, ngDays = market('NG-F'), ungDays = market('UNG')
-  const baseline = inferAllYearTarget({ ...input, marketDays: ngDays })
+  const baseline = inferAllYearTarget({ ...input, marketDays: ngDays, supplyRows: verifiedSupply ? [verifiedSupply] : [] })
   assert.deepEqual(baseline, snapshot.target, 'Retained raw inputs must reproduce live target exactly')
   const { engine } = await loadNoSummerReversionEngine(repo)
   noFade = engine.inferAllYearTarget({ ...input, marketDays: ngDays })
@@ -94,7 +106,7 @@ if (summer) {
   assert.equal(combined.gasPosition, noFade.gasPosition)
   candidates.current = available(baseline)
   candidates['no-summer-shorts'] = available(noFade)
-  candidates['ung-price'] = available(inferAllYearTarget({ ...input, marketDays: ungDays }))
+  candidates['ung-price'] = available(inferOriginalAllYearTarget({ ...input, marketDays: ungDays }))
   candidates['no-summer-shorts-ung-price'] = available(combined)
 } else {
   // All proposed ablations are Summer-only. Preserve the current Winter selector.
@@ -111,8 +123,8 @@ for (const variant of DEMAND_OVERLAY_IDS) {
       revision = revisionFeature(noFade.signalDate, locations, previous, '6|12|18|24')
     }
     if (variant === 'supply-balance') {
-      supply = latestSupplyVintage(json(path.join(research, 'forward-supply-vintages/observations.json')), targetDate)
-      assert.ok(supply && Date.parse(targetDate) - Date.parse(supply.releasedAt ?? supply.releaseDate) < 45 * 86400000, 'Fresh released supply vintage unavailable')
+      supply = verifiedSupply
+      assert.ok(supply, 'Verified current supply snapshot unavailable')
     }
     assert.equal(typeof noFade.diagnostics.storage.storageDeficit, 'boolean')
     const passes = demandDecision({ variant, revision, storageDeficit: noFade.diagnostics.storage.storageDeficit, supply })
@@ -129,10 +141,10 @@ const implementationDigests = {}, visit = file => {
   const body = fs.readFileSync(resolved, 'utf8'); implementationDigests[path.relative(repo, resolved)] = hash(body)
   for (const match of body.matchAll(/(?:from\s+|import\s*)['"](\.[^'"]+)['"]/g)) visit(path.resolve(path.dirname(resolved), match[1]))
 }
-for (const file of ['scripts/collect-ngas-simplification-forward.mjs', 'scripts/run-ngas-simplification-preopen.mjs', 'scripts/settle-ngas-simplification-forward.mjs', 'scripts/qore-live-strategy-inference.mjs', 'scripts/qore-live-market-history.mjs', 'scripts/build-gfs-forecast-calendar.mjs', 'scripts/collect-ngas-supply-vintages.py']) visit(file)
+for (const file of ['scripts/collect-ngas-simplification-forward.mjs', 'scripts/run-ngas-simplification-preopen.mjs', 'scripts/settle-ngas-simplification-forward.mjs', 'scripts/qore-live-strategy-inference.mjs', 'scripts/qore-live-market-history.mjs', 'scripts/build-gfs-forecast-calendar.mjs', 'scripts/qore-live-supply-context.mjs', 'scripts/lib/qore-eia-supply-xlsx.py']) visit(file)
 for (const file of ['config/qore-research-execution.json', 'config/qore-live-broker-settings.json', 'data/qore/market/index-basket-config.json']) implementationDigests[file] = hash(fs.readFileSync(path.join(repo, file)))
 const protocol = json(path.join(research, 'demand-protocol.json'))
-const seal = { prospectiveStart, candidateIds: Object.keys(candidates), implementationDigests, protocol, evidenceClass: 'local-preopen-research-no-external-chronology-anchor' }
+const seal = { prospectiveStart, candidateIds: Object.keys(candidates), candidateDefinitions: { current: 'Current executable strategy: no Summer shorts plus selected supply policy', alternatives: 'Frozen September27 original strategy ablations; supply and revision overlays apply to its unfiltered no-short target', historicalReportCurrent: 'The archived historical current row denotes the prior strategy, not this new executable strategy' }, implementationDigests, protocol, evidenceClass: 'local-preopen-research-no-external-chronology-anchor' }
 const record = { schemaVersion: 1, generatedAt: new Date().toISOString(), targetDate, executionEligible: false, evidenceClass: seal.evidenceClass, sealDigest: hash(JSON.stringify(seal)), seal, inputDigests, inputPayloadDirectory: path.relative(repo, path.join(research, 'forward/payloads')), candidates, details }
 if (args.has('--check-only')) console.log(JSON.stringify({ written: false, reason: 'check-only', targetDate, candidates: Object.fromEntries(Object.entries(candidates).map(([id, r]) => [id, { status: r.status, gasPosition: r.target?.gasPosition ?? null, reason: r.reason ?? null }])) }, null, 2))
 else { validateSimplificationForwardRecord(record); console.log(JSON.stringify(appendSimplificationForwardRecord({ root: path.join(research, 'forward'), record, prospectiveStart }))) }

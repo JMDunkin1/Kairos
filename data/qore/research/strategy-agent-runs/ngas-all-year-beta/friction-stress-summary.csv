@@ -1,4 +1,4 @@
 scenarioId,selectionEligible,ungOneWayBps,vooOneWayBps,qqqmOneWayBps,annualBorrowRatePct,totalReturnPct,cagrPct,sharpe,maxDrawdownPct,holdoutReturnPct,holdoutCagrPct
-baseline,true,3.2,1,1,0,293.02,28.13,1.31,-28.34,17.77,26.64
-elevated,false,5,2,2,0,279.76,27.33,1.28,-28.64,17.29,25.88
-stress,false,10,5,5,10,234.99,24.47,1.17,-29.72,15.4,22.97
+baseline,true,3.2,1,1,0,173.85,21.22,1.04,-28.34,0.14,0.35
+elevated,false,5,2,2,0,167.05,20.64,1.02,-28.64,-0.26,-0.65
+stress,false,10,5,5,10,143.4,18.52,0.93,-29.72,-1.84,-4.49

@@ -21,7 +21,7 @@
     "data:quality": "node scripts/summarize-ngas-weather-quality.mjs",
     "train": "npm run train:component:winter && npm run train:component:summer && npm run backtest",
     "train:component:winter": "node scripts/optimize-ngas-winter-alpha.mjs",
-    "train:component:summer": "node scripts/optimize-ngas-summer-alpha.mjs",
+    "train:component:summer": "node scripts/build-ngas-summer-fixed.mjs",
     "backtest": "npm run data:quality && node scripts/optimize-ngas-all-year-beta.mjs && npm run research:overnight-risk",
     "research:target-weights": "node scripts/audit-ngas-target-weights.mjs",
     "research:continuous-target-weights": "node scripts/audit-ngas-continuous-target-weights.mjs",
@@ -49,7 +49,7 @@
     "report:run": "node scripts/qore-portfolio-report.mjs --loop",
     "service:install:linux": "node scripts/install-linux-live-service.mjs",
     "install:command": "node scripts/install-command.mjs",
-    "test": "npm run test:command-bridge && npm run test:dashboard-service && npm run test:live-trading && npm run test:live-inference && npm run test:weather-data-quality && npm run test:summer-shadow && npm run test:winter-shadow && npm run test:weather-refresh && npm run test:data-boundaries && npm run test:research-execution && npm run test:research-statistics && npm run test:summer-forecast-contract && npm run test:summer-forecast-coverage && npm run test:gefs-v12-reforecast && npm run test:live-target-parity && npm run test:validation-integrity && npm run test:broker-execution-profile && npm run test:overnight-risk && npm run test:portfolio-report",
+    "test": "npm run test:command-bridge && npm run test:dashboard-service && npm run test:live-trading && npm run test:live-inference && npm run test:weather-data-quality && npm run test:summer-shadow && npm run test:winter-shadow && npm run test:weather-refresh && npm run test:data-boundaries && npm run test:research-execution && npm run test:research-statistics && npm run test:summer-forecast-contract && npm run test:summer-forecast-coverage && npm run test:gefs-v12-reforecast && npm run test:live-target-parity && npm run test:validation-integrity && npm run test:broker-execution-profile && npm run test:overnight-risk && npm run test:portfolio-report && npm run test:summer-supply && npm run test:simplification",
     "test:command-bridge": "node scripts/test-qore-command-bridge.mjs",
     "test:dashboard-service": "node scripts/test-qore-dashboard-service.mjs",
     "test:live-trading": "node scripts/test-qore-live-trading.mjs",
@@ -72,7 +72,10 @@
     "test:portfolio-report": "node scripts/test-qore-portfolio-report.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "trade:supply": "node scripts/qore-live-supply-context.mjs",
+    "test:summer-supply": "node scripts/test-qore-summer-supply-policy.mjs && node scripts/test-qore-live-supply-context.mjs && node scripts/test-qore-supply-thresholds.mjs",
+    "test:simplification": "node scripts/test-qore-simplification.mjs && node scripts/test-qore-simplification-demand.mjs && node scripts/test-qore-simplification-replay.mjs && node scripts/test-qore-simplification-forward.mjs"
   },
   "dependencies": {
     "@mattnucc/gribberish": "^0.30.2",

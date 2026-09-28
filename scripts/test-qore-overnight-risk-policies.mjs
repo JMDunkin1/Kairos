@@ -27,8 +27,8 @@ assert.equal(first.summary.deploymentMatchesRecommendation, false)
 
 const carry = first.summary.carryPolicy.scenarios
 const challenger = first.summary.selectedChallenger.scenarioMetrics
-assert.equal(carry.baseline.all.totalReturnPct, 293.01914809)
-assert.equal(carry.baseline.all.cagrPct, 28.12676615)
+assert.equal(carry.baseline.all.totalReturnPct, 173.84465469)
+assert.equal(carry.baseline.all.cagrPct, 21.22064396)
 assert.equal(carry.baseline.all.maxDrawdownPct, -28.33970707)
 assert.equal(challenger.baseline.preHoldout.closeGasTurnover > 0, true)
 assert.equal(challenger.baseline.preHoldout.openGasTurnover > carry.baseline.preHoldout.openGasTurnover, true)

@@ -75,6 +75,7 @@ type RealityCheck = {
 }
 
 export const promotionGateKeys = [
+  'validationIntegrity',
   'positiveTrainEdge',
   'positiveValidationEdge',
   'preHoldoutBootstrapSignificance',
@@ -106,6 +107,7 @@ type AllYearSummary = {
     marketStartDate: string
     marketEndDate: string
     marketDays: number
+    historicalCoverageWarning?: string | null
     selectedTradesArtifact: CsvArtifactBinding
     displayCurveArtifact: CsvArtifactBinding
   }

@@ -1010,6 +1010,17 @@ try {
     /qore-live-contract\.mjs digest does not match the current reviewed bytes/,
   )
 
+  const invalidResearchReport = loadValidationIntegrityManifest(process.cwd(), {
+    allowInvalidForResearchReport: true,
+  })
+  assert.equal(invalidResearchReport.integrityValid, false)
+  assert.match(invalidResearchReport.integrityFailures.join('; '), /qore-live-contract\.mjs digest/)
+  assert.equal(invalidResearchReport.binding.pristineForwardEvidence, false)
+  assert.equal(invalidResearchReport.binding.paperExecutionEvidenceSatisfied, false)
+  assert.equal(invalidResearchReport.binding.paperApprovalStatus, 'invalid')
+  assert.equal(invalidResearchReport.binding.liveApprovalStatus, 'invalid')
+  assert.throws(() => loadValidationIntegrityManifest(process.cwd()), /manifest is invalid/)
+
   const fabricatedAppendOnlySeal = structuredClone(ready)
   fabricatedAppendOnlySeal.forwardValidationImplementation
     .appendOnlyInputs[0].prefixDigestSha256 = 'e'.repeat(64)

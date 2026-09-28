@@ -34,8 +34,8 @@ const SUMMER_FORECAST_CALENDARS = Object.freeze([
 ])
 
 export const LIVE_TARGET_PARITY_POLICY = Object.freeze({
-  schemaVersion: 6,
-  policyId: 'all-year-component-production-source-exact-target-identity-and-input-contract-replay-v6',
+  schemaVersion: 7,
+  policyId: 'all-year-component-production-source-exact-target-identity-and-input-contract-replay-v7',
   componentStrategyId: 'ngas-all-year-beta',
   componentStrategyIds: Object.freeze(['ngas-summer-alpha', 'ngas-winter-alpha']),
   comparisonFields: Object.freeze([
@@ -51,6 +51,7 @@ export const LIVE_TARGET_PARITY_POLICY = Object.freeze({
   replayContract: Object.freeze({
     targetDateField: 'entryTradeDate',
     storage: 'versioned-EIA-lower48-weekly-with-reviewed-release-calendar',
+    supply: 'versioned-EIA-STEO-corrected-release-aware-monthly-vintages',
     summer: Object.freeze({
       expectedTargets: 'versioned-ngas-summer-alpha-selected-trades',
       forecastUniverse: 'dedicated-versioned-GFS-and-GEFS-mean-daily-lead-7-calendars-2021-05-01-through-2025-09-30',
@@ -143,6 +144,7 @@ function versionedInputPaths(repoDir, manifest) {
     summerMarketPath: path.join(dataRoot, 'market', 'yahoo', 'NG-F-qore-market.csv'),
     winterMarketPath: path.join(dataRoot, 'market', 'yahoo', 'UNG-qore-market.csv'),
     storagePath: path.join(dataRoot, 'fundamentals', 'eia', 'working-gas-storage-lower48-weekly.csv'),
+    supplyPath: path.join(dataRoot, 'fundamentals', 'eia', 'steo-supply-vintages.json'),
     storageReleaseCalendarPath: path.join(
       dataRoot,
       'fundamentals',
@@ -174,6 +176,7 @@ export function versionedLiveTargetParityInputDigestSha256(repoDir = process.cwd
     paths.summerMarketPath,
     paths.winterMarketPath,
     paths.storagePath,
+    paths.supplyPath,
     paths.storageReleaseCalendarPath,
     paths.actualWeatherPath,
     ...paths.summerForecastCalendars.flatMap((calendar) => [
@@ -207,6 +210,7 @@ export function assessLiveTargetParity({
   marketDays,
   storageRows,
   storageReleaseCalendar = null,
+  supplyRows = [],
   inferTarget = inferAllYearTarget,
   policy = LIVE_TARGET_PARITY_POLICY,
   captureTargetDates = [],
@@ -265,6 +269,7 @@ export function assessLiveTargetParity({
       marketDays,
       storageRows,
       storageReleaseCalendar,
+      supplyRows,
       targetDate,
     })
     const replayRawGasPosition = finiteNumber(
@@ -384,6 +389,7 @@ export function evaluateVersionedLiveTargetParity(repoDir = process.cwd(), { cap
     summerMarketPath,
     winterMarketPath,
     storagePath,
+    supplyPath,
     storageReleaseCalendarPath,
     actualWeatherPath,
   } = inputPaths
@@ -513,6 +519,7 @@ export function evaluateVersionedLiveTargetParity(repoDir = process.cwd(), { cap
   const summerMarketDays = marketDays(summerMarketPath, 'NG=F Summer signal history')
   const winterMarketDays = marketDays(winterMarketPath, 'UNG Winter market history')
   const storageRows = readCsv(storagePath, 'EIA storage history')
+  const supplyRows = readJson(supplyPath, 'EIA STEO supply vintages')
   const storageReleaseCalendar = loadEiaStorageReleaseCalendar(storageReleaseCalendarPath)
   const actualWeatherRows = readCsv(actualWeatherPath, 'Winter actual weather history')
 
@@ -526,6 +533,7 @@ export function evaluateVersionedLiveTargetParity(repoDir = process.cwd(), { cap
     marketDays: summerMarketDays,
     storageRows,
     storageReleaseCalendar,
+    supplyRows,
   })
   const winterAssessment = assessLiveTargetParity({
     expectedRows: readCsv(winterExpectedTargetsPath, 'Winter selected targets'),
@@ -534,6 +542,7 @@ export function evaluateVersionedLiveTargetParity(repoDir = process.cwd(), { cap
     marketDays: winterMarketDays,
     storageRows,
     storageReleaseCalendar,
+    supplyRows,
     captureTargetDates: captureWinterTargetDates,
   })
 
@@ -617,6 +626,7 @@ export function evaluateVersionedLiveTargetParity(repoDir = process.cwd(), { cap
     inputDigestSha256,
     inputFiles: {
       storage: path.relative(repoDir, storagePath),
+      supply: path.relative(repoDir, supplyPath),
       storageReleaseCalendar: path.relative(repoDir, storageReleaseCalendarPath),
       summer: {
         ...components.summer.inputFiles,

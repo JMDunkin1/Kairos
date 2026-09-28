@@ -1423,7 +1423,7 @@ export function validationIntegrityBinding(manifest, digestSha256, evidenceVerif
   }
 }
 
-export function loadValidationIntegrityManifest(repoDir, { asOf = new Date() } = {}) {
+export function loadValidationIntegrityManifest(repoDir, { asOf = new Date(), allowInvalidForResearchReport = false } = {}) {
   const filePath = resolveValidationIntegrityManifestPath(repoDir)
   let raw
   let manifest
@@ -1479,7 +1479,7 @@ export function loadValidationIntegrityManifest(repoDir, { asOf = new Date() } =
   }
   const evidenceVerification = verifyValidationEvidenceArtifacts(repoDir, filePath, manifest)
   failures.push(...evidenceVerification.failures)
-  if (failures.length) {
+  if (failures.length && !allowInvalidForResearchReport) {
     throw new Error(`The reviewed validation-integrity manifest is invalid: ${failures.join('; ')}`)
   }
   const digestSha256 = crypto.createHash('sha256').update(raw).digest('hex')
@@ -1487,7 +1487,17 @@ export function loadValidationIntegrityManifest(repoDir, { asOf = new Date() } =
     filePath,
     manifest,
     digestSha256,
-    binding: validationIntegrityBinding(manifest, digestSha256, evidenceVerification),
+    binding: {
+      ...validationIntegrityBinding(manifest, digestSha256, evidenceVerification),
+      ...(failures.length ? {
+        pristineForwardEvidence: false,
+        paperExecutionEvidenceSatisfied: false,
+        paperApprovalStatus: 'invalid',
+        liveApprovalStatus: 'invalid',
+      } : {}),
+    },
+    integrityValid: failures.length === 0,
+    integrityFailures: failures,
     evidenceVerification,
   }
 }

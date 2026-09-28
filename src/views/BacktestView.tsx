@@ -158,6 +158,7 @@ export function BacktestView() {
         <div>
           <p>Every displayed gas return uses UNG. Prior holdings own the overnight move, current targets start at the adjusted session open, and turnover costs cover UNG, VOO, and QQQM.</p>
           <p>Only the chronological train/validation prefix through {selectionEnd} enters promotion. Every later row and full-calendar diagnostic is report-only.</p>
+          {allYearBacktest.data.historicalCoverageWarning && <p className="warning">{allYearBacktest.data.historicalCoverageWarning}</p>}
         </div>
       </aside>
 

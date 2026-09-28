@@ -33,6 +33,7 @@ import {
 } from './lib/qore-live-strategy-artifact.mjs'
 
 import { assertExecutionStrategy } from './lib/qore-execution-strategy.mjs'
+import { loadLiveSupplyContext, liveSupplySnapshotPath, validateObservedSupplyRow } from './lib/qore-live-supply-context.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -43,6 +44,7 @@ const testOnlyPathOverrideNames = [
   'QORE_LIVE_INFERENCE_GAS_MARKET_FILE',
   'QORE_LIVE_INFERENCE_INDEX_MARKET_FILE',
   'QORE_LIVE_INFERENCE_STORAGE_FILE',
+  'QORE_LIVE_INFERENCE_SUPPLY_FILE',
   'QORE_LIVE_ACTUAL_WEATHER_FILE',
   'QORE_GFS_OBJECT_BASE',
   'QORE_LIVE_MARKET_HISTORY_YAHOO_BASE_URL',
@@ -51,6 +53,7 @@ const testOnlyPathOverrideNames = [
 const testOnlyFlagOverrideNames = [
   'QORE_LIVE_INFERENCE_SKIP_FETCH',
   'QORE_LIVE_INFERENCE_SKIP_MARKET_REFRESH',
+  'QORE_LIVE_INFERENCE_SKIP_SUPPLY_REFRESH',
 ]
 const testOnlyReviewedValueDefaults = Object.freeze({
   QORE_LIVE_INFERENCE_LOOKBACK_DAYS: '16',
@@ -411,6 +414,33 @@ async function loadStorageRows() {
   }
 }
 
+async function loadSupplyRows() {
+  if (!summer) return { rows: [], validation: { requiredSeason: false, available: false, reason: 'outside-summer' } }
+  try {
+    if (process.env.QORE_LIVE_INFERENCE_SUPPLY_FILE) {
+      const fixture = JSON.parse(await readFile(path.resolve(process.env.QORE_LIVE_INFERENCE_SUPPLY_FILE), 'utf8'))
+      if (!Array.isArray(fixture)) throw new Error('Test supply fixture must be an array of observed vintages.')
+      const rows = fixture.map(validateObservedSupplyRow)
+      return { rows, validation: { requiredSeason: true, available: rows.length > 0, degraded: rows.length === 0, source: 'explicit-test-fixture', rowCount: rows.length } }
+    }
+    if (!truthy(process.env.QORE_LIVE_INFERENCE_SKIP_SUPPLY_REFRESH)) {
+      await run(process.execPath, ['scripts/qore-live-supply-context.mjs'], { QORE_LIVE_SUPPLY_TARGET_DATE: today })
+    }
+    const latest = loadLiveSupplyContext(repoDir, { targetDate: today })
+    return { rows: [latest], validation: {
+      requiredSeason: true, available: true, source: 'EIA STEO retained monthly release',
+      originalReleaseDate: latest.originalReleaseDate, releasedAt: latest.releasedAt,
+      observationMonth: latest.month, sourceDigestSha256: latest.sha256,
+      supplyGrowthLessLngGrowthBcfd: latest.supplyGrowthLessLngGrowthBcfd,
+      snapshot: path.relative(repoDir, liveSupplySnapshotPath(repoDir)),
+    } }
+  } catch (error) {
+    // Missing supply only blocks a candidate gas-long via the pure target policy;
+    // an existing index fallback or Winter target does not depend on this input.
+    return { rows: [], validation: { requiredSeason: true, available: false, degraded: true, reason: String(error.message).slice(0, 1000) } }
+  }
+}
+
 async function main() {
   if (shadowOnly && !summer) {
     throw new Error('Summer shadow collection is limited to the active Summer comparator schedule, including its April/May boundary.')
@@ -468,7 +498,8 @@ async function main() {
   const { rows: days, validation: marketValidation } = await marketDays()
   const { rows: storageRows, validation: storageValidation } = await loadStorageRows()
   const actualWeatherRows = await loadActualWeatherRows()
-  const target = inferAllYearTarget({ forecastRows: inferenceRows, actualWeatherRows, marketDays: days, storageRows, targetDate: today })
+  const { rows: supplyRows, validation: supplyValidation } = await loadSupplyRows()
+  const target = inferAllYearTarget({ forecastRows: inferenceRows, actualWeatherRows, marketDays: days, storageRows, supplyRows, targetDate: today })
   if (shadowOnly) {
     const shadowTarget = inferSummerShadowTarget({
       forecastRows: inferenceRows,
@@ -488,6 +519,7 @@ async function main() {
         forecastRowsDigestSha256: summerShadowValueDigestSha256(inferenceRows),
         marketDaysDigestSha256: summerShadowValueDigestSha256(days),
         storageRowsDigestSha256: summerShadowValueDigestSha256(storageRows),
+        supplyRowsDigestSha256: summerShadowValueDigestSha256(supplyRows),
         forecastValidation: {
           latestCommonIssueDate: latestIssueDate,
           issueAgeDays: round(issueAgeDays, 2),
@@ -497,6 +529,7 @@ async function main() {
         },
         marketValidation,
         storageValidation,
+        supplyValidation,
       },
     })
     const appended = await appendSummerShadowTargetRecord({ stateDir: summerShadowStateDir, record })
@@ -526,6 +559,7 @@ async function main() {
     },
     marketValidation,
     storageValidation,
+    supplyValidation,
     selectedContracts: summer ? { summer: selectedContracts.summer } : { winterFollow: selectedContracts.winterFollow, winterFade: selectedContracts.winterFade },
     files: {
       snapshot: path.relative(repoDir, outputPath),

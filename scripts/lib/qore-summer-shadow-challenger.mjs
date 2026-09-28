@@ -1,7 +1,8 @@
 import crypto from 'node:crypto'
 import { link, mkdir, open, unlink } from 'node:fs/promises'
 import path from 'node:path'
-import { executableLiveComponentContract } from './qore-live-contract.mjs'
+// This archived fade experiment must retain its original comparator.
+import { executableLiveComponentContract } from '../research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs'
 import { SUMMER_FORECAST_TEMPORAL_CONTRACT_ID } from './qore-summer-forecast-contract.mjs'
 
 export const SUMMER_SHADOW_CHALLENGER_SCHEMA_VERSION = 1

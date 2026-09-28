@@ -24,6 +24,10 @@ export function loadExecutionStrategy(repoDir, { mode = 'dry-run' } = {}) {
     }
   }
   visit('scripts/lib/qore-live-all-year-inference.mjs')
+  visit('scripts/qore-live-strategy-inference.mjs')
+  visit('scripts/qore-live-supply-context.mjs')
+  // The workbook parser is spawned dynamically, outside the ESM import graph.
+  visit('scripts/lib/qore-eia-supply-xlsx.py')
   const broker = loadReviewedBrokerExecutionProfile(repoDir)
   const contract = {
     policyId: PAPER_EXECUTION_POLICY,

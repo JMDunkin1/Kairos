@@ -1,0 +1,2116 @@
+[
+  {
+    "releasedAt": "2020-12-08",
+    "originalReleaseDate": "2020-12-08",
+    "month": "2020-11",
+    "productionBcfd": 89.62601,
+    "lngBcfd": 9.4,
+    "priorYearProductionBcfd": 96.731233333,
+    "priorYearLngBcfd": 6.3536655667,
+    "productionYoYChangeBcfd": -7.105223333000012,
+    "lngYoYChangeBcfd": 3.0463344333,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec20_base.xlsx",
+    "sha256": "ab3f51025af55ba4457c930499f14567211528655bb6595f7b6172b4daa92568",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI10",
+        "previousYear": "5atab!AW10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI12",
+        "previousYear": "5atab!AW12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_12_08_2020.php",
+        "file": "notice_data_12_08_2020.php",
+        "sha256": "82f4f7cb662a7835134e9da3070014f0eae955360388e9002c2199361e07d04a",
+        "noticeDates": [
+          "2020-12-08"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -10.151557766300012
+  },
+  {
+    "releasedAt": "2021-01-12",
+    "originalReleaseDate": "2021-01-12",
+    "month": "2020-12",
+    "productionBcfd": 88.25946,
+    "lngBcfd": 9.8,
+    "priorYearProductionBcfd": 96.997709677,
+    "priorYearLngBcfd": 7.1128532258,
+    "productionYoYChangeBcfd": -8.738249676999999,
+    "lngYoYChangeBcfd": 2.6871467742000004,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan21_base.xlsx",
+    "sha256": "9182997766bffae3787d266004a521db83fddd4a945cf37a0443945f11cf6218",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX10",
+        "previousYear": "5atab!AL10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX12",
+        "previousYear": "5atab!AL12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_01_12_2021.php",
+        "file": "notice_data_01_12_2021.php",
+        "sha256": "fbc52df68d7e8f00045c818186914395ab9bb5546903fa55d30933e4a8480686",
+        "noticeDates": [
+          "2021-01-12"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -11.4253964512
+  },
+  {
+    "releasedAt": "2021-02-09",
+    "originalReleaseDate": "2021-02-09",
+    "month": "2021-01",
+    "productionBcfd": 91.23737,
+    "lngBcfd": 9.8,
+    "priorYearProductionBcfd": 95.092419355,
+    "priorYearLngBcfd": 8.0743546774,
+    "productionYoYChangeBcfd": -3.8550493550000056,
+    "lngYoYChangeBcfd": 1.7256453226000001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb21_base.xlsx",
+    "sha256": "2e3677aa0f4d076d047090daa59953f5f5028c5ccbde29f07ff2850accd068dd",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY10",
+        "previousYear": "5atab!AM10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY12",
+        "previousYear": "5atab!AM12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -5.580694677600006
+  },
+  {
+    "releasedAt": "2021-03-09",
+    "originalReleaseDate": "2021-03-09",
+    "month": "2021-02",
+    "productionBcfd": 87.76367,
+    "lngBcfd": 7.5,
+    "priorYearProductionBcfd": 94.713103448,
+    "priorYearLngBcfd": 7.7857302414,
+    "productionYoYChangeBcfd": -6.9494334479999935,
+    "lngYoYChangeBcfd": -0.2857302413999996,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar21_base.xlsx",
+    "sha256": "18cb9b7b596dcfbe34e34bd82074d3a492fc5211c8ff539341351869b9a0fb9c",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ10",
+        "previousYear": "5atab!AN10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ12",
+        "previousYear": "5atab!AN12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -6.663703206599994
+  },
+  {
+    "releasedAt": "2021-04-06",
+    "originalReleaseDate": "2021-04-06",
+    "month": "2021-03",
+    "productionBcfd": 91.40263,
+    "lngBcfd": 10.46,
+    "priorYearProductionBcfd": 94.55616129,
+    "priorYearLngBcfd": 7.8796419677,
+    "productionYoYChangeBcfd": -3.1535312900000037,
+    "lngYoYChangeBcfd": 2.5803580323000013,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr21_base.xlsx",
+    "sha256": "30aa57fafdb2d73ce5c696164e9dc47093934d937802f4514909ffbb1939ce25",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA10",
+        "previousYear": "5atab!AO10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA12",
+        "previousYear": "5atab!AO12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -5.733889322300005
+  },
+  {
+    "releasedAt": "2021-05-11",
+    "originalReleaseDate": "2021-05-11",
+    "month": "2021-04",
+    "productionBcfd": 90.78668,
+    "lngBcfd": 9.2,
+    "priorYearProductionBcfd": 92.9442,
+    "priorYearLngBcfd": 7.0155182333,
+    "productionYoYChangeBcfd": -2.157519999999991,
+    "lngYoYChangeBcfd": 2.1844817666999994,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may21_base.xlsx",
+    "sha256": "bfa44181e59c7dd773506c499fba7d7982e6134dbfb9544adf7feb50ee023668",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB10",
+        "previousYear": "5atab!AP10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB12",
+        "previousYear": "5atab!AP12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_05_11_2021.php",
+        "file": "notice_data_05_11_2021.php",
+        "sha256": "29d182da104dd75f5b396043578463ca48473523785037c826b4ae6d751d9092",
+        "noticeDates": [
+          "2021-05-11"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -4.34200176669999
+  },
+  {
+    "releasedAt": "2021-06-08",
+    "originalReleaseDate": "2021-06-08",
+    "month": "2021-05",
+    "productionBcfd": 92.19797,
+    "lngBcfd": 9.97,
+    "priorYearProductionBcfd": 87.79716129,
+    "priorYearLngBcfd": 5.8851030323,
+    "productionYoYChangeBcfd": 4.400808709999993,
+    "lngYoYChangeBcfd": 4.084896967700001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun21_base.xlsx",
+    "sha256": "a1bb039530d37db12b14974cb9f5eb54f12a62fdb90eedceafd46394794dba5e",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC10",
+        "previousYear": "5atab!AQ10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC12",
+        "previousYear": "5atab!AQ12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.31591174229999197
+  },
+  {
+    "releasedAt": "2021-07-07",
+    "originalReleaseDate": "2021-07-07",
+    "month": "2021-06",
+    "productionBcfd": 92.93404,
+    "lngBcfd": 9.03,
+    "priorYearProductionBcfd": 88.3517,
+    "priorYearLngBcfd": 3.6333886667,
+    "productionYoYChangeBcfd": 4.582340000000002,
+    "lngYoYChangeBcfd": 5.396611333299999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul21_base.xlsx",
+    "sha256": "3c4d6d642a5ac70aa309fc4f7fc5309a569009095bad132a1a11cbc2d66991db",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD10",
+        "previousYear": "5atab!AR10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD12",
+        "previousYear": "5atab!AR12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.8142713332999971
+  },
+  {
+    "releasedAt": "2021-08-12",
+    "originalReleaseDate": "2021-08-10",
+    "month": "2021-07",
+    "productionBcfd": 92.5332,
+    "lngBcfd": 8.935,
+    "priorYearProductionBcfd": 89.766096774,
+    "priorYearLngBcfd": 3.1032271613,
+    "productionYoYChangeBcfd": 2.767103225999989,
+    "lngYoYChangeBcfd": 5.831772838700001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug21_base.xlsx",
+    "sha256": "e169a3b75b78539721333096856f72ba07ae38ffd751e4fc4ba589f7f950b21d",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE10",
+        "previousYear": "5atab!AS10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE12",
+        "previousYear": "5atab!AS12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_08_12_2021.php",
+        "file": "notice_data_08_12_2021.php",
+        "sha256": "1ab85ae7ca4cf8dae8f9915530337d6d96f681f0f37a2a1ced653436399745d0",
+        "noticeDates": [
+          "2021-08-12"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -3.064669612700012
+  },
+  {
+    "releasedAt": "2021-09-08",
+    "originalReleaseDate": "2021-09-08",
+    "month": "2021-08",
+    "productionBcfd": 92.72081,
+    "lngBcfd": 9.96,
+    "priorYearProductionBcfd": 90.234516129,
+    "priorYearLngBcfd": 3.6277946774,
+    "productionYoYChangeBcfd": 2.486293871000001,
+    "lngYoYChangeBcfd": 6.332205322600001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep21_base.xlsx",
+    "sha256": "99b038f7ce043fd1bc3772186fa28a7b65b795bcdd66bf2c636ac33dffe09812",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF10",
+        "previousYear": "5atab!AT10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF12",
+        "previousYear": "5atab!AT12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -3.8459114516
+  },
+  {
+    "releasedAt": "2021-10-13",
+    "originalReleaseDate": "2021-10-13",
+    "month": "2021-09",
+    "productionBcfd": 93.0513,
+    "lngBcfd": 9.3,
+    "priorYearProductionBcfd": 89.952966667,
+    "priorYearLngBcfd": 5.0376011667,
+    "productionYoYChangeBcfd": 3.0983333329999994,
+    "lngYoYChangeBcfd": 4.262398833300001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/oct21_base.xlsx",
+    "sha256": "115a7cf1c58bf347a7e251a62d7077c0366b4cc5d5a04d926d98556140a73128",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BG10",
+        "previousYear": "5atab!AU10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BG12",
+        "previousYear": "5atab!AU12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.1640655003000013
+  },
+  {
+    "releasedAt": "2021-11-09",
+    "originalReleaseDate": "2021-11-09",
+    "month": "2021-10",
+    "productionBcfd": 94.85522,
+    "lngBcfd": 9.846247648,
+    "priorYearProductionBcfd": 89.266935484,
+    "priorYearLngBcfd": 7.1923437419,
+    "productionYoYChangeBcfd": 5.588284516000002,
+    "lngYoYChangeBcfd": 2.6539039061,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/nov21_base.xlsx",
+    "sha256": "0689d09ff99eb1ed83bb2766681a4c8045548e3e58df63c1f34edf9fbe4fceb6",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BH10",
+        "previousYear": "5atab!AV10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BH12",
+        "previousYear": "5atab!AV12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_11_09_2021.php",
+        "file": "notice_data_11_09_2021.php",
+        "sha256": "9145b0ce678cd78b6d2cf8e5459387f839548ae39da1a5c74824b74b4cb12065",
+        "noticeDates": [
+          "2021-11-09"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.9343806099000016
+  },
+  {
+    "releasedAt": "2021-12-07",
+    "originalReleaseDate": "2021-12-07",
+    "month": "2021-11",
+    "productionBcfd": 96.06217,
+    "lngBcfd": 10.671687432,
+    "priorYearProductionBcfd": 92.017466667,
+    "priorYearLngBcfd": 9.3560802333,
+    "productionYoYChangeBcfd": 4.044703333000001,
+    "lngYoYChangeBcfd": 1.3156071987000004,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec21_base.xlsx",
+    "sha256": "72d025eced92edf1508a0fd25acccd6701e3a1b1ec82e15e54047ef7e1865db2",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI10",
+        "previousYear": "5atab!AW10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI12",
+        "previousYear": "5atab!AW12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.7290961343000006
+  },
+  {
+    "releasedAt": "2022-01-11",
+    "originalReleaseDate": "2022-01-11",
+    "month": "2021-12",
+    "productionBcfd": 96.81134,
+    "lngBcfd": 11.151939548,
+    "priorYearProductionBcfd": 92.157354839,
+    "priorYearLngBcfd": 9.814926129,
+    "productionYoYChangeBcfd": 4.653985160999994,
+    "lngYoYChangeBcfd": 1.3370134189999998,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan22_base.xlsx",
+    "sha256": "b60e88599a48cb8f130c464344c0ce5f58de08b3ad92d51e8721cd4449994a49",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX10",
+        "previousYear": "5atab!AL10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX12",
+        "previousYear": "5atab!AL12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 3.3169717419999944
+  },
+  {
+    "releasedAt": "2022-02-08",
+    "originalReleaseDate": "2022-02-08",
+    "month": "2022-01",
+    "productionBcfd": 95.45325,
+    "lngBcfd": 11.242108426,
+    "priorYearProductionBcfd": 92.804806452,
+    "priorYearLngBcfd": 9.8450243548,
+    "productionYoYChangeBcfd": 2.648443548000003,
+    "lngYoYChangeBcfd": 1.3970840712,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb22_base.xlsx",
+    "sha256": "8b4400f482f6359c8cf26d61c1c2fb17dea65dca77ec6b6bdda5f0a1dbc17336",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY10",
+        "previousYear": "5atab!AM10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY12",
+        "previousYear": "5atab!AM12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_02_08_2022.php",
+        "file": "notice_data_02_08_2022.php",
+        "sha256": "d0fb0c2082adc707932aaf3119cfe8cd42528461f3c9e9b94e7326533202bd6c",
+        "noticeDates": [
+          "2022-02-08"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.251359476800003
+  },
+  {
+    "releasedAt": "2022-03-08",
+    "originalReleaseDate": "2022-03-08",
+    "month": "2022-02",
+    "productionBcfd": 95.32957,
+    "lngBcfd": 10.9101,
+    "priorYearProductionBcfd": 86.242714286,
+    "priorYearLngBcfd": 7.442627,
+    "productionYoYChangeBcfd": 9.08685571400001,
+    "lngYoYChangeBcfd": 3.467473,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar22_base.xlsx",
+    "sha256": "55cc3c995dfa86d60d8cd1d8726020cf96acc1917b4187f4017e8dad42a43d7f",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ10",
+        "previousYear": "5atab!AN10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ12",
+        "previousYear": "5atab!AN12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.619382714000009
+  },
+  {
+    "releasedAt": "2022-04-12",
+    "originalReleaseDate": "2022-04-12",
+    "month": "2022-03",
+    "productionBcfd": 96.21623,
+    "lngBcfd": 11.888681786,
+    "priorYearProductionBcfd": 92.288612903,
+    "priorYearLngBcfd": 10.355585194,
+    "productionYoYChangeBcfd": 3.9276170969999953,
+    "lngYoYChangeBcfd": 1.5330965919999997,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr22_base.xlsx",
+    "sha256": "225e7d8e59931a685811b8f868f28322968a06ea6ffbf94f8e57877e56fb74f6",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA10",
+        "previousYear": "5atab!AO10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA12",
+        "previousYear": "5atab!AO12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.3945205049999956
+  },
+  {
+    "releasedAt": "2022-05-10",
+    "originalReleaseDate": "2022-05-10",
+    "month": "2022-04",
+    "productionBcfd": 95.52508,
+    "lngBcfd": 11.556,
+    "priorYearProductionBcfd": 93.234466667,
+    "priorYearLngBcfd": 10.2272758,
+    "productionYoYChangeBcfd": 2.290613332999996,
+    "lngYoYChangeBcfd": 1.3287242,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may22_base.xlsx",
+    "sha256": "80deccb17b45d2426788c398f16b55f924583b2228bb8ec1624dfc0ee1d20683",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB10",
+        "previousYear": "5atab!AP10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB12",
+        "previousYear": "5atab!AP12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.9618891329999961
+  },
+  {
+    "releasedAt": "2022-06-07",
+    "originalReleaseDate": "2022-06-07",
+    "month": "2022-05",
+    "productionBcfd": 95.50378,
+    "lngBcfd": 11.646288,
+    "priorYearProductionBcfd": 93.012064516,
+    "priorYearLngBcfd": 10.158760097,
+    "productionYoYChangeBcfd": 2.491715484000011,
+    "lngYoYChangeBcfd": 1.4875279030000002,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun22_base.xlsx",
+    "sha256": "6807e5632b55852f4d1113d0a36ee989bd24e1511cae29a8c6476b87998cb572",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC10",
+        "previousYear": "5atab!AQ10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC12",
+        "previousYear": "5atab!AQ12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.0041875810000107
+  },
+  {
+    "releasedAt": "2022-07-12",
+    "originalReleaseDate": "2022-07-12",
+    "month": "2022-06",
+    "productionBcfd": 95.79868,
+    "lngBcfd": 10.1419,
+    "priorYearProductionBcfd": 93.219466667,
+    "priorYearLngBcfd": 9.0456054,
+    "productionYoYChangeBcfd": 2.5792133329999984,
+    "lngYoYChangeBcfd": 1.0962946000000002,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul22_base.xlsx",
+    "sha256": "8555a9e9d04e80e9fec335ca36bb2ce14737a39b552a8f3e890389ee2c62d918",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD10",
+        "previousYear": "5atab!AR10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD12",
+        "previousYear": "5atab!AR12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.4829187329999982
+  },
+  {
+    "releasedAt": "2022-08-09",
+    "originalReleaseDate": "2022-08-09",
+    "month": "2022-07",
+    "productionBcfd": 96.41952,
+    "lngBcfd": 9.7672623258,
+    "priorYearProductionBcfd": 93.686387097,
+    "priorYearLngBcfd": 9.6820432581,
+    "productionYoYChangeBcfd": 2.733132903000012,
+    "lngYoYChangeBcfd": 0.08521906770000065,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug22_base.xlsx",
+    "sha256": "8196b5dc6900a0b4159af03578084f9243080e26f1f283ffdd3485babb4b44e3",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE10",
+        "previousYear": "5atab!AS10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE12",
+        "previousYear": "5atab!AS12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.6479138353000113
+  },
+  {
+    "releasedAt": "2022-09-07",
+    "originalReleaseDate": "2022-09-07",
+    "month": "2022-08",
+    "productionBcfd": 97.63606,
+    "lngBcfd": 10.24,
+    "priorYearProductionBcfd": 94.263806452,
+    "priorYearLngBcfd": 9.6213580968,
+    "productionYoYChangeBcfd": 3.3722535480000033,
+    "lngYoYChangeBcfd": 0.6186419032000003,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep22_base.xlsx",
+    "sha256": "13ee3aec3fc65acacab1d958de3d231d49a6594a5fea70236eb5bd0cf03e9058",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF10",
+        "previousYear": "5atab!AT10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF12",
+        "previousYear": "5atab!AT12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.753611644800003
+  },
+  {
+    "releasedAt": "2022-10-26",
+    "originalReleaseDate": "2022-10-12",
+    "month": "2022-09",
+    "productionBcfd": 98.79904,
+    "lngBcfd": 10.1455445,
+    "priorYearProductionBcfd": 95.142666667,
+    "priorYearLngBcfd": 9.4937819,
+    "productionYoYChangeBcfd": 3.6563733330000048,
+    "lngYoYChangeBcfd": 0.6517625999999996,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/oct22_base.xlsx",
+    "sha256": "630ca3fcb12fba4b25c11247895c552d259604f6911794be213716ee3517519f",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BG10",
+        "previousYear": "5atab!AU10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BG12",
+        "previousYear": "5atab!AU12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_10_26_2022.php",
+        "file": "notice_data_10_26_2022.php",
+        "sha256": "cdfed606a301cc5b25b83a3049d5c7ebfb8e6bba9adb082b113cfc15b2b76d31",
+        "noticeDates": [
+          "2022-10-13",
+          "2022-10-26"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 3.004610733000005
+  },
+  {
+    "releasedAt": "2022-11-08",
+    "originalReleaseDate": "2022-11-08",
+    "month": "2022-10",
+    "productionBcfd": 100.3333,
+    "lngBcfd": 10.106762,
+    "priorYearProductionBcfd": 96.804870968,
+    "priorYearLngBcfd": 9.6167383871,
+    "productionYoYChangeBcfd": 3.528429031999991,
+    "lngYoYChangeBcfd": 0.49002361289999996,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/nov22_base.xlsx",
+    "sha256": "a0a0d4b0cc676aac5eab4f841cdb942c6f3aa6def854c35bd5d5aa8afbaf1c25",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BH10",
+        "previousYear": "5atab!AV10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BH12",
+        "previousYear": "5atab!AV12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 3.038405419099991
+  },
+  {
+    "releasedAt": "2022-12-06",
+    "originalReleaseDate": "2022-12-06",
+    "month": "2022-11",
+    "productionBcfd": 100.464,
+    "lngBcfd": 10.121591871,
+    "priorYearProductionBcfd": 97.7062,
+    "priorYearLngBcfd": 10.2132348,
+    "productionYoYChangeBcfd": 2.757800000000003,
+    "lngYoYChangeBcfd": -0.0916429290000007,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec22_base.xlsx",
+    "sha256": "7cdba7db9a5a3380deb3b6e15b39167e80ed6301427de4e6d5ae008449645db5",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI10",
+        "previousYear": "5atab!AW10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI12",
+        "previousYear": "5atab!AW12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.849442929000004
+  },
+  {
+    "releasedAt": "2023-01-10",
+    "originalReleaseDate": "2023-01-10",
+    "month": "2022-12",
+    "productionBcfd": 98.16034,
+    "lngBcfd": 11.373290901,
+    "priorYearProductionBcfd": 97.95916129,
+    "priorYearLngBcfd": 11.140731871,
+    "productionYoYChangeBcfd": 0.20117871000000775,
+    "lngYoYChangeBcfd": 0.2325590300000009,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan23_base.xlsx",
+    "sha256": "3e9f69db5383c1b81450a60abdf8e3fbf932ca7d7301a6d516515520c12a799d",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX10",
+        "previousYear": "5atab!AL10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX12",
+        "previousYear": "5atab!AL12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.031380319999993134
+  },
+  {
+    "releasedAt": "2023-02-08",
+    "originalReleaseDate": "2023-02-07",
+    "month": "2023-01",
+    "productionBcfd": 100.1987,
+    "lngBcfd": 11.07,
+    "priorYearProductionBcfd": 95.262709677,
+    "priorYearLngBcfd": 11.412610935,
+    "productionYoYChangeBcfd": 4.935990322999999,
+    "lngYoYChangeBcfd": -0.34261093499999973,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb23_base.xlsx",
+    "sha256": "aeee3b3d69fbc09f7a64091ad1bf5c8582074fdd7e47a4bdd9b5d2c619ec2661",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY10",
+        "previousYear": "5atab!AM10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY12",
+        "previousYear": "5atab!AM12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_02_08_2023.php",
+        "file": "notice_data_02_08_2023.php",
+        "sha256": "a6680d571829b3b2669d4db3a1f1e67a606f4425d3c654eb4c5a094c0a9acc3f",
+        "noticeDates": [
+          "2023-02-08"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.278601257999998
+  },
+  {
+    "releasedAt": "2023-03-07",
+    "originalReleaseDate": "2023-03-07",
+    "month": "2023-02",
+    "productionBcfd": 100.7212,
+    "lngBcfd": 11.7,
+    "priorYearProductionBcfd": 94.537142857,
+    "priorYearLngBcfd": 11.313065786,
+    "productionYoYChangeBcfd": 6.18405714299999,
+    "lngYoYChangeBcfd": 0.38693421400000005,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar23_base.xlsx",
+    "sha256": "dc4661a7f2ffb83e0c78dd350734bcc8307a28886f8ff114343adcc9ea6b2eda",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ10",
+        "previousYear": "5atab!AN10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ12",
+        "previousYear": "5atab!AN12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.79712292899999
+  },
+  {
+    "releasedAt": "2023-04-11",
+    "originalReleaseDate": "2023-04-11",
+    "month": "2023-03",
+    "productionBcfd": 101.8085,
+    "lngBcfd": 12.292,
+    "priorYearProductionBcfd": 95.428580645,
+    "priorYearLngBcfd": 11.745664935,
+    "productionYoYChangeBcfd": 6.379919354999998,
+    "lngYoYChangeBcfd": 0.5463350649999992,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr23_base.xlsx",
+    "sha256": "ae785b551cfef4cd2f082ccabe1a0189ba8ce273e8b6efc50dfca22ae35fc65f",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA10",
+        "previousYear": "5atab!AO10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA12",
+        "previousYear": "5atab!AO12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.833584289999999
+  },
+  {
+    "releasedAt": "2023-05-09",
+    "originalReleaseDate": "2023-05-09",
+    "month": "2023-04",
+    "productionBcfd": 103.3347,
+    "lngBcfd": 12.5609,
+    "priorYearProductionBcfd": 96.500766667,
+    "priorYearLngBcfd": 11.015428967,
+    "productionYoYChangeBcfd": 6.8339333330000045,
+    "lngYoYChangeBcfd": 1.545471033,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may23_base.xlsx",
+    "sha256": "c564333f36f85a57f8c96b4deca15a24b935f6d2a2b1b5d472d32245057a6e20",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB10",
+        "previousYear": "5atab!AP10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB12",
+        "previousYear": "5atab!AP12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_05_09_2023.php",
+        "file": "notice_data_05_09_2023.php",
+        "sha256": "98040156edfe6094d365d5af9bde4c9e4eca63ecb8d36cc4ee2a445f9f4b6326",
+        "noticeDates": [
+          "2023-05-09"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.288462300000004
+  },
+  {
+    "releasedAt": "2023-06-06",
+    "originalReleaseDate": "2023-06-06",
+    "month": "2023-05",
+    "productionBcfd": 103.6458,
+    "lngBcfd": 11.8481,
+    "priorYearProductionBcfd": 97.748419355,
+    "priorYearLngBcfd": 11.33703029,
+    "productionYoYChangeBcfd": 5.897380644999998,
+    "lngYoYChangeBcfd": 0.511069710000001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun23_base.xlsx",
+    "sha256": "0b01e5c4d270c02b4c37e82d73b24afff498bebbe27510cfec5a9b48d3ddba17",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC10",
+        "previousYear": "5atab!AQ10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC12",
+        "previousYear": "5atab!AQ12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 5.386310934999997
+  },
+  {
+    "releasedAt": "2023-07-11",
+    "originalReleaseDate": "2023-07-11",
+    "month": "2023-06",
+    "productionBcfd": 101.9876,
+    "lngBcfd": 11.86,
+    "priorYearProductionBcfd": 98.525266667,
+    "priorYearLngBcfd": 10.021977233,
+    "productionYoYChangeBcfd": 3.4623333330000037,
+    "lngYoYChangeBcfd": 1.838022767,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul23_base.xlsx",
+    "sha256": "fdc949682f272ee2235e817c124362fab3b97a6634ea9389dafc5b255ddfb45a",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD10",
+        "previousYear": "5atab!AR10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD12",
+        "previousYear": "5atab!AR12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.6243105660000037
+  },
+  {
+    "releasedAt": "2023-08-08",
+    "originalReleaseDate": "2023-08-08",
+    "month": "2023-07",
+    "productionBcfd": 103.3904,
+    "lngBcfd": 11.84259,
+    "priorYearProductionBcfd": 98.540516129,
+    "priorYearLngBcfd": 9.6908051613,
+    "productionYoYChangeBcfd": 4.849883871000003,
+    "lngYoYChangeBcfd": 2.1517848386999994,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug23_base.xlsx",
+    "sha256": "a71e1be2e0d28080e1a178aadc85670f3ec75252708f838beb2fe2ee22d2c3cf",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE10",
+        "previousYear": "5atab!AS10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE12",
+        "previousYear": "5atab!AS12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.6980990323000036
+  },
+  {
+    "releasedAt": "2023-09-12",
+    "originalReleaseDate": "2023-09-12",
+    "month": "2023-08",
+    "productionBcfd": 102.6136,
+    "lngBcfd": 11.3,
+    "priorYearProductionBcfd": 99.332709677,
+    "priorYearLngBcfd": 9.6843560645,
+    "productionYoYChangeBcfd": 3.2808903230000084,
+    "lngYoYChangeBcfd": 1.6156439355000014,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep23_base.xlsx",
+    "sha256": "9afe1f7d73678cfe5c5fc359fd0bbb9d0e3abbe316b0c5ef42643df61aa4ec69",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF10",
+        "previousYear": "5atab!AT10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF12",
+        "previousYear": "5atab!AT12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.665246387500007
+  },
+  {
+    "releasedAt": "2023-10-11",
+    "originalReleaseDate": "2023-10-11",
+    "month": "2023-09",
+    "productionBcfd": 104.7452,
+    "lngBcfd": 11.52,
+    "priorYearProductionBcfd": 102.35493333,
+    "priorYearLngBcfd": 9.8459686667,
+    "productionYoYChangeBcfd": 2.3902666700000026,
+    "lngYoYChangeBcfd": 1.6740313333000003,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/oct23_base.xlsx",
+    "sha256": "9052f233f79c28dcd9a1cd863adc59b2f39f5bcb266b3cbceb6a1579ee93b757",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BG10",
+        "previousYear": "5atab!AU10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BG12",
+        "previousYear": "5atab!AU12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.7162353367000023
+  },
+  {
+    "releasedAt": "2023-11-09",
+    "originalReleaseDate": "2023-11-07",
+    "month": "2023-10",
+    "productionBcfd": 104.7912,
+    "lngBcfd": 12.71,
+    "priorYearProductionBcfd": 102.24535484,
+    "priorYearLngBcfd": 9.9942913871,
+    "productionYoYChangeBcfd": 2.545845159999999,
+    "lngYoYChangeBcfd": 2.7157086129000003,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/nov23_base.xlsx",
+    "sha256": "1a5b2a74cb04615e111461dc5fb895951dea41787fab4967968d7e1136c6f966",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BH10",
+        "previousYear": "5atab!AV10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BH12",
+        "previousYear": "5atab!AV12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_11_09_2023.php",
+        "file": "notice_data_11_09_2023.php",
+        "sha256": "d9e62f9673db58b24eb1c7e4f3594e85f0e6ed2898cf74da68a0a08104e71068",
+        "noticeDates": [
+          "2023-11-09"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.16986345290000138
+  },
+  {
+    "releasedAt": "2023-12-12",
+    "originalReleaseDate": "2023-12-12",
+    "month": "2023-11",
+    "productionBcfd": 105.0516,
+    "lngBcfd": 12.5,
+    "priorYearProductionBcfd": 102.23686667,
+    "priorYearLngBcfd": 10.0869448,
+    "productionYoYChangeBcfd": 2.8147333299999957,
+    "lngYoYChangeBcfd": 2.4130552000000005,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec23_base.xlsx",
+    "sha256": "b46feff4942376e2537b58c864cfc75e873d73f1a7582f532e3244f777ad6cea",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI10",
+        "previousYear": "5atab!AW10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI12",
+        "previousYear": "5atab!AW12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.4016781299999952
+  },
+  {
+    "releasedAt": "2024-01-09",
+    "originalReleaseDate": "2024-01-09",
+    "month": "2023-12",
+    "productionBcfd": 104.6621,
+    "lngBcfd": 12.88,
+    "priorYearProductionBcfd": 100.24170968,
+    "priorYearLngBcfd": 10.966464452,
+    "productionYoYChangeBcfd": 4.420390319999996,
+    "lngYoYChangeBcfd": 1.9135355480000005,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan24_base.xlsx",
+    "sha256": "663ee3c648d2e88dad48dd1efd2557df99c811afe4afcc2094ed92c988fb53a9",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX10",
+        "previousYear": "5atab!AL10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX12",
+        "previousYear": "5atab!AL12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.506854771999995
+  },
+  {
+    "releasedAt": "2024-02-06",
+    "originalReleaseDate": "2024-02-06",
+    "month": "2024-01",
+    "productionBcfd": 101.7979,
+    "lngBcfd": 11,
+    "priorYearProductionBcfd": 101.90183871,
+    "priorYearLngBcfd": 10.875970161,
+    "productionYoYChangeBcfd": -0.10393871000000843,
+    "lngYoYChangeBcfd": 0.12402983900000031,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb24_base.xlsx",
+    "sha256": "dc3742fe43299f5288533d328c86c8435bc8223d92e26ad418ee276b2890aae3",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY10",
+        "previousYear": "5atab!AM10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY12",
+        "previousYear": "5atab!AM12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.22796854900000874
+  },
+  {
+    "releasedAt": "2024-03-12",
+    "originalReleaseDate": "2024-03-12",
+    "month": "2024-02",
+    "productionBcfd": 103.944,
+    "lngBcfd": 12.9,
+    "priorYearProductionBcfd": 101.98492857,
+    "priorYearLngBcfd": 11.652665036,
+    "productionYoYChangeBcfd": 1.9590714300000087,
+    "lngYoYChangeBcfd": 1.2473349640000002,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar24_base.xlsx",
+    "sha256": "0f168cec985f5511c93b6238cfc27cacf4df1f2dd890ce01d23fd1e81c30b513",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ10",
+        "previousYear": "5atab!AN10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ12",
+        "previousYear": "5atab!AN12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.7117364660000085
+  },
+  {
+    "releasedAt": "2024-04-09",
+    "originalReleaseDate": "2024-04-09",
+    "month": "2024-03",
+    "productionBcfd": 103.1178,
+    "lngBcfd": 12.2,
+    "priorYearProductionBcfd": 102.87716129,
+    "priorYearLngBcfd": 11.836801194,
+    "productionYoYChangeBcfd": 0.24063870999999892,
+    "lngYoYChangeBcfd": 0.36319880599999976,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr24_base.xlsx",
+    "sha256": "144ffbf52092468b4bccdd58b94dfacf4b603351ec7dba54fafb1d4b8b6a9095",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA10",
+        "previousYear": "5atab!AO10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA12",
+        "previousYear": "5atab!AO12"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_04_09_2024.php",
+        "file": "notice_data_04_09_2024.php",
+        "sha256": "89943d02f58fdf31b8d6396e8f055a77bba8049183cf5d6ff916efbb7a0d841d",
+        "noticeDates": [
+          "2024-04-09"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.12256009600000084
+  },
+  {
+    "releasedAt": "2024-05-07",
+    "originalReleaseDate": "2024-05-07",
+    "month": "2024-04",
+    "productionBcfd": 102.7312,
+    "lngBcfd": 10.7077,
+    "priorYearProductionBcfd": 102.64553333,
+    "priorYearLngBcfd": 12.528115133,
+    "productionYoYChangeBcfd": 0.08566666999999484,
+    "lngYoYChangeBcfd": -1.8204151329999991,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may24_base.xlsx",
+    "sha256": "b26d58c911a0878fd615aedd164a2d4796927146c45654d90edcb457ca57f8ea",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB10",
+        "previousYear": "5atab!AP10"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB12",
+        "previousYear": "5atab!AP12"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.906081802999994
+  },
+  {
+    "releasedAt": "2024-06-27",
+    "originalReleaseDate": "2024-06-11",
+    "month": "2024-05",
+    "productionBcfd": 100.4652,
+    "lngBcfd": 11.22,
+    "priorYearProductionBcfd": 103.56416129,
+    "priorYearLngBcfd": 11.831429452,
+    "productionYoYChangeBcfd": -3.0989612900000054,
+    "lngYoYChangeBcfd": -0.6114294519999994,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun24_base.xlsx",
+    "sha256": "12cd939ba0d9d6b559d56d40cc0650e99c57d249fff1ecc691af601a2e0de636",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC20",
+        "previousYear": "5atab!AQ20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC25",
+        "previousYear": "5atab!AQ25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_06_27_2024.php",
+        "file": "notice_data_06_27_2024.php",
+        "sha256": "16bdbdfe200efefbe229506d18fc4cbdc0a8c139f65d8d140cccf536a4240de2",
+        "noticeDates": [
+          "2024-06-27"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -2.487531838000006
+  },
+  {
+    "releasedAt": "2024-07-09",
+    "originalReleaseDate": "2024-07-09",
+    "month": "2024-06",
+    "productionBcfd": 102.9784,
+    "lngBcfd": 11.734768,
+    "priorYearProductionBcfd": 103.25016667,
+    "priorYearLngBcfd": 10.929080633,
+    "productionYoYChangeBcfd": -0.2717666700000052,
+    "lngYoYChangeBcfd": 0.8056873670000009,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul24_base.xlsx",
+    "sha256": "066eb3d2691a4ace702483ee4a73f64c6d9899a692edb4b9171d94b986b369dd",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD20",
+        "previousYear": "5atab!AR20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD25",
+        "previousYear": "5atab!AR25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.077454037000006
+  },
+  {
+    "releasedAt": "2024-08-06",
+    "originalReleaseDate": "2024-08-06",
+    "month": "2024-07",
+    "productionBcfd": 103.4056,
+    "lngBcfd": 11.3573,
+    "priorYearProductionBcfd": 103.31225806,
+    "priorYearLngBcfd": 11.267489774,
+    "productionYoYChangeBcfd": 0.09334194000000196,
+    "lngYoYChangeBcfd": 0.08981022600000088,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug24_base.xlsx",
+    "sha256": "a4679e91622d5d8d414954b988afdb4119690e7d0b1e458e30be0ca7666ca826",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE20",
+        "previousYear": "5atab!AS20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE25",
+        "previousYear": "5atab!AS25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.003531714000001074
+  },
+  {
+    "releasedAt": "2024-09-10",
+    "originalReleaseDate": "2024-09-10",
+    "month": "2024-08",
+    "productionBcfd": 103.3217,
+    "lngBcfd": 11.5579,
+    "priorYearProductionBcfd": 104.48664516,
+    "priorYearLngBcfd": 11.388993581,
+    "productionYoYChangeBcfd": -1.1649451599999878,
+    "lngYoYChangeBcfd": 0.1689064190000007,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep24_base.xlsx",
+    "sha256": "3b663f40f03a86483340e9cb7fd66c6e05e0b5acd2771c56497728fcb478a7dd",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF20",
+        "previousYear": "5atab!AT20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF25",
+        "previousYear": "5atab!AT25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.3338515789999885
+  },
+  {
+    "releasedAt": "2024-10-08",
+    "originalReleaseDate": "2024-10-08",
+    "month": "2024-09",
+    "productionBcfd": 103.5326,
+    "lngBcfd": 12.1,
+    "priorYearProductionBcfd": 104.43313333,
+    "priorYearLngBcfd": 11.5534509,
+    "productionYoYChangeBcfd": -0.9005333300000018,
+    "lngYoYChangeBcfd": 0.5465491,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/oct24_base.xlsx",
+    "sha256": "3825256dd82e3347df45632c1320e73d38acb82e4a5f2ebe5197148844dc9ba4",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BG20",
+        "previousYear": "5atab!AU20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BG25",
+        "previousYear": "5atab!AU25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.4470824300000018
+  },
+  {
+    "releasedAt": "2024-11-14",
+    "originalReleaseDate": "2024-11-13",
+    "month": "2024-10",
+    "productionBcfd": 103.4918,
+    "lngBcfd": 12.5,
+    "priorYearProductionBcfd": 104.30164516,
+    "priorYearLngBcfd": 12.400103516,
+    "productionYoYChangeBcfd": -0.809845160000009,
+    "lngYoYChangeBcfd": 0.09989648400000029,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/nov24_base.xlsx",
+    "sha256": "0aea752a8bd2991df43b028a9d10d673ee98710a99cd9e1864d936ba9b7059bb",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BH20",
+        "previousYear": "5atab!AV20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BH25",
+        "previousYear": "5atab!AV25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_11_14_2024.php",
+        "file": "notice_data_11_14_2024.php",
+        "sha256": "6e22bddd728523b2eaec33c2fc78f8f7205e9034a5cd82ee73b57abaa4804d6f",
+        "noticeDates": [
+          "2024-11-14"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.9097416440000092
+  },
+  {
+    "releasedAt": "2024-12-10",
+    "originalReleaseDate": "2024-12-10",
+    "month": "2024-11",
+    "productionBcfd": 103.6847,
+    "lngBcfd": 12.4,
+    "priorYearProductionBcfd": 105.86956667,
+    "priorYearLngBcfd": 12.8753989,
+    "productionYoYChangeBcfd": -2.184866669999991,
+    "lngYoYChangeBcfd": -0.47539890000000007,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec24_base.xlsx",
+    "sha256": "b650cb965a38a67e8b5e2f4d8df794b8ddfab6a429fca551cc1c7ff404ffb396",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI20",
+        "previousYear": "5atab!AW20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI25",
+        "previousYear": "5atab!AW25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.709467769999991
+  },
+  {
+    "releasedAt": "2025-01-15",
+    "originalReleaseDate": "2025-01-14",
+    "month": "2024-12",
+    "productionBcfd": 104.5954,
+    "lngBcfd": 13.53,
+    "priorYearProductionBcfd": 105.54935484,
+    "priorYearLngBcfd": 13.643065194,
+    "productionYoYChangeBcfd": -0.9539548400000086,
+    "lngYoYChangeBcfd": -0.1130651940000007,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan25_base.xlsx",
+    "sha256": "67f9f24b6f0bd074bcc92e47f8f5ea23594f2dd6ccbf31b2dff912621bbb5b22",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX20",
+        "previousYear": "5atab!AL20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX25",
+        "previousYear": "5atab!AL25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_01_15_2025.php",
+        "file": "notice_data_01_15_2025.php",
+        "sha256": "366e26346821172e5b4b8dece7eab7bf56d95717d830bd9af7dd4aecbdeab17d",
+        "noticeDates": [
+          "2025-01-15"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.8408896460000079
+  },
+  {
+    "releasedAt": "2025-02-12",
+    "originalReleaseDate": "2025-02-11",
+    "month": "2025-01",
+    "productionBcfd": 104.0085,
+    "lngBcfd": 13.594832559,
+    "priorYearProductionBcfd": 103.48919355,
+    "priorYearLngBcfd": 12.782593774,
+    "productionYoYChangeBcfd": 0.519306450000002,
+    "lngYoYChangeBcfd": 0.8122387849999999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb25_base.xlsx",
+    "sha256": "64ac0e0d1d7e084745ebd88b4a234c57f7fdc3a6c652a91c79147d199bbbdb01",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY20",
+        "previousYear": "5atab!AM20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY25",
+        "previousYear": "5atab!AM25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_02_12_2025.php",
+        "file": "notice_data_02_12_2025.php",
+        "sha256": "8b20adfd80c87fd9a68e037f222dc8a9b92f8dc340337267dbb7ce6cc5dcfd16",
+        "noticeDates": [
+          "2025-02-12"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.29293233499999793
+  },
+  {
+    "releasedAt": "2025-03-11",
+    "originalReleaseDate": "2025-03-11",
+    "month": "2025-02",
+    "productionBcfd": 105.5357,
+    "lngBcfd": 14.75,
+    "priorYearProductionBcfd": 105.90217241,
+    "priorYearLngBcfd": 12.398711172,
+    "productionYoYChangeBcfd": -0.3664724100000001,
+    "lngYoYChangeBcfd": 2.3512888279999995,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar25_base.xlsx",
+    "sha256": "62dc490de708892d24411fe7e6902cc57ad63b60e5c8b864d9f3bdaeea89ce29",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ20",
+        "previousYear": "5atab!AN20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ25",
+        "previousYear": "5atab!AN25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -2.7177612379999996
+  },
+  {
+    "releasedAt": "2025-04-10",
+    "originalReleaseDate": "2025-04-10",
+    "month": "2025-03",
+    "productionBcfd": 105.1313,
+    "lngBcfd": 15,
+    "priorYearProductionBcfd": 102.59780645,
+    "priorYearLngBcfd": 11.932180355,
+    "productionYoYChangeBcfd": 2.533493550000003,
+    "lngYoYChangeBcfd": 3.067819645,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr25_base.xlsx",
+    "sha256": "b3dab5214dcc1c3dae3cea87431e6a781769996adc702b21d35eb254c0345ad4",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA20",
+        "previousYear": "5atab!AO20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA25",
+        "previousYear": "5atab!AO25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.5343260949999973
+  },
+  {
+    "releasedAt": "2025-05-06",
+    "originalReleaseDate": "2025-05-06",
+    "month": "2025-04",
+    "productionBcfd": 105.172,
+    "lngBcfd": 14.45,
+    "priorYearProductionBcfd": 101.6829,
+    "priorYearLngBcfd": 10.125862933,
+    "productionYoYChangeBcfd": 3.4890999999999934,
+    "lngYoYChangeBcfd": 4.324137066999999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may25_base.xlsx",
+    "sha256": "ea81918222483bafd3bcbdd98f52c2b1f17cb6470c3830a6a0deb8bd213fe228",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB20",
+        "previousYear": "5atab!AP20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB25",
+        "previousYear": "5atab!AP25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.8350370670000054
+  },
+  {
+    "releasedAt": "2025-06-10",
+    "originalReleaseDate": "2025-06-10",
+    "month": "2025-05",
+    "productionBcfd": 105.717,
+    "lngBcfd": 14.03,
+    "priorYearProductionBcfd": 101.5013871,
+    "priorYearLngBcfd": 11.862035323,
+    "productionYoYChangeBcfd": 4.215612899999996,
+    "lngYoYChangeBcfd": 2.1679646769999987,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun25_base.xlsx",
+    "sha256": "332f761e85c7ab3d5f4eded212f30987a409cb19042072e90b3af9bd9bcf5164",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC20",
+        "previousYear": "5atab!AQ20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC25",
+        "previousYear": "5atab!AQ25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.0476482229999977
+  },
+  {
+    "releasedAt": "2025-07-08",
+    "originalReleaseDate": "2025-07-08",
+    "month": "2025-06",
+    "productionBcfd": 106.0195,
+    "lngBcfd": 12.97154245,
+    "priorYearProductionBcfd": 102.76996667,
+    "priorYearLngBcfd": 11.8807531,
+    "productionYoYChangeBcfd": 3.2495333299999913,
+    "lngYoYChangeBcfd": 1.0907893499999997,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul25_base.xlsx",
+    "sha256": "4231a27728d8c6f99dda0e51796e3b7a18e39f4fdcd2edfb4d8a43eadb0e850e",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD20",
+        "previousYear": "5atab!AR20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD25",
+        "previousYear": "5atab!AR25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.1587439799999917
+  },
+  {
+    "releasedAt": "2025-08-12",
+    "originalReleaseDate": "2025-08-12",
+    "month": "2025-07",
+    "productionBcfd": 106.6729,
+    "lngBcfd": 14.15469,
+    "priorYearProductionBcfd": 104.11870968,
+    "priorYearLngBcfd": 10.447505839,
+    "productionYoYChangeBcfd": 2.5541903200000036,
+    "lngYoYChangeBcfd": 3.7071841610000007,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug25_base.xlsx",
+    "sha256": "31e4bec79e50872816cf7c300501e0a462b50f7316eba7011ae4cec3e2b8e64f",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE20",
+        "previousYear": "5atab!AS20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE25",
+        "previousYear": "5atab!AS25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.1529938409999971
+  },
+  {
+    "releasedAt": "2025-09-09",
+    "originalReleaseDate": "2025-09-09",
+    "month": "2025-08",
+    "productionBcfd": 107.1787,
+    "lngBcfd": 14.7,
+    "priorYearProductionBcfd": 103.04990323,
+    "priorYearLngBcfd": 11.728194097,
+    "productionYoYChangeBcfd": 4.128796770000008,
+    "lngYoYChangeBcfd": 2.971805903,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep25_base.xlsx",
+    "sha256": "8f1665eebc7fda9f4bd67c53e6b0e3452f777247d292be4ffbbb9644a03e742e",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF20",
+        "previousYear": "5atab!AT20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF25",
+        "previousYear": "5atab!AT25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.1569908670000082
+  },
+  {
+    "releasedAt": "2025-10-07",
+    "originalReleaseDate": "2025-10-07",
+    "month": "2025-09",
+    "productionBcfd": 107.5862,
+    "lngBcfd": 14.846,
+    "priorYearProductionBcfd": 101.79993333,
+    "priorYearLngBcfd": 12.1009837,
+    "productionYoYChangeBcfd": 5.786266670000003,
+    "lngYoYChangeBcfd": 2.7450162999999996,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/oct25_base.xlsx",
+    "sha256": "01aba5772bdeb3d07ee7b5381bfb0dda6f14275f3ec11c05b9e09f2f8cff24b6",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BG20",
+        "previousYear": "5atab!AU20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BG25",
+        "previousYear": "5atab!AU25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 3.0412503700000038
+  },
+  {
+    "releasedAt": "2025-11-12",
+    "originalReleaseDate": "2025-11-12",
+    "month": "2025-10",
+    "productionBcfd": 109.1676,
+    "lngBcfd": 15.78,
+    "priorYearProductionBcfd": 102.88677419,
+    "priorYearLngBcfd": 12.135486258,
+    "productionYoYChangeBcfd": 6.280825809999996,
+    "lngYoYChangeBcfd": 3.644513741999999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/nov25_base.xlsx",
+    "sha256": "23f7044def86525fefcef30dce3e4aeec6b46cf1f56ad9809eb91455f8daceef",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BH20",
+        "previousYear": "5atab!AV20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BH25",
+        "previousYear": "5atab!AV25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.636312067999997
+  },
+  {
+    "releasedAt": "2025-12-18",
+    "originalReleaseDate": "2025-12-09",
+    "month": "2025-11",
+    "productionBcfd": 110.0462,
+    "lngBcfd": 17.07,
+    "priorYearProductionBcfd": 102.9929,
+    "priorYearLngBcfd": 12.535502367,
+    "productionYoYChangeBcfd": 7.053299999999993,
+    "lngYoYChangeBcfd": 4.534497633000001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/dec25_base.xlsx",
+    "sha256": "0531b7d5f0d1af686fd7afcc91461dcb4a4960d3f76ebb673776946df383253e",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BI20",
+        "previousYear": "5atab!AW20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BI25",
+        "previousYear": "5atab!AW25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_12_18_2025.php",
+        "file": "notice_data_12_18_2025.php",
+        "sha256": "5ac0cacd1da1d4c08fc3d575d366be4eff3040e30e967a5b69da6010e8ecd3d7",
+        "noticeDates": [
+          "2025-12-18"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.518802366999992
+  },
+  {
+    "releasedAt": "2026-01-13",
+    "originalReleaseDate": "2026-01-13",
+    "month": "2025-12",
+    "productionBcfd": 109.4646,
+    "lngBcfd": 17.86,
+    "priorYearProductionBcfd": 105.57870968,
+    "priorYearLngBcfd": 13.251173323,
+    "productionYoYChangeBcfd": 3.8858903200000015,
+    "lngYoYChangeBcfd": 4.608826677,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jan26_base.xlsx",
+    "sha256": "8844e274c26c6d3906bab78c027019e4c39a42322b7a9b911fbe4e19e133f99c",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AX20",
+        "previousYear": "5atab!AL20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AX25",
+        "previousYear": "5atab!AL25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.7229363569999983
+  },
+  {
+    "releasedAt": "2026-02-10",
+    "originalReleaseDate": "2026-02-10",
+    "month": "2026-01",
+    "productionBcfd": 106.6819,
+    "lngBcfd": 17.439,
+    "priorYearProductionBcfd": 104.3723871,
+    "priorYearLngBcfd": 13.3855009,
+    "productionYoYChangeBcfd": 2.3095129000000014,
+    "lngYoYChangeBcfd": 4.0534991,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/feb26_base.xlsx",
+    "sha256": "6137d255d2d794a8862b96b5234a33f8a3e52d2633dff546c82e511fb85847d8",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AY20",
+        "previousYear": "5atab!AM20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AY25",
+        "previousYear": "5atab!AM25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -1.7439861999999984
+  },
+  {
+    "releasedAt": "2026-03-10",
+    "originalReleaseDate": "2026-03-10",
+    "month": "2026-02",
+    "productionBcfd": 110.0902,
+    "lngBcfd": 17.513425245,
+    "priorYearProductionBcfd": 104.96410714,
+    "priorYearLngBcfd": 14.615418786,
+    "productionYoYChangeBcfd": 5.12609286,
+    "lngYoYChangeBcfd": 2.898006459000001,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/mar26_base.xlsx",
+    "sha256": "0cd3cb78a681757e1ad954e20e061fd04e4e8d14099ab24d9554620c0204badf",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!AZ20",
+        "previousYear": "5atab!AN20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!AZ25",
+        "previousYear": "5atab!AN25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.2280864009999988
+  },
+  {
+    "releasedAt": "2026-04-07",
+    "originalReleaseDate": "2026-04-07",
+    "month": "2026-03",
+    "productionBcfd": 109.6683,
+    "lngBcfd": 17.89045005,
+    "priorYearProductionBcfd": 107.44990323,
+    "priorYearLngBcfd": 14.772740419,
+    "productionYoYChangeBcfd": 2.2183967699999982,
+    "lngYoYChangeBcfd": 3.1177096309999985,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/apr26_base.xlsx",
+    "sha256": "54bec64cfb767ecdfb490ab9e20986610dbaf865dc933baef6c4657ccc8d248f",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BA20",
+        "previousYear": "5atab!AO20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BA25",
+        "previousYear": "5atab!AO25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.8993128610000003
+  },
+  {
+    "releasedAt": "2026-05-12",
+    "originalReleaseDate": "2026-05-12",
+    "month": "2026-04",
+    "productionBcfd": 109.9371,
+    "lngBcfd": 17.57890307,
+    "priorYearProductionBcfd": 106.89896667,
+    "priorYearLngBcfd": 14.9374515,
+    "productionYoYChangeBcfd": 3.038133330000008,
+    "lngYoYChangeBcfd": 2.641451569999999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/may26_base.xlsx",
+    "sha256": "713b1a01e46bc8d00c6795fd4d668c9635977631e4071e0819349a151dbd07e2",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BB20",
+        "previousYear": "5atab!AP20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BB25",
+        "previousYear": "5atab!AP25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.39668176000000877
+  },
+  {
+    "releasedAt": "2026-06-09",
+    "originalReleaseDate": "2026-06-09",
+    "month": "2026-05",
+    "productionBcfd": 110.899,
+    "lngBcfd": 16.083,
+    "priorYearProductionBcfd": 106.54354839,
+    "priorYearLngBcfd": 14.041883774,
+    "productionYoYChangeBcfd": 4.355451610000003,
+    "lngYoYChangeBcfd": 2.041116225999998,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jun26_base.xlsx",
+    "sha256": "ad3fc1618a0fa0b17e4b31d04bacf69c06677387b879f8e1858f1f895a9994c8",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BC20",
+        "previousYear": "5atab!AQ20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BC25",
+        "previousYear": "5atab!AQ25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 2.314335384000005
+  },
+  {
+    "releasedAt": "2026-07-07",
+    "originalReleaseDate": "2026-07-07",
+    "month": "2026-06",
+    "productionBcfd": 111.1411,
+    "lngBcfd": 17.438,
+    "priorYearProductionBcfd": 107.53006667,
+    "priorYearLngBcfd": 13.534549767,
+    "productionYoYChangeBcfd": 3.611033329999998,
+    "lngYoYChangeBcfd": 3.903450232999999,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/jul26_base.xlsx",
+    "sha256": "67741610f3bb74e011a55a40d9cb571f5ea9108a96ef7d144e65519abd72f490",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BD20",
+        "previousYear": "5atab!AR20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BD25",
+        "previousYear": "5atab!AR25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": -0.2924169030000012
+  },
+  {
+    "releasedAt": "2026-08-11",
+    "originalReleaseDate": "2026-08-11",
+    "month": "2026-07",
+    "productionBcfd": 110.8153,
+    "lngBcfd": 16.560172046,
+    "priorYearProductionBcfd": 107.99893548,
+    "priorYearLngBcfd": 14.091615,
+    "productionYoYChangeBcfd": 2.8163645199999934,
+    "lngYoYChangeBcfd": 2.4685570460000026,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/aug26_base.xlsx",
+    "sha256": "2f58e3cee31c68b395bbc468673a887e5691b91bfad2c1676f2e58f5fe84b1d1",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BE20",
+        "previousYear": "5atab!AS20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BE25",
+        "previousYear": "5atab!AS25"
+      }
+    },
+    "notices": [],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 0.3478074739999908
+  },
+  {
+    "releasedAt": "2026-09-10",
+    "originalReleaseDate": "2026-09-09",
+    "month": "2026-08",
+    "productionBcfd": 112.2399,
+    "lngBcfd": 16.63,
+    "priorYearProductionBcfd": 108.64858065,
+    "priorYearLngBcfd": 14.552867065,
+    "productionYoYChangeBcfd": 3.5913193500000062,
+    "lngYoYChangeBcfd": 2.077132935,
+    "sourceUrl": "https://www.eia.gov/outlooks/steo/archives/sep26_base.xlsx",
+    "sha256": "c06a15243b0d972045ecc59cf9376885f68c7c306c581de5d01e6b8ac1a236c5",
+    "availability": "admit only when releasedAt < target trading session date",
+    "vintageType": "STEO released estimates, not finalized observed data",
+    "cells": {
+      "NGPRPUS": {
+        "current": "5atab!BF20",
+        "previousYear": "5atab!AT20"
+      },
+      "NGEXPUS_LNG": {
+        "current": "5atab!BF25",
+        "previousYear": "5atab!AT25"
+      }
+    },
+    "notices": [
+      {
+        "url": "https://www.eia.gov/outlooks/steo/archives/notice_data_09_10_2026.php",
+        "file": "notice_data_09_10_2026.php",
+        "sha256": "405f8a59fb8e7d888af0bcb24b304fde3898bb68789677942c667af06591e5de",
+        "noticeDates": [
+          "2026-09-10"
+        ]
+      }
+    ],
+    "units": "Bcf/d",
+    "supplyGrowthLessLngGrowthBcfd": 1.5141864150000064
+  }
+]

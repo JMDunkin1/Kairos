@@ -4,7 +4,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import Papa from 'papaparse'
-import { enrichForecastRows } from './lib/qore-live-all-year-inference.mjs'
+import { enrichForecastRows } from './research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs'
 import { loadEiaStorageReleaseCalendar } from './lib/eia-release-time.mjs'
 import { loadExecutionCalendar, loadResearchExecutionContract, createExecutionState, applyExecutionStep, targetWeightsForAllocation, loadAdjustedYahooBars } from './lib/qore-research-execution.mjs'
 import { loadSimplificationResearchEngine, simplificationSummerTargets } from './lib/qore-simplification-research.mjs'
@@ -22,7 +22,7 @@ const spec = read(localProtocolPath)
 assert.deepEqual(spec, protocol, 'Local preregistration differs from the frozen versioned protocol')
 assert.equal(spec.studyId, 'ngas-simplification-v1')
 assert.deepEqual(spec.candidates.map((x) => x.id), ['baseline', 'no-summer-fade', 'ung-price', 'ung-price-no-summer-fade', 'all-year-long-only'])
-const inputPaths = [protocolPath, path.join(root, 'scripts/test-qore-simplification.mjs'), path.join(root, 'scripts/research-ngas-simplification.mjs'), path.join(root, 'scripts/lib/qore-simplification-research.mjs'), path.join(root, 'scripts/lib/qore-research-execution.mjs'), path.join(root, 'scripts/lib/qore-rebalance-deadband.mjs'), path.join(dir, 'preregistration.json'), path.join(root, 'scripts/lib/qore-live-all-year-inference.mjs'), path.join(root, 'scripts/lib/qore-live-contract.mjs')]
+const inputPaths = [protocolPath, path.join(root, 'scripts/test-qore-simplification.mjs'), path.join(root, 'scripts/research-ngas-simplification.mjs'), path.join(root, 'scripts/lib/qore-simplification-research.mjs'), path.join(root, 'scripts/lib/qore-research-execution.mjs'), path.join(root, 'scripts/lib/qore-rebalance-deadband.mjs'), path.join(dir, 'preregistration.json'), path.join(root, 'scripts/research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs'), path.join(root, 'scripts/research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs'), path.join(root, 'scripts/research-fixtures/ngas-simplification-baseline/qore-live-target-lattice.mjs')]
 const data = path.join(root, 'data/qore')
 const scores = [], locations = []
 for (const [sourceId, subdir] of [['gfs', 'noaa-gfs'], ['gefs-mean', 'noaa-gefs']]) {
@@ -38,8 +38,8 @@ const storagePath = path.join(data, 'fundamentals/eia/working-gas-storage-lower4
 const releasePath = path.join(data, 'fundamentals/eia/working-gas-storage-release-calendar.json')
 const ngPath = path.join(data, 'market/yahoo/NG-F-qore-market.csv')
 const ungPath = path.join(data, 'market/yahoo/UNG-daily.csv')
-const expectedPath = path.join(data, 'research/strategy-agent-runs/ngas-summer-alpha/selected-trades.csv')
-const compositePath = path.join(data, 'research/strategy-agent-runs/ngas-all-year-beta/selected-trades.csv')
+const expectedPath = path.join(data, 'research/ngas-simplification-baseline/summer-targets.csv')
+const compositePath = path.join(data, 'research/ngas-simplification-baseline/all-year-targets.csv')
 inputPaths.push(storagePath, releasePath, ngPath, ungPath, expectedPath, compositePath, path.join(root, 'config/qore-research-execution.json'), path.join(data, 'market/yahoo/VOO-daily.csv'), path.join(data, 'market/yahoo/QQQM-daily.csv'))
 const storageRows = csv(storagePath), storageReleaseCalendar = loadEiaStorageReleaseCalendar(releasePath)
 const ngDays = csv(ngPath).map((row) => ({ date: row.date, gasClose: Number(row.close) })).filter((row) => row.gasClose > 0)

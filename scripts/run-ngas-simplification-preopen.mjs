@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
-import os from 'node:os'
 import { spawn } from 'node:child_process'
 import { simplificationNewYorkDate, simplificationPreopenTiming } from './lib/qore-simplification-forward.mjs'
 import { EIA_STORAGE_REPORT_URL, storageRowsFromWeeklyReport, mergeStorageRows } from './lib/qore-eia-live-storage.mjs'
@@ -34,6 +33,7 @@ await run('scripts/qore-live-strategy-inference.mjs', [], {
   QORE_LIVE_INFERENCE_STATE_DIR: path.join(runtime, 'live-inference'),
   QORE_LIVE_INFERENCE_FILE: path.join(runtime, 'live-inference/all-year-target.json'),
   QORE_LIVE_INFERENCE_EIA_SNAPSHOT_FILE: storagePath,
+  QORE_LIVE_SUPPLY_CONTEXT_FILE: path.join(runtime, 'live-weather/eia-supply-context.json'),
   QORE_LIVE_MARKET_HISTORY_STATE_DIR: path.join(runtime, 'live-market-history'),
 })
 const snapshot = JSON.parse(fs.readFileSync(path.join(runtime, 'live-inference/all-year-target.json')))
@@ -53,8 +53,5 @@ if (snapshot.season === 'summer') {
     } catch (error) { console.error(`Revision input unavailable for ${source}: ${error.message}`) }
   }))
 }
-try {
-  await run('scripts/collect-ngas-supply-vintages.py', ['--refresh-current'], {}, process.env.QORE_RESEARCH_PYTHON || (fs.existsSync(path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3')) ? path.join(os.homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3') : 'python3'))
-} catch (error) { console.error(`Supply refresh unavailable: ${error.message}; writer will require a sufficiently recent retained vintage.`) }
 if (prepareOnly) { console.log(JSON.stringify({ prepared: true, targetDate, runtime, priorRoot, predictionsWritten: false })); process.exit(0) }
 await run('scripts/collect-ngas-simplification-forward.mjs', [`--runtime-root=${runtime}`, `--research-root=${research}`, `--prior-root=${priorRoot}`])

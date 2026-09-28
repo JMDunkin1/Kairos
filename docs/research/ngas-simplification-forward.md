@@ -1,3 +1,5 @@
+> Scheduling update, 2026-09-28: the operator cancelled the Codex chat automation. The commands below are manual research tools only; no scheduled chat execution is requested. The paper trading service runs independently.
+
 # Natural-gas simplification forward research
 
 These commands collect a separate paper-research comparison. They do not submit broker orders, write production handoffs, stop the deployed paper service, or select a strategy from newly observed results.

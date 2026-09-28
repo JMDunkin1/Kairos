@@ -1,14 +1,14 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { selectedContracts, executableLiveComponentActiveForDate } from './qore-live-contract.mjs'
+import { selectedContracts, executableLiveComponentActiveForDate } from '../research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs'
 
 // Export reviewed pure scheduling helpers into an isolated in-memory research module.
 // Production files and production candidate contracts remain unchanged.
 export async function loadSimplificationResearchEngine(repoRoot = process.cwd()) {
-  const sourcePath = path.join(repoRoot, 'scripts/lib/qore-live-all-year-inference.mjs')
+  const sourcePath = path.join(repoRoot, 'scripts/research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs')
   const source = fs.readFileSync(sourcePath, 'utf8').replace(
-    /from '(\.\/[^']+)'/g,
+    /from '(\.{1,2}\/[^']+)'/g,
     (_, relative) => `from '${pathToFileURL(path.resolve(path.dirname(sourcePath), relative)).href}'`,
   ) + '\nexport { signalsFor, schedule, summerStorageContext, versionedStorageRows };\n'
   return import(`data:text/javascript;base64,${Buffer.from(source).toString('base64')}`)

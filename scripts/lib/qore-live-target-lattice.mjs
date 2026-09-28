@@ -32,6 +32,7 @@ function digestValueSha256(value) {
 }
 
 export function summerLiveTargetLattice(selected, implementation) {
+  const reversionEnabled = selected.useReversionLeg !== false && Number(selected.reversionHoldDays) > 0
   const coolingDemand = implementation.coolingDemand
   const lowDemandReversion = Math.min(
     selected.reversionFraction,
@@ -59,13 +60,13 @@ export function summerLiveTargetLattice(selected, implementation) {
           implementation.storageDeficitHeatMaxFraction,
         ]),
       },
-      'weather-reversion': {
+      ...(reversionEnabled ? { 'weather-reversion': {
         'reversion-short': uniqueSortedTargets([
           -lowDemandReversion,
           -solidDemandReversion,
           -extremeDemandReversion,
         ]),
-      },
+      } } : {}),
     },
   }
 }

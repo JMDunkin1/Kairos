@@ -2,6 +2,7 @@ import crypto from 'node:crypto'
 import { SUMMER_FORECAST_LOCATION_UNIVERSE } from './qore-summer-location-universe.mjs'
 import { SUMMER_FORECAST_TEMPORAL_CONTRACT } from './qore-summer-forecast-contract.mjs'
 import { FORECAST_SCORE_LOCATION_AGGREGATE_CONTRACT } from './qore-weather-data-quality.mjs'
+import { SUMMER_SUPPLY_POLICY, projectedSummerSupplyPolicy } from './qore-summer-supply-policy.mjs'
 import {
   WINTER_GRADED_SHIFT_PARAMETERS,
   WINTER_HEATING_DEMAND_BASE_F,
@@ -17,7 +18,7 @@ import {
 
 export { LIVE_TARGET_LATTICE_SCHEMA_VERSION } from './qore-live-target-lattice.mjs'
 
-export const LIVE_COMPONENT_CONTRACT_SCHEMA_VERSION = 5
+export const LIVE_COMPONENT_CONTRACT_SCHEMA_VERSION = 6
 
 const SUMMER_ACTIVE_TARGET_DATE_POLICY = Object.freeze({
   policyId: 'summer-session-or-lead-7-target-season-v1',
@@ -54,10 +55,10 @@ function projectedActiveTargetDatePolicy(policy) {
 }
 
 const SUMMER = {
-  candidateId: 'summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed',
-  architectureId: 'summer-weather-follow-and-fade',
+  candidateId: 'summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-fh3-fresh3-sdef1.25-no-fade-supply-zero-zero-v1',
+  architectureId: 'summer-weather-follow-with-supply-filter',
   useFollowLeg: true,
-  useReversionLeg: true,
+  useReversionLeg: false,
   sourceSetId: 'gfs-gefs-core',
   sourceIds: ['gfs', 'gefs-mean'],
   minGroups: 1,
@@ -71,7 +72,7 @@ const SUMMER = {
   reversionFraction: 0.35,
   reversionDemandMode: 'cooling-demand-tiered',
   followHoldDays: 3,
-  reversionHoldDays: 1,
+  reversionHoldDays: 0,
   minRealizedMovePct: 2,
   freshHeatLookbackDays: 3,
   volTargetPct: 0,
@@ -109,6 +110,7 @@ const WINTER_FADE = {
 }
 
 const SUMMER_IMPLEMENTATION = {
+  supplyPolicy: SUMMER_SUPPLY_POLICY,
   forecastLocationUniverse: SUMMER_FORECAST_LOCATION_UNIVERSE,
   scoreLocationAggregateContract: FORECAST_SCORE_LOCATION_AGGREGATE_CONTRACT,
   forecastTemporalContract: SUMMER_FORECAST_TEMPORAL_CONTRACT,
@@ -281,21 +283,22 @@ function summerPositionCaps(selected, implementation) {
     'Summer heat-follow contract',
     [ordinaryFollowFraction, implementation.storageDeficitHeatMaxFraction],
   )
-  const heatReversionFraction = reviewedMaximumPositionFraction(
+  const reversionEnabled = selected.useReversionLeg !== false && Number(selected.reversionHoldDays) > 0
+  const heatReversionFraction = reversionEnabled ? reviewedMaximumPositionFraction(
     'Summer heat-reversion contract',
     [
       selected.reversionFraction,
       implementation.coolingDemand.solidMaximumReversionFraction,
       implementation.coolingDemand.extremeMaximumReversionFraction,
     ],
-  )
+  ) : null
   return {
     'weather-follow': {
       'summer-heat-long': heatFollowFraction,
     },
-    'weather-reversion': {
+    ...(reversionEnabled ? { 'weather-reversion': {
       'reversion-short': heatReversionFraction,
-    },
+    } } : {}),
   }
 }
 
@@ -330,6 +333,7 @@ function canonicalSummerFromSummary(summary) {
     && forecastCoverage.sources.every((source) => source?.temporalContractComplete === true)
   const implementation = {
     ...SUMMER_IMPLEMENTATION,
+    supplyPolicy: projectedSummerSupplyPolicy(summary?.contract?.supplyPolicy ?? candidate?.supplyPolicy),
     forecastLocationUniverse:
       summary?.validation?.forecastCoverage?.policy?.locationUniverse ?? null,
     forecastTemporalContract: correctedTemporalInputs

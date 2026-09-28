@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "studyId": "ngas-simplification-v1",
-  "generatedAt": "2026-09-27T23:32:23.518Z",
+  "generatedAt": "2026-09-28T20:45:34.754Z",
   "executionEligible": false,
   "productionStrategyChanged": false,
   "protocolPath": "docs/research/ngas-simplification-protocol.json",
@@ -1910,11 +1910,11 @@
     },
     {
       "path": "scripts/research-ngas-simplification.mjs",
-      "sha256": "9f76ccc6fcb4934bcebee042b1e5f01dfd9d4b52d5fb385d5086c1c8ecbaa3da"
+      "sha256": "22abeb5a74df8a4517e57a35de2eb182dd6681157df633ef951673322c73477b"
     },
     {
       "path": "scripts/lib/qore-simplification-research.mjs",
-      "sha256": "4fe36bf179c0119e8bce28907f52d58fb6eb9f0d6f793337a5105b6b7d4ca50f"
+      "sha256": "9fa00b5abb451e1f79863961ec711e5e0c3b1cda6cb7eb3d5f06bf0f4ea427df"
     },
     {
       "path": "scripts/lib/qore-research-execution.mjs",
@@ -1929,12 +1929,16 @@
       "sha256": "fbd4fc6cb8dde19079267840dd5c9483baabcacf4f60a0e7ce72e7bf507f688c"
     },
     {
-      "path": "scripts/lib/qore-live-all-year-inference.mjs",
-      "sha256": "e04cf7ca22ca8da6c247aa2f4bb87568bfa7279bc140cacbb955dfebe473fe1f"
+      "path": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs",
+      "sha256": "320255e8829299d89fce0c8aff0f0b6f0a248a82c336500d88978e0ac629a29d"
     },
     {
-      "path": "scripts/lib/qore-live-contract.mjs",
-      "sha256": "eee7fe8e32990b9d18a16448596d1fc3cc56c20c9f169b291874a5ec43ea8c72"
+      "path": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-contract.mjs",
+      "sha256": "08e0bb0250916e84ee10778b71cb43c4f19e83b9175c1d37d45f7a240e7998ff"
+    },
+    {
+      "path": "scripts/research-fixtures/ngas-simplification-baseline/qore-live-target-lattice.mjs",
+      "sha256": "a7e54523f236cce8c5f8b740cedd77fb3c9d6e2869609505b538dcf191e03034"
     },
     {
       "path": "data/qore/research/gfs-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-signal-scores.csv",
@@ -1969,12 +1973,12 @@
       "sha256": "780fc8edcf1e3d15444028f8febfe2ecb64c8693f8e63d135787aa4172b3b064"
     },
     {
-      "path": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/selected-trades.csv",
-      "sha256": "9911ee0e91910033d0459ad2559b46428dec7a7510c46489daa96d762b0e8aef"
+      "path": "data/qore/research/ngas-simplification-baseline/summer-targets.csv",
+      "sha256": "b23ac3aa3aa0033de832c7c8e1a97485c392a7785fac5f1e8c772a38e282fc01"
     },
     {
-      "path": "data/qore/research/strategy-agent-runs/ngas-all-year-beta/selected-trades.csv",
-      "sha256": "ff39c0755c4777550113419e32a000e41a625612b30cedefa6103f2f8c2f04ea"
+      "path": "data/qore/research/ngas-simplification-baseline/all-year-targets.csv",
+      "sha256": "38bd15f32167711cd1d20eda7c327bd59dd4d57837e0abe91c3dd8655fd867d5"
     },
     {
       "path": "config/qore-research-execution.json",
@@ -2004,7 +2008,7 @@
     },
     {
       "path": ".local/qore/research/ngas-simplification/summary.json",
-      "sha256": "ac5d5784147325f9cda239e3d871b11b191b424d020c5c2630a9c7766f1cd095"
+      "sha256": "e97772e8358f3b0a581f9547db3ffb8e7aabc8b1fbb08a001d720fffd7574529"
     },
     {
       "path": ".local/qore/research/ngas-simplification/summer-enriched-forecasts.json",

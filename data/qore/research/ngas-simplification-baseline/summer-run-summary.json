@@ -1,0 +1,3124 @@
+{
+  "artifactSchemaVersion": 3,
+  "generatedAt": "2026-07-22T18:55:31.963Z",
+  "strategyId": "ngas-summer-alpha",
+  "data": {
+    "weatherManifest": "data/qore/dataset-manifest.json",
+    "signalGasMarketFile": "data/qore/market/yahoo/NG-F-qore-market.csv",
+    "executionMarketFiles": [
+      "data/qore/market/yahoo/UNG-daily.csv",
+      "data/qore/market/yahoo/VOO-daily.csv",
+      "data/qore/market/yahoo/QQQM-daily.csv"
+    ],
+    "executionContractFile": "config/qore-research-execution.json",
+    "indexMarketFile": "data/qore/market/yahoo/US-INDEX-BASKET-qore-market.csv",
+    "actualAnomalyFile": "data/qore/weather/nasa-power/daily-temperature-anomalies-2021-01-01-2026-03-31.csv",
+    "eiaStorageFile": "data/qore/fundamentals/eia/working-gas-storage-lower48-weekly.csv",
+    "eiaStorageReleaseCalendarFile": "data/qore/fundamentals/eia/working-gas-storage-release-calendar.json",
+    "weatherResolutionInputs": [
+      "data/qore/research/gfs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/research/gefs-mean-00z-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv"
+    ],
+    "weatherTemperatureQuality": {
+      "signalCalendars": [
+        {
+          "sourceId": "graphcastgfs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 38052,
+          "acceptedLocationRowCount": 37890,
+          "quarantinedLocationRowCount": 162,
+          "inputScoreRowCount": 2114,
+          "acceptedScoreRowCount": 2105,
+          "quarantinedScoreRowCount": 9,
+          "quarantinedGroupCount": 9,
+          "quarantinedGroups": [
+            {
+              "key": "graphcastgfs|2024-11-27|2024-11-30|3",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2024-11-27",
+              "targetDate": "2024-11-30",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2024-12-06|2024-12-09|3",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2024-12-06",
+              "targetDate": "2024-12-09",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2024-12-19|2024-12-20|1",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2024-12-19",
+              "targetDate": "2024-12-20",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2025-01-13|2025-01-14|1",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2025-01-13",
+              "targetDate": "2025-01-14",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2025-02-12|2025-02-20|8",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2025-02-12",
+              "targetDate": "2025-02-20",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2025-02-13|2025-02-15|2",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2025-02-13",
+              "targetDate": "2025-02-15",
+              "leadDays": "2",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2025-02-28|2025-03-01|1",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2025-02-28",
+              "targetDate": "2025-03-01",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2025-03-18|2025-03-26|8",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2025-03-18",
+              "targetDate": "2025-03-26",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "graphcastgfs|2026-01-10|2026-01-18|8",
+              "sourceId": "graphcastgfs",
+              "issueDate": "2026-01-10",
+              "targetDate": "2026-01-18",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gfs-graphcast-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            }
+          ]
+        },
+        {
+          "sourceId": "ecmwf-ifs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 41238,
+          "acceptedLocationRowCount": 41238,
+          "quarantinedLocationRowCount": 0,
+          "inputScoreRowCount": 2291,
+          "acceptedScoreRowCount": 2291,
+          "quarantinedScoreRowCount": 0,
+          "quarantinedGroupCount": 0,
+          "quarantinedGroups": []
+        },
+        {
+          "sourceId": "ecmwf-aifs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 3528,
+          "acceptedLocationRowCount": 3528,
+          "quarantinedLocationRowCount": 0,
+          "inputScoreRowCount": 196,
+          "acceptedScoreRowCount": 196,
+          "quarantinedScoreRowCount": 0,
+          "quarantinedGroupCount": 0,
+          "quarantinedGroups": []
+        },
+        {
+          "sourceId": "aigfs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 9810,
+          "acceptedLocationRowCount": 9810,
+          "quarantinedLocationRowCount": 0,
+          "inputScoreRowCount": 545,
+          "acceptedScoreRowCount": 545,
+          "quarantinedScoreRowCount": 0,
+          "quarantinedGroupCount": 0,
+          "quarantinedGroups": []
+        },
+        {
+          "sourceId": "gem-global",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 26766,
+          "acceptedLocationRowCount": 26640,
+          "quarantinedLocationRowCount": 126,
+          "inputScoreRowCount": 1487,
+          "acceptedScoreRowCount": 1480,
+          "quarantinedScoreRowCount": 7,
+          "quarantinedGroupCount": 7,
+          "quarantinedGroups": [
+            {
+              "key": "gem-global|2024-02-15|2024-02-17|2",
+              "sourceId": "gem-global",
+              "issueDate": "2024-02-15",
+              "targetDate": "2024-02-17",
+              "leadDays": "2",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2024-11-11|2024-11-13|2",
+              "sourceId": "gem-global",
+              "issueDate": "2024-11-11",
+              "targetDate": "2024-11-13",
+              "leadDays": "2",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2024-12-09|2024-12-16|7",
+              "sourceId": "gem-global",
+              "issueDate": "2024-12-09",
+              "targetDate": "2024-12-16",
+              "leadDays": "7",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2025-03-10|2025-03-13|3",
+              "sourceId": "gem-global",
+              "issueDate": "2025-03-10",
+              "targetDate": "2025-03-13",
+              "leadDays": "3",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2025-03-14|2025-03-16|2",
+              "sourceId": "gem-global",
+              "issueDate": "2025-03-14",
+              "targetDate": "2025-03-16",
+              "leadDays": "2",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2025-03-27|2025-03-29|2",
+              "sourceId": "gem-global",
+              "issueDate": "2025-03-27",
+              "targetDate": "2025-03-29",
+              "leadDays": "2",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gem-global|2025-11-15|2025-11-17|2",
+              "sourceId": "gem-global",
+              "issueDate": "2025-11-15",
+              "targetDate": "2025-11-17",
+              "leadDays": "2",
+              "modelIds": [
+                "gem-global-open-meteo-previous-runs"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            }
+          ]
+        },
+        {
+          "sourceId": "gfs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 13644,
+          "acceptedLocationRowCount": 13644,
+          "quarantinedLocationRowCount": 0,
+          "inputScoreRowCount": 758,
+          "acceptedScoreRowCount": 758,
+          "quarantinedScoreRowCount": 0,
+          "quarantinedGroupCount": 0,
+          "quarantinedGroups": []
+        },
+        {
+          "sourceId": "gefs-mean",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 13644,
+          "acceptedLocationRowCount": 13644,
+          "quarantinedLocationRowCount": 0,
+          "inputScoreRowCount": 758,
+          "acceptedScoreRowCount": 758,
+          "quarantinedScoreRowCount": 0,
+          "quarantinedGroupCount": 0,
+          "quarantinedGroups": []
+        }
+      ],
+      "weatherResolutionCalendars": [
+        {
+          "sourceId": "gfs",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 105732,
+          "acceptedLocationRowCount": 105714,
+          "quarantinedLocationRowCount": 18,
+          "inputScoreRowCount": 5874,
+          "acceptedScoreRowCount": 5873,
+          "quarantinedScoreRowCount": 1,
+          "quarantinedGroupCount": 1,
+          "quarantinedGroups": [
+            {
+              "key": "gfs|2022-11-30|2022-12-10|10",
+              "sourceId": "gfs",
+              "issueDate": "2022-11-30",
+              "targetDate": "2022-12-10",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gfs-global-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 18,
+              "reasons": [
+                "forecastMeanF-outside-physical-range"
+              ],
+              "sampleLocationIds": [
+                "minneapolis",
+                "chicago",
+                "detroit"
+              ]
+            }
+          ]
+        },
+        {
+          "sourceId": "gefs-mean",
+          "policy": "source-issue-target-lead-atomic",
+          "mode": "quarantine",
+          "boundsF": {
+            "minimum": -150,
+            "maximum": 160
+          },
+          "anomalyToleranceF": 0.01,
+          "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+          "inputLocationRowCount": 105876,
+          "acceptedLocationRowCount": 105354,
+          "quarantinedLocationRowCount": 522,
+          "inputScoreRowCount": 5882,
+          "acceptedScoreRowCount": 5853,
+          "quarantinedScoreRowCount": 29,
+          "quarantinedGroupCount": 29,
+          "quarantinedGroups": [
+            {
+              "key": "gefs-mean|2021-10-26|2021-11-04|9",
+              "sourceId": "gefs-mean",
+              "issueDate": "2021-10-26",
+              "targetDate": "2021-11-04",
+              "leadDays": "9",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2021-11-04|2021-11-07|3",
+              "sourceId": "gefs-mean",
+              "issueDate": "2021-11-04",
+              "targetDate": "2021-11-07",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2021-11-26|2021-12-06|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2021-11-26",
+              "targetDate": "2021-12-06",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2021-12-19|2021-12-27|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2021-12-19",
+              "targetDate": "2021-12-27",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-01-08|2022-01-18|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-01-08",
+              "targetDate": "2022-01-18",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-02-10|2022-02-18|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-02-10",
+              "targetDate": "2022-02-18",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-02-15|2022-02-23|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-02-15",
+              "targetDate": "2022-02-23",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-02-23|2022-03-03|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-02-23",
+              "targetDate": "2022-03-03",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-03-11|2022-03-13|2",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-03-11",
+              "targetDate": "2022-03-13",
+              "leadDays": "2",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-11-10|2022-11-13|3",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-11-10",
+              "targetDate": "2022-11-13",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-12-07|2022-12-17|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-12-07",
+              "targetDate": "2022-12-17",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2022-12-15|2022-12-18|3",
+              "sourceId": "gefs-mean",
+              "issueDate": "2022-12-15",
+              "targetDate": "2022-12-18",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2023-02-27|2023-03-09|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2023-02-27",
+              "targetDate": "2023-03-09",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2023-11-05|2023-11-06|1",
+              "sourceId": "gefs-mean",
+              "issueDate": "2023-11-05",
+              "targetDate": "2023-11-06",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2023-11-05|2023-11-12|7",
+              "sourceId": "gefs-mean",
+              "issueDate": "2023-11-05",
+              "targetDate": "2023-11-12",
+              "leadDays": "7",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2023-12-06|2023-12-16|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2023-12-06",
+              "targetDate": "2023-12-16",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2023-12-12|2023-12-22|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2023-12-12",
+              "targetDate": "2023-12-22",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-01-07|2024-01-09|2",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-01-07",
+              "targetDate": "2024-01-09",
+              "leadDays": "2",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-01-09|2024-01-18|9",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-01-09",
+              "targetDate": "2024-01-18",
+              "leadDays": "9",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-01-21|2024-01-23|2",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-01-21",
+              "targetDate": "2024-01-23",
+              "leadDays": "2",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-03-05|2024-03-13|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-03-05",
+              "targetDate": "2024-03-13",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-03-14|2024-03-16|2",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-03-14",
+              "targetDate": "2024-03-16",
+              "leadDays": "2",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2024-03-18|2024-03-19|1",
+              "sourceId": "gefs-mean",
+              "issueDate": "2024-03-18",
+              "targetDate": "2024-03-19",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2025-02-04|2025-02-12|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2025-02-04",
+              "targetDate": "2025-02-12",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2025-11-24|2025-11-27|3",
+              "sourceId": "gefs-mean",
+              "issueDate": "2025-11-24",
+              "targetDate": "2025-11-27",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2025-12-08|2025-12-11|3",
+              "sourceId": "gefs-mean",
+              "issueDate": "2025-12-08",
+              "targetDate": "2025-12-11",
+              "leadDays": "3",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2025-12-25|2026-01-04|10",
+              "sourceId": "gefs-mean",
+              "issueDate": "2025-12-25",
+              "targetDate": "2026-01-04",
+              "leadDays": "10",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            },
+            {
+              "key": "gefs-mean|2026-02-12|2026-02-13|1",
+              "sourceId": "gefs-mean",
+              "issueDate": "2026-02-12",
+              "targetDate": "2026-02-13",
+              "leadDays": "1",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 18,
+              "reasons": [
+                "forecastMeanF-outside-physical-range"
+              ],
+              "sampleLocationIds": [
+                "atlanta",
+                "boston",
+                "charlotte"
+              ]
+            },
+            {
+              "key": "gefs-mean|2026-03-19|2026-03-27|8",
+              "sourceId": "gefs-mean",
+              "issueDate": "2026-03-19",
+              "targetDate": "2026-03-27",
+              "leadDays": "8",
+              "modelIds": [
+                "ncep-gefs-mean-00z-noaa-aws"
+              ],
+              "rowCount": 18,
+              "invalidRowCount": 0,
+              "reasons": [
+                "score-weightedAnomalyF-mismatch"
+              ],
+              "sampleLocationIds": []
+            }
+          ]
+        }
+      ]
+    },
+    "firstSignalDate": "2021-01-01",
+    "marketStartDate": "2021-01-04",
+    "marketEndDate": "2026-07-14",
+    "marketDays": 1387,
+    "forecastScoreRows": 1516,
+    "inputFiles": [
+      "data/qore/dataset-manifest.json",
+      "data/qore/research/graphcastgfs-00z-daily-forecast-calendar-2024-04-26-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/gfs-graphcast/graphcastgfs-00z-daily-forecast-calendar-2024-04-26-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/weather/gfs-graphcast/graphcastgfs-00z-daily-forecast-calendar-2024-04-26-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-manifest.json",
+      "data/qore/research/ecmwf-ifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/ecmwf-ifs/ecmwf-ifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/weather/ecmwf-ifs/ecmwf-ifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-manifest.json",
+      "data/qore/research/ecmwf-aifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-14-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/ecmwf-aifs/ecmwf-aifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-14-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/weather/ecmwf-aifs/ecmwf-aifs-00z-daily-forecast-calendar-2021-01-01-2026-03-31-available-2024-03-14-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-manifest.json",
+      "data/qore/research/aigfs-openmeteo-single-runs-00z-daily-forecast-calendar-2026-01-07-2026-03-31-requested-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/aigfs/aigfs-openmeteo-single-runs-00z-daily-forecast-calendar-2026-01-07-2026-03-31-requested-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/weather/aigfs/aigfs-openmeteo-single-runs-00z-daily-forecast-calendar-2026-01-07-2026-03-31-requested-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-manifest.json",
+      "data/qore/research/gem-global-open-meteo-previous-runs-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-signal-scores.csv",
+      "data/qore/weather/gem-global/gem-global-open-meteo-previous-runs-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-location-anomalies.csv",
+      "data/qore/weather/gem-global/gem-global-open-meteo-previous-runs-daily-forecast-calendar-2021-01-01-2026-03-31-leads-1-2-3-7-8-9-10-hours-0-manifest.json",
+      "data/qore/research/gfs-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-signal-scores.csv",
+      "data/qore/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-location-anomalies.csv",
+      "data/qore/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-manifest.json",
+      "data/qore/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-signal-scores.csv",
+      "data/qore/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-location-anomalies.csv",
+      "data/qore/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2025-09-30-leads-7-hours-0-manifest.json"
+    ],
+    "selectedTradesArtifact": {
+      "schemaVersion": 1,
+      "artifactKind": "component-selected-trades",
+      "file": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/selected-trades.csv",
+      "contentDigestSha256": "9911ee0e91910033d0459ad2559b46428dec7a7510c46489daa96d762b0e8aef",
+      "byteLength": 878705,
+      "rowCount": 1387,
+      "dateField": "entryTradeDate",
+      "firstEntryTradeDate": "2021-01-04",
+      "lastEntryTradeDate": "2026-07-14",
+      "entryTradeDateDigestSha256": "74b4aea6689786636e3850a7c8f6ecbec6a9e58b3bc8e14fab4e1518dad99298",
+      "authoritativeCalendar": {
+        "calendarId": "common-adjusted-ung-voo-qqqm-execution-sessions",
+        "executionContractId": "qore-causal-etf-execution-v2",
+        "executionContractDigest": "c18dea27526796dd6ad06ecffaa5cb1a32ac34fc587bc0cf79e0a007626e106d",
+        "sessionCount": 1387,
+        "firstSessionDate": "2021-01-04",
+        "lastSessionDate": "2026-07-14",
+        "sessionDateDigestSha256": "74b4aea6689786636e3850a7c8f6ecbec6a9e58b3bc8e14fab4e1518dad99298"
+      }
+    }
+  },
+  "researchBasis": [
+    {
+      "label": "EIA degree days and weather-sensitive gas demand",
+      "url": "https://www.eia.gov/energyexplained/units-and-calculators/degree-days.php"
+    },
+    {
+      "label": "EIA Weather Sensitivity in Natural Gas Markets",
+      "url": "https://www.eia.gov/outlooks/steo/special/pdf/2014_sp_03.pdf"
+    },
+    {
+      "label": "Bates and Granger forecast combination",
+      "url": "https://www.cambridge.org/core/books/abs/essays-in-econometrics/combination-of-forecasts/9DA6A0F804E60BA563AC01F98A9EE639"
+    },
+    {
+      "label": "Extreme weather forecast risk in US natural gas futures",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4326098"
+    },
+    {
+      "label": "White Reality Check for data snooping",
+      "url": "https://www.ssc.wisc.edu/~bhansen/718/White2000.pdf"
+    }
+  ],
+  "contract": {
+    "trainEnd": "2023-12-31",
+    "validationEnd": "2024-12-31",
+    "holdoutStart": "2025-01-01",
+    "ungRoundTripCostPct": 0.064,
+    "ungOneWayCostPct": 0.032,
+    "signalInstrument": {
+      "symbol": "NG=F",
+      "role": "Summer price confirmation, realized-move gates, and signal-volatility sizing only."
+    },
+    "pnlInstrument": {
+      "symbol": "UNG",
+      "role": "All gas-sleeve P&L, candidate ranking, and validation."
+    },
+    "execution": {
+      "contractId": "qore-causal-etf-execution-v2",
+      "contractDigest": "c18dea27526796dd6ad06ecffaa5cb1a32ac34fc587bc0cf79e0a007626e106d",
+      "scenarioId": "baseline",
+      "priceConvention": "Yahoo daily split-and-distribution-adjusted open and close",
+      "deploymentFraction": 0.98,
+      "rebalanceDeadbandPct": 0.25,
+      "rebalanceDeadbandPolicyId": "risk-reductions-and-ung-transitions-bypass-v1",
+      "indexWeights": {
+        "VOO": 0.8,
+        "QQQM": 0.2
+      },
+      "selectionRule": "cost and execution parameters are frozen before candidate evaluation and must never be optimized for return",
+      "costCalibration": "aggregate all-in research allowances; replace only with a separately versioned calibration built from stored historical quotes and fills",
+      "oneWayBps": {
+        "UNG": 3.2,
+        "VOO": 1,
+        "QQQM": 1
+      },
+      "annualBorrowRatePct": 0,
+      "borrowBasis": "default live routing opens UNG shorts only when Alpaca reports easy-to-borrow status",
+      "scenarios": {
+        "baseline": {
+          "selectionEligible": true,
+          "oneWayBps": {
+            "UNG": 3.2,
+            "VOO": 1,
+            "QQQM": 1
+          },
+          "annualBorrowRatePct": 0,
+          "borrowBasis": "default live routing opens UNG shorts only when Alpaca reports easy-to-borrow status"
+        },
+        "elevated": {
+          "selectionEligible": false,
+          "oneWayBps": {
+            "UNG": 5,
+            "VOO": 2,
+            "QQQM": 2
+          },
+          "annualBorrowRatePct": 0
+        },
+        "stress": {
+          "selectionEligible": false,
+          "oneWayBps": {
+            "UNG": 10,
+            "VOO": 5,
+            "QQQM": 5
+          },
+          "annualBorrowRatePct": 10
+        }
+      }
+    },
+    "fallback": "Unallocated deployable capital is routed to the configured VOO/QQQM target-weight index basket; the broker cash buffer remains uninvested.",
+    "signalTiming": "Forecast issue-date signals are used only on later trading sessions. Prior holdings earn close-to-open returns; current targets earn adjusted-open-to-close returns.",
+    "reversionTiming": "Reversion legs use realized gas moves through the weather-follow leg, require the move to match the weather-demand direction, start no earlier than the next trading session, and skip heat-rally fades when the latest storage report available before the open is below its trailing seasonal norm.",
+    "weatherResolutionTiming": "Close-in weather-resolution fade sizing is tested on the top 1 eligible base-grid candidates and uses frozen 00Z GFS/GEFS lead-1 to lead-3 forecasts with issueDate <= the reversion entry date. Same-date 00Z runs are assumed available before the New York session open because the historical calendar has no separate publication timestamp.",
+    "reversionDemandSizing": "When selected, cooling-demand-tiered fade sizing uses forecast CDD anomaly versus a 65F base: below 5F trims reversion size, 5-8F modestly adds size, and at least 8F can lift the reversion sleeve up to 0.5x.",
+    "heatSignalFreshness": "Summer heat-follow exposure is allowed only when no prior broad summer heat signal was issued within the fixed freshness lookback window; repeated heat signals can still qualify for the same-direction fade.",
+    "storageDeficitHeatTilt": "Fresh summer heat-follow exposure is multiplied by 1.25x, capped at 0.4375x notional, only when the latest EIA Lower 48 storage report available before the session open is below its trailing 5-year seasonal average.",
+    "storageTiming": "Storage rows are available only at a session open after their timestamp in the versioned EIA WNGSR release calendar; a missing release-calendar row fails artifact generation.",
+    "selectionPolicy": "The architecture requires fresh multi-model heat-follow and storage-aware same-direction overreaction-fade legs. Cool-short rows are kept diagnostic until the data produces enough confirmed cool events. Rank and eligibility use train and validation splits only; holdout metrics are reported after selection.",
+    "sourceWeighting": "bg-shrink weights are fit only on train-period forecast temperature errors versus NASA POWER actual weighted anomalies, then shrunk halfway toward equal weights."
+  },
+  "sourceReliability": [
+    {
+      "sourceId": "gefs-mean",
+      "count": 452,
+      "rmse": 5.734755796801759,
+      "shrinkWeight": 0.9112
+    },
+    {
+      "sourceId": "gfs",
+      "count": 452,
+      "rmse": 4.792815606213058,
+      "shrinkWeight": 1.0888
+    }
+  ],
+  "selected": {
+    "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+    "architectureId": "summer-weather-follow-and-fade",
+    "architectureLabel": "Confirmed heat follow plus storage-aware same-direction fade",
+    "architectureDescription": "Use multi-model forecast consensus to trade summer heat demand first, then fade only gas moves that overextend in the weather-demand direction when storage is not tight.",
+    "useFollowLeg": true,
+    "useReversionLeg": true,
+    "sourceSetId": "gfs-gefs-core",
+    "sourceSetLabel": "GFS plus GEFS mean",
+    "sourceIds": [
+      "gfs",
+      "gefs-mean"
+    ],
+    "minGroups": 1,
+    "minFamilies": 2,
+    "sourceWeightMode": "equal",
+    "sizingMode": "fixed",
+    "anomalyThreshold": 5,
+    "coverageThreshold": 0.25,
+    "minConfidence": 0.5,
+    "weatherFraction": 0.35,
+    "reversionFraction": 0.35,
+    "reversionDemandMode": "cooling-demand-tiered",
+    "followHoldDays": 3,
+    "reversionHoldDays": 1,
+    "minRealizedMovePct": 2,
+    "freshHeatLookbackDays": 3,
+    "volTargetPct": 0,
+    "weatherResolutionMode": "none",
+    "allMetrics": {
+      "totalReturnPct": 212.11,
+      "cagrPct": 22.89,
+      "annualVolPct": 18.85,
+      "sharpe": 1.19,
+      "sortino": 1.78,
+      "maxDrawdownPct": -22.73,
+      "calmar": 1.01,
+      "winRatePct": 54.9,
+      "profitFactor": 1.23,
+      "tradeCount": 197,
+      "exposurePct": 5.6,
+      "turnover": 106.97,
+      "gasTurnover": 57.23,
+      "indexTurnover": 49.74,
+      "var95Pct": -1.77,
+      "cvar95Pct": -2.6,
+      "averageDailyPnlPct": 0.089,
+      "firstEntry": "2021-01-04",
+      "lastExit": "2026-07-14",
+      "averageHoldDays": 1,
+      "tStat": 2.8
+    },
+    "trainMetrics": {
+      "totalReturnPct": 53.98,
+      "cagrPct": 15.58,
+      "annualVolPct": 20.12,
+      "sharpe": 0.82,
+      "sortino": 1.2,
+      "maxDrawdownPct": -22.73,
+      "calmar": 0.69,
+      "winRatePct": 52.7,
+      "profitFactor": 1.15,
+      "tradeCount": 107,
+      "exposurePct": 5.8,
+      "turnover": 54.3,
+      "gasTurnover": 28.85,
+      "indexTurnover": 25.44,
+      "var95Pct": -2.01,
+      "cvar95Pct": -2.8,
+      "averageDailyPnlPct": 0.065,
+      "firstEntry": "2021-01-04",
+      "lastExit": "2023-12-29",
+      "averageHoldDays": 1,
+      "tStat": 1.42
+    },
+    "validationMetrics": {
+      "totalReturnPct": 31.24,
+      "cagrPct": 31.36,
+      "annualVolPct": 14.54,
+      "sharpe": 1.94,
+      "sortino": 2.96,
+      "maxDrawdownPct": -8.25,
+      "calmar": 3.8,
+      "winRatePct": 56,
+      "profitFactor": 1.38,
+      "tradeCount": 45,
+      "exposurePct": 6.6,
+      "turnover": 28.56,
+      "gasTurnover": 15.4,
+      "indexTurnover": 13.15,
+      "var95Pct": -1.48,
+      "cvar95Pct": -1.94,
+      "averageDailyPnlPct": 0.112,
+      "firstEntry": "2024-01-02",
+      "lastExit": "2024-12-31",
+      "averageHoldDays": 1,
+      "tStat": 1.94
+    },
+    "holdoutMetrics": {
+      "totalReturnPct": 54.44,
+      "cagrPct": 32.91,
+      "annualVolPct": 18.79,
+      "sharpe": 1.62,
+      "sortino": 2.51,
+      "maxDrawdownPct": -19.12,
+      "calmar": 1.72,
+      "winRatePct": 58.4,
+      "profitFactor": 1.35,
+      "tradeCount": 45,
+      "exposurePct": 4.6,
+      "turnover": 24.12,
+      "gasTurnover": 12.97,
+      "indexTurnover": 11.14,
+      "var95Pct": -1.68,
+      "cvar95Pct": -2.49,
+      "averageDailyPnlPct": 0.121,
+      "firstEntry": "2025-01-02",
+      "lastExit": "2026-07-14",
+      "averageHoldDays": 1,
+      "tStat": 1.99
+    },
+    "indexMetrics": {
+      "all": {
+        "totalReturnPct": 122.02,
+        "cagrPct": 15.54,
+        "annualVolPct": 17.58,
+        "sharpe": 0.91,
+        "sortino": 1.32,
+        "maxDrawdownPct": -26.52,
+        "calmar": 0.59,
+        "winRatePct": 55.1,
+        "profitFactor": 1.17,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.71,
+        "cvar95Pct": -2.53,
+        "averageDailyPnlPct": 0.064,
+        "firstEntry": "2021-01-04",
+        "lastExit": "2026-07-14",
+        "averageHoldDays": 1,
+        "tStat": 2.14
+      },
+      "train": {
+        "totalReturnPct": 33.45,
+        "cagrPct": 10.16,
+        "annualVolPct": 18.55,
+        "sharpe": 0.61,
+        "sortino": 0.88,
+        "maxDrawdownPct": -26.52,
+        "calmar": 0.38,
+        "winRatePct": 52.6,
+        "profitFactor": 1.11,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.84,
+        "cvar95Pct": -2.66,
+        "averageDailyPnlPct": 0.045,
+        "firstEntry": "2021-01-04",
+        "lastExit": "2023-12-29",
+        "averageHoldDays": 1,
+        "tStat": 1.06
+      },
+      "validation": {
+        "totalReturnPct": 25.17,
+        "cagrPct": 25.27,
+        "annualVolPct": 13.52,
+        "sharpe": 1.73,
+        "sortino": 2.5,
+        "maxDrawdownPct": -9.2,
+        "calmar": 2.75,
+        "winRatePct": 58.3,
+        "profitFactor": 1.34,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.44,
+        "cvar95Pct": -2.02,
+        "averageDailyPnlPct": 0.093,
+        "firstEntry": "2024-01-02",
+        "lastExit": "2024-12-31",
+        "averageHoldDays": 1,
+        "tStat": 1.73
+      },
+      "holdout": {
+        "totalReturnPct": 32.92,
+        "cagrPct": 20.48,
+        "annualVolPct": 18,
+        "sharpe": 1.13,
+        "sortino": 1.69,
+        "maxDrawdownPct": -19.5,
+        "calmar": 1.05,
+        "winRatePct": 57.9,
+        "profitFactor": 1.24,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.69,
+        "cvar95Pct": -2.5,
+        "averageDailyPnlPct": 0.081,
+        "firstEntry": "2025-01-02",
+        "lastExit": "2026-07-14",
+        "averageHoldDays": 1,
+        "tStat": 1.39
+      }
+    },
+    "splitEdges": {
+      "train": 20.53,
+      "validation": 6.07,
+      "holdout": 21.52,
+      "all": 90.09
+    },
+    "signalCount": 279,
+    "scheduledEventCount": 108,
+    "skippedHeatFollowSignals": 227,
+    "storageDeficitHeatTiltRows": 68,
+    "coolingDemandReversionRows": 42,
+    "weatherResolutionAdjustedRows": 0,
+    "weatherResolutionDroppedRows": 0,
+    "completedEventCount": 197,
+    "overlayDayCount": 197,
+    "fallbackDayCount": 1190,
+    "profitableTrainYears": 2,
+    "trainYearCount": 3,
+    "legCounts": {
+      "all": {
+        "weatherFollow": 155,
+        "weatherReversion": 42,
+        "summerColdShort": 0,
+        "summerHeatLong": 155,
+        "reversionLong": 0,
+        "reversionShort": 42
+      },
+      "trainValidation": {
+        "weatherFollow": 122,
+        "weatherReversion": 30,
+        "summerColdShort": 0,
+        "summerHeatLong": 122,
+        "reversionLong": 0,
+        "reversionShort": 30
+      },
+      "train": {
+        "weatherFollow": 95,
+        "weatherReversion": 12,
+        "summerColdShort": 0,
+        "summerHeatLong": 95,
+        "reversionLong": 0,
+        "reversionShort": 12
+      },
+      "validation": {
+        "weatherFollow": 27,
+        "weatherReversion": 18,
+        "summerColdShort": 0,
+        "summerHeatLong": 27,
+        "reversionLong": 0,
+        "reversionShort": 18
+      },
+      "holdout": {
+        "weatherFollow": 33,
+        "weatherReversion": 12,
+        "summerColdShort": 0,
+        "summerHeatLong": 33,
+        "reversionLong": 0,
+        "reversionShort": 12
+      }
+    },
+    "sideReturns": {
+      "all": {
+        "summerColdShort": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "summerHeatLong": {
+          "totalReturnPct": 28.51,
+          "cagrPct": 5.92,
+          "annualVolPct": 23.49,
+          "sharpe": 1.45,
+          "sortino": 2.23,
+          "maxDrawdownPct": -13.59,
+          "calmar": 0.44,
+          "winRatePct": 50.5,
+          "profitFactor": 1.29,
+          "tradeCount": 155,
+          "exposurePct": 38.2,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -2.35,
+          "cvar95Pct": -3.18,
+          "averageDailyPnlPct": 0.135,
+          "firstEntry": "2021-05-17",
+          "lastExit": "2025-09-26",
+          "averageHoldDays": 1,
+          "tStat": 1.3
+        },
+        "weatherFollow": {
+          "totalReturnPct": 28.51,
+          "cagrPct": 5.92,
+          "annualVolPct": 23.49,
+          "sharpe": 1.45,
+          "sortino": 2.23,
+          "maxDrawdownPct": -13.59,
+          "calmar": 0.44,
+          "winRatePct": 50.5,
+          "profitFactor": 1.29,
+          "tradeCount": 155,
+          "exposurePct": 38.2,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -2.35,
+          "cvar95Pct": -3.18,
+          "averageDailyPnlPct": 0.135,
+          "firstEntry": "2021-05-17",
+          "lastExit": "2025-09-26",
+          "averageHoldDays": 1,
+          "tStat": 1.3
+        },
+        "reversionLong": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "reversionShort": {
+          "totalReturnPct": 23.11,
+          "cagrPct": 9.08,
+          "annualVolPct": 14.46,
+          "sharpe": 5.41,
+          "sortino": 10.72,
+          "maxDrawdownPct": -4.11,
+          "calmar": 2.21,
+          "winRatePct": 58.8,
+          "profitFactor": 2.4,
+          "tradeCount": 42,
+          "exposurePct": 40.5,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.35,
+          "cvar95Pct": -1.4,
+          "averageDailyPnlPct": 0.31,
+          "firstEntry": "2023-05-09",
+          "lastExit": "2025-09-29",
+          "averageHoldDays": 1,
+          "tStat": 2.81
+        },
+        "weatherReversion": {
+          "totalReturnPct": 23.11,
+          "cagrPct": 9.08,
+          "annualVolPct": 14.46,
+          "sharpe": 5.41,
+          "sortino": 10.72,
+          "maxDrawdownPct": -4.11,
+          "calmar": 2.21,
+          "winRatePct": 58.8,
+          "profitFactor": 2.4,
+          "tradeCount": 42,
+          "exposurePct": 40.5,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.35,
+          "cvar95Pct": -1.4,
+          "averageDailyPnlPct": 0.31,
+          "firstEntry": "2023-05-09",
+          "lastExit": "2025-09-29",
+          "averageHoldDays": 1,
+          "tStat": 2.81
+        }
+      },
+      "trainValidation": {
+        "summerColdShort": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "summerHeatLong": {
+          "totalReturnPct": 14.17,
+          "cagrPct": 4.02,
+          "annualVolPct": 24.58,
+          "sharpe": 0.98,
+          "sortino": 1.46,
+          "maxDrawdownPct": -13.59,
+          "calmar": 0.3,
+          "winRatePct": 49.7,
+          "profitFactor": 1.19,
+          "tradeCount": 122,
+          "exposurePct": 38.6,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -2.62,
+          "cvar95Pct": -3.46,
+          "averageDailyPnlPct": 0.095,
+          "firstEntry": "2021-05-17",
+          "lastExit": "2024-09-26",
+          "averageHoldDays": 1,
+          "tStat": 0.78
+        },
+        "weatherFollow": {
+          "totalReturnPct": 14.17,
+          "cagrPct": 4.02,
+          "annualVolPct": 24.58,
+          "sharpe": 0.98,
+          "sortino": 1.46,
+          "maxDrawdownPct": -13.59,
+          "calmar": 0.3,
+          "winRatePct": 49.7,
+          "profitFactor": 1.19,
+          "tradeCount": 122,
+          "exposurePct": 38.6,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -2.62,
+          "cvar95Pct": -3.46,
+          "averageDailyPnlPct": 0.095,
+          "firstEntry": "2021-05-17",
+          "lastExit": "2024-09-26",
+          "averageHoldDays": 1,
+          "tStat": 0.78
+        },
+        "reversionLong": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "reversionShort": {
+          "totalReturnPct": 10.07,
+          "cagrPct": 7.16,
+          "annualVolPct": 14.5,
+          "sharpe": 3.48,
+          "sortino": 6.02,
+          "maxDrawdownPct": -4.11,
+          "calmar": 1.74,
+          "winRatePct": 53.1,
+          "profitFactor": 1.72,
+          "tradeCount": 30,
+          "exposurePct": 40.2,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.38,
+          "cvar95Pct": -1.42,
+          "averageDailyPnlPct": 0.2,
+          "firstEntry": "2023-05-09",
+          "lastExit": "2024-09-27",
+          "averageHoldDays": 1,
+          "tStat": 1.53
+        },
+        "weatherReversion": {
+          "totalReturnPct": 10.07,
+          "cagrPct": 7.16,
+          "annualVolPct": 14.5,
+          "sharpe": 3.48,
+          "sortino": 6.02,
+          "maxDrawdownPct": -4.11,
+          "calmar": 1.74,
+          "winRatePct": 53.1,
+          "profitFactor": 1.72,
+          "tradeCount": 30,
+          "exposurePct": 40.2,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.38,
+          "cvar95Pct": -1.42,
+          "averageDailyPnlPct": 0.2,
+          "firstEntry": "2023-05-09",
+          "lastExit": "2024-09-27",
+          "averageHoldDays": 1,
+          "tStat": 1.53
+        }
+      },
+      "holdout": {
+        "summerColdShort": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "summerHeatLong": {
+          "totalReturnPct": 12.56,
+          "cagrPct": 32.4,
+          "annualVolPct": 19.01,
+          "sharpe": 3.75,
+          "sortino": 7.19,
+          "maxDrawdownPct": -3.77,
+          "calmar": 8.59,
+          "winRatePct": 53.5,
+          "profitFactor": 1.9,
+          "tradeCount": 33,
+          "exposurePct": 36.7,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.49,
+          "cvar95Pct": -1.94,
+          "averageDailyPnlPct": 0.283,
+          "firstEntry": "2025-04-25",
+          "lastExit": "2025-09-26",
+          "averageHoldDays": 1,
+          "tStat": 1.55
+        },
+        "weatherFollow": {
+          "totalReturnPct": 12.56,
+          "cagrPct": 32.4,
+          "annualVolPct": 19.01,
+          "sharpe": 3.75,
+          "sortino": 7.19,
+          "maxDrawdownPct": -3.77,
+          "calmar": 8.59,
+          "winRatePct": 53.5,
+          "profitFactor": 1.9,
+          "tradeCount": 33,
+          "exposurePct": 36.7,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -1.49,
+          "cvar95Pct": -1.94,
+          "averageDailyPnlPct": 0.283,
+          "firstEntry": "2025-04-25",
+          "lastExit": "2025-09-26",
+          "averageHoldDays": 1,
+          "tStat": 1.55
+        },
+        "reversionLong": {
+          "totalReturnPct": 0,
+          "cagrPct": 0,
+          "annualVolPct": 0,
+          "sharpe": 0,
+          "sortino": 0,
+          "maxDrawdownPct": 0,
+          "calmar": 0,
+          "winRatePct": 0,
+          "profitFactor": 0,
+          "tradeCount": 0,
+          "exposurePct": 0,
+          "turnover": 0,
+          "var95Pct": 0,
+          "cvar95Pct": 0,
+          "averageDailyPnlPct": 0,
+          "firstEntry": null,
+          "lastExit": null,
+          "averageHoldDays": 1,
+          "tStat": 0
+        },
+        "reversionShort": {
+          "totalReturnPct": 11.85,
+          "cagrPct": 33.93,
+          "annualVolPct": 13.71,
+          "sharpe": 10.93,
+          "sortino": 49.32,
+          "maxDrawdownPct": -0.67,
+          "calmar": 50.32,
+          "winRatePct": 73.7,
+          "profitFactor": 8.18,
+          "tradeCount": 12,
+          "exposurePct": 41.3,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -0.58,
+          "cvar95Pct": -0.58,
+          "averageDailyPnlPct": 0.595,
+          "firstEntry": "2025-05-12",
+          "lastExit": "2025-09-29",
+          "averageHoldDays": 1,
+          "tStat": 3
+        },
+        "weatherReversion": {
+          "totalReturnPct": 11.85,
+          "cagrPct": 33.93,
+          "annualVolPct": 13.71,
+          "sharpe": 10.93,
+          "sortino": 49.32,
+          "maxDrawdownPct": -0.67,
+          "calmar": 50.32,
+          "winRatePct": 73.7,
+          "profitFactor": 8.18,
+          "tradeCount": 12,
+          "exposurePct": 41.3,
+          "turnover": 0,
+          "gasTurnover": 0,
+          "indexTurnover": 0,
+          "var95Pct": -0.58,
+          "cvar95Pct": -0.58,
+          "averageDailyPnlPct": 0.595,
+          "firstEntry": "2025-05-12",
+          "lastExit": "2025-09-29",
+          "averageHoldDays": 1,
+          "tStat": 3
+        }
+      }
+    },
+    "eligible": true,
+    "trainValidationRank": 97.6206
+  },
+  "researchOnly": {
+    "prospectiveShadowChallenger": {
+      "schemaVersion": 1,
+      "contractId": "summer-realized-move-ramp-1p5-to-2-shadow-v1",
+      "challengerCandidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv1.5-ramp1.5to2-fresh3-wrnone-sdef1.25-vol0-fixed",
+      "comparatorCandidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+      "role": "prospective-research-shadow",
+      "executionEligible": false,
+      "publicStrategy": false,
+      "frozenOn": "2026-07-22",
+      "prospectiveStart": "2026-07-23",
+      "comparatorComponentContract": {
+        "strategyId": "ngas-summer-alpha",
+        "activeTargetDatePolicy": {
+          "policyId": "summer-session-or-lead-7-target-season-v1",
+          "sessionMonths": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "leadMonthActivation": {
+            "forecastLeadDays": 7,
+            "minimumEntryLagDays": 1,
+            "activationOffsetDays": 6,
+            "targetMonths": [
+              5,
+              6,
+              7,
+              8,
+              9
+            ]
+          },
+          "minimumCalendarDayByMonth": {}
+        },
+        "selected": {
+          "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+          "architectureId": "summer-weather-follow-and-fade",
+          "useFollowLeg": true,
+          "useReversionLeg": true,
+          "sourceSetId": "gfs-gefs-core",
+          "sourceIds": [
+            "gfs",
+            "gefs-mean"
+          ],
+          "minGroups": 1,
+          "minFamilies": 2,
+          "sourceWeightMode": "equal",
+          "sizingMode": "fixed",
+          "anomalyThreshold": 5,
+          "coverageThreshold": 0.25,
+          "minConfidence": 0.5,
+          "weatherFraction": 0.35,
+          "reversionFraction": 0.35,
+          "reversionDemandMode": "cooling-demand-tiered",
+          "followHoldDays": 3,
+          "reversionHoldDays": 1,
+          "minRealizedMovePct": 2,
+          "freshHeatLookbackDays": 3,
+          "volTargetPct": 0,
+          "weatherResolutionMode": "none"
+        },
+        "implementation": {
+          "forecastLocationUniverse": {
+            "contractId": "qore-summer-eastern-conus-location-universe-v1",
+            "expectedLocationCount": 18,
+            "expectedSampledWeight": 1.06,
+            "locations": [
+              {
+                "locationId": "minneapolis",
+                "weight": 0.07
+              },
+              {
+                "locationId": "chicago",
+                "weight": 0.09
+              },
+              {
+                "locationId": "detroit",
+                "weight": 0.06
+              },
+              {
+                "locationId": "cleveland",
+                "weight": 0.05
+              },
+              {
+                "locationId": "indianapolis",
+                "weight": 0.05
+              },
+              {
+                "locationId": "st-louis",
+                "weight": 0.05
+              },
+              {
+                "locationId": "kansas-city",
+                "weight": 0.04
+              },
+              {
+                "locationId": "nashville",
+                "weight": 0.05
+              },
+              {
+                "locationId": "memphis",
+                "weight": 0.04
+              },
+              {
+                "locationId": "atlanta",
+                "weight": 0.07
+              },
+              {
+                "locationId": "charlotte",
+                "weight": 0.05
+              },
+              {
+                "locationId": "raleigh",
+                "weight": 0.04
+              },
+              {
+                "locationId": "washington-dc",
+                "weight": 0.07
+              },
+              {
+                "locationId": "philadelphia",
+                "weight": 0.06
+              },
+              {
+                "locationId": "new-york",
+                "weight": 0.11
+              },
+              {
+                "locationId": "boston",
+                "weight": 0.06
+              },
+              {
+                "locationId": "dallas",
+                "weight": 0.05
+              },
+              {
+                "locationId": "houston",
+                "weight": 0.05
+              }
+            ]
+          },
+          "scoreLocationAggregateContract": {
+            "schemaVersion": 1,
+            "contractId": "qore-executable-score-location-aggregate-v1",
+            "locationUniverse": {
+              "contractId": "qore-summer-eastern-conus-location-universe-v1",
+              "expectedLocationCount": 18,
+              "expectedSampledWeight": 1.06,
+              "locations": [
+                {
+                  "locationId": "minneapolis",
+                  "weight": 0.07
+                },
+                {
+                  "locationId": "chicago",
+                  "weight": 0.09
+                },
+                {
+                  "locationId": "detroit",
+                  "weight": 0.06
+                },
+                {
+                  "locationId": "cleveland",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "indianapolis",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "st-louis",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "kansas-city",
+                  "weight": 0.04
+                },
+                {
+                  "locationId": "nashville",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "memphis",
+                  "weight": 0.04
+                },
+                {
+                  "locationId": "atlanta",
+                  "weight": 0.07
+                },
+                {
+                  "locationId": "charlotte",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "raleigh",
+                  "weight": 0.04
+                },
+                {
+                  "locationId": "washington-dc",
+                  "weight": 0.07
+                },
+                {
+                  "locationId": "philadelphia",
+                  "weight": 0.06
+                },
+                {
+                  "locationId": "new-york",
+                  "weight": 0.11
+                },
+                {
+                  "locationId": "boston",
+                  "weight": 0.06
+                },
+                {
+                  "locationId": "dallas",
+                  "weight": 0.05
+                },
+                {
+                  "locationId": "houston",
+                  "weight": 0.05
+                }
+              ]
+            },
+            "coldCoverageAnomalyF": -8,
+            "extremeAnomalyF": -14,
+            "aggregatePrecisionDecimals": 3,
+            "locationWeightTolerance": 1e-9,
+            "weightedAnomalyToleranceF": 1e-9
+          },
+          "forecastTemporalContract": {
+            "schemaVersion": 2,
+            "contractId": "summer-target-local-day-four-sample-mean-v1",
+            "forecastIssueRunHourUtc": "00",
+            "requiredLeadDays": 7,
+            "validTimeOffsetsHoursFromTargetUtcMidnight": [
+              6,
+              12,
+              18,
+              24
+            ],
+            "aggregation": "equal-weighted-arithmetic-mean",
+            "targetDateSemantics": "The targetDate remains issueDate plus leadDays. Offset 24 samples the following UTC midnight and is aggregated into that targetDate as the reviewed Eastern/Central US local-day approximation.",
+            "targetDayBasis": "eastern-central-us-local-calendar-day-four-sample-approximation",
+            "comparisonStatistic": "NASA-POWER-daily-T2M-mean",
+            "valueBinding": {
+              "schemaVersion": 1,
+              "sampleValuesField": "sampledForecastValuesF",
+              "sampleValuesEncoding": "pipe-delimited-degrees-F-in-offset-order-decimal-round-trip",
+              "sampleProvenanceField": "forecastSampleProvenanceJson",
+              "sampleProvenanceDigestField": "forecastSampleProvenanceDigestSha256",
+              "locationVectorDigestField": "forecastSampleVectorDigestSha256",
+              "locationSetDigestField": "locationSampleVectorSetDigestSha256",
+              "normalIdentityFields": [
+                "normalSourceContractId",
+                "normalSourceContractDigestSha256",
+                "normalSourcePayloadDigestSha256"
+              ],
+              "normalSourceContract": {
+                "contractId": "nasa-power-merra2-lst-t2m-1991-2020-v1",
+                "apiName": "POWER Daily API",
+                "apiVersion": "v2.9.4",
+                "upstreamSource": "MERRA2",
+                "timeStandard": "LST",
+                "parameter": "T2M",
+                "startDate": "1991-01-01",
+                "endDate": "2020-12-31",
+                "aggregation": "same-calendar-month-day-arithmetic-mean-converted-C-to-F",
+                "retainedPayloadPathTemplate": "data/qore/weather/nasa-power/normals/{locationId}-1991-01-01-2020-12-31.json",
+                "payloadDigestSha256ByLocationId": {
+                  "atlanta": "0810f0fc8a90118b9ee78160ca0a8b07ff765c211e2b358ccb1ad515a5d0f9ec",
+                  "boston": "f1ace71546bd44d70b32c8281ffd0c8146e43e5a70e4519b1dd4724a70c21ff9",
+                  "charlotte": "79c72d67eaeaa2f7a571397b527ce7e643101fe2e59e4662af47f89bbd135589",
+                  "chicago": "371516b28991c393b58e0397b11fec342fa0889673dfd349cf1f4e303f37003b",
+                  "cleveland": "2796510c46879cfd3000abc92f23fe433abda00cb69bef106b5576698224b135",
+                  "dallas": "4b3d8648923891fab65ad6cf3ff64146f4462deaf80c0c2e8ec3d2e4db2348fd",
+                  "detroit": "2e824bb05e63c57f04b5920e50151539d9a7098badf46a90cd42d230a8aac7f2",
+                  "houston": "520c32658c959069798e70f4acf024e687f937dee358507780208922db6781f5",
+                  "indianapolis": "dd17c50dc054452117f2924a591c07694d15f84c11545dbb29523bdc6468854c",
+                  "kansas-city": "69456f00d87cb878a5519ed38c73c0bf241995a5a2f88cb8335a9535dab607f7",
+                  "memphis": "9abe74e9c50ed3b38351c9e2e348c614f51cca718e4238099a0def5f96315125",
+                  "minneapolis": "783c46d0c07a7a7b99ff3fa8f65c66e4773f1bf5d7ae19f7e6b2f17a311584e6",
+                  "nashville": "f8d2cd1ef3b61c6c360f7cf7d685c187da76dc78986e69395a216e88c0aa0689",
+                  "new-york": "da386333e72f33767c006da9febf366ed0b2090168caaf911e4577588b562938",
+                  "philadelphia": "4c0ebfca3239e592cced47e0ba1e1a8d315bbf3892434811fa4766d16d73bb36",
+                  "raleigh": "02d9ee85ef2804f9a482f1c97d460bf5348064ee498b6cb78f3a2f414e825852",
+                  "st-louis": "afe6c6bac4ed1e9812cb767798328eddc6c7d8bf4c34ee024af26a4ac250befc",
+                  "washington-dc": "475680dd2ac2d3ec115de7bbeb6eb37da8dbea2afe51777a34ff802bf1bda11f"
+                }
+              },
+              "normalSourceContractDigestSha256": "18b1670dbbab93e68a3a9bfb67853f7961a7d125095627df20ebec276b322bcf",
+              "reviewedWindowId": "rumor",
+              "reviewedModelIds": {
+                "gfs": "ncep-gfs-global-00z-noaa-aws",
+                "gefs-mean": "ncep-gefs-mean-00z-noaa-aws",
+                "graphcastgfs": "ncep-gfs-graphcast-00z-noaa-aws",
+                "aigfs": "ncep-aigfs-025-00z-openmeteo-single-runs",
+                "ecmwf-ifs": "ecmwf-ifs-00z-openmeteo-single-runs",
+                "ecmwf-aifs": "ecmwf-aifs-025-00z-openmeteo-single-runs",
+                "gem-global": "gem-global-00z-openmeteo-single-runs"
+              },
+              "acquisitionIdentityFields": [
+                "sourceUrl",
+                "indexUrl",
+                "indexLine",
+                "sourceIndexPayloadDigestSha256",
+                "sourcePayloadDigestSha256"
+              ],
+              "aggregateRule": "forecastMeanF-equals-rounded-3dp-arithmetic-mean-of-stored-samples",
+              "digestAlgorithm": "sha256-canonical-json",
+              "acquisitionTrustBoundary": "The builder hashes each fetched GRIB field or Open-Meteo response and binds that digest plus upstream object identity into the persisted score provenance. Relabel-only or accidental value changes fail validation. Raw forecast bytes are not retained and SHA-256 bindings are not signatures, so a malicious process able to fabricate values and recompute every digest remains inside the trusted builder acquisition-attestation boundary."
+            },
+            "summerExecutionEligible": true
+          },
+          "storageDeficitHeatMultiplier": 1.25,
+          "storageDeficitHeatMaxFraction": 0.4375,
+          "storageSeasonalLookbackYears": 5,
+          "storageAvailabilityContract": "versioned-release-calendar-before-session-open",
+          "coolingDemand": {
+            "baseF": 65,
+            "solidAnomalyF": 5,
+            "extremeAnomalyF": 8,
+            "lowReversionSubtract": 0.15,
+            "solidReversionAdd": 0.05,
+            "extremeReversionAdd": 0.15,
+            "minimumReversionFraction": 0.2,
+            "solidMaximumReversionFraction": 0.45,
+            "extremeMaximumReversionFraction": 0.5
+          }
+        },
+        "targetLattice": {
+          "schemaVersion": 1,
+          "generatorId": "summer-enumerated-target-lattice-v1",
+          "roundingDecimalPlaces": 4,
+          "targetsByWindowAndThesis": {
+            "weather-follow": {
+              "summer-heat-long": [
+                0.35,
+                0.4375
+              ]
+            },
+            "weather-reversion": {
+              "reversion-short": [
+                -0.5,
+                -0.4,
+                -0.2
+              ]
+            }
+          }
+        },
+        "positionCaps": {
+          "weather-follow": {
+            "summer-heat-long": 0.4375
+          },
+          "weather-reversion": {
+            "reversion-short": 0.5
+          }
+        }
+      },
+      "comparatorComponentContractDigestSha256": "a7eaeec9307428a8f9f37179945c7433969cbb6a1b89b7f6c3d37b389c1a6871",
+      "parameterDelta": {
+        "minRealizedMovePct": 1.5,
+        "reversionMoveScaleMode": "linear-ramp",
+        "reversionRampStartPct": 1.5,
+        "reversionFullSizeMovePct": 2
+      },
+      "evaluation": {
+        "historicalEvidenceStatus": "development-contaminated",
+        "comparison": "daily causal UNG/VOO/QQQM net return versus the unchanged selected Summer contract on the active Summer comparator schedule",
+        "recordTiming": "target must be on the active Summer comparator schedule and recorded before 09:30 America/New_York on its target session",
+        "sessionCalendar": {
+          "market": "NYSE equities",
+          "timeZone": "America/New_York",
+          "reviewedYears": [
+            2026,
+            2027,
+            2028
+          ],
+          "fullDayClosureSource": "https://www.nyse.com/trade/hours-calendars",
+          "fullDayClosures": {
+            "2026": [
+              "2026-01-01",
+              "2026-01-19",
+              "2026-02-16",
+              "2026-04-03",
+              "2026-05-25",
+              "2026-06-19",
+              "2026-07-03",
+              "2026-09-07",
+              "2026-11-26",
+              "2026-12-25"
+            ],
+            "2027": [
+              "2027-01-01",
+              "2027-01-18",
+              "2027-02-15",
+              "2027-03-26",
+              "2027-05-31",
+              "2027-06-18",
+              "2027-07-05",
+              "2027-09-06",
+              "2027-11-25",
+              "2027-12-24"
+            ],
+            "2028": [
+              "2028-01-17",
+              "2028-02-21",
+              "2028-04-14",
+              "2028-05-29",
+              "2028-06-19",
+              "2028-07-04",
+              "2028-09-04",
+              "2028-11-23",
+              "2028-12-25"
+            ]
+          },
+          "unreviewedYearPolicy": "fail-closed"
+        },
+        "missingObservationPolicy": "missing or late shadow targets remain missing and must not be reconstructed",
+        "promotionPolicy": "research review only; this contract cannot authorize paper or live execution"
+      },
+      "contractDigestSha256": "18863b0873efdbe1cd935982b89de1d0e68773b1449a47d00cf00ed5423a26ac",
+      "comparator": {
+        "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+        "selectedContractUnchanged": true,
+        "forecastTemporalContractId": null
+      },
+      "historicalEvaluation": {
+        "evidenceStatus": "development-contaminated",
+        "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv1.5-ramp1.5to2-fresh3-wrnone-sdef1.25-vol0-fixed",
+        "eligibleDiagnostic": true,
+        "trainMetrics": {
+          "totalReturnPct": 54.97,
+          "cagrPct": 15.83,
+          "annualVolPct": 20.12,
+          "sharpe": 0.83,
+          "sortino": 1.21,
+          "maxDrawdownPct": -22.73,
+          "calmar": 0.7,
+          "winRatePct": 52.9,
+          "profitFactor": 1.15,
+          "tradeCount": 108,
+          "exposurePct": 5.8,
+          "turnover": 54.3,
+          "gasTurnover": 28.86,
+          "indexTurnover": 25.44,
+          "var95Pct": -2.01,
+          "cvar95Pct": -2.8,
+          "averageDailyPnlPct": 0.066,
+          "firstEntry": "2021-01-04",
+          "lastExit": "2023-12-29",
+          "averageHoldDays": 1,
+          "tStat": 1.43
+        },
+        "validationMetrics": {
+          "totalReturnPct": 32.87,
+          "cagrPct": 33,
+          "annualVolPct": 14.62,
+          "sharpe": 2.02,
+          "sortino": 3.09,
+          "maxDrawdownPct": -8.25,
+          "calmar": 4,
+          "winRatePct": 56,
+          "profitFactor": 1.4,
+          "tradeCount": 46,
+          "exposurePct": 6.8,
+          "turnover": 29.18,
+          "gasTurnover": 16.02,
+          "indexTurnover": 13.16,
+          "var95Pct": -1.48,
+          "cvar95Pct": -1.94,
+          "averageDailyPnlPct": 0.117,
+          "firstEntry": "2024-01-02",
+          "lastExit": "2024-12-31",
+          "averageHoldDays": 1,
+          "tStat": 2.02
+        },
+        "holdoutMetrics": {
+          "totalReturnPct": 54.5,
+          "cagrPct": 32.95,
+          "annualVolPct": 18.79,
+          "sharpe": 1.62,
+          "sortino": 2.51,
+          "maxDrawdownPct": -19.12,
+          "calmar": 1.72,
+          "winRatePct": 58.4,
+          "profitFactor": 1.35,
+          "tradeCount": 46,
+          "exposurePct": 4.6,
+          "turnover": 24.21,
+          "gasTurnover": 13.02,
+          "indexTurnover": 11.19,
+          "var95Pct": -1.68,
+          "cvar95Pct": -2.49,
+          "averageDailyPnlPct": 0.121,
+          "firstEntry": "2025-01-02",
+          "lastExit": "2026-07-14",
+          "averageHoldDays": 1,
+          "tStat": 2
+        },
+        "allMetrics": {
+          "totalReturnPct": 218.14,
+          "cagrPct": 23.32,
+          "annualVolPct": 18.86,
+          "sharpe": 1.21,
+          "sortino": 1.81,
+          "maxDrawdownPct": -22.73,
+          "calmar": 1.03,
+          "winRatePct": 54.9,
+          "profitFactor": 1.24,
+          "tradeCount": 200,
+          "exposurePct": 5.6,
+          "turnover": 107.7,
+          "gasTurnover": 57.9,
+          "indexTurnover": 49.79,
+          "var95Pct": -1.77,
+          "cvar95Pct": -2.6,
+          "averageDailyPnlPct": 0.091,
+          "firstEntry": "2021-01-04",
+          "lastExit": "2026-07-14",
+          "averageHoldDays": 1,
+          "tStat": 2.84
+        },
+        "splitEdges": {
+          "train": 21.52,
+          "validation": 7.7,
+          "holdout": 21.58,
+          "all": 96.12
+        },
+        "legCounts": {
+          "all": {
+            "weatherFollow": 155,
+            "weatherReversion": 45,
+            "summerColdShort": 0,
+            "summerHeatLong": 155,
+            "reversionLong": 0,
+            "reversionShort": 45
+          },
+          "trainValidation": {
+            "weatherFollow": 122,
+            "weatherReversion": 32,
+            "summerColdShort": 0,
+            "summerHeatLong": 122,
+            "reversionLong": 0,
+            "reversionShort": 32
+          },
+          "train": {
+            "weatherFollow": 95,
+            "weatherReversion": 13,
+            "summerColdShort": 0,
+            "summerHeatLong": 95,
+            "reversionLong": 0,
+            "reversionShort": 13
+          },
+          "validation": {
+            "weatherFollow": 27,
+            "weatherReversion": 19,
+            "summerColdShort": 0,
+            "summerHeatLong": 27,
+            "reversionLong": 0,
+            "reversionShort": 19
+          },
+          "holdout": {
+            "weatherFollow": 33,
+            "weatherReversion": 13,
+            "summerColdShort": 0,
+            "summerHeatLong": 33,
+            "reversionLong": 0,
+            "reversionShort": 13
+          }
+        },
+        "signalCount": 279,
+        "overlayDayCount": 200
+      }
+    }
+  },
+  "search": {
+    "candidateCount": 2,
+    "eligibleCandidateCount": 2,
+    "weatherResolutionVariantPoolSize": 1,
+    "weatherResolutionComparison": "current active Summer Alpha family with no close-in fade check versus graded close-in fade check",
+    "selectionUsedHoldout": false
+  },
+  "promotion": {
+    "eligible": false,
+    "gates": {
+      "statisticallyEligibleCandidate": true,
+      "forecastCoverageComplete": false
+    }
+  },
+  "validation": {
+    "sideMetrics": {
+      "summerColdShort": {
+        "totalReturnPct": 0,
+        "cagrPct": 0,
+        "annualVolPct": 0,
+        "sharpe": 0,
+        "sortino": 0,
+        "maxDrawdownPct": 0,
+        "calmar": 0,
+        "winRatePct": 0,
+        "profitFactor": 0,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "var95Pct": 0,
+        "cvar95Pct": 0,
+        "averageDailyPnlPct": 0,
+        "firstEntry": null,
+        "lastExit": null,
+        "averageHoldDays": 1,
+        "tStat": 0
+      },
+      "summerHeatLong": {
+        "totalReturnPct": 28.51,
+        "cagrPct": 5.92,
+        "annualVolPct": 23.49,
+        "sharpe": 1.45,
+        "sortino": 2.23,
+        "maxDrawdownPct": -13.59,
+        "calmar": 0.44,
+        "winRatePct": 50.5,
+        "profitFactor": 1.29,
+        "tradeCount": 155,
+        "exposurePct": 38.2,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -2.35,
+        "cvar95Pct": -3.18,
+        "averageDailyPnlPct": 0.135,
+        "firstEntry": "2021-05-17",
+        "lastExit": "2025-09-26",
+        "averageHoldDays": 1,
+        "tStat": 1.3
+      },
+      "reversionLong": {
+        "totalReturnPct": 0,
+        "cagrPct": 0,
+        "annualVolPct": 0,
+        "sharpe": 0,
+        "sortino": 0,
+        "maxDrawdownPct": 0,
+        "calmar": 0,
+        "winRatePct": 0,
+        "profitFactor": 0,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0,
+        "var95Pct": 0,
+        "cvar95Pct": 0,
+        "averageDailyPnlPct": 0,
+        "firstEntry": null,
+        "lastExit": null,
+        "averageHoldDays": 1,
+        "tStat": 0
+      },
+      "reversionShort": {
+        "totalReturnPct": 23.11,
+        "cagrPct": 9.08,
+        "annualVolPct": 14.46,
+        "sharpe": 5.41,
+        "sortino": 10.72,
+        "maxDrawdownPct": -4.11,
+        "calmar": 2.21,
+        "winRatePct": 58.8,
+        "profitFactor": 2.4,
+        "tradeCount": 42,
+        "exposurePct": 40.5,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.35,
+        "cvar95Pct": -1.4,
+        "averageDailyPnlPct": 0.31,
+        "firstEntry": "2023-05-09",
+        "lastExit": "2025-09-29",
+        "averageHoldDays": 1,
+        "tStat": 2.81
+      },
+      "fallback": {
+        "totalReturnPct": 97.48,
+        "cagrPct": 13.11,
+        "annualVolPct": 17,
+        "sharpe": 0.89,
+        "sortino": 1.31,
+        "maxDrawdownPct": -19.12,
+        "calmar": 0.69,
+        "winRatePct": 54.9,
+        "profitFactor": 1.17,
+        "tradeCount": 1190,
+        "exposurePct": 0,
+        "turnover": 0,
+        "gasTurnover": 0,
+        "indexTurnover": 0,
+        "var95Pct": -1.67,
+        "cvar95Pct": -2.35,
+        "averageDailyPnlPct": 0.06,
+        "firstEntry": "2021-01-04",
+        "lastExit": "2026-07-14",
+        "averageHoldDays": 1,
+        "tStat": 1.99
+      }
+    },
+    "yearMetrics": [
+      {
+        "year": "2021",
+        "totalReturnPct": 37.17,
+        "cagrPct": 37.68,
+        "annualVolPct": 14.4,
+        "sharpe": 2.27,
+        "sortino": 3.55,
+        "maxDrawdownPct": -5.11,
+        "calmar": 7.37,
+        "winRatePct": 57.9,
+        "profitFactor": 1.46,
+        "tradeCount": 0,
+        "exposurePct": 4.7,
+        "turnover": 14.01,
+        "gasTurnover": 6.93,
+        "indexTurnover": 7.08,
+        "var95Pct": -1.34,
+        "cvar95Pct": -1.9,
+        "averageDailyPnlPct": 0.13,
+        "firstEntry": "2021-01-04",
+        "lastExit": "2021-12-31",
+        "averageHoldDays": 1,
+        "tStat": 2.27
+      },
+      {
+        "year": "2022",
+        "totalReturnPct": -17.23,
+        "cagrPct": -17.41,
+        "annualVolPct": 27.97,
+        "sharpe": -0.54,
+        "sortino": -0.76,
+        "maxDrawdownPct": -22.73,
+        "calmar": -0.77,
+        "winRatePct": 43.4,
+        "profitFactor": 0.92,
+        "tradeCount": 0,
+        "exposurePct": 5.6,
+        "turnover": 16.04,
+        "gasTurnover": 7.94,
+        "indexTurnover": 8.09,
+        "var95Pct": -2.7,
+        "cvar95Pct": -3.74,
+        "averageDailyPnlPct": -0.06,
+        "firstEntry": "2022-01-03",
+        "lastExit": "2022-12-30",
+        "averageHoldDays": 1,
+        "tStat": -0.54
+      },
+      {
+        "year": "2023",
+        "totalReturnPct": 35.63,
+        "cagrPct": 36.23,
+        "annualVolPct": 14.91,
+        "sharpe": 2.14,
+        "sortino": 3.39,
+        "maxDrawdownPct": -7.23,
+        "calmar": 5.01,
+        "winRatePct": 56.8,
+        "profitFactor": 1.41,
+        "tradeCount": 0,
+        "exposurePct": 7,
+        "turnover": 24.26,
+        "gasTurnover": 13.99,
+        "indexTurnover": 10.27,
+        "var95Pct": -1.46,
+        "cvar95Pct": -1.69,
+        "averageDailyPnlPct": 0.126,
+        "firstEntry": "2023-01-03",
+        "lastExit": "2023-12-29",
+        "averageHoldDays": 1,
+        "tStat": 2.13
+      },
+      {
+        "year": "2024",
+        "totalReturnPct": 31.24,
+        "cagrPct": 31.36,
+        "annualVolPct": 14.54,
+        "sharpe": 1.94,
+        "sortino": 2.96,
+        "maxDrawdownPct": -8.25,
+        "calmar": 3.8,
+        "winRatePct": 56,
+        "profitFactor": 1.38,
+        "tradeCount": 0,
+        "exposurePct": 6.6,
+        "turnover": 28.56,
+        "gasTurnover": 15.4,
+        "indexTurnover": 13.15,
+        "var95Pct": -1.48,
+        "cvar95Pct": -1.94,
+        "averageDailyPnlPct": 0.112,
+        "firstEntry": "2024-01-02",
+        "lastExit": "2024-12-31",
+        "averageHoldDays": 1,
+        "tStat": 1.94
+      },
+      {
+        "year": "2025",
+        "totalReturnPct": 37.97,
+        "cagrPct": 38.24,
+        "annualVolPct": 20.62,
+        "sharpe": 1.68,
+        "sortino": 2.63,
+        "maxDrawdownPct": -19.12,
+        "calmar": 2,
+        "winRatePct": 59.6,
+        "profitFactor": 1.38,
+        "tradeCount": 0,
+        "exposurePct": 7,
+        "turnover": 24.04,
+        "gasTurnover": 12.97,
+        "indexTurnover": 11.06,
+        "var95Pct": -1.77,
+        "cvar95Pct": -2.78,
+        "averageDailyPnlPct": 0.137,
+        "firstEntry": "2025-01-02",
+        "lastExit": "2025-12-31",
+        "averageHoldDays": 1,
+        "tStat": 1.67
+      },
+      {
+        "year": "2026",
+        "totalReturnPct": 11.94,
+        "cagrPct": 23.8,
+        "annualVolPct": 14.77,
+        "sharpe": 1.53,
+        "sortino": 2.29,
+        "maxDrawdownPct": -9.27,
+        "calmar": 2.57,
+        "winRatePct": 56.1,
+        "profitFactor": 1.28,
+        "tradeCount": 0,
+        "exposurePct": 0,
+        "turnover": 0.08,
+        "gasTurnover": 0,
+        "indexTurnover": 0.08,
+        "var95Pct": -1.61,
+        "cvar95Pct": -1.93,
+        "averageDailyPnlPct": 0.09,
+        "firstEntry": "2026-01-02",
+        "lastExit": "2026-07-14",
+        "averageHoldDays": 1,
+        "tStat": 1.11
+      }
+    ],
+    "realityCheck": {
+      "method": "rank-window selection-adjusted centered circular block bootstrap",
+      "comparison": "strategy net daily return minus US index basket daily return",
+      "alternative": "greater-than-zero daily active edge",
+      "observedAverageDailyEdgePct": 0.02548,
+      "observedAnnualizedEdgePct": 6.42,
+      "pValue": 0.0341,
+      "singleCandidatePValue": 0.0333,
+      "selectionAdjustedPValue": 0.0341,
+      "candidateFamilySize": 2,
+      "rankWindow": 20,
+      "bestObservedCandidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+      "bestObservedAverageDailyEdgePct": 0.02548,
+      "dailyActiveVolPct": 0.5725,
+      "meanConfidenceIntervalDailyEdgePct": {
+        "p05": 0.00462,
+        "p50": 0.02484,
+        "p95": 0.04773
+      },
+      "nullConfidenceIntervalDailyEdgePct": {
+        "p05": -0.02086,
+        "p50": -0.00064,
+        "p95": 0.02225
+      },
+      "nullMaxMeanDailyEdgePct": {
+        "p05": -0.02005,
+        "p50": 0.00023,
+        "p95": 0.02237
+      },
+      "sampleCount": 1387,
+      "activeOverlayDays": 197,
+      "minimumResolvablePValue": 0.0008,
+      "iterations": 1200,
+      "blockLength": 10
+    },
+    "forecastCoverage": {
+      "contractId": "summer-active-source-daily-lead-7-location-and-temporal-universe-v2",
+      "status": "incomplete",
+      "complete": false,
+      "promotionEligible": false,
+      "coverageStartDate": "2021-05-01",
+      "marketEndDate": "2026-07-14",
+      "finalObservableIssueDate": "2026-07-07",
+      "firstRequiredIssueDate": "2021-05-01",
+      "lastRequiredIssueDate": "2026-07-07",
+      "requiredIssueDateCount": 833,
+      "fullyCoveredIssueDateCount": 758,
+      "missingUniqueIssueDateCount": 75,
+      "missingSourceIssueDateCount": 150,
+      "firstMissingIssueDate": "2026-04-24",
+      "lastMissingIssueDate": "2026-07-07",
+      "policy": {
+        "requiredSourceIds": [
+          "gfs",
+          "gefs-mean"
+        ],
+        "frequency": "daily-calendar-issue",
+        "windowId": "rumor",
+        "leadDays": 7,
+        "targetSeasonStartMonthDay": "05-01",
+        "targetSeasonEndMonthDay": "09-30",
+        "requiresMatchingLocationBreadth": true,
+        "locationUniverse": {
+          "contractId": "qore-summer-eastern-conus-location-universe-v1",
+          "expectedLocationCount": 18,
+          "expectedSampledWeight": 1.06,
+          "locations": [
+            {
+              "locationId": "minneapolis",
+              "weight": 0.07
+            },
+            {
+              "locationId": "chicago",
+              "weight": 0.09
+            },
+            {
+              "locationId": "detroit",
+              "weight": 0.06
+            },
+            {
+              "locationId": "cleveland",
+              "weight": 0.05
+            },
+            {
+              "locationId": "indianapolis",
+              "weight": 0.05
+            },
+            {
+              "locationId": "st-louis",
+              "weight": 0.05
+            },
+            {
+              "locationId": "kansas-city",
+              "weight": 0.04
+            },
+            {
+              "locationId": "nashville",
+              "weight": 0.05
+            },
+            {
+              "locationId": "memphis",
+              "weight": 0.04
+            },
+            {
+              "locationId": "atlanta",
+              "weight": 0.07
+            },
+            {
+              "locationId": "charlotte",
+              "weight": 0.05
+            },
+            {
+              "locationId": "raleigh",
+              "weight": 0.04
+            },
+            {
+              "locationId": "washington-dc",
+              "weight": 0.07
+            },
+            {
+              "locationId": "philadelphia",
+              "weight": 0.06
+            },
+            {
+              "locationId": "new-york",
+              "weight": 0.11
+            },
+            {
+              "locationId": "boston",
+              "weight": 0.06
+            },
+            {
+              "locationId": "dallas",
+              "weight": 0.05
+            },
+            {
+              "locationId": "houston",
+              "weight": 0.05
+            }
+          ]
+        },
+        "requiresCorrectedTemporalStatistic": true,
+        "temporalContract": {
+          "schemaVersion": 2,
+          "contractId": "summer-target-local-day-four-sample-mean-v1",
+          "forecastIssueRunHourUtc": "00",
+          "requiredLeadDays": 7,
+          "validTimeOffsetsHoursFromTargetUtcMidnight": [
+            6,
+            12,
+            18,
+            24
+          ],
+          "aggregation": "equal-weighted-arithmetic-mean",
+          "targetDateSemantics": "The targetDate remains issueDate plus leadDays. Offset 24 samples the following UTC midnight and is aggregated into that targetDate as the reviewed Eastern/Central US local-day approximation.",
+          "targetDayBasis": "eastern-central-us-local-calendar-day-four-sample-approximation",
+          "comparisonStatistic": "NASA-POWER-daily-T2M-mean",
+          "valueBinding": {
+            "schemaVersion": 1,
+            "sampleValuesField": "sampledForecastValuesF",
+            "sampleValuesEncoding": "pipe-delimited-degrees-F-in-offset-order-decimal-round-trip",
+            "sampleProvenanceField": "forecastSampleProvenanceJson",
+            "sampleProvenanceDigestField": "forecastSampleProvenanceDigestSha256",
+            "locationVectorDigestField": "forecastSampleVectorDigestSha256",
+            "locationSetDigestField": "locationSampleVectorSetDigestSha256",
+            "normalIdentityFields": [
+              "normalSourceContractId",
+              "normalSourceContractDigestSha256",
+              "normalSourcePayloadDigestSha256"
+            ],
+            "normalSourceContract": {
+              "contractId": "nasa-power-merra2-lst-t2m-1991-2020-v1",
+              "apiName": "POWER Daily API",
+              "apiVersion": "v2.9.4",
+              "upstreamSource": "MERRA2",
+              "timeStandard": "LST",
+              "parameter": "T2M",
+              "startDate": "1991-01-01",
+              "endDate": "2020-12-31",
+              "aggregation": "same-calendar-month-day-arithmetic-mean-converted-C-to-F",
+              "retainedPayloadPathTemplate": "data/qore/weather/nasa-power/normals/{locationId}-1991-01-01-2020-12-31.json",
+              "payloadDigestSha256ByLocationId": {
+                "atlanta": "0810f0fc8a90118b9ee78160ca0a8b07ff765c211e2b358ccb1ad515a5d0f9ec",
+                "boston": "f1ace71546bd44d70b32c8281ffd0c8146e43e5a70e4519b1dd4724a70c21ff9",
+                "charlotte": "79c72d67eaeaa2f7a571397b527ce7e643101fe2e59e4662af47f89bbd135589",
+                "chicago": "371516b28991c393b58e0397b11fec342fa0889673dfd349cf1f4e303f37003b",
+                "cleveland": "2796510c46879cfd3000abc92f23fe433abda00cb69bef106b5576698224b135",
+                "dallas": "4b3d8648923891fab65ad6cf3ff64146f4462deaf80c0c2e8ec3d2e4db2348fd",
+                "detroit": "2e824bb05e63c57f04b5920e50151539d9a7098badf46a90cd42d230a8aac7f2",
+                "houston": "520c32658c959069798e70f4acf024e687f937dee358507780208922db6781f5",
+                "indianapolis": "dd17c50dc054452117f2924a591c07694d15f84c11545dbb29523bdc6468854c",
+                "kansas-city": "69456f00d87cb878a5519ed38c73c0bf241995a5a2f88cb8335a9535dab607f7",
+                "memphis": "9abe74e9c50ed3b38351c9e2e348c614f51cca718e4238099a0def5f96315125",
+                "minneapolis": "783c46d0c07a7a7b99ff3fa8f65c66e4773f1bf5d7ae19f7e6b2f17a311584e6",
+                "nashville": "f8d2cd1ef3b61c6c360f7cf7d685c187da76dc78986e69395a216e88c0aa0689",
+                "new-york": "da386333e72f33767c006da9febf366ed0b2090168caaf911e4577588b562938",
+                "philadelphia": "4c0ebfca3239e592cced47e0ba1e1a8d315bbf3892434811fa4766d16d73bb36",
+                "raleigh": "02d9ee85ef2804f9a482f1c97d460bf5348064ee498b6cb78f3a2f414e825852",
+                "st-louis": "afe6c6bac4ed1e9812cb767798328eddc6c7d8bf4c34ee024af26a4ac250befc",
+                "washington-dc": "475680dd2ac2d3ec115de7bbeb6eb37da8dbea2afe51777a34ff802bf1bda11f"
+              }
+            },
+            "normalSourceContractDigestSha256": "18b1670dbbab93e68a3a9bfb67853f7961a7d125095627df20ebec276b322bcf",
+            "reviewedWindowId": "rumor",
+            "reviewedModelIds": {
+              "gfs": "ncep-gfs-global-00z-noaa-aws",
+              "gefs-mean": "ncep-gefs-mean-00z-noaa-aws",
+              "graphcastgfs": "ncep-gfs-graphcast-00z-noaa-aws",
+              "aigfs": "ncep-aigfs-025-00z-openmeteo-single-runs",
+              "ecmwf-ifs": "ecmwf-ifs-00z-openmeteo-single-runs",
+              "ecmwf-aifs": "ecmwf-aifs-025-00z-openmeteo-single-runs",
+              "gem-global": "gem-global-00z-openmeteo-single-runs"
+            },
+            "acquisitionIdentityFields": [
+              "sourceUrl",
+              "indexUrl",
+              "indexLine",
+              "sourceIndexPayloadDigestSha256",
+              "sourcePayloadDigestSha256"
+            ],
+            "aggregateRule": "forecastMeanF-equals-rounded-3dp-arithmetic-mean-of-stored-samples",
+            "digestAlgorithm": "sha256-canonical-json",
+            "acquisitionTrustBoundary": "The builder hashes each fetched GRIB field or Open-Meteo response and binds that digest plus upstream object identity into the persisted score provenance. Relabel-only or accidental value changes fail validation. Raw forecast bytes are not retained and SHA-256 bindings are not signatures, so a malicious process able to fabricate values and recompute every digest remains inside the trusted builder acquisition-attestation boundary."
+          },
+          "summerExecutionEligible": true
+        },
+        "marketCutoff": "Require each in-season lead-7 issue date to have its target date on or before the aligned market ledger end; the initial calendar is reviewed as beginning 2021-05-01."
+      },
+      "sources": [
+        {
+          "sourceId": "gfs",
+          "temporalContractComplete": false,
+          "temporalInputCount": 1,
+          "temporalFailureCount": 6071,
+          "temporalFailureDigestSha256": "db71d83dbbf715b6a60e8bd6287fbf80c7ee484c52c99ce82a9a43d726f9a9e1",
+          "temporalFailureSamples": [
+            "gfs location rows forecastTemporalContractId is not the corrected Summer contract",
+            "gfs location rows sampledValidHoursUtc does not match sampledValidTimeOffsetsHours",
+            "gfs location rows sampledValidTimeOffsetsHours is not exactly 6|12|18|24",
+            "gfs manifest temporalSampling metadata is missing",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleProvenanceDigestSha256 does not bind the persisted provenance",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleProvenanceJson is not valid JSON",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleVectorDigestSha256 does not bind samples, normals, anomaly, weight, provenance, and row identity",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws location sample vector is not bound to the score provenance",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws locationSampleVectorSetDigestSha256 does not bind the score to its location vectors",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourceContractDigestSha256 does not match the reviewed normal source/version",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourceContractId does not match the reviewed NASA POWER normal contract",
+            "gfs score group 2021-05-01|2021-05-08|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourcePayloadDigestSha256 is missing or malformed",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleProvenanceDigestSha256 does not bind the persisted provenance",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleProvenanceJson is not valid JSON",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws forecastSampleVectorDigestSha256 does not bind samples, normals, anomaly, weight, provenance, and row identity",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws location sample vector is not bound to the score provenance",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws locationSampleVectorSetDigestSha256 does not bind the score to its location vectors",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourceContractDigestSha256 does not match the reviewed normal source/version",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourceContractId does not match the reviewed NASA POWER normal contract",
+            "gfs score group 2021-05-02|2021-05-09|7|rumor|ncep-gfs-global-00z-noaa-aws normalSourcePayloadDigestSha256 is missing or malformed"
+          ],
+          "completeIssueDateCount": 758,
+          "requiredIssueDateCount": 833,
+          "coveragePct": 91,
+          "missingIssueDateCount": 75,
+          "firstMissingIssueDate": "2026-04-24",
+          "lastMissingIssueDate": "2026-07-07",
+          "missingRanges": [
+            {
+              "startIssueDate": "2026-04-24",
+              "endIssueDate": "2026-07-07",
+              "startTargetDate": "2026-05-01",
+              "endTargetDate": "2026-07-14",
+              "missingIssueDateCount": 75
+            }
+          ],
+          "locationBreadthFailureIssueDateCount": 0,
+          "locationBreadthFailureRanges": []
+        },
+        {
+          "sourceId": "gefs-mean",
+          "temporalContractComplete": false,
+          "temporalInputCount": 1,
+          "temporalFailureCount": 6071,
+          "temporalFailureDigestSha256": "bfd879c1f2cdfef334d13d3f667af2b0cc7bf48096f1ed38bc08f6fa45e37e75",
+          "temporalFailureSamples": [
+            "gefs-mean location rows forecastTemporalContractId is not the corrected Summer contract",
+            "gefs-mean location rows sampledValidHoursUtc does not match sampledValidTimeOffsetsHours",
+            "gefs-mean location rows sampledValidTimeOffsetsHours is not exactly 6|12|18|24",
+            "gefs-mean manifest temporalSampling metadata is missing",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleProvenanceDigestSha256 does not bind the persisted provenance",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleProvenanceJson is not valid JSON",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleVectorDigestSha256 does not bind samples, normals, anomaly, weight, provenance, and row identity",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws location sample vector is not bound to the score provenance",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws locationSampleVectorSetDigestSha256 does not bind the score to its location vectors",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourceContractDigestSha256 does not match the reviewed normal source/version",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourceContractId does not match the reviewed NASA POWER normal contract",
+            "gefs-mean score group 2021-05-01|2021-05-08|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourcePayloadDigestSha256 is missing or malformed",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleProvenanceDigestSha256 does not bind the persisted provenance",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleProvenanceJson is not valid JSON",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws forecastSampleVectorDigestSha256 does not bind samples, normals, anomaly, weight, provenance, and row identity",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws location sample vector is not bound to the score provenance",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws locationSampleVectorSetDigestSha256 does not bind the score to its location vectors",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourceContractDigestSha256 does not match the reviewed normal source/version",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourceContractId does not match the reviewed NASA POWER normal contract",
+            "gefs-mean score group 2021-05-02|2021-05-09|7|rumor|ncep-gefs-mean-00z-noaa-aws normalSourcePayloadDigestSha256 is missing or malformed"
+          ],
+          "completeIssueDateCount": 758,
+          "requiredIssueDateCount": 833,
+          "coveragePct": 91,
+          "missingIssueDateCount": 75,
+          "firstMissingIssueDate": "2026-04-24",
+          "lastMissingIssueDate": "2026-07-07",
+          "missingRanges": [
+            {
+              "startIssueDate": "2026-04-24",
+              "endIssueDate": "2026-07-07",
+              "startTargetDate": "2026-05-01",
+              "endTargetDate": "2026-07-14",
+              "missingIssueDateCount": 75
+            }
+          ],
+          "locationBreadthFailureIssueDateCount": 0,
+          "locationBreadthFailureRanges": []
+        }
+      ]
+    }
+  },
+  "outputFiles": {
+    "selectedTrades": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/selected-trades.csv",
+    "selectedEvents": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/selected-events.csv",
+    "candidateSummary": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/candidate-summary.csv",
+    "runSummary": "data/qore/research/strategy-agent-runs/ngas-summer-alpha/run-summary.json"
+  },
+  "candidates": [
+    {
+      "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrnone-sdef1.25-vol0-fixed",
+      "eligible": true,
+      "trainValidationRank": 97.6206,
+      "architectureId": "summer-weather-follow-and-fade",
+      "sourceSetId": "gfs-gefs-core",
+      "sourceWeightMode": "equal",
+      "sizingMode": "fixed",
+      "anomalyThreshold": 5,
+      "coverageThreshold": 0.25,
+      "minConfidence": 0.5,
+      "weatherFraction": 0.35,
+      "reversionFraction": 0.35,
+      "reversionDemandMode": "cooling-demand-tiered",
+      "followHoldDays": 3,
+      "reversionHoldDays": 1,
+      "minRealizedMovePct": 2,
+      "freshHeatLookbackDays": 3,
+      "weatherResolutionMode": "none",
+      "storageDeficitHeatMultiplier": 1.25,
+      "storageDeficitHeatMaxFraction": 0.4375,
+      "storageSeasonalLookbackYears": 5,
+      "storageAvailabilityContract": "versioned-release-calendar-before-session-open",
+      "volTargetPct": 0,
+      "signals": 279,
+      "scheduledEvents": 108,
+      "executedRows": 197,
+      "storageDeficitHeatTiltRows": 68,
+      "coolingDemandReversionRows": 42,
+      "weatherResolutionAdjustedRows": 0,
+      "weatherResolutionDroppedRows": 0,
+      "weatherFollowRows": 155,
+      "reversionRows": 42,
+      "summerColdShortRows": 0,
+      "summerHeatLongRows": 155,
+      "reversionLongRows": 0,
+      "reversionShortRows": 42,
+      "trainValidationSummerColdShortReturnPct": 0,
+      "trainValidationSummerHeatLongReturnPct": 14.17,
+      "trainValidationFollowReturnPct": 14.17,
+      "trainValidationReversionLongReturnPct": 0,
+      "trainValidationReversionShortReturnPct": 10.07,
+      "trainValidationReversionReturnPct": 10.07,
+      "holdoutFollowReturnPct": 12.56,
+      "holdoutReversionReturnPct": 11.85,
+      "overlayDays": 197,
+      "fallbackDays": 1190,
+      "trainReturnPct": 53.98,
+      "trainIndexReturnPct": 33.45,
+      "trainEdgePct": 20.53,
+      "trainSharpe": 0.82,
+      "trainMaxDrawdownPct": -22.73,
+      "profitableTrainYears": 2,
+      "trainYearCount": 3,
+      "validationReturnPct": 31.24,
+      "validationIndexReturnPct": 25.17,
+      "validationEdgePct": 6.07,
+      "validationSharpe": 1.94,
+      "validationMaxDrawdownPct": -8.25,
+      "holdoutReturnPct": 54.44,
+      "holdoutIndexReturnPct": 32.92,
+      "holdoutEdgePct": 21.52,
+      "holdoutSharpe": 1.62,
+      "holdoutMaxDrawdownPct": -19.12,
+      "allReturnPct": 212.11,
+      "allIndexReturnPct": 122.02,
+      "allEdgePct": 90.09,
+      "allSharpe": 1.19,
+      "allMaxDrawdownPct": -22.73
+    },
+    {
+      "candidateId": "summer-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-wrgraded-shift-sdef1.25-vol0-fixed",
+      "eligible": true,
+      "trainValidationRank": 97.6206,
+      "architectureId": "summer-weather-follow-and-fade",
+      "sourceSetId": "gfs-gefs-core",
+      "sourceWeightMode": "equal",
+      "sizingMode": "fixed",
+      "anomalyThreshold": 5,
+      "coverageThreshold": 0.25,
+      "minConfidence": 0.5,
+      "weatherFraction": 0.35,
+      "reversionFraction": 0.35,
+      "reversionDemandMode": "cooling-demand-tiered",
+      "followHoldDays": 3,
+      "reversionHoldDays": 1,
+      "minRealizedMovePct": 2,
+      "freshHeatLookbackDays": 3,
+      "weatherResolutionMode": "graded-shift",
+      "storageDeficitHeatMultiplier": 1.25,
+      "storageDeficitHeatMaxFraction": 0.4375,
+      "storageSeasonalLookbackYears": 5,
+      "storageAvailabilityContract": "versioned-release-calendar-before-session-open",
+      "volTargetPct": 0,
+      "signals": 279,
+      "scheduledEvents": 108,
+      "executedRows": 197,
+      "storageDeficitHeatTiltRows": 68,
+      "coolingDemandReversionRows": 42,
+      "weatherResolutionAdjustedRows": 0,
+      "weatherResolutionDroppedRows": 0,
+      "weatherFollowRows": 155,
+      "reversionRows": 42,
+      "summerColdShortRows": 0,
+      "summerHeatLongRows": 155,
+      "reversionLongRows": 0,
+      "reversionShortRows": 42,
+      "trainValidationSummerColdShortReturnPct": 0,
+      "trainValidationSummerHeatLongReturnPct": 14.17,
+      "trainValidationFollowReturnPct": 14.17,
+      "trainValidationReversionLongReturnPct": 0,
+      "trainValidationReversionShortReturnPct": 10.07,
+      "trainValidationReversionReturnPct": 10.07,
+      "holdoutFollowReturnPct": 12.56,
+      "holdoutReversionReturnPct": 11.85,
+      "overlayDays": 197,
+      "fallbackDays": 1190,
+      "trainReturnPct": 53.98,
+      "trainIndexReturnPct": 33.45,
+      "trainEdgePct": 20.53,
+      "trainSharpe": 0.82,
+      "trainMaxDrawdownPct": -22.73,
+      "profitableTrainYears": 2,
+      "trainYearCount": 3,
+      "validationReturnPct": 31.24,
+      "validationIndexReturnPct": 25.17,
+      "validationEdgePct": 6.07,
+      "validationSharpe": 1.94,
+      "validationMaxDrawdownPct": -8.25,
+      "holdoutReturnPct": 54.44,
+      "holdoutIndexReturnPct": 32.92,
+      "holdoutEdgePct": 21.52,
+      "holdoutSharpe": 1.62,
+      "holdoutMaxDrawdownPct": -19.12,
+      "allReturnPct": 212.11,
+      "allIndexReturnPct": 122.02,
+      "allEdgePct": 90.09,
+      "allSharpe": 1.19,
+      "allMaxDrawdownPct": -22.73
+    }
+  ]
+}

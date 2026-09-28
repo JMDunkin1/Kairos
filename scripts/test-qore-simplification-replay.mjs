@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict'
-import { inferAllYearTarget } from './lib/qore-live-all-year-inference.mjs'
+import { inferAllYearTarget } from './research-fixtures/ngas-simplification-baseline/qore-live-all-year-inference.mjs'
 import { loadNoSummerReversionEngine, causalSimplificationMarketDays } from './lib/qore-simplification-replay.mjs'
 
 const { engine } = await loadNoSummerReversionEngine()

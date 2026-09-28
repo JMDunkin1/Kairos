@@ -514,12 +514,13 @@ assert.deepEqual(Object.keys(summary.validation.promotionGates).sort(), [
   'summerComponent',
   'summerTemporalContract',
   'trainMaxDrawdown',
+  'validationIntegrity',
   'validationMaxDrawdown',
   'winterComponent',
 ])
 assert.equal(summary.validation.liveTargetParity.exactTargetParity, false)
 assert.equal(summary.validation.liveTargetParity.inputContractValid, false)
-assert.equal(summary.validation.liveTargetParity.comparedRowCount, 1947)
+assert.equal(summary.validation.liveTargetParity.comparedRowCount, 1946)
 assert.equal(summary.validation.liveTargetParity.mismatchCount, 0)
 assert.equal(summary.validation.liveTargetParity.componentStrategyIdMismatchCount, 0)
 assert.equal(summary.validation.liveTargetParity.windowIdMismatchCount, 0)
@@ -527,7 +528,7 @@ assert.ok(summary.validation.liveTargetParity.inputContractFailureCount > 20)
 assert.equal(summary.validation.liveTargetParity.inputContractFailureSamples.length, 20)
 assert.match(summary.validation.liveTargetParity.inputContractFailureDigestSha256, /^[a-f0-9]{64}$/)
 assert.equal(Object.hasOwn(summary.validation.liveTargetParity, 'inputContractFailures'), false)
-assert.equal(summary.validation.liveTargetParity.components.summer.comparedRowCount, 585)
+assert.equal(summary.validation.liveTargetParity.components.summer.comparedRowCount, 584)
 assert.equal(summary.validation.liveTargetParity.components.summer.mismatchCount, 0)
 assert.equal(summary.validation.liveTargetParity.components.summer.targetReplayExact, true)
 assert.equal(summary.validation.liveTargetParity.components.summer.inputContractValid, false)
