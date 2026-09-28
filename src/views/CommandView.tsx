@@ -432,6 +432,19 @@ export function CommandView() {
       {!error && transportConnected && stale && sourceAgeSeconds !== null && <div className="warning-line"><strong>STALE BROKER STATE</strong><span>The most recent Alpaca snapshot is {formatNumber(sourceAgeSeconds / 60, 1)} minutes old. Refresh before acting on it.</span></div>}
       {!error && historyProvenanceWarning && <div className="warning-line"><strong>HISTORY PROVENANCE</strong><span>Portfolio history was read at {timestampLabel(historySourceGeneratedAt)}; selected account data was read at {timestampLabel(telemetry?.sourceGeneratedAt)}.</span></div>}
 
+      {telemetry?.execution?.state === 'blocked' && (
+        <div className="warning-line negative" role="alert">
+          <strong>AUTOMATED TRADING BLOCKED</strong>
+          <span>{telemetry.execution.reasons.join(' ')} Last successful inference: {timestampLabel(telemetry.execution.lastInferenceAt)}. Account gains or losses can come from existing holdings while trading is blocked.</span>
+        </div>
+      )}
+      {telemetry?.execution?.state === 'waiting' && (
+        <div className="warning-line" role="status">
+          <strong>WAITING FOR MARKET OPEN</strong>
+          <span>{telemetry.execution.reasons.join(' ')}</span>
+        </div>
+      )}
+
       <MetricRail metrics={accountMetrics(telemetry, performance)} ariaLabel={`${accountModeLabel} metrics`} />
 
       <PerformanceChart

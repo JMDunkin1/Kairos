@@ -990,6 +990,84 @@ async function testBrokerStatusErrorRoutingAndOperationLock() {
   console.log('ok - broker status errors stay isolated and every pre-existing operation lock fails closed')
 }
 
+async function testFreshAccountDoesNotHideFailedTrading() {
+  const fixture = await createTelemetryFixture()
+  const supervisorPath = path.join(fixture, '.local/qore/live-trading-supervisor/status.json')
+  const weatherPath = path.join(fixture, '.local/qore/live-weather/status.json')
+  const now = new Date().toISOString()
+  await writeJson(supervisorPath, { generatedAt: now, mode: 'paper', ok: false, jobs: [
+    { id: 'liveWeatherOnce', enabled: true, state: { ok: false } },
+    { id: 'brokerReconcile', enabled: true, state: null },
+  ] })
+  const weather = JSON.parse(await readFile(weatherPath, 'utf8'))
+  weather.liveJobs = { strategyInference: { ok: false, error: 'No fresh NOAA inputs account_id=DO-NOT-EXPOSE' } }
+  await writeJson(weatherPath, weather)
+  const service = await startService(fixture)
+  try {
+    const { payload } = await request(service.baseUrl, '/api/live/status')
+    assert.equal(payload.brokerConnected, true)
+    assert.equal(payload.execution.state, 'blocked')
+    assert.match(payload.execution.reasons.join(' '), /Strategy inference failed/)
+    assert.match(payload.risk.blockedReasons.join(' '), /Automated trading is blocked/)
+    assert.ok(!JSON.stringify(payload).includes('DO-NOT-EXPOSE'))
+  } finally {
+    await stopChild(service.child)
+    await rm(fixture, { recursive: true, force: true })
+  }
+  console.log('ok - fresh account gains cannot hide a failed trading pipeline')
+}
+
+async function testClosedVenueWaitDoesNotHideFailures() {
+  const fixture = await createTelemetryFixture()
+  const now = new Date().toISOString()
+  const brokerPath = path.join(fixture, '.local/qore/broker/status.json')
+  const riskPath = path.join(fixture, '.local/qore/live-weather/risk-and-kill-switch-state.json')
+  const supervisorPath = path.join(fixture, '.local/qore/live-trading-supervisor/status.json')
+  const operatorPath = path.join(fixture, '.local/qore/live-weather/operator-state.json')
+  const broker = JSON.parse(await readFile(brokerPath, 'utf8'))
+  broker.marketClock = { isOpen: false, timestamp: now }
+  broker.blockedReasons = ['Execution venue is closed; Initial Alpaca market clock is_open is false.', 'UNG quote is 3000m old; cap is 5m.']
+  await writeJson(brokerPath, broker)
+  const risk = JSON.parse(await readFile(riskPath, 'utf8'))
+  risk.readiness.venueOpen = false
+  await writeJson(riskPath, risk)
+  await writeJson(operatorPath, { updatedAt: now, killSwitchEngaged: false })
+  const supervisor = JSON.parse(await readFile(supervisorPath, 'utf8'))
+  supervisor.ok = false
+  supervisor.jobs[0].state.ok = false
+  await writeJson(supervisorPath, supervisor)
+  const service = await startService(fixture)
+  try {
+    let response = await request(service.baseUrl, '/api/live/status')
+    assert.equal(response.payload.execution.state, 'waiting')
+    assert.match(response.payload.execution.reasons.join(' '), /retry automatically/)
+    broker.blockedReasons.push('Account starts over the current-equity sizing envelope.')
+    await writeJson(brokerPath, broker)
+    response = await request(service.baseUrl, '/api/live/status')
+    assert.equal(response.payload.execution.state, 'blocked')
+    broker.blockedReasons.pop()
+    broker.generatedAt = '2000-01-01T00:00:00.000Z'
+    await writeJson(brokerPath, broker)
+    response = await request(service.baseUrl, '/api/live/status')
+    assert.equal(response.payload.execution.state, 'blocked')
+    broker.generatedAt = now
+    await writeJson(brokerPath, broker)
+    await writeJson(operatorPath, { updatedAt: now, killSwitchEngaged: true })
+    response = await request(service.baseUrl, '/api/live/status')
+    assert.equal(response.payload.execution.state, 'blocked')
+    await writeJson(operatorPath, { updatedAt: now, killSwitchEngaged: false })
+    supervisor.jobs.push({ id: 'liveWeatherOnce', enabled: true, state: { ok: false } })
+    await writeJson(supervisorPath, supervisor)
+    response = await request(service.baseUrl, '/api/live/status')
+    assert.equal(response.payload.execution.state, 'blocked')
+  } finally {
+    await stopChild(service.child)
+    await rm(fixture, { recursive: true, force: true })
+  }
+  console.log('ok - closed venue waits remain distinct from allocation, stale-state, kill-switch, and input failures')
+}
+
+await testClosedVenueWaitDoesNotHideFailures()
 await testSanitizedDtoAndRefreshGuard()
 await testMissingSourcesDegradeCleanly()
 await testBrowserOriginsAreDeniedByDefault()
@@ -1002,3 +1080,5 @@ await testBrokerPortfolioHistoryIsBestEffort()
 await testStandaloneOrderHistoryIsSanitizedAndReadOnly()
 await testOfflineStatusMarksCachedSnapshotDisconnected()
 await testBrokerStatusErrorRoutingAndOperationLock()
+
+await testFreshAccountDoesNotHideFailedTrading()

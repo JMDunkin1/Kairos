@@ -58,6 +58,10 @@ import {
   validationPreregistrationDigestSha256,
 } from './lib/qore-validation-integrity.mjs'
 
+import { loadExecutionStrategy, executionStrategyBindingBlocks } from './lib/qore-execution-strategy.mjs'
+
+import { storageRowsFromWeeklyReport, mergeStorageRows } from './lib/qore-eia-live-storage.mjs'
+
 process.env.NODE_ENV = 'test'
 process.env.QORE_TEST_REVIEWED_ARTIFACT_OVERRIDES = '1'
 process.env.QORE_TEST_LIVE_INFERENCE_OVERRIDES = '1'
@@ -518,6 +522,38 @@ function accountKey(value) {
   return crypto.createHash('sha256').update(JSON.stringify(String(value))).digest('hex').slice(0, 12)
 }
 
+function testPaperExecutionPolicyAndStorageRecovery() {
+  const paper = loadExecutionStrategy(repoDir, { mode: 'paper' })
+  assert.equal(paper.binding.paperEligible, true)
+  assert.equal(paper.binding.liveEligible, false)
+  assert.deepEqual(executionStrategyBindingBlocks(paper.binding, paper, { mode: 'paper' }), [])
+  assert.match(executionStrategyBindingBlocks(paper.binding, promotedStrategyArtifact, { mode: 'live' }).join(';'), /cannot authorize live/)
+  assert.match(executionStrategyBindingBlocks({ ...paper.binding, digestSha256: 'changed' }, paper, { mode: 'paper' }).join(';'), /digestSha256/)
+  const report = { release_name: 'Weekly Natural Gas Storage Report', current_week: '2026-07-03', week_ago: '2026-06-26', series: [{ series_id: 'png.nw2_epg0_swo_r48_bcf.w', unitsshort: 'bcf', data: [['2026-07-03', 2983], ['2026-06-26', 2900], ['2025-07-03', 9999]] }] }
+  const rows = storageRowsFromWeeklyReport(report, new Date('2026-07-10T12:00:00Z'))
+  assert.equal(rows.length, 2, 'year-ago comparison must not enter weekly history')
+  assert.throws(() => storageRowsFromWeeklyReport(report, new Date('2026-07-08')), /not yet released/)
+  assert.throws(() => storageRowsFromWeeklyReport({ ...report, series: [] }), /unexpected series/)
+  assert.deepEqual(mergeStorageRows(rows, []), [...rows].reverse(), 'API failure must retain runtime data')
+  assert.equal(mergeStorageRows(rows, [{ ...rows[0], storageBcf: 3000 }]).at(-1).storageBcf, 3000)
+  console.log('ok - paper execution is independent of research promotion and EIA fallback preserves released observations')
+}
+
+async function testSupervisorRefreshesAccountWhileHandoffFails() {
+  const dir = path.join(scratch, 'supervisor-readonly-recovery')
+  await mkdir(path.join(dir, 'scripts'), { recursive: true })
+  await writeFile(path.join(dir, 'scripts/qore-alpaca-broker.mjs'), "import fs from 'node:fs'; fs.appendFileSync('calls', process.argv.slice(2).join(' ') + '\\n')")
+  await writeFile(path.join(dir, 'scripts/qore-live-weather-service.mjs'), 'process.exit(1)')
+  const result = await runNode([supervisorScript, '--once', '--json'], { QORE_TEST_CWD: dir, QORE_BROKER_MODE: 'paper', QORE_LIVE_SUPERVISOR_STATE_DIR: path.join(dir, 'state') })
+  assert.equal(result.code, 1)
+  assert.equal(await readFile(path.join(dir, 'calls'), 'utf8'), '--status\n', 'failed handoff must refresh account without calling reconcile')
+  await writeFile(path.join(dir, 'scripts/qore-live-weather-service.mjs'), 'process.exit(0)')
+  const recovered = await runNode([supervisorScript, '--once', '--json'], { QORE_TEST_CWD: dir, QORE_BROKER_MODE: 'paper', QORE_LIVE_SUPERVISOR_STATE_DIR: path.join(dir, 'state') })
+  assert.equal(recovered.code, 0, recovered.stderr)
+  assert.equal(await readFile(path.join(dir, 'calls'), 'utf8'), '--status\n--status\n--reconcile\n')
+  console.log('ok - supervisor keeps account telemetry fresh during failure and resumes reconciliation on recovery')
+}
+
 function testEiaReleaseTimestamp() {
   assert.equal(nominalEiaStorageReleaseAt('2026-07-03'), '2026-07-09T14:30:00.000Z')
   assert.equal(nominalEiaStorageReleaseAt('2026-01-16'), '2026-01-22T15:30:00.000Z')
@@ -526,6 +562,7 @@ function testEiaReleaseTimestamp() {
 }
 
 async function writeHandoffs({
+  brokerMode = 'paper',
   killSwitchEngaged = false,
   operatorState = null,
   riskGeneratedAt = undefined,
@@ -578,7 +615,7 @@ async function writeHandoffs({
         : gasPosition > 0 ? 'cold-long' : 'warm-short',
     liveForecastAppliedToTarget,
     validated: inferenceValidated,
-    strategyArtifact: promotedStrategyArtifact.binding,
+    strategyArtifact: loadExecutionStrategy(repoDir, { mode: brokerMode }).binding,
     inputProfile: structuredClone(LIVE_INFERENCE_INPUT_PROFILE),
     ...inferenceProvenanceOverrides,
     forecastValidation,
@@ -762,6 +799,7 @@ async function scenario({
   quoteOverridesByRead = [],
   expectedSubmittedQuantityBySymbol = null,
   expectedSubmittedSymbols = null,
+  expectedDeferredSymbols = null,
   expectedBrokerLockPresent = null,
   handoffNow = null,
   nowAfterFreshQuote = null,
@@ -777,6 +815,7 @@ async function scenario({
   await rm(testNowPath, { force: true })
   if (handoffNow) await writeFile(testNowPath, `${handoffNow}\n`, 'utf8')
   await writeHandoffs({
+    brokerMode,
     killSwitchEngaged,
     operatorState,
     riskGeneratedAt,
@@ -1297,6 +1336,9 @@ async function scenario({
       expectedBrokerLockPresent,
       `${name}: broker operation lock retention`,
     )
+  }
+  if (expectedDeferredSymbols) {
+    assert.deepEqual(status.deferredOrders.map((order) => order.symbol), expectedDeferredSymbols, `${name}: deferred additions`)
   }
   console.log(`ok - ${name}`)
 }
@@ -1935,7 +1977,7 @@ async function testPrepareDisablesBrokerOverride() {
   assert.equal(result.code, 0, result.stderr)
   const status = JSON.parse(await readFile(path.join(supervisorDir, 'status.json'), 'utf8'))
   assert.equal(status.prepareOnly, true)
-  assert.deepEqual(status.jobs.map((job) => job.id), ['liveWeatherOnce', 'brokerReconcile'])
+  assert.deepEqual(status.jobs.map((job) => job.id), ['brokerAccountRefresh', 'liveWeatherOnce', 'brokerReconcile'])
   const broker = status.jobs.find((job) => job.id === 'brokerReconcile')
   assert.equal(broker?.enabled, false)
   assert.equal(broker?.state, null)
@@ -2407,7 +2449,7 @@ async function testGitGeneratedArtifactAllowlist() {
       thesisKind: 'index-fallback',
       validated: true,
       liveForecastAppliedToTarget: true,
-      strategyArtifact: promotedStrategyArtifact.binding,
+      strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
       forecastValidation: {
         latestCommonIssueDate: today(), issueAgeDays: 0, runHourUtc: '00',
         ...currentInferenceContract,
@@ -2522,7 +2564,7 @@ async function testSignalFreshnessUsesValidatedInferenceIssue() {
     season: inferenceSeason(),
     validated: true,
     liveForecastAppliedToTarget: true,
-    strategyArtifact: promotedStrategyArtifact.binding,
+    strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
     inferenceMode: 'test-live-inference',
     forecastValidation: { latestCommonIssueDate: today(), issueAgeDays: 0 },
     target: {
@@ -2591,7 +2633,7 @@ async function testLiveWeatherHandoffGasPositionCaps() {
       season,
       validated: true,
       liveForecastAppliedToTarget: true,
-      strategyArtifact: promotedStrategyArtifact.binding,
+      strategyArtifact: loadExecutionStrategy(repoDir, { mode: 'paper' }).binding,
       inferenceMode: 'selected-contract-live-source-set-00z',
       forecastValidation: { latestCommonIssueDate: targetDate, issueAgeDays: 0 },
       target: {
@@ -2758,6 +2800,8 @@ try {
       market_value: String(2000 * fraction),
     },
   ]
+  testPaperExecutionPolicyAndStorageRecovery()
+  await testSupervisorRefreshesAccountWhileHandoffFails()
   testEiaReleaseTimestamp()
   assert.deepEqual(executableLiveGasPositionCaps, {
     summer: {
@@ -3185,16 +3229,16 @@ try {
     expectedBlock: /inputProfile must not contain test-only input overrides/,
   })
   await scenario({
-    name: 'paper reconcile requires a reviewed promotion-eligible strategy artifact binding',
+    name: 'paper reconcile requires a current executable strategy binding',
     inferenceProvenanceOverrides: { strategyArtifact: null },
-    expectedBlock: /strategy artifact is invalid: inference is missing its reviewed strategy artifact binding/,
+    expectedBlock: /strategy artifact is invalid: inference is missing its execution strategy binding/,
   })
   await scenario({
-    name: 'paper reconcile rejects a stale reviewed strategy artifact digest',
+    name: 'paper reconcile rejects a stale executable strategy digest',
     inferenceProvenanceOverrides: {
-      strategyArtifact: { ...promotedStrategyArtifact.binding, digestSha256: '0'.repeat(64) },
+      strategyArtifact: { ...loadExecutionStrategy(repoDir, { mode: 'paper' }).binding, digestSha256: '0'.repeat(64) },
     },
-    expectedBlock: /strategy artifact digestSha256 does not match the current reviewed artifact/,
+    expectedBlock: /execution strategy digestSha256 does not match the current executable strategy/,
   })
   await scenario({
     name: 'paper reconcile requires the exact inference strategy id',
@@ -3940,9 +3984,41 @@ try {
     expectedFirstSide: 'sell',
   })
   await scenario({
-    name: 'an over-cap batch blocks a later prefix that increases projected gross',
+    name: 'an over-cap paper batch submits reductions and defers additions',
     positions: [{ symbol: 'VOO', qty: '110', side: 'long', current_price: '100', market_value: '11000' }],
-    expectedBlock: /does not strictly reduce projected gross exposure/,
+    expectedOrderCount: 1,
+    expectedFirstSide: 'sell',
+    expectedSubmittedSymbols: ['VOO'],
+    expectedDeferredSymbols: ['QQQM'],
+    expectedExposurePrefixes: [8000],
+  })
+  await scenario({
+    name: 'paper recovers from cash-buffer drift by selling gas before adding index holdings',
+    positions: [
+      { symbol: 'UNG', qty: '233.333333', side: 'long', current_price: '15', market_value: '3500' },
+      { symbol: 'VOO', qty: '51', side: 'long', current_price: '100', market_value: '5100' },
+      { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
+    ],
+    minCashBufferPct: '2',
+    expectedOrderCount: 1,
+    expectedFirstSide: 'sell',
+    expectedSubmittedSymbols: ['UNG'],
+    expectedDeferredSymbols: ['VOO', 'QQQM'],
+    expectedExposurePrefixes: [6400],
+  })
+  await scenario({
+    name: 'paper automatically completes deferred additions after the reduction fills',
+    positions: [
+      { symbol: 'UNG', qty: '233.333333', side: 'long', current_price: '15', market_value: '3500' },
+      { symbol: 'VOO', qty: '51', side: 'long', current_price: '100', market_value: '5100' },
+      { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
+    ],
+    minCashBufferPct: '2',
+    fillSubmittedOrders: true,
+    reconcileCount: 2,
+    expectedOrderCount: 3,
+    expectedSubmittedSymbols: ['UNG', 'VOO', 'QQQM'],
+    expectedDeferredSymbols: [],
   })
   await scenario({
     name: 'kill switch engagement before replacement prevents cancellations and all new orders',

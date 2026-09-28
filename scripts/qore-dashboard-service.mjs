@@ -749,12 +749,37 @@ async function dashboardStatus() {
   }
   if (lastRefreshError) sourceWarnings.push(`The last read-only broker refresh failed: ${lastRefreshError}`)
 
-  const blockedReasons = uniqueMessages([
+  // Fresh account telemetry does not imply that the strategy is executing.
+  const routingBlockInputs = [
     killSwitchEngaged === true ? ['The trading kill switch is engaged.'] : [],
     safetyBlocks,
     readinessBlocks(readiness, riskFreshness.fresh),
     riskState?.blockedReasons ?? [],
     brokerStatusMatchesActiveMode ? brokerStatus?.blockedReasons ?? [] : [],
+  ].flat()
+  const routingBlocks = uniqueMessages([routingBlockInputs])
+  const waitingForVenue = brokerStatusMatchesActiveMode
+    && sourceIsFresh(brokerStatus?.generatedAt)
+    && brokerStatus?.marketClock?.isOpen === false
+    && readiness?.venueOpen === false
+    && routingBlocks.length > 0
+    && routingBlockInputs.every((reason) => reason === 'The trading venue is closed.'
+      || reason === 'Execution venue is closed; Initial Alpaca market clock is_open is false.'
+      || /^(UNG|VOO|QQQM) quote is [\d.]+m old; cap is [\d.]+m\.$/.test(reason))
+  const executionBlocks = []
+  if (!supervisorSource || !sourceIsFresh(supervisorSource.generatedAt)) executionBlocks.push('Trading supervisor is missing or stale.')
+  else if (supervisorSource.jobs?.some((job) => job.enabled && job.id !== 'brokerAccountRefresh' && job.state?.ok === false
+    && !(job.id === 'brokerReconcile' && waitingForVenue))) executionBlocks.push('Automated trading is blocked: a supervisor job failed. Existing positions remain exposed to market moves.')
+  if (supervisorSource && !supervisorSource.jobs?.some((job) => job.id === 'brokerReconcile' && job.enabled === true)) executionBlocks.push('Automated order reconciliation is disabled.')
+  if (!signal || !sourceIsFresh(signal.generatedAt)) executionBlocks.push('Automated trading has no fresh signal intent.')
+  for (const id of ['strategyInference', 'signalIntentReconcile']) {
+    const job = weather?.liveJobs?.[id]
+    if (job?.ok === false) executionBlocks.push(`${id === 'strategyInference' ? 'Strategy inference' : 'Signal handoff'} failed: ${safeText(job.error, 180)}`)
+  }
+
+  const blockedReasons = uniqueMessages([
+    routingBlocks,
+    executionBlocks,
   ])
   const warnings = uniqueMessages([
     sourceWarnings,
@@ -781,6 +806,15 @@ async function dashboardStatus() {
       portfolioHistorySource?.portfolioHistory,
       portfolioHistoryGeneratedAt,
     ),
+    execution: {
+      state: executionBlocks.length || (routingBlocks.length && !waitingForVenue) ? 'blocked' : waitingForVenue ? 'waiting' : 'running',
+      reasons: executionBlocks.length || !waitingForVenue
+        ? blockedReasons
+        : ['Waiting for market open and fresh quotes. The supervisor will retry automatically.'],
+      lastSignalAt: isoTimestamp(signal?.generatedAt),
+      lastInferenceAt: isoTimestamp(inference?.generatedAt),
+      lastReconcileAt: isoTimestamp(supervisorSource?.jobs?.find((job) => job.id === 'brokerReconcile')?.state?.lastFinishedAt),
+    },
     strategy: {
       intent: normalizedIntent(signal?.intent),
       inference: normalizedInference(signal?.inference, inference),

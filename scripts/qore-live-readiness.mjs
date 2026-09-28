@@ -11,7 +11,7 @@ import {
   liveInferenceSourceTargetBlocks,
 } from './lib/qore-live-inference-provenance.mjs'
 import { resolveLiveWeatherPaths } from './lib/qore-live-paths.mjs'
-import { loadAllYearStrategyArtifact, strategyArtifactBindingBlocks } from './lib/qore-live-strategy-artifact.mjs'
+import { loadExecutionStrategy, executionStrategyBindingBlocks } from './lib/qore-execution-strategy.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -190,9 +190,9 @@ const inferenceProvenanceBlocks = liveInferenceProvenanceBlocks(signalHandoff)
 const sourceTargetBlocks = liveInferenceSourceTargetBlocks(signalHandoff, sourceInference)
 let strategyArtifactBlocks
 try {
-  strategyArtifactBlocks = strategyArtifactBindingBlocks(
+  strategyArtifactBlocks = executionStrategyBindingBlocks(
     signalHandoff?.inference?.strategyArtifact,
-    loadAllYearStrategyArtifact(repoDir),
+    loadExecutionStrategy(repoDir, { mode: mode }),
     { mode },
   )
 } catch (error) {

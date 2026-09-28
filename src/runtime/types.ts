@@ -88,6 +88,7 @@ export type LiveTelemetry = {
     points: PortfolioHistoryPoint[]
     error?: string | null
   } | null
+  execution?: { state: 'blocked' | 'waiting' | 'running'; reasons: string[]; lastSignalAt: string | null; lastInferenceAt: string | null; lastReconcileAt: string | null }
   strategy: {
     intent: LiveIntent | null
     inference: Record<string, unknown> | null

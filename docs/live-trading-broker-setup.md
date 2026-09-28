@@ -48,6 +48,8 @@ Alpaca does not support fractional short sales, so negative `UNG` targets use wh
 
 Review the sizing and risk defaults in `.env.live.example` and `config/qore-live-broker-settings.json`. Keep a cash buffer. Paper/live execution must exactly match the sealed broker profile; an environment change to sizing, short policy, order mechanics, data feed, or risk limits blocks until the versioned profile is deliberately updated, rebuilt, and resealed. The reviewed all-year profile requires explicit `QORE_ALPACA_ALLOW_SHORTS=1`; leaving the safer default `0` fails closed. Open-order replacement remains disabled; enabling it also requires a reviewed profile change and reseal, and replacement proceeds only after Alpaca confirms that exact order is terminally canceled with zero filled quantity and the position remains unchanged.
 
+When gains push paper holdings above the current-equity deployment envelope, reconciliation submits only exposure-reducing orders and records additions as `deferredOrders`. Later passes recompute from broker positions and open orders, allowing the additions once confirmed reductions restore room. Each submission still passes the fresh exposure check; an outstanding or failed reduction cannot authorize additions. Live-mode batch gates are unchanged.
+
 ### First-time risk-ledger bootstrap
 
 Paper and live reconciliation require an existing risk ledger bound to the current Alpaca account and broker mode. QORE never silently creates or resets that trailing-drawdown baseline. For a first deployment or an intentional mode/account change, engage the kill switch and run the explicit no-order bootstrap:
@@ -69,7 +71,7 @@ Refresh current operational handoffs without calling the broker reconciler:
 npm run trade:prepare
 ```
 
-This refreshes or verifies current weather, rolling completed-session market history, market references, EIA storage state, promotion-eligible checked-in strategy status, validated GFS/GEFS all-year inference, signal intent, and risk state on their configured cadences. It does **not** retrain the checked-in strategy or submit an order. Paper/live inference is bound to the SHA-256 digest of the checked-in all-year `run-summary.json` and fails closed when its promotion gates do not pass or the artifact changes after inference.
+This refreshes or verifies current weather, rolling completed-session market history, market references, EIA storage state, current executable strategy identity, validated GFS/GEFS all-year inference, signal intent, and risk state on their configured cadences. It does **not** retrain the checked-in strategy or submit an order. Paper inference is bound to the current executable strategy and broker configuration, independently of backtest performance and promotion approvals. Live inference still requires the reviewed all-year research artifact and every live approval gate. Neither mode accepts stale or mismatched input/target handoffs.
 
 Then run the no-order checks and dry-run plan:
 
@@ -165,7 +167,7 @@ npm run kill:clear -- --confirm=RESUME_TRADING --reason="review complete"
 QORE blocks submission when any required state is stale, missing, malformed, or unsafe, including:
 
 - validated GFS/GEFS inference is absent or not applied to the target;
-- the checked-in all-year artifact is not promotion-eligible, or its digest no longer matches the inference handoff;
+- the executable paper strategy binding no longer matches its handoff, or (for live money) the checked-in all-year artifact fails promotion/approval or digest checks;
 - signal intent is stale;
 - the explicit operator-state file is missing, malformed, or has the kill switch engaged;
 - the generated risk snapshot is missing, invalid, future-dated beyond tolerance, or older than the configured 15-minute default cap;
@@ -197,3 +199,13 @@ The runtime state is intentionally local:
 Do not commit these files. `account-status.json` contains read-only account, portfolio-history, and bounded VOO/QQQM benchmark telemetry, while `status.json` remains the reconcile/preflight result. Broker status never initializes or rewrites the risk ledger. The Command UI reads a sanitized loopback telemetry API; its **Refresh Alpaca** action invokes broker status only and cannot reconcile or submit orders. Portfolio reports use the same read-only status path and keep their artifacts and delivery receipts local.
 
 A broker-wide local lock prevents status and reconcile operations from interleaving their snapshots or order activity. QORE never reclaims an existing broker lock automatically. A signal received before any broker mutation removes an owned lock; a signal after a cancellation or submission starts deliberately preserves the lock because broker outcome may be ambiguous. An accepted cancellation also retains the lock until Alpaca proves the exact order is canceled with zero fill and the position is unchanged. In either stale-lock case, first verify and reconcile Alpaca state and confirm no broker process is running, then remove only `.local/qore/broker/operation.lock` manually. The supervisor similarly never reclaims its lock; verify no supervisor is running before manually removing a stale `.local/qore/live-trading-supervisor/supervisor.lock`.
+
+## Paper recovery and monitoring
+
+Paper is an experiment, not a promotion stage: `qore-paper-current-strategy-v1` runs the current natural-gas selector without research-return or historical-parity approval gates. It remains hard-bound to Alpaca paper. A paper handoff can never authorize live-money orders. Deployment still needs fresh NOAA, market and EIA inputs, a current handoff, an explicit paper routing flag, valid broker state, risk limits, and a clear operator kill switch.
+
+The supervisor retries failed preparation automatically and resumes reconciliation when it succeeds. A separate read-only account refresh runs even when preparation fails, so account values keep updating. Command displays a prominent execution failure independently of account connectivity: existing holdings can gain or lose while the strategy is blocked.
+
+EIA collection uses the official public weekly report when no private API key is configured or the API fails. Only the report's current and prior weekly Lower 48 Bcf observations enter the cache; the year-ago comparison is excluded. Successful runtime observations survive subsequent fetch failures. Cached data still carries its original observation/release dates and is subject to normal freshness/coherence checks.
+
+The M1 paper installation has a root-owned `/usr/local/sbin/qore-deploy-paper` helper. SSH user `jdunkin` may invoke it as `codex` without a password using `sudo -n -u codex`. It accepts a `/tmp/qore-paper-recovery.ID/paper-recovery.bundle` and an exact commit SHA from `refs/heads/codex/paper-trading-recovery`, requires an existing paper-mode installation and a clean fast-forward, refreshes account status and prepares current inputs without orders, then restarts the paper supervisor. It has no root execution authority and grants no live-mode deployment path.

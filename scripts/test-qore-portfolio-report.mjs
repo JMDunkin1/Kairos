@@ -7,6 +7,7 @@ import { mkdtemp, readFile, rm, stat, symlink, writeFile, mkdir } from 'node:fs/
 import { tmpdir } from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
+import { pathToFileURL } from 'node:url'
 import { buildPortfolioReport, renderPortfolioReportSvg } from './lib/qore-portfolio-report.mjs'
 import { deliverPortfolioReport } from './lib/qore-report-delivery.mjs'
 import { validateIndexBasketConfig } from './lib/qore-index-basket.mjs'
@@ -28,6 +29,17 @@ const localOutputTestRoot = path.join(
   'portfolio-reports',
   `test-${process.pid}-${path.basename(scratch)}`,
 )
+// CLI fixtures describe July 21. Keep their clock deterministic as wall time advances,
+// while retaining real elapsed time for request timeouts and lock handling.
+const clockPreloadPath = path.join(scratch, 'fixture-clock.mjs')
+await writeFile(clockPreloadPath, `
+const RealDate = Date
+const offset = RealDate.parse('2026-07-21T22:00:00.000Z') - RealDate.now()
+globalThis.Date = class extends RealDate {
+  constructor(...args) { super(...(args.length ? args : [RealDate.now() + offset])) }
+  static now() { return RealDate.now() + offset }
+}
+`)
 const basket = {
   symbol: 'US-INDEX-BASKET',
   components: [
@@ -125,7 +137,7 @@ function riskFixture(overrides = {}) {
 
 function runNode(args, env = {}) {
   return new Promise((resolve) => {
-    const child = spawn(process.execPath, args, {
+    const child = spawn(process.execPath, ['--import', pathToFileURL(clockPreloadPath).href, ...args], {
       cwd: repoDir,
       env: { ...process.env, ...env },
       stdio: ['ignore', 'pipe', 'pipe'],

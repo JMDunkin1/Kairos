@@ -50,6 +50,8 @@ import {
 } from './lib/qore-validation-integrity.mjs'
 import { LEGACY_FORECAST_SCORE_LOCATION_AGGREGATE_CONTRACT } from './lib/qore-weather-data-quality.mjs'
 
+import { loadExecutionStrategy } from './lib/qore-execution-strategy.mjs'
+
 process.env.NODE_ENV = 'test'
 process.env.QORE_TEST_REVIEWED_ARTIFACT_OVERRIDES = '1'
 process.env.QORE_TEST_LIVE_INFERENCE_OVERRIDES = '1'
@@ -984,7 +986,7 @@ async function liveLoaderParity(result, date, expectedSources, options = {}) {
     }
     const outputPath = path.join(scratch, 'target.json')
     const strategyArtifactPath = path.join(scratch, 'eligible-all-year-run-summary.json')
-    const strategyArtifact = await writeStrategyArtifactFixture(strategyArtifactPath, { eligible: true })
+    await writeStrategyArtifactFixture(strategyArtifactPath, { eligible: true })
     const env = {
       QORE_LIVE_INFERENCE_STATE_DIR: scratch,
       QORE_LIVE_INFERENCE_FILE: outputPath,
@@ -1041,15 +1043,8 @@ async function liveLoaderParity(result, date, expectedSources, options = {}) {
     }
     assert.equal(run.code, 0, run.stderr)
     const snapshot = JSON.parse(await readFile(outputPath, 'utf8'))
-    assert.equal(snapshot.strategyArtifact.status, 'research-baseline')
-    assert.equal(snapshot.strategyArtifact.paperEligible, true)
-    assert.equal(snapshot.strategyArtifact.liveEligible, true)
-    assert.equal(snapshot.strategyArtifact.promotionEligible, true)
-    assert.equal(snapshot.strategyArtifact.digestSha256, strategyArtifact.digestSha256)
-    assert.equal(
-      snapshot.strategyArtifact.strategyArtifactCoreDigestSha256,
-      sealedStrategyArtifactDigestSha256,
-    )
+    assert.deepEqual(snapshot.strategyArtifact, loadExecutionStrategy(root, { mode: 'paper' }).binding)
+    assert.equal(snapshot.strategyArtifact.liveEligible, false)
     assert.equal(snapshot.marketValidation.targetDate, date)
     assert.equal(snapshot.marketValidation.latestCommonDate, snapshot.marketValidation.latestIndexDate)
     assert.equal(snapshot.marketValidation.recentIndexSessionsValidated, 42)
@@ -1112,13 +1107,14 @@ async function nonPromotedStrategyArtifactFailsClosed() {
     const strategyArtifactPath = path.join(scratch, 'needs-validation-run-summary.json')
     await writeStrategyArtifactFixture(strategyArtifactPath, { eligible: false })
     const run = await runNode(['scripts/qore-live-strategy-inference.mjs'], {
+      QORE_BROKER_MODE: 'live',
       QORE_LIVE_INFERENCE_STATE_DIR: scratch,
       QORE_LIVE_INFERENCE_FILE: path.join(scratch, 'target.json'),
       QORE_LIVE_INFERENCE_SKIP_FETCH: '1',
       QORE_LIVE_STRATEGY_ARTIFACT_FILE: strategyArtifactPath,
     })
     assert.equal(run.code, 1)
-    assert.match(run.stderr, /artifact is not paper-eligible:.*status must equal research-baseline/)
+    assert.match(run.stderr, /strategy is not live-eligible:.*status must equal research-baseline/)
   } finally {
     await rm(scratch, { recursive: true, force: true })
   }
@@ -1135,6 +1131,7 @@ async function mismatchedLiveComponentContractFailsClosed() {
     )
     await writeFile(strategyArtifactPath, `${JSON.stringify(fixture, null, 2)}\n`)
     const run = await runNode(['scripts/qore-live-strategy-inference.mjs'], {
+      QORE_BROKER_MODE: 'live',
       QORE_LIVE_INFERENCE_STATE_DIR: scratch,
       QORE_LIVE_INFERENCE_FILE: path.join(scratch, 'target.json'),
       QORE_LIVE_INFERENCE_SKIP_FETCH: '1',
@@ -1155,6 +1152,7 @@ async function mismatchedValidationIntegrityFailsClosed() {
     fixture.validation.integrity.manifestDigestSha256 = '0'.repeat(64)
     await writeFile(strategyArtifactPath, `${JSON.stringify(fixture, null, 2)}\n`)
     const run = await runNode(['scripts/qore-live-strategy-inference.mjs'], {
+      QORE_BROKER_MODE: 'live',
       QORE_LIVE_INFERENCE_STATE_DIR: scratch,
       QORE_LIVE_INFERENCE_FILE: path.join(scratch, 'target.json'),
       QORE_LIVE_INFERENCE_SKIP_FETCH: '1',
@@ -1175,6 +1173,7 @@ async function mismatchedBrokerExecutionProfileFailsClosed() {
     fixture.contract.brokerExecution.profile.sizing.minOrderUsd += 1
     await writeFile(strategyArtifactPath, `${JSON.stringify(fixture, null, 2)}\n`)
     const run = await runNode(['scripts/qore-live-strategy-inference.mjs'], {
+      QORE_BROKER_MODE: 'live',
       QORE_LIVE_INFERENCE_STATE_DIR: scratch,
       QORE_LIVE_INFERENCE_FILE: path.join(scratch, 'target.json'),
       QORE_LIVE_INFERENCE_SKIP_FETCH: '1',

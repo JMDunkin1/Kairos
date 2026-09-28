@@ -22,7 +22,7 @@ import {
   resolveBrokerExecutionProfile,
 } from './lib/qore-broker-execution-profile.mjs'
 import { resolveLiveWeatherPaths } from './lib/qore-live-paths.mjs'
-import { loadAllYearStrategyArtifact, strategyArtifactBindingBlocks } from './lib/qore-live-strategy-artifact.mjs'
+import { loadExecutionStrategy, executionStrategyBindingBlocks } from './lib/qore-execution-strategy.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -1752,9 +1752,9 @@ function signalAgeBlock(signalSnapshot, asOf = currentTime()) {
 
 function liveStrategyArtifactBlocks(signalSnapshot) {
   try {
-    return strategyArtifactBindingBlocks(
+    return executionStrategyBindingBlocks(
       signalSnapshot?.inference?.strategyArtifact,
-      loadAllYearStrategyArtifact(repoDir),
+      loadExecutionStrategy(repoDir, { mode: brokerMode }),
       { mode: brokerMode },
     )
   } catch (error) {
@@ -2583,7 +2583,7 @@ async function reconcileOnce() {
     }
   }
   const prices = referencePricesFor(marketSnapshot, brokerSnapshot.positions, quoteSnapshot)
-  const { plannedOrders, skippedOrders } = buildPlannedOrders({
+  const { plannedOrders: candidateOrders, skippedOrders } = buildPlannedOrders({
     signalSnapshot,
     targets,
     current,
@@ -2592,13 +2592,29 @@ async function reconcileOnce() {
     openOrders: brokerSnapshot.openOrders,
     accountEquityUsd,
   })
-  const exposurePlan = evaluateGrossExposurePlan({
+  let plannedOrders = candidateOrders
+  let exposurePlan = evaluateGrossExposurePlan({
     current,
     openOrders: brokerSnapshot.openOrders,
     plannedOrders,
     prices,
     accountEquityUsd,
   })
+  // Gains can move an existing portfolio over its deployment envelope. Submit
+  // reductions first; additions wait for a later pass with confirmed fills.
+  const deferredOrders = brokerMode === 'paper' && exposurePlan.startsOverCap
+    ? candidateOrders.filter((order) => !plannedOrderReducesGrossExposure(order))
+    : []
+  if (deferredOrders.length) {
+    plannedOrders = candidateOrders.filter((order) => plannedOrderReducesGrossExposure(order))
+    exposurePlan = evaluateGrossExposurePlan({
+      current,
+      openOrders: brokerSnapshot.openOrders,
+      plannedOrders,
+      prices,
+      accountEquityUsd,
+    })
+  }
   const gateResult = contextBlocks({
     signalSnapshot,
     sourceInferenceSnapshot,
@@ -2735,7 +2751,12 @@ async function reconcileOnce() {
     replacementBlockedOrderCount: execution.replacementBlockedOrderCount,
     skippedOrderCount: execution.skippedOrderCount,
     blockedReasons,
-    warnings: gateResult.warnings,
+    warnings: [
+      ...gateResult.warnings,
+      ...(deferredOrders.length
+        ? ['Paper account starts above its deployment envelope; exposure-increasing orders are deferred until a later reconciliation after reductions fill.']
+        : []),
+    ],
     riskPolicyChecks: gateResult.riskPolicyChecks,
     rawAccount: brokerSnapshot.rawAccount ?? null,
     marketClock: brokerSnapshot.marketClock ?? null,
@@ -2770,6 +2791,7 @@ async function reconcileOnce() {
     },
     exposurePlan,
     plannedOrders,
+    deferredOrders,
     openOrderReplacement: {
       ...openOrderReplacement,
       blockedSymbols: [...openOrderReplacement.blockedSymbols],

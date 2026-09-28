@@ -29,9 +29,10 @@ import {
   assertSummerForecastTemporalInputs,
 } from './lib/qore-summer-forecast-contract.mjs'
 import {
-  assertPaperEligibleStrategyArtifact,
   assertStrategyArtifactContractIntegrity,
 } from './lib/qore-live-strategy-artifact.mjs'
+
+import { assertExecutionStrategy } from './lib/qore-execution-strategy.mjs'
 
 const repoDir = process.cwd()
 loadLocalEnv(repoDir)
@@ -416,7 +417,7 @@ async function main() {
   }
   const strategyArtifact = shadowOnly
     ? assertStrategyArtifactContractIntegrity(repoDir)
-    : assertPaperEligibleStrategyArtifact(repoDir)
+    : assertExecutionStrategy(repoDir, { mode: process.env.QORE_BROKER_MODE ?? 'dry-run' })
   if (shadowOnly) {
     if (strategyArtifact.currentParity?.components?.summer?.exactTargetParity !== true) {
       throw new Error('Summer shadow collection requires exact current production-source parity for the active Summer comparator.')
