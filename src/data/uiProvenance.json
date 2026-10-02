@@ -1,0 +1,10 @@
+{
+  "sourceRevision": "e16663e094e56a4a08e9817914376dadbc90a8c4",
+  "candidate": "Uncommitted local UI candidate",
+  "hashes": {
+    "scripts/optimize-ngas-all-year-beta.mjs": "a1bb599490cc2a353a2aff0cf471acb8dd33d159d5e922e7d25f7a0d2c932f71",
+    "scripts/lib/qore-research-execution.mjs": "403474428891a2444e5edd59fc8d9569b4bc629b272c367b311b3b0c281235c7",
+    "config/qore-live-broker-settings.json": "c549376af7072f54fed0438284f1d6e00ed8a74eed3e260964f96a308f6a8a88",
+    "data/qore/market/index-basket-config.json": "7119fbd61803add8a7bb2773e0fe28b5cda11ae294b1efed7937c600869553cc"
+  }
+}

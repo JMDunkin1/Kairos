@@ -124,7 +124,7 @@ export function RealityCheckPanel() {
         {check.method}. Only rows from {check.sampleStartDate} through {check.sampleEndDate} enter the all-year return gates.
       </p>
       <header className="validation-heading">
-        <h3>Paper/live eligibility gates</h3>
+        <h3>Recorded artifact gates</h3>
         <dl>
           <div>
             <dt>PASSED</dt>
@@ -134,7 +134,7 @@ export function RealityCheckPanel() {
           </div>
         </dl>
       </header>
-      <dl className="gate-list" aria-label="All-year paper and live eligibility gates">
+      <dl className="gate-list" aria-label="Recorded all-year artifact gates">
         {promotionGateEntries.map(([key, label]) => (
           <div key={key}>
             <dt>{label}</dt>
@@ -143,7 +143,7 @@ export function RealityCheckPanel() {
         ))}
       </dl>
       <p className="section-note">
-        Return gates use the selection prefix only. Component gates retain each component&apos;s declared pre-holdout result; execution, evidence, and approval gates fail closed independently.
+        Historical artifact snapshot; current runtime eligibility is shown under Account → Data & execution. Return gates use the selection prefix only. Component gates retain each component&apos;s declared pre-holdout result; execution, evidence, and approval gates fail closed independently.
       </p>
     </section>
   )
@@ -204,11 +204,11 @@ export function MonteCarloChart() {
 function heatmapBackground(value: number, minimum: number, maximum: number) {
   const ratio = (value - minimum) / Math.max(maximum - minimum, 0.0001)
   const alpha = 0.08 + Math.max(0, Math.min(1, ratio)) * 0.4
-  return `rgba(69, 255, 120, ${alpha.toFixed(3)})`
+  return `rgba(23, 103, 166, ${alpha.toFixed(3)})`
 }
 
 export function OvernightRiskHeatmap() {
-  const values = overnightRiskHeatmap.cells.map((cell) => cell.validationSharpe)
+  const values = overnightRiskHeatmap.cells.map((cell) => cell.validationReturnPct)
   const minimum = Math.min(...values)
   const maximum = Math.max(...values)
   const leader = overnightRiskHeatmap.cells.find((cell) => cell.researchLeader)
@@ -223,7 +223,7 @@ export function OvernightRiskHeatmap() {
         <dl>
           <div>
             <dt>METRIC</dt>
-            <dd>VALIDATION SHARPE</dd>
+            <dd>VALIDATION RETURN</dd>
           </div>
           <div>
             <dt>LEADER</dt>
@@ -253,12 +253,12 @@ export function OvernightRiskHeatmap() {
                     <td
                       key={threshold}
                       className={cell?.researchLeader ? 'heatmap-cell research-leader' : 'heatmap-cell'}
-                      style={cell ? { backgroundColor: heatmapBackground(cell.validationSharpe, minimum, maximum) } : undefined}
+                      style={cell ? { backgroundColor: heatmapBackground(cell.validationReturnPct, minimum, maximum) } : undefined}
                       title={cell
-                        ? `${cell.policyId}: validation Sharpe ${formatNumber(cell.validationSharpe, 2)}, return ${signedPercent(cell.validationReturnPct, 2)}${cell.eligible ? ', selection-eligible' : ''}`
+                        ? `${cell.policyId}: validation return ${signedPercent(cell.validationReturnPct, 2)}${cell.eligible ? ', selection-eligible' : ''}`
                         : 'No candidate'}
                     >
-                      {cell ? formatNumber(cell.validationSharpe, 2) : '—'}
+                      {cell ? signedPercent(cell.validationReturnPct, 1) : '—'}
                       {cell?.researchLeader && <span className="heatmap-leader-mark" aria-label="Research-only leader">◆</span>}
                     </td>
                   )
@@ -274,7 +274,7 @@ export function OvernightRiskHeatmap() {
         <span>HIGHER</span>
       </div>
       <p className="section-note">
-        Baseline-cost validation Sharpe across the versioned all-year overnight-gap policy grid. The diamond marks the train/validation research leader; deployment remains carry-through and the holdout is excluded from selection.
+        Baseline-cost simulated validation return across the versioned all-year overnight-gap policy grid. The diamond marks the train/validation research leader; deployment remains carry-through and the holdout is excluded from selection.
       </p>
     </section>
   )
