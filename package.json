@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": "^22.18.0 || >=24.0.0"
   },
   "bin": {
     "qore": "./bin/qore"
   },
   "scripts": {
-    "dev": "node scripts/qore-local.mjs",
+    "dev": "node scripts/qore-hub-service.mjs",
     "dev:vite": "vite",
     "dashboard:api": "node scripts/qore-dashboard-service.mjs",
     "data:refresh": "node scripts/collect-free-data.mjs",
@@ -75,7 +75,12 @@
     "preview": "vite preview",
     "trade:supply": "node scripts/qore-live-supply-context.mjs",
     "test:summer-supply": "node scripts/test-qore-summer-supply-policy.mjs && node scripts/test-qore-live-supply-context.mjs && node scripts/test-qore-supply-thresholds.mjs",
-    "test:simplification": "node scripts/test-qore-simplification.mjs && node scripts/test-qore-simplification-demand.mjs && node scripts/test-qore-simplification-replay.mjs && node scripts/test-qore-simplification-forward.mjs"
+    "test:simplification": "node scripts/test-qore-simplification.mjs && node scripts/test-qore-simplification-demand.mjs && node scripts/test-qore-simplification-replay.mjs && node scripts/test-qore-simplification-forward.mjs",
+    "desktop:build": "node scripts/build-qore-desktop.mjs",
+    "desktop": "npm run desktop:build && open \".local/desktop/QORE Strategy Hub.app\"",
+    "test:hub": "node scripts/test-qore-hub.mjs",
+    "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs",
+    "test:ui-requests": "node scripts/test-qore-ui-requests.mjs"
   },
   "dependencies": {
     "@mattnucc/gribberish": "^0.30.2",
