@@ -26,8 +26,8 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="wordmark" href="#command" onClick={() => navigate('command')} aria-label="QORE natural gas command">
-          <span>QORE</span><b>//NG</b>
+        <a className="wordmark" href="#command" onClick={() => navigate('command')} aria-label="QORE account overview">
+          <span>QORE</span><b>Natural gas research</b>
         </a>
         <nav aria-label="Primary">
           <button
@@ -36,7 +36,7 @@ export default function App() {
             aria-current={view === 'command' ? 'page' : undefined}
             onClick={() => navigate('command')}
           >
-            COMMAND
+            Account
           </button>
           <button
             type="button"
@@ -44,7 +44,7 @@ export default function App() {
             aria-current={view === 'backtest' ? 'page' : undefined}
             onClick={() => navigate('backtest')}
           >
-            BACKTEST
+            Backtests
           </button>
         </nav>
       </header>

@@ -112,6 +112,7 @@ type AllYearSummary = {
     displayCurveArtifact: CsvArtifactBinding
   }
   contract: {
+    execution: { contractId: string; contractDigest: string; scenarioId: string; deploymentFraction: number; indexWeights: Record<string, number>; benchmarkConvention: string; priceConvention: string; turnoverConvention: string; scenarios: Record<string, { oneWayBps: Record<string, number>; annualBorrowRatePct: number }> }
     trainEnd: string
     selectionEnd: string
     validationEnd: string

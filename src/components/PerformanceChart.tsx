@@ -43,6 +43,8 @@ export function PerformanceChart<TPoint extends SmoothChartPoint>({
   empty,
   actions,
   breakLinesAfterDays,
+  range: controlledRange,
+  onRangeChange,
 }: {
   title: string
   meta?: string
@@ -51,10 +53,15 @@ export function PerformanceChart<TPoint extends SmoothChartPoint>({
   empty: string
   actions?: ReactNode
   breakLinesAfterDays?: number
+  range?: SmoothChartRange
+  onRangeChange?: (range: SmoothChartRange) => void
 }) {
   const [rangeState, setRangeState] = useState(() => ({ dataLength: data.length, range: fullRange(data.length) }))
-  const range = rangeState.dataLength === data.length ? rangeState.range : fullRange(data.length)
-  const setRange = (nextRange: SmoothChartRange) => setRangeState({ dataLength: data.length, range: nextRange })
+  const range = controlledRange ?? (rangeState.dataLength === data.length ? rangeState.range : fullRange(data.length))
+  const setRange = (nextRange: SmoothChartRange) => {
+    setRangeState({ dataLength: data.length, range: nextRange })
+    onRangeChange?.(nextRange)
+  }
 
   return (
     <section className="performance-panel" aria-label={title}>
@@ -67,7 +74,7 @@ export function PerformanceChart<TPoint extends SmoothChartPoint>({
           {actions}
           {data.length > 1 && (
             <button type="button" className="text-button" onClick={() => setRange(fullRange(data.length))}>
-              RESET VIEW
+              Reset view
             </button>
           )}
         </div>
