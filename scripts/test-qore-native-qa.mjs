@@ -74,6 +74,7 @@ print("ok - startup failure, no-didFinish timeout, and terminal report idempoten
   assert.equal(runInNewContext(chartsReady, { document: { querySelectorAll: () => [] } }), true, 'non-chart views can be captured')
   console.log('ok - snapshots wait for measured chart geometry and a rendered curve')
 
+  if (!process.argv.includes('--state-only')) {
   function fixture(name, body) {
     const output = path.join(tmp, name), appPath = path.join(output, 'QORE QA.app')
     fs.mkdirSync(path.join(appPath, 'Contents/MacOS'), { recursive: true })
@@ -118,6 +119,7 @@ print("ok - startup failure, no-didFinish timeout, and terminal report idempoten
   const interrupted = await interruption
   assert.equal(interrupted.interrupted, true); assert.equal(interrupted.appStopped, true); assert.equal(live(interrupted.appPid), false)
   console.log('ok - spawn failure and interruption remain bounded and produce failure evidence')
+  }
 } finally {
   for (const child of children) { child.kill('SIGKILL'); await new Promise(resolve => { if (child.exitCode !== null || child.signalCode !== null) resolve(); else child.once('exit', resolve) }) }
   fs.rmSync(tmp, { recursive: true, force: true })

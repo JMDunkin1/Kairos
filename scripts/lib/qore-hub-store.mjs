@@ -3,6 +3,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { simulate, engineVersion } from '../../src/hub/simulation.ts'
 import { fixtureAdapter } from '../../src/hub/fixture.ts'
+import { withHubStateLock } from './qore-hub-state-migration.mjs'
 
 export const hash = value => crypto.createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex')
 const isObject = value => value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -44,7 +45,7 @@ export function createRunStore(root, repoRoot, codeRevision = 'local-candidate',
   return {
     get,
     list: () => fs.readdirSync(path.join(root, 'runs')).filter(name => /^run-[a-f0-9-]{36}\.json$/.test(name)).map(name => get(name.slice(0, -5))).sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(({ result, ...record }) => ({ ...record, summary: result?.summary ?? null })).slice(0, 200),
-    run: (request, parentRunId = null) => {
+    run: (request, parentRunId = null) => withHubStateLock(root, () => {
       if (!validEnvelope(request)) throw new Error('Invalid run request envelope.')
       if (parentRunId) get(parentRunId)
       if (feedAdapter.status !== 'available') throw new Error('Data feed is unconfigured or unsupported.')
@@ -56,7 +57,7 @@ export function createRunStore(root, repoRoot, codeRevision = 'local-candidate',
       persist(record)
       append({ id: record.id, event: 'outcome', status: record.status, error: record.error ?? null, summary: record.result?.summary ?? null })
       return record
-    },
+    }),
   }
 }
 

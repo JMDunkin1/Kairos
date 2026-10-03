@@ -4,6 +4,8 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { readExperimentLedger, canonicalLedgerRoot } from './lib/qore-hub-ledger.mjs'
 import { assertHubRuntime } from './lib/qore-hub-runtime.mjs'
+import { migrateLegacyHubState } from './lib/qore-hub-state-migration.mjs'
+import { loadHistoricalReplay } from './lib/qore-hub-replay.mjs'
 
 assertHubRuntime()
 const { createRunStore, weeklyReport } = await import('./lib/qore-hub-store.mjs')
@@ -56,8 +58,9 @@ export function hubListenerOptions(args = process.argv.slice(2), env = process.e
   return { host, port }
 }
 
-export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.join(repoRoot, '.local/hub'), ledgerRoot = canonicalLedgerRoot, revision = '64c253d+local-candidate' } = {}) {
+export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.join(repoRoot, '.local/hub'), ledgerRoot = canonicalLedgerRoot, legacyStateRoot, revision = '64c253d+local-candidate' } = {}) {
   validateListener(host, port)
+  const migration = migrateLegacyHubState({ sourceRoot: legacyStateRoot, destinationRoot: stateRoot })
   const store = createRunStore(stateRoot, repoRoot, revision)
   let expectedHost = ''
   const json = (res, status, value) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); res.end(JSON.stringify(value)) }
@@ -68,6 +71,7 @@ export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.
       if (req.headers.origin && req.headers.origin !== origin) return json(res, 403, { error: 'Origin rejected.' })
       const url = new URL(req.url, origin)
       if (req.method === 'POST') {
+        if (['conflict', 'attention'].includes(migration.status)) return json(res, 409, { error: 'Previous run migration needs attention; originals and destination records are preserved. Quit QORE and resolve the reported storage conflict before recording new trials.' })
         if (req.headers.origin !== origin || req.headers['x-qore-local'] !== '1' || !req.headers['content-type']?.startsWith('application/json')) return json(res, 403, { error: 'Local application requests only.' })
         if (url.pathname !== '/api/hub/runs') return json(res, 404, { error: 'No execution endpoint exists.' })
         let body = ''
@@ -78,7 +82,8 @@ export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.
       }
       if (req.method !== 'GET') return json(res, 405, { error: 'Unsupported method.' })
       if (url.pathname === '/api/hub/health') return json(res, 200, { status: 'ready', mode: 'paper-simulation' })
-      if (url.pathname === '/api/hub/catalog') return json(res, 200, { definitions: defaultDefinitions, ngas: ngasDefinition, assumptions: defaultAssumptions, capabilities, reporting, feed: { id: 'fixture-two-assets', version: '1', exposure: 'synthetic', development: '2026-01-05 → 2026-03-27', test: '2026-03-30 → 2026-05-08', protected: 'Unavailable; never read' } })
+      if (url.pathname === '/api/hub/catalog') return json(res, 200, { migration, definitions: defaultDefinitions, ngas: ngasDefinition, assumptions: defaultAssumptions, capabilities, reporting, feed: { id: 'fixture-two-assets', version: '1', exposure: 'synthetic', development: '2026-01-05 → 2026-03-27', test: '2026-03-30 → 2026-05-08', protected: 'Unavailable; never read' } })
+      if (url.pathname === '/api/hub/replay') return json(res, 200, loadHistoricalReplay())
       if (url.pathname === '/api/hub/runs') return json(res, 200, store.list())
       if (url.pathname === '/api/hub/experiments') return json(res, 200, readExperimentLedger(ledgerRoot))
       const match = url.pathname.match(/^\/api\/hub\/runs\/(run-[a-f0-9-]{36})(?:\/(report|export))?$/)
@@ -106,7 +111,7 @@ export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.
   return { server, origin: `http://${expectedHost}`, store }
 }
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const { server, origin } = await startHub({ ...hubListenerOptions(), stateRoot: process.env.QORE_HUB_STATE, ledgerRoot: process.env.QORE_HUB_LEDGER_ROOT })
+  const { server, origin } = await startHub({ ...hubListenerOptions(), stateRoot: process.env.QORE_HUB_STATE, ledgerRoot: process.env.QORE_HUB_LEDGER_ROOT, legacyStateRoot: process.env.QORE_HUB_LEGACY_STATE })
   // The native launcher consumes one readiness URL over a private stdout pipe.
   console.log(origin)
   let parentWatch

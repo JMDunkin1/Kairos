@@ -81,7 +81,9 @@
     "desktop": "npm run desktop:build && open \".local/desktop/QORE Strategy Hub.app\"",
     "test:hub": "node scripts/test-qore-hub.mjs",
     "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs",
-    "test:ui-requests": "node scripts/test-qore-ui-requests.mjs"
+    "test:ui-requests": "node scripts/test-qore-ui-requests.mjs",
+    "test:hub-migration": "node scripts/test-qore-hub-migration.mjs",
+    "test:hub-replay": "node scripts/test-qore-hub-replay.mjs"
   },
   "dependencies": {
     "@mattnucc/gribberish": "^0.30.2",

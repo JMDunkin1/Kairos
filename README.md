@@ -11,7 +11,7 @@ npm ci
 npm run desktop
 ```
 
-Then double-click `.local/desktop/QORE Strategy Hub.app` whenever needed. Its native AppKit/WebKit window starts and stops the bundled loopback simulation service automatically; no terminal or browser is needed. The local build is ad-hoc signed, not notarized or publicly distributed. Runs persist in `~/Library/Application Support/QORE Strategy Hub Candidate`; moving the app preserves them. `npm run dev` builds and starts an optional CLI research service.
+Then double-click `.local/desktop/QORE Strategy Hub.app` whenever needed. Its native AppKit/WebKit window starts and stops the bundled loopback simulation service automatically; no terminal or browser is needed. The local build is ad-hoc signed, not notarized or publicly distributed. Runs persist in `~/Library/Application Support/QORE Strategy Hub Candidate`; moving the app preserves them. On launch, old adjacent `hub-state` runs and registry events are imported without deleting originals or replacing conflicting records. Conflicts, incomplete files or a busy/stale writer lock stop import and new trials with an explicit notice. If the old folder is elsewhere, run `node scripts/migrate-qore-hub-state.mjs --source /path/to/old/hub-state` after quitting QORE; keep the originals. Inspect a stale `.hub-write.lock` only after confirming all QORE windows/processes have stopped. `npm run dev` builds and starts an optional CLI research service.
 
 ## Research boundary
 
@@ -34,3 +34,11 @@ npm run test:ui-requests
 ```
 
 The full legacy research suite needs additional released inputs; protected data must remain excluded. Keep this candidate local until the expanded scope is approved for delivery.
+
+## Released historical replay
+
+Historical replay shows the separately approved, independently audited exports for `lev_core_relative_leverage_sleeves_v3` and its 50% TQQQ / 50% QQQ static exposure baseline, 2024-01-02 through 2026-10-01 (690 observed NAV sessions). It verifies the exact approval/manifest/audit closure and reads only bundled exports, never their descriptive provenance paths or original data. Frozen Python definitions are retained as provenance but are not executed. The candidate returned less than the baseline with smaller historical drawdown; this is one mechanism plus its exposure control, not two independent edges. Current-vintage, exposed-regime, survivor, NAV/cash completeness, leveraged-fund and fractional-capital limits remain visible. There is no historical execution endpoint or future feed.
+
+Verify migration and replay with `npm run test:hub-migration` and `npm run test:hub-replay`, alongside the required hub/UI checks.
+
+In a restricted executor, `node scripts/test-qore-hub.mjs --offline`, `node scripts/test-qore-hub-replay.mjs --offline`, and `node scripts/test-qore-native-qa.mjs --state-only` run only their named pure/headless checks. They deliberately skip HTTP/process/native GUI coverage; default test modes still require those facilities.

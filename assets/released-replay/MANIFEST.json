@@ -1,0 +1,71 @@
+{
+  "files": {
+    "README.md": {
+      "bytes": 8908,
+      "sha256": "aa037011c3e66fb8362873b03efd787d641adbf9503755a694539d9fd670ec34"
+    },
+    "code/definitions.py": {
+      "bytes": 3392,
+      "sha256": "2fcc39d544340ef31cc3a1d2b0e27787f94a92ed399796d44e8893edb365d5f5"
+    },
+    "code/engine.py": {
+      "bytes": 5744,
+      "sha256": "c2fde06bdcf026fb48f70d38cca67cc7f1faa40902f3da95521be967c55c51f0"
+    },
+    "code/lev_engine.py": {
+      "bytes": 7749,
+      "sha256": "1dd88b853fc19862147079bc36400bf6692e0e1ea145ea47ac83a77704175404"
+    },
+    "code/lev_families_core.py": {
+      "bytes": 4539,
+      "sha256": "22777c51450294dbd0c580a6976e1323991f654935181f953285685dd6f77e36"
+    },
+    "contract.json": {
+      "bytes": 8131,
+      "sha256": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f"
+    },
+    "daily_nav_replay.csv": {
+      "bytes": 518734,
+      "sha256": "3b2761045f4daab003bc33da762a810624e7571d6ba37ba99fb6bb37d3d9c18a"
+    },
+    "execution_events.csv": {
+      "bytes": 14998,
+      "sha256": "df588b7a15a25561402f9b57bf1e0f0a37cec915f740a830ec4ec8adb919520f"
+    },
+    "known_candidate_cost_delay_stresses.csv": {
+      "bytes": 4622,
+      "sha256": "cbf7c6eb802fad041ea2b4e7a4bcca526d245ae3902047f7c422b6d1378f77e1"
+    },
+    "metric_comparison_checks.csv": {
+      "bytes": 3811,
+      "sha256": "8ace0906fdd4c1da5e2b966168dc5429fb6e3f9d3c8be376d4569e73f45c8067"
+    },
+    "metrics_reproduction.csv": {
+      "bytes": 1148,
+      "sha256": "0ff394ea017d26b22c4b165d09e945061e502be82dc245f6a5436356c8027a18"
+    },
+    "provenance.json": {
+      "bytes": 41259,
+      "sha256": "ef611153857348493636be905faf6b12802a537fd3d45cec0899a819ff86b852"
+    },
+    "released_comparison_metrics.csv": {
+      "bytes": 10966,
+      "sha256": "55dc5a2b1af8248d8e7ff8f0782bd61d2ab0c45968ff3fe9154d8f7a496b529a"
+    },
+    "reproduction_checks.json": {
+      "bytes": 1418,
+      "sha256": "5d08ccb7d26ea511cab15175f1d330e5db6dc5769d40c294dcb9c903f8dc4bee"
+    },
+    "rules.json": {
+      "bytes": 1515,
+      "sha256": "19b4f6358228549cb85819e43d4503de593bf8a065973c21df095663b7238597"
+    },
+    "targets_and_execution.csv": {
+      "bytes": 181053,
+      "sha256": "9c036071ecc67ac55b8de60b1f627dc24a68c35de34777cacecf77ad6135f596"
+    }
+  },
+  "hash_algorithm": "SHA-256",
+  "schema": "qore-hub.export-sha256.v1",
+  "self_excluded": "MANIFEST.json"
+}

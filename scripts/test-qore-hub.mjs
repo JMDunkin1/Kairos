@@ -310,6 +310,7 @@ try {
   fs.writeFileSync(ledgerFile, [...history, conflict].map(e => JSON.stringify(e)).join('\n') + '\n')
   assert.throws(() => readExperimentLedger(ledger), /Conflicting duplicate/)
   fs.writeFileSync(ledgerFile, history.map(e => JSON.stringify(e)).join('\n') + '\n')
+  if (!process.argv.includes('--offline')) {
   hub = await startHub({ stateRoot: path.join(tmp, 'api'), ledgerRoot: ledger })
   const origin = hub.origin
   assert.equal((await fetch(origin + '/api/hub/health')).status, 200)
@@ -353,7 +354,9 @@ try {
   assert.equal(launcherOrigin, `http://127.0.0.1:${launcherPort}`, 'CLI service binds the port selected by bin/qore')
   assert.equal((await fetch(launcherOrigin + '/api/hub/health')).status, 200, 'launcher-selected port serves the hub')
   assert.match(await (await fetch(launcherOrigin + '/')).text(), /<title>QORE/, 'launcher dashboard readiness probe succeeds on its selected port')
-  console.log('PASS: compatible runtime enforcement, deterministic clock, execution-bounded offset cuts/order, simultaneous opening quotes, validated test warm-up history, causality, shared/opposing positions, fees, income, net prior-short borrow attribution, newly funded sleeve TWR, flows/TWR, stale/missing data, unsupported products, frozen negative/blocked trials, report reconciliation, ledger inheritance/revisions/partial append, local API security, repeated reads and launcher-selected CLI port')
+  }
+  if (process.argv.includes('--offline')) console.log('PASS: offline hub accounting, causality, reconciliation, immutable persistence, and ledger checks. NOT RUN: API security, HTTP reads and CLI listener coverage.')
+  else console.log('PASS: compatible runtime enforcement, deterministic clock, execution-bounded offset cuts/order, simultaneous opening quotes, validated test warm-up history, causality, shared/opposing positions, fees, income, net prior-short borrow attribution, newly funded sleeve TWR, flows/TWR, stale/missing data, unsupported products, frozen negative/blocked trials, report reconciliation, ledger inheritance/revisions/partial append, local API security, repeated reads and launcher-selected CLI port')
 } finally {
   if (serviceProcess && serviceProcess.exitCode === null && serviceProcess.signalCode === null) await new Promise(resolve => {
     const timer = setTimeout(() => serviceProcess.kill('SIGKILL'), 5000)

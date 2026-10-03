@@ -76,6 +76,9 @@ final class QoreDesktop: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         let state = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("QORE Strategy Hub Candidate", isDirectory: true)
         #endif
         process.environment = ["PATH": "/usr/bin:/bin", "QORE_HUB_STATE": state.path, "QORE_HUB_PARENT_PID": String(ProcessInfo.processInfo.processIdentifier)]
+        #if !QORE_QA
+        process.environment?["QORE_HUB_LEGACY_STATE"] = Bundle.main.bundleURL.deletingLastPathComponent().appendingPathComponent("hub-state").path
+        #endif
         let pipe = Pipe(); readyPipe = pipe; process.standardOutput = pipe
         process.standardError = FileHandle.nullDevice
         pipe.fileHandleForReading.readabilityHandler = { [weak self] handle in

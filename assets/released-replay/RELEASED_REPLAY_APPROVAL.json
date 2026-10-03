@@ -1,0 +1,41 @@
+{
+  "schema": "qore-hub.historical-replay-read-approval.v1",
+  "approved_utc": "2026-10-02T21:48:46.355953+00:00",
+  "status": "APPROVED_READ_ONLY_HISTORICAL_REPLAY",
+  "directory": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff",
+  "approved_bindings": {
+    "contract.json": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f",
+    "MANIFEST.json": "dc3b1838f4ea281ef41b6a232fd88fedb7cd57cccd27338ae0a5cb046ec2f845",
+    "HANDOFF_AUDIT.json": "07787d8e3a11b0cba343e315ae9a3a3938cd302b1985a0ac3afb88f3934c43c4"
+  },
+  "preferred_research_candidate": "lev_core_relative_leverage_sleeves_v3",
+  "exposure_baseline": "TQQQ_50_QQQ_static",
+  "released_scope": {
+    "first": "2024-01-02",
+    "last": "2026-10-01",
+    "sessions_per_definition": 690,
+    "definitions": 2
+  },
+  "excluded": {
+    "raw_source_inputs": true,
+    "protected_GEFS_targets": true,
+    "unreleased_model_outputs": true,
+    "prospective_outputs": true
+  },
+  "permission": {
+    "read_export_files": true,
+    "read_provenance_source_paths": false,
+    "orders": false,
+    "paper_account_execution": false,
+    "live_execution": false,
+    "future_feed": null,
+    "brokers": null
+  },
+  "classification": "RETROSPECTIVE_NAV_PROXY_BACKTEST",
+  "claims": {
+    "proven_edge": false,
+    "actual_paper_account_returns": false,
+    "independent_mechanism_count": 1
+  },
+  "note": "Build-time contract pending-review label is preserved; this separate approval binds exact completed independent review. Candidate and static exposure reference share market risk. New portfolio and RV diagnostics are separate and do not promote replacement nominees."
+}
