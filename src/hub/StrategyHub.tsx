@@ -61,11 +61,17 @@ export function StrategyHub() {
     const controller = new AbortController()
     api<Catalog>('catalog', undefined, controller.signal).then(c => { setCatalog(c); setDefinitions(c.definitions); setAssumptions(c.assumptions) }).catch(e => { if (!controller.signal.aborted) setError(e.message) })
     api<RunSummary[]>('runs', undefined, controller.signal).then(setRuns).catch(e => { if (!controller.signal.aborted) setError(e.message) })
-    api<Ledger>('experiments', undefined, controller.signal).then(setLedger).catch(e => { if (!controller.signal.aborted) setError(e.message) })
     const change = () => setView(viewFromHash())
     window.addEventListener('hashchange', change)
     return () => { controller.abort(); window.removeEventListener('hashchange', change) }
   }, [])
+
+  useEffect(() => {
+    if (view !== 'experiments') return
+    const controller = new AbortController()
+    api<Ledger>('experiments', undefined, controller.signal).then(setLedger).catch(e => { if (!controller.signal.aborted) setError(e.message) })
+    return () => controller.abort()
+  }, [view])
 
   useEffect(() => {
     if (!active?.result) return

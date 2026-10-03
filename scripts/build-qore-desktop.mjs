@@ -39,4 +39,4 @@ execute('xcrun', ['swiftc', '-target', deploymentTarget, ...(qa ? ['-D', 'QORE_Q
 execute('/usr/bin/codesign', ['--force', '--sign', '-', path.join(resources, 'runtime/node')])
 execute('/usr/bin/codesign', ['--force', '--sign', '-', output])
 console.log(`Native local candidate: ${output}`)
-console.log('Double-click to launch. Runs persist beside the app in hub-state. No external connection or order path.')
+console.log('Double-click to launch. Runs persist in the dedicated Application Support folder. No external connection or order path.')

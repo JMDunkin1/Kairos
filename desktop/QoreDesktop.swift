@@ -24,7 +24,9 @@ final class QoreDesktop: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         #if QORE_QA
-        qa = QoreNativeQAState(output: Bundle.main.bundleURL.deletingLastPathComponent()) { NSApp.terminate(nil) }
+        let outputArgument = ProcessInfo.processInfo.arguments.first { $0.hasPrefix("--qa-output=") }
+        let qaOutput = outputArgument.map { URL(fileURLWithPath: String($0.dropFirst("--qa-output=".count)), isDirectory: true) } ?? Bundle.main.bundleURL.deletingLastPathComponent()
+        qa = QoreNativeQAState(output: qaOutput) { NSApp.terminate(nil) }
         qa?.start()
         #endif
         let menu = NSMenu()
@@ -68,7 +70,11 @@ final class QoreDesktop: NSObject, NSApplicationDelegate, WKNavigationDelegate, 
         process.arguments = [resources.appendingPathComponent("hub/scripts/qore-hub-service.mjs").path]
         process.currentDirectoryURL = resources.appendingPathComponent("hub")
         // Deliberately do not inherit broker keys, .env, SSH identities, or user shell configuration.
-        let state = Bundle.main.bundleURL.deletingLastPathComponent().appendingPathComponent("hub-state")
+        #if QORE_QA
+        let state = qa!.output.appendingPathComponent("hub-state")
+        #else
+        let state = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0].appendingPathComponent("QORE Strategy Hub Candidate", isDirectory: true)
+        #endif
         process.environment = ["PATH": "/usr/bin:/bin", "QORE_HUB_STATE": state.path, "QORE_HUB_PARENT_PID": String(ProcessInfo.processInfo.processIdentifier)]
         let pipe = Pipe(); readyPipe = pipe; process.standardOutput = pipe
         process.standardError = FileHandle.nullDevice

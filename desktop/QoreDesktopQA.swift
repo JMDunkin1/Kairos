@@ -1,7 +1,7 @@
 // Compiled only with --qa. Uses this app's own WebKit DOM and snapshots; no other app access.
 func runNativeQA(_ app: QoreDesktop) {
-    let output = Bundle.main.bundleURL.deletingLastPathComponent()
     guard let qa = app.qa, !qa.finished else { return }
+    let output = qa.output
     func finish(_ error: String? = nil) {
         qa.finish(error)
     }
@@ -154,6 +154,11 @@ func runNativeQA(_ app: QoreDesktop) {
                                                     waitFor("document.body.innerText.includes('Export weekly CSV') && document.body.innerText.includes('Actual PAPER account reporting is unavailable; scheduled email is inactive.')") {
                                                         qa.checks.append("Simulation reports distinguished from unavailable actual PAPER reporting and inactive scheduled email")
                                                         snapshot("04-weekly-report") {
+                                                            if ProcessInfo.processInfo.arguments.contains("--qa-launch-smoke") {
+                                                                qa.checks.append("macOS launch smoke completed without opening Documents-backed research")
+                                                                finish()
+                                                                return
+                                                            }
                                                             click("Experiments") {
                                                                 waitFor("document.body.innerText.includes('Read evidence')") {
                                                                     snapshot("05-experiment-ledger") {

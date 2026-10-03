@@ -15,6 +15,6 @@ Build a professional desktop strategy research and portfolio hub, designed for 1
 - Reconcile sleeve cash/positions/NAV/P&L to one net account. Deduct costs once; exclude deposits from profit and value external flows for TWR.
 - Keep connectors capability-specific; unsupported products and unconfigured brokers must be explicit. No arbitrary executable plugins, secrets in UI, or network access from strategies.
 - Read the canonical experiment-log JSONL through the hub reader only; its research owner controls writes. Never duplicate or overwrite it.
-- Mutable candidate state belongs in ignored `.local/` (native app: adjacent `hub-state`). Keep instructions and README short.
+- Mutable CLI state belongs in ignored `.local/`; the native app uses its dedicated Application Support folder. Keep instructions and README short.
 - Validate with `npm run lint`, `npm run build`, `npm run test:hub`, and the two `test:ui-*` checks. Use relevant legacy regressions when their inputs are released; do not unlock hidden data for tests.
 - Obtain fresh independent review for broad changes. Preserve unrelated source work. No public push/merge or live-server deployment without authorization.

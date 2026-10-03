@@ -10,6 +10,7 @@
     "qore": "./bin/qore"
   },
   "scripts": {
+    "predev": "npm run build",
     "dev": "node scripts/qore-hub-service.mjs",
     "dev:vite": "vite",
     "dashboard:api": "node scripts/qore-dashboard-service.mjs",
