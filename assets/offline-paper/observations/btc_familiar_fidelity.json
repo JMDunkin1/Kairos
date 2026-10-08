@@ -1,0 +1,25 @@
+{
+  "schema": "qore-hub.offline-observation.v1",
+  "rule_id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+  "artifact_id": "btc_familiar_fidelity",
+  "contract_sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a",
+  "mode": "familiar_replay",
+  "outcome_exposure": "ALREADY_OPENED_2019_2021_FAMILIAR_REPLAY_ONLY",
+  "observed_account_performance": false,
+  "orders_enabled": false,
+  "source_clock_status": "ORIGINAL_REFERENCE_EXECUTION_ASSUMPTIONS_NOT_OBSERVED_FILLS",
+  "body": {
+    "status": "PASS_EXACT_FROZEN_PRIMARY_DOUBLE_FIDELITY",
+    "rows_checked": {
+      "daily.csv": 15344,
+      "trades.csv": 373,
+      "decisions.csv": 144,
+      "transfers.csv": 210
+    },
+    "funded_account_cost_paths": 14,
+    "original_status": "TESTED_DEVELOPMENT_SCREEN_FAILED",
+    "fresh_validation": false,
+    "source_window": "2018-12warmup,2019-2021familiar only",
+    "observed_implementation_scope": "Declared native wallet/cost/fill assumptions, not owner execution"
+  }
+}

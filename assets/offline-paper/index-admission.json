@@ -1,0 +1,167 @@
+{
+  "status": "PASS_REVIEWED_PROSPECTIVE_METADATA_READ_ONLY_CLI_EXPORT",
+  "recorded_utc": "2026-10-08T22:04:49.281839+00:00",
+  "draft": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/DRAFT_INDEX.json",
+    "bytes": 36155,
+    "sha256": "fdafcb618a1cc86d5f0a84e76bb02f51725f2c1d48d1c997b42955a13b5d3b7c"
+  },
+  "index": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+    "bytes": 36445,
+    "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+  },
+  "index_core_sha256": "c7bf61d87b5863326805afe6f3ffd9d98c0d57d11b00fa25c0f1fbd308557534",
+  "independent_review": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_INDEX_REVIEW.json",
+    "bytes": 19630,
+    "sha256": "7a410709b7b50882543e223ece1436da166cc04e1c8c4c59cfd1601cc35ae40b"
+  },
+  "exporter": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+    "bytes": 12050,
+    "sha256": "923ca5e0b3dc63b1edff06b9ddbc977b2499bbc3fcbc8d46d5cdfa300ed4fb50"
+  },
+  "admission_code": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/admit_prospective_hub.py",
+    "bytes": 4419,
+    "sha256": "c39d0db5a958805b3aba5f471248dc44e73a2f14dd250ac742f44ac4fabfe633"
+  },
+  "outputs": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/CATALOGUE.json",
+      "bytes": 16893,
+      "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/CATALOGUE.json"
+    },
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec",
+        "--artifact-id",
+        "btc_familiar_fidelity",
+        "--limit",
+        "20"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_familiar_fidelity.json"
+    },
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec",
+        "--artifact-id",
+        "btc_invented_next_decision",
+        "--limit",
+        "20"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_next_decision.json"
+    },
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec",
+        "--artifact-id",
+        "btc_invented_owned_state",
+        "--limit",
+        "20"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_owned_state.json"
+    },
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec",
+        "--artifact-id",
+        "rv_xle_brent_residual_familiar_state",
+        "--limit",
+        "20"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_xle_brent_residual_familiar_state.json"
+    },
+    {
+      "argv": [
+        "/Users/jamesdunkin/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+        "--index",
+        "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+        "--index-sha256",
+        "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec",
+        "--artifact-id",
+        "rv_ief_barbell_residual_familiar_state",
+        "--limit",
+        "20"
+      ],
+      "exit_code": 0,
+      "output": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_ief_barbell_residual_familiar_state.json"
+    }
+  ],
+  "stable_id_count": 5,
+  "observation_artifact_count": 5,
+  "new_strategy_count": 0,
+  "new_validation_count": 0,
+  "actual_future_observation_count": 0,
+  "orders_enabled": false,
+  "actual_paper_account": false,
+  "runtime_changes": false,
+  "financial_engines_rerun": false,
+  "reuse_existing_replay_histories": true,
+  "duplicate_price_curves": false
+}

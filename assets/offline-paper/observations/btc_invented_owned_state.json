@@ -1,0 +1,145 @@
+{
+  "schema": "qore-hub.offline-observation.v1",
+  "rule_id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+  "artifact_id": "btc_invented_owned_state",
+  "contract_sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a",
+  "mode": "invented_fixture",
+  "outcome_exposure": "INVENTED_IMPLEMENTATION_FIXTURE_NO_ECONOMIC_EVIDENCE",
+  "observed_account_performance": false,
+  "orders_enabled": false,
+  "source_clock_status": "INVENTED_CLOCKS_AND_PRICES",
+  "body": {
+    "kind": "HYPOTHETICAL_OFFLINE_PAPER_STATE",
+    "numeraire": "USDT",
+    "last_decision": "2027-01-03",
+    "last_mark_date": "2026-12-31",
+    "daily_mark_gaps": [
+      {
+        "first_missing": "2026-12-03",
+        "last_missing": "2026-12-30",
+        "fabricated_returns": false
+      }
+    ],
+    "previous_target": "0",
+    "owned_wallet_artifact_reference": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/NEXT_STATE.json",
+      "bytes": 16139,
+      "sha256": "23f03e796592ff5b3f36cfbb73f2bdb835639c9aaf0392938acca257391563ab"
+    },
+    "wallet_state_is_distinct_from_target": true,
+    "owned_accounts": [
+      {
+        "scenario": "primary",
+        "account": "strategy",
+        "cash_USDT": "1000.000",
+        "BTC_units": "0",
+        "last_marked_NAV_USDT": "1000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "btc_buyhold",
+        "cash_USDT": "0.000994000",
+        "BTC_units": "0.997004997",
+        "last_marked_NAV_USDT": "1994.010988000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "monthly_50_cash",
+        "cash_USDT": "374.3446870000000000000000000000000",
+        "BTC_units": "0.749062188",
+        "last_marked_NAV_USDT": "1497.004996000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "cash",
+        "cash_USDT": "1000",
+        "BTC_units": "0",
+        "last_marked_NAV_USDT": "1000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "portfolio_strategy",
+        "cash_USDT": "436.377060373000",
+        "BTC_units": "0.373880498",
+        "last_marked_NAV_USDT": "1745.507992000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "portfolio_mix",
+        "cash_USDT": "140.1009139360000000000000000000000",
+        "BTC_units": "0.841151883",
+        "last_marked_NAV_USDT": "1869.758992000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "primary",
+        "account": "portfolio_cash",
+        "cash_USDT": "436.377060373000",
+        "BTC_units": "0.373880498",
+        "last_marked_NAV_USDT": "1745.507992000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "strategy",
+        "cash_USDT": "1000.000",
+        "BTC_units": "0",
+        "last_marked_NAV_USDT": "1000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "btc_buyhold",
+        "cash_USDT": "0.000940000",
+        "BTC_units": "0.995018985",
+        "last_marked_NAV_USDT": "1990.038910000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "monthly_50_cash",
+        "cash_USDT": "373.9081100000000000000000000000000",
+        "BTC_units": "0.748438812",
+        "last_marked_NAV_USDT": "1495.018958000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "cash",
+        "cash_USDT": "1000",
+        "BTC_units": "0",
+        "last_marked_NAV_USDT": "1000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "portfolio_strategy",
+        "cash_USDT": "435.632384754000",
+        "BTC_units": "0.373136989",
+        "last_marked_NAV_USDT": "1742.528934000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "portfolio_mix",
+        "cash_USDT": "139.7534011280000000000000000000000",
+        "BTC_units": "0.839427981",
+        "last_marked_NAV_USDT": "1866.282928000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      },
+      {
+        "scenario": "double",
+        "account": "portfolio_cash",
+        "cash_USDT": "435.632384754000",
+        "BTC_units": "0.373136989",
+        "last_marked_NAV_USDT": "1742.528934000",
+        "wallet_state_reference": "MODEL_OWNED_INVENTORY_NOT_TARGET"
+      }
+    ]
+  }
+}

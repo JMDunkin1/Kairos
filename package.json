@@ -83,7 +83,10 @@
     "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs",
     "test:ui-requests": "node scripts/test-qore-ui-requests.mjs",
     "test:hub-migration": "node scripts/test-qore-hub-migration.mjs",
-    "test:hub-replay": "node scripts/test-qore-hub-replay.mjs"
+    "test:hub-replay": "node scripts/test-qore-hub-replay.mjs",
+    "test:hub-paper": "node scripts/test-qore-hub-paper.mjs",
+    "paper:evidence": "node scripts/qore-paper-evidence.mjs",
+    "test:hub-ledger-events": "node scripts/test-qore-hub-ledger-events.mjs"
   },
   "dependencies": {
     "@mattnucc/gribberish": "^0.30.2",

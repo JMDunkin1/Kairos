@@ -1,0 +1,27 @@
+{
+  "schema": "qore-hub.offline-observation.v1",
+  "rule_id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+  "artifact_id": "btc_invented_next_decision",
+  "contract_sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a",
+  "mode": "invented_fixture",
+  "outcome_exposure": "INVENTED_IMPLEMENTATION_FIXTURE_NO_ECONOMIC_EVIDENCE",
+  "observed_account_performance": false,
+  "orders_enabled": false,
+  "source_clock_status": "INVENTED_CLOCKS_AND_PRICES",
+  "body": {
+    "stage": "invented_fixture",
+    "scheduled_UTC": "2027-01-03T00:00:00+00:00",
+    "recorded_utc": "2027-01-03T00:00:03+00:00",
+    "prior_month_first": "2026-12-01",
+    "prior_month_last": "2026-12-31",
+    "last_CLOSE_divided_by_first_OPEN": "0.9",
+    "BTC_target": "0",
+    "source_availability_clock_basis": "reported original observation clocks, not independently certified PIT",
+    "trade_artifact_reference": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/MODEL_OUTPUT.json",
+      "bytes": 14442,
+      "sha256": "be62e3930f93a193cbabfb3f86c09283dd218084715dc2be1d74b8cd0a2ee892"
+    },
+    "full_fill_assumption": true
+  }
+}

@@ -6,6 +6,7 @@ import { readExperimentLedger, canonicalLedgerRoot } from './lib/qore-hub-ledger
 import { assertHubRuntime } from './lib/qore-hub-runtime.mjs'
 import { migrateLegacyHubState } from './lib/qore-hub-state-migration.mjs'
 import { loadHistoricalReplay } from './lib/qore-hub-replay.mjs'
+import { paperReadResponse } from './lib/qore-hub-paper.mjs'
 
 assertHubRuntime()
 const { createRunStore, weeklyReport } = await import('./lib/qore-hub-store.mjs')
@@ -84,6 +85,8 @@ export async function startHub({ port = 0, host = '127.0.0.1', stateRoot = path.
       if (url.pathname === '/api/hub/health') return json(res, 200, { status: 'ready', mode: 'paper-simulation' })
       if (url.pathname === '/api/hub/catalog') return json(res, 200, { migration, definitions: defaultDefinitions, ngas: ngasDefinition, assumptions: defaultAssumptions, capabilities, reporting, feed: { id: 'fixture-two-assets', version: '1', exposure: 'synthetic', development: '2026-01-05 → 2026-03-27', test: '2026-03-30 → 2026-05-08', protected: 'Unavailable; never read' } })
       if (url.pathname === '/api/hub/replay') return json(res, 200, loadHistoricalReplay())
+      const paperResponse = paperReadResponse(url)
+      if (paperResponse) return json(res, paperResponse.status, paperResponse.body)
       if (url.pathname === '/api/hub/runs') return json(res, 200, store.list())
       if (url.pathname === '/api/hub/experiments') return json(res, 200, readExperimentLedger(ledgerRoot))
       const match = url.pathname.match(/^\/api\/hub\/runs\/(run-[a-f0-9-]{36})(?:\/(report|export))?$/)

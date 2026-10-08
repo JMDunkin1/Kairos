@@ -1,0 +1,1452 @@
+{
+  "schema_version": 1,
+  "status": "PASS_EXACT_READINESS_BRIDGE_POST_APPEND_AND_ALL_PRIOR_PRESERVATION",
+  "study_id": "QORE-20261008-PROSPECTIVE-READINESS-BRIDGE-01",
+  "entry_sha256": "c4d6646380d2c6aaedaefd740c06ed7529f0a92477d55b2d5d748b413f044462",
+  "reviewed_utc": "2026-10-08T22:11:59.525307+00:00",
+  "scope": "Independent audit of actual record764/receipt/root closure and immutable saved bindings only; no builder, closure helper, observer, source collector or financial engine execution.",
+  "canonical_checkpoint": {
+    "records": 764,
+    "bytes": 8661532,
+    "sha256": "c89287333c872df668fe2d8ed0ab5299a7198821924412d3fba01fe582456a99"
+  },
+  "canonical_registration_record_sha256": "338d3e893f820c82745f6365fad0c59eccd20843c0272fb94287334df0c1b1b2",
+  "checks": {
+    "exact_record764_equals_reviewed_entry": true,
+    "raw_last_line_sha_and_compact_serialization_match_receipt": true,
+    "receipt_and_preappend_review_bindings_exact": true,
+    "exact763_predecessor_plus_one_append": true,
+    "historical_753_757_758_759_760_761_762_763_prefixes_preserved": true,
+    "registration_receipt_chain_matches_original_canonical_lines": true,
+    "all11_original_registration_and_aggregate_guard_IDs_unique": true,
+    "all9_unrelated_baseline_preservation_checks_independently_verified": true,
+    "root_generated_final_handoff_and_preservation_exact": true,
+    "all_prior_closed_handoff_and_review_bindings_unchanged": true,
+    "all4_new_manifest_files_unchanged": true,
+    "old6_and_new6_actual_CLI_export_bindings_unchanged": true,
+    "fixed_Nov2_contract_metadata_and_original_Oct8_observer_preserved": true,
+    "one_candidate_one_baseline_three_offline_paper_counts_retained": true,
+    "zero_new_validation_and_actual_future_observations": true,
+    "no_orders_accounts_runtime_or_publication_enabled": true,
+    "canonical_and_all_verified_files_unchanged_at_audit_end": true
+  },
+  "counts": {
+    "canonical_records": 764,
+    "baseline_checks": 9,
+    "unique_registration_and_aggregate_guards": 11,
+    "historical_receipt_chain": 10,
+    "bound_file_checks": 735,
+    "unique_exact_bound_files": 228,
+    "bridge_manifest_files": 4,
+    "old_CLI_exports": 6,
+    "new_CLI_exports": 6,
+    "retained_researched_candidates": 1,
+    "comparison_baselines": 1,
+    "offline_paper_candidates": 3,
+    "new_economic_outcomes": 0,
+    "new_validated_strategies": 0,
+    "actual_future_observations": 0
+  },
+  "verified_historical_prefixes": [
+    {
+      "records": 753,
+      "bytes": 8605534,
+      "sha256": "081f76251c661eeed99d2e5f91f33fa9111e26fb2781cdd38d91f3ee47605e86"
+    },
+    {
+      "records": 754,
+      "bytes": 8608927,
+      "sha256": "c2cc6ee1b37b25685d14a9bfedfa60e5907ba571b2f2d2579bb4a3b26c004835"
+    },
+    {
+      "records": 755,
+      "bytes": 8613425,
+      "sha256": "3eb5566f2452fe35ef4559d966cd13cef74c884d62227b9edf6cb0d3907a9ebf"
+    },
+    {
+      "records": 756,
+      "bytes": 8617902,
+      "sha256": "611ad392356b3341adbf9a4214174c0cfea71d5d3c754e61775c4168c5417c66"
+    },
+    {
+      "records": 757,
+      "bytes": 8621466,
+      "sha256": "b8c92ade79e2aa4d398b8c73efbb490c976a33f24e7fe42d0c6f61fce23bb4d1"
+    },
+    {
+      "records": 758,
+      "bytes": 8624481,
+      "sha256": "e843c69c81af13d17f767a0f9a1c127e1e02238caf7ec028beacbb57812bf33e"
+    },
+    {
+      "records": 759,
+      "bytes": 8632294,
+      "sha256": "a0f6e4f90c7f1a495b8ef8a950f94f3939b61e7257ba8159dbe76565956b9770"
+    },
+    {
+      "records": 760,
+      "bytes": 8642159,
+      "sha256": "7038b7117f612356501d8b96358fc1a83287aba9cb2f0c275b97749a9946e53b"
+    },
+    {
+      "records": 761,
+      "bytes": 8650108,
+      "sha256": "88399935dc2a79ce257c1fc777a8f868668c20862e4cc95958557d3535a1386b"
+    },
+    {
+      "records": 762,
+      "bytes": 8654288,
+      "sha256": "37af6e2098ab054461e005e8157956b7f19f7746fb1cb9b69c7f8702bf531cd1"
+    },
+    {
+      "records": 763,
+      "bytes": 8658735,
+      "sha256": "0a3494c0b07ca0e400316d26d149520a158fcd6a83d294ef789026c46bc91837"
+    },
+    {
+      "records": 764,
+      "bytes": 8661532,
+      "sha256": "c89287333c872df668fe2d8ed0ab5299a7198821924412d3fba01fe582456a99"
+    }
+  ],
+  "verified_guard_uniqueness": [
+    {
+      "study_id": "QORE-20261007-BTC-MONTH-LOSS-PAPER-ADAPTER-01",
+      "event": "offline_paper_adapter_contract_registered",
+      "record": 754,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261007-RELATIONSHIP-PAPER-ADAPTER-01",
+      "event": "offline_paper_adapter_contract_registered",
+      "record": 755,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261007-BAC-2017Q1-ASREPORTED-REFERENCE-01",
+      "event": "finite_exploratory_protocol_registered",
+      "record": 756,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261007-RELATIONSHIP-PAPER-ADAPTER-01-SOURCE-PREP",
+      "event": "exact_familiar_source_preparation_registered",
+      "record": 757,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261007-RELATIONSHIP-DAILY-SIGNAL-OBSERVER-01",
+      "event": "offline_signal_observer_contract_registered",
+      "record": 758,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261007-PAPER-REPLAY-CONTRACTS-01",
+      "event": "paper_replay_contracts_verified_and_hub_exported",
+      "record": 759,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261008-MSFT-ANNUAL-ACCRUAL-REFERENCE-01",
+      "event": "finite_exploratory_cash_accrual_protocol_registered",
+      "record": 760,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261008-NEXT-DISTINCT-CASHFLOW-01",
+      "event": "finite_cash_accrual_results_and_bank_source_capture_verified",
+      "record": 761,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261008-RELATIONSHIP-FINANCIAL-WINDOW-20261102-01",
+      "event": "exact_prospective_relationship_financial_window_selected_before_outcomes",
+      "record": 762,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261008-RELATIONSHIP-DAILY-SIGNAL-OBSERVER-NOV02-01",
+      "event": "separate_nov2_offline_signal_observer_registered",
+      "record": 763,
+      "occurrences": 1
+    },
+    {
+      "study_id": "QORE-20261008-PROSPECTIVE-READINESS-BRIDGE-01",
+      "event": "registered_fixed_window_and_signal_annex_metadata_handoff_verified",
+      "record": 764,
+      "occurrences": 1
+    }
+  ],
+  "verified_receipt_chain": [
+    {
+      "record": 754,
+      "study_id": "QORE-20261007-BTC-MONTH-LOSS-PAPER-ADAPTER-01",
+      "event": "offline_paper_adapter_contract_registered",
+      "canonical_line_sha256": "8949fcdc48047303aa8568acb793b52025354f1d1a6a11dc7777699b270abcf0",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1345,
+        "sha256": "56dc601c5f1cdff53223b1fa9ff34970be7cf2679d9e77273e7e538037054374"
+      }
+    },
+    {
+      "record": 755,
+      "study_id": "QORE-20261007-RELATIONSHIP-PAPER-ADAPTER-01",
+      "event": "offline_paper_adapter_contract_registered",
+      "canonical_line_sha256": "124068987e37b38cf7e398c713829850acf146350484fe4ab8435aac982341a8",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1368,
+        "sha256": "46595e5b29be8c315fd8d0a44303b38ad0d0aaa80412a06dd68f3ab2d3796cdd"
+      }
+    },
+    {
+      "record": 756,
+      "study_id": "QORE-20261007-BAC-2017Q1-ASREPORTED-REFERENCE-01",
+      "event": "finite_exploratory_protocol_registered",
+      "canonical_line_sha256": "8982e8ab8c86a9a9b63bfb9f3f35a07343b42fe5045b2407729ea7eb1cf62cb8",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/bac_pair_2017Q1_2016Q1/v3/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1382,
+        "sha256": "41e00bc97a8f34e0948c10a5eccc2de1ba9b2f8c1e105841e8d7fd779de6150e"
+      }
+    },
+    {
+      "record": 758,
+      "study_id": "QORE-20261007-RELATIONSHIP-DAILY-SIGNAL-OBSERVER-01",
+      "event": "offline_signal_observer_contract_registered",
+      "canonical_line_sha256": "62978b1e0171edb3178f3dee05e0d5829735bbdb5653ce03214ed80ebb31b16f",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1402,
+        "sha256": "7a466e2f6843adbe634a82709bb08b11c91cb321bb8863a2b4a5b4eb3ad39f9d"
+      }
+    },
+    {
+      "record": 759,
+      "study_id": "QORE-20261007-PAPER-REPLAY-CONTRACTS-01",
+      "event": "paper_replay_contracts_verified_and_hub_exported",
+      "canonical_line_sha256": "abd731d42e3e614a775fcb10780febcdf7e5906645438865f52a515b2c76ab37",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/CANONICAL_RESULT_RECEIPT.json",
+        "bytes": 1283,
+        "sha256": "2f2a61cd4a44c55c819c404947cbc97c219b3c0d69ea56ab965d50fef2d0b1f5"
+      }
+    },
+    {
+      "record": 760,
+      "study_id": "QORE-20261008-MSFT-ANNUAL-ACCRUAL-REFERENCE-01",
+      "event": "finite_exploratory_cash_accrual_protocol_registered",
+      "canonical_line_sha256": "39808ae194d6d3de20dd78692e635d9cebc60a23ce78ccde60ec65280c4e4fba",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1433,
+        "sha256": "57ed2236c85b911a81fb4aa39df28b9b1440d83a95eec7891cc489d4954473af"
+      }
+    },
+    {
+      "record": 761,
+      "study_id": "QORE-20261008-NEXT-DISTINCT-CASHFLOW-01",
+      "event": "finite_cash_accrual_results_and_bank_source_capture_verified",
+      "canonical_line_sha256": "91f742f6b031f5550f41e241eca9b64f85330b8b391404254288b15b3695d9c8",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/CANONICAL_RESULT_RECEIPT.json",
+        "bytes": 1339,
+        "sha256": "231d68036e897fb40b70bc9fd701a68ff14f84bd72302b702aecaa7407636300"
+      }
+    },
+    {
+      "record": 762,
+      "study_id": "QORE-20261008-RELATIONSHIP-FINANCIAL-WINDOW-20261102-01",
+      "event": "exact_prospective_relationship_financial_window_selected_before_outcomes",
+      "canonical_line_sha256": "0892402b27f1b5cd21199c5fae65525e498318fd95006d295f39736a5005dac8",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1469,
+        "sha256": "f7c9d0e844985c27044240a4772388a12b033d69ba07ef4572a59343d31b4d8b"
+      }
+    },
+    {
+      "record": 763,
+      "study_id": "QORE-20261008-RELATIONSHIP-DAILY-SIGNAL-OBSERVER-NOV02-01",
+      "event": "separate_nov2_offline_signal_observer_registered",
+      "canonical_line_sha256": "80a4811eeb8bcdfbd179c3231287cd5701e45544009c278cabcbfa57600a10b7",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1433,
+        "sha256": "eca2ec72992d810b0fe44c6f7e459f990339aa4413d2f707eabb0a02a9c72234"
+      }
+    },
+    {
+      "record": 764,
+      "study_id": "QORE-20261008-PROSPECTIVE-READINESS-BRIDGE-01",
+      "event": "registered_fixed_window_and_signal_annex_metadata_handoff_verified",
+      "canonical_line_sha256": "338d3e893f820c82745f6365fad0c59eccd20843c0272fb94287334df0c1b1b2",
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/CANONICAL_RESULT_RECEIPT.json",
+        "bytes": 1336,
+        "sha256": "6063c478ad98a89751d9d9ec441b8d553a274ecd0b111e892555a2afbfa1383a"
+      }
+    }
+  ],
+  "financial_engines_rerun_by_reviewer": false,
+  "closure_or_builder_executed_by_reviewer": false,
+  "numerical_market_or_future_source_inputs_parsed_by_reviewer": false,
+  "canonical_write_by_reviewer": false,
+  "runtime_or_source_mutation_by_reviewer": false,
+  "allow_trading": false,
+  "allow_publication": false,
+  "remaining_blockers": [
+    "Qualified pre-start warmup and actual future timestamped NAV/Brent/BTC inputs are absent; no prospective observation or funded window has begun.",
+    "Continuous bank proposal remains unimplemented, unregistered and unreleased; original issuer/comparable-operand/action qualification still needs completion."
+  ],
+  "limitations": [
+    "Metadata and byte preservation audit supports truthful offline readiness, not new economic validity, portfolio benefit or trading authorization.",
+    "Existing relationship failed-development screens, BTC failed return/stability screens and the MSFT false-predicate familiar diagnostic remain unchanged and retain their previously disclosed exposure/source/execution limitations.",
+    "Original Oct8 observer remains immutable and unstarted; separately registered Nov2 metadata governs the relationship future window. Missing qualification must not silently move dates.",
+    "The single root closure execution is reported by root; this auditor checks exact saved outputs and source hash without repeating it.",
+    "File binding checks hash opaque source/economic files; the audit computes no market returns, predicates or wallet paths."
+  ],
+  "bindings": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/HANDOFF_AUDIT.json",
+      "bytes": 4708,
+      "sha256": "07787d8e3a11b0cba343e315ae9a3a3938cd302b1985a0ac3afb88f3934c43c4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/MANIFEST.json",
+      "bytes": 2405,
+      "sha256": "dc3b1838f4ea281ef41b6a232fd88fedb7cd57cccd27338ae0a5cb046ec2f845"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/RELEASED_REPLAY_APPROVAL.json",
+      "bytes": 1666,
+      "sha256": "d5d76309adb225e172b339f1021b313575dfa34a11f3674205d11bc15d978dd0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/code/definitions.py",
+      "bytes": 3392,
+      "sha256": "2fcc39d544340ef31cc3a1d2b0e27787f94a92ed399796d44e8893edb365d5f5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/contract.json",
+      "bytes": 8131,
+      "sha256": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/rules.json",
+      "bytes": 1515,
+      "sha256": "19b4f6358228549cb85819e43d4503de593bf8a065973c21df095663b7238597"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/nav/audit/nav_source_audit.md",
+      "bytes": 14184,
+      "sha256": "81a16e3f6167eb10c8e139828a973ab900f22b541c02a0ffa9b8535844e2f6b1"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative/audit/rv_source_audit.md",
+      "bytes": 7501,
+      "sha256": "4d7623f2cac4faa1f829b2232ab7bd9e1b2d94acaa0147a0262a77fba0b6f5dc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/execution_batch/PREREGISTRATION.json",
+      "bytes": 30922,
+      "sha256": "b48a405aff28bc461a1e1cc428473900adcc583d31f7e864b7c102d8dca144c3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/execution_batch/audit/independent-XNYS-2016-2023-sessions.csv",
+      "bytes": 128793,
+      "sha256": "b62be9b921f15f27c5b99b47bf71f3e024eeaeaa9f2bac8481f23d25df9014c7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BAC_V3_REGISTRATION_REVIEW.json",
+      "bytes": 3228,
+      "sha256": "ed8ed5996a70948354a5f6fa0a522da6fed8a969150d3e2cb81aeee089bb0464"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BAC_V3_RESULT_REVIEW.json",
+      "bytes": 7669,
+      "sha256": "d09ce268f780ed420b74e335d3027f09597a8cb7b7bb20b8942c7bcc7eac9bcc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BTC_FAMILIAR_FIDELITY_REVIEW.json",
+      "bytes": 7427,
+      "sha256": "2df21598121a8aa9879a1a01a1268cc0137e6a4dbbdfd1137b18f956f14d5652"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BTC_REGISTRATION_REVIEW.json",
+      "bytes": 1329,
+      "sha256": "7dffc13905b12ee157735176648ee92365a9559eb1044ffdf86265fde6fc3519"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/FINAL_HANDOFF_ENTRY_REVIEW_20261008.json",
+      "bytes": 15274,
+      "sha256": "0897ac83fe478b26b58678ba444570217eb9d8e454c49377a2708f4a833b807b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/FINAL_POST_APPEND_REVIEW_20261008.json",
+      "bytes": 7239,
+      "sha256": "383428a237e839e2302394814d699dc48278853fb1ddf73697241f9368ae521c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/HUB_EXPORT_AND_PRESERVATION_REVIEW_20261008.json",
+      "bytes": 8668,
+      "sha256": "7ae613389319e36ec8777579f0d71982c3215760ca70f3e55ab650171574a7ad"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/HUB_INDEX_REVIEW_20261008.json",
+      "bytes": 12294,
+      "sha256": "d997f5d81ffd056082ba7c77fb81753e808148cc36e01d51d79720c91c8c916c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/NOV2_INDEPENDENT_INVENTED_RESULTS.json",
+      "bytes": 3285,
+      "sha256": "edc0f37d37b104f7b8c77c69c7417b22b0f0a84b3644014d30fde3987d11eac9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/NOV2_INDEPENDENT_NYSE_CALENDAR_SOURCE_REVIEW.json",
+      "bytes": 1151,
+      "sha256": "c824fc3f4eaa4af3b1413ab391000770b8e591d0d51178a3a5c6fb22bc44a394"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/READINESS_BRIDGE_BUILDER_V2_REVIEW_20261008.json",
+      "bytes": 3874,
+      "sha256": "76bbfa6ae97e04709280ebef67f5a9c42a64f0ff40776a1cbcbb12c8c8f93034"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/RELATIONSHIP_DAILY_OBSERVER_REGISTRATION_REVIEW.json",
+      "bytes": 2078,
+      "sha256": "331f6a8665ee51ff609c8f379f419a3fa7aabbb9a5e7dcf007322823b67fffe6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/RELATIONSHIP_FAMILIAR_FIDELITY_REVIEW_V3.json",
+      "bytes": 33453,
+      "sha256": "abca861418d5be01dd1caa524eb531d9659f6b64dcd2a5b1eb0b9a31d3d1f500"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/RELATIONSHIP_REGISTRATION_REVIEW_V3.json",
+      "bytes": 3321,
+      "sha256": "1b140c0259d0b50d07f219961eea46fbc8cd99bb63be2a07927055e835cff3ff"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/check_nov2_registration_preflight.py",
+      "bytes": 13400,
+      "sha256": "4e6d22899ec8b842ddb49f8b7cd7b1d64e4bc2ca8499c08d5a9c11f65eb4d313"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/check_prospective_hub_metadata.py",
+      "bytes": 16045,
+      "sha256": "ffb176869a1ba8e2dd6744d94f24c55844371d280efa0e893e0e842c57471d48"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1345,
+      "sha256": "56dc601c5f1cdff53223b1fa9ff34970be7cf2679d9e77273e7e538037054374"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CONTRACT.json",
+      "bytes": 9214,
+      "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/FREEZE.json",
+      "bytes": 4745,
+      "sha256": "85fbedbc31e99d31996f9c3fb31d34b9502632054f956f342a682198a6177fb9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/ORIGINAL_BINDINGS.json",
+      "bytes": 7158,
+      "sha256": "bbf924b64b5bec24e30cb0de45c383ed2b462addb9e998c44d9ed525b8c9bb4f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/REGISTRATION_ENTRY.json",
+      "bytes": 3900,
+      "sha256": "34733869bdf7c45bff2497cf1480b53e165c00e6a89eaacdc87ca2f8baec78d0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/adapter.py",
+      "bytes": 25032,
+      "sha256": "6c949b696518075e5b2b8ba3d168bc88390e677a9484f615fe9d09d2d2156e18"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/MODEL_OUTPUT.json",
+      "bytes": 14442,
+      "sha256": "be62e3930f93a193cbabfb3f86c09283dd218084715dc2be1d74b8cd0a2ee892"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/NEXT_STATE.json",
+      "bytes": 16139,
+      "sha256": "23f03e796592ff5b3f36cfbb73f2bdb835639c9aaf0392938acca257391563ab"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/FIDELITY_RECEIPT.json",
+      "bytes": 728,
+      "sha256": "1b6c753eddd2b9211650553591c1e0d8d1575a9947f64082ebe7b893d6ca3519"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/BASELINE.json",
+      "bytes": 2219,
+      "sha256": "76af870533de39a918bee0f28441e7c5a9615d868dfc3639270b4e638f2e8e2f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/admit_prospective_hub.py",
+      "bytes": 4419,
+      "sha256": "c39d0db5a958805b3aba5f471248dc44e73a2f14dd250ac742f44ac4fabfe633"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/build_prospective_index.py",
+      "bytes": 5124,
+      "sha256": "4678953f1d8a36fbf7be4d17613280674344b66e24b6ef6fee7b169da17a67c5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/build_readiness_bridge.py",
+      "bytes": 10663,
+      "sha256": "35a0760dec2f19dceff8e6b213ffef9310c3fa9532837158f20aa03e2c9c9fe0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/close_readiness_bridge.py",
+      "bytes": 5413,
+      "sha256": "de72b25cc03c0db21f61173544f44bcaeae38139ee3d7f79727477eff6e47eff"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/CANONICAL_RESULT_ENTRY.json",
+      "bytes": 9422,
+      "sha256": "9b17760a82850b484977b6ebcbbcfaf0ef0f314966f9d5b57670549302b058b3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/CANONICAL_RESULT_RECEIPT.json",
+      "bytes": 1283,
+      "sha256": "2f2a61cd4a44c55c819c404947cbc97c219b3c0d69ea56ab965d50fef2d0b1f5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/COMPACT_PAPER_DEFINITIONS.json",
+      "bytes": 26860,
+      "sha256": "70306ea2c6815f40f7ba9d5dfbbd2075b9ee5321d920b027ee680b31384a69eb"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/FINAL_HANDOFF.json",
+      "bytes": 3095,
+      "sha256": "3e0a7f774ecf8dc938d50c6466d49d52125f76d8d401538419734beb56825418"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/FINAL_PRESERVATION.json",
+      "bytes": 6537,
+      "sha256": "a233ee91cda85f79217db5c2d2594081fdd61633cfb1eb21380c651dca76971d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/MANIFEST.json",
+      "bytes": 2844,
+      "sha256": "1a38896af7cb3b76b66ce929eec2f5c8a6a43579857c4d6f1a32f992c83c655a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/README.md",
+      "bytes": 5595,
+      "sha256": "2e2a64a499f3fcedbfb63cf98ea3a562ce7097ca2a6c3aef6e0adf08400a475d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/TESTED_LEDGER_ADDENDUM.json",
+      "bytes": 9374,
+      "sha256": "72cb20bbbd667b4abc310baa1ae514a15b702ea491036f2fc5c681b71e9c9ee7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/INDEX_ADMISSION.json",
+      "bytes": 7377,
+      "sha256": "f04b966295e4bb54a321b3d83dba0abd4cf555fd7d6c5ff2ef67aaf8e475ac61"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/REVIEWED_INDEX.json",
+      "bytes": 23430,
+      "sha256": "fd62d0bc73b2883209bb0a67d17a928ecaad4fd1051f1f5afdcb7b5be7786ab4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/CATALOGUE.json",
+      "bytes": 10999,
+      "sha256": "09af085bb868abe6b74d8d6915194fefbbab57c8ebbb25e880f49f833c3953a2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+      "bytes": 12050,
+      "sha256": "923ca5e0b3dc63b1edff06b9ddbc977b2499bbc3fcbc8d46d5cdfa300ed4fb50"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/DRAFT_INDEX.json",
+      "bytes": 36155,
+      "sha256": "fdafcb618a1cc86d5f0a84e76bb02f51725f2c1d48d1c997b42955a13b5d3b7c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_EXPORT_REVIEW.json",
+      "bytes": 24767,
+      "sha256": "cf927f92a777897651ab5357f7d8fa4a5ad3f15d10d5ba10cfb847c4962e29c0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_HANDOFF_ENTRY_REVIEW.json",
+      "bytes": 26950,
+      "sha256": "c0866eccee8e0c9b9f1f6421ab31a2123805e0be52c5f1e6c7bbafdf14150636"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_INDEX_REVIEW.json",
+      "bytes": 19630,
+      "sha256": "7a410709b7b50882543e223ece1436da166cc04e1c8c4c59cfd1601cc35ae40b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEX_ADMISSION.json",
+      "bytes": 8512,
+      "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+      "bytes": 36445,
+      "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/CANONICAL_RESULT_ENTRY.json",
+      "bytes": 3163,
+      "sha256": "c4d6646380d2c6aaedaefd740c06ed7529f0a92477d55b2d5d748b413f044462"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/CANONICAL_RESULT_RECEIPT.json",
+      "bytes": 1336,
+      "sha256": "6063c478ad98a89751d9d9ec441b8d553a274ecd0b111e892555a2afbfa1383a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/COMPACT_DEFINITIONS.json",
+      "bytes": 29728,
+      "sha256": "a48aa9413f31cfbdd3d6d42bde7503de34fe4ec1b919dd0d42b642f277996f87"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/FINAL_HANDOFF.json",
+      "bytes": 3506,
+      "sha256": "3ca3a61c55c965f92e3493eb53e1885108cde37bb631fb1ec98bfdbb92cfd39a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/FINAL_PRESERVATION.json",
+      "bytes": 1898,
+      "sha256": "f204ef42035150850f1b54fd9f3042794bb803650c71c812e87df07bfa7574c7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/MANIFEST.json",
+      "bytes": 1215,
+      "sha256": "d492d20caeed75b894f0510fd7a9302b5335f0fbb263fb3e341c2d41c14ddd44"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/README.md",
+      "bytes": 2892,
+      "sha256": "a20980f42fa4c0e39e50431a729c9cbfb4407f920df22aa821a7f85cbdc04e81"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/deliverables/TESTED_LEDGER_ADDENDUM.json",
+      "bytes": 7286,
+      "sha256": "b57153c56bd43994509566af902aee2e2ecd941b1c9679e1f9b6d2d55c32eb75"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/CATALOGUE.json",
+      "bytes": 16893,
+      "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/LNKD_EXISTING_PRIMARY_CHECK.json",
+      "bytes": 1966,
+      "sha256": "231cb2daba649e6e80b605420860ffd75d564b795f62098cbea2e78d4cf58981"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/bac_pair_2017Q1_2016Q1/v3/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1382,
+      "sha256": "41e00bc97a8f34e0948c10a5eccc2de1ba9b2f8c1e105841e8d7fd779de6150e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/bac_pair_2017Q1_2016Q1/v3/PROTOCOL.json",
+      "bytes": 10683,
+      "sha256": "ed5a5148bdcebda61ba6e6dd9a17a0eed9b3de308ef83ff72b7fcdfc0b4a93c0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/bac_pair_2017Q1_2016Q1/v3/REGISTRATION_ENTRY.json",
+      "bytes": 5048,
+      "sha256": "8a9b7e64eaa9f9ef2a15268c8ada917f9dee9b436b6b18e3700434c0c3e31c58"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/new_sources/bac_pair_2017Q1_2016Q1/v3/engine.py",
+      "bytes": 23043,
+      "sha256": "fa40a01035d6e2d63cc09559b5371ddfbbf9e7f4ba34e2d028f91bd89e88a96f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/SOURCE_AND_SCOPE_REVIEW.json",
+      "bytes": 12619,
+      "sha256": "d3086b12e2cb1ed15f56c0a265a68d17e038c0287fb249f114a56d432fa805d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/BANK_SOURCE_CAPTURE_REVIEW_20261008.json",
+      "bytes": 16787,
+      "sha256": "2b32c9d944c8f870baab1bae36e85ff80f7858e31bb82ce3278d3574d3a94f33"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/MSFT_ACCRUAL_AUDIT_TRACE_CLOSURE.json",
+      "bytes": 3520,
+      "sha256": "d2184e09edfb7bbde9c43a5368b95e3f5e925bc3a5b4a707fcbd917a241f07a0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/MSFT_ACCRUAL_REGISTRATION_REVIEW.json",
+      "bytes": 10452,
+      "sha256": "177ef8bb129ad524b110d8c27c9963d0e1db2f2bb55d4c4d2ab9933207fd35e4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/MSFT_ACCRUAL_RESULT_REVIEW.json",
+      "bytes": 15712,
+      "sha256": "ac8f572ad521f5ec6de0ee4c5685bd786b84d1fc7a031a1187f5bf7dc4f06c6b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/NEXT_PHASE_POST_APPEND_REVIEW_20261008.json",
+      "bytes": 9748,
+      "sha256": "22a9f33a36cf0d1b0576ebf2329c835b93893f68ae33d1801c113a6b5224b969"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/NEXT_PHASE_RESULT_ENTRY_REVIEW_20261008.json",
+      "bytes": 21777,
+      "sha256": "5733ad40c78de37cfa66a70642e252343a3c83bc5878cb57258e5b90b36d27b1"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/check_bank_source_capture_20261008.py",
+      "bytes": 17633,
+      "sha256": "b0ca0cc9392dbd29027dcc959b739a308039e2997bfc84e76114471ffa705423"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/CONTINUOUS_BANK_CONTRACT_PROPOSAL.json",
+      "bytes": 22836,
+      "sha256": "a86f08e44349648887f8d4ee745c421ad86c2531d4ec3253b55350ff19912766"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/PAIR_READINESS.json",
+      "bytes": 38464,
+      "sha256": "686684579bfa62adc79daefb3b6cc80e0f36dd6cf96b12b3ccfaf06d2f5108f6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/SOURCE_BASIS_LABEL_ASSESSMENT.json",
+      "bytes": 2865,
+      "sha256": "185485ca28d8f98aeebcff5d0a2873af7feead1924772b1fd9f68ee18c0a7ea4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/SOURCE_FEASIBILITY.json",
+      "bytes": 26787,
+      "sha256": "56699f23f03082708d35ee8df4230c3c8ecba2647624fea6c16758280aba145c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/SOURCE_GET_PROTOCOL.json",
+      "bytes": 4044,
+      "sha256": "4914c58713cf5e5e44962b9344bf33e90dbc061d19b432722f63092fe35c9de7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/SUPPLEMENT_LINK_BEFORE_GET.json",
+      "bytes": 694,
+      "sha256": "3f6bc31cf8e3b67fb6b5a36b2ad92b4dbf24609db587272e066031664e4153fc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/fetch_source_once.py",
+      "bytes": 4797,
+      "sha256": "b1fe925b7e7a9a26bc825cad2083b0d70a9d3e3aaf7331de445a62cea4726b24"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/inspect_source_labels.py",
+      "bytes": 8107,
+      "sha256": "bd86050dd7db046d081df0bf56290a80f41e136ba2a1e5afe6281e5297974c7f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/PAIR_READINESS.json",
+      "bytes": 37288,
+      "sha256": "8c089a3d292307016026512a66e36c90df327576150f9aa1166e66fc45358b2a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/README.md",
+      "bytes": 2404,
+      "sha256": "49ddd1618b1132ec5032dd5fc584b9945b3aeeaf07d5b62d7460c5cf2fe449c1"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/ROOT_SOURCE_RELEASE.json",
+      "bytes": 968,
+      "sha256": "871e4361d03eb13554a82f958d3059de90de7f4bcffa02a3653c81b1609613cd"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/SOURCE_BASIS_LABEL_ASSESSMENT.json",
+      "bytes": 3505,
+      "sha256": "98a2ee1e8fd145e7fcaea2afcd2fe4ff978d59d8523029f4ec15a5f18d97aab5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/SOURCE_GET_PROTOCOL.json",
+      "bytes": 4188,
+      "sha256": "ce0cf17a42c7cc65f1d134fe14a9adb361349ddaea8e74cbf9f4036ed7537c3c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/SOURCE_MANIFEST.json",
+      "bytes": 5743,
+      "sha256": "8c412828666ea9d3df0ff5c3c223185f5be188efc4fa2d34218050e5905e44d6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/SUPPLEMENT_LINK_BEFORE_GET.json",
+      "bytes": 1159,
+      "sha256": "0682d4252a247d87ad5f433fde039dd2c20eccfabca7d32e46aface461e75f37"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/fetch_source_once.py",
+      "bytes": 4797,
+      "sha256": "104dd08960b617076cc48970c72bd3a78ce0ac5ca8b33e81b589e48b5e11a18b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/inspect_source_labels.py",
+      "bytes": 8181,
+      "sha256": "7bb90ccb77f2fbf5309345c0a3157f17d91bfa13d7d5613ac3fb5c1b40549004"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_cover.html",
+      "bytes": 45397,
+      "sha256": "31ab42f06077e015f1cd08c9609e1ca54c9994b8fd57539876aedbe3ec330401"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_cover.receipt.json",
+      "bytes": 1595,
+      "sha256": "5f1854faac58cae7775e75fdbff2db95016c515a72ef180815d23f876bb46d67"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_cover.started.json",
+      "bytes": 296,
+      "sha256": "a1e368bd8564abc7a14c63206718d1eb1a8cbf855a4425be0c295d263b7267a8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_supplement.html",
+      "bytes": 6483326,
+      "sha256": "30177e0c901e94c174d18748eb5c7bbe6bdb09b1536c932a32168c3878bdf14b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_supplement.receipt.json",
+      "bytes": 1606,
+      "sha256": "78cadf0f47da0a68c2904d8e5c5677776caa894382eded1ea5726a50baf86bef"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/q3_source_01/source/BAC_2017Q3_supplement.started.json",
+      "bytes": 298,
+      "sha256": "0a2882ec4d8676ae803b00fe8eb266bfce7a6131ac9b4e7644bf36794ece0db2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_cover.html",
+      "bytes": 50701,
+      "sha256": "98a93cab0dcc1adf7ec44ce7b06bc80f36ad67bb77f5733832613d8258c51b37"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_cover.receipt.json",
+      "bytes": 1595,
+      "sha256": "46b4af2b79abb0231deb0a9b44cd11c4ee94af66407778bec0c2a70165fba580"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_cover.started.json",
+      "bytes": 296,
+      "sha256": "781664b836a8dd87a61d021ad42f17a135591d249c08367c32b83823f2853013"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_supplement.html",
+      "bytes": 6550624,
+      "sha256": "98897f6437d80e5ac3d961969171f1feffb127ca0588b587f9c00caad5cb38fb"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_supplement.receipt.json",
+      "bytes": 1606,
+      "sha256": "61913c3b07d40a903d544575d10113158523846d973660582b18361b58a38c40"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/bank_extension/source/BAC_2017Q2_supplement.started.json",
+      "bytes": 298,
+      "sha256": "097d03de6abb07f560948867388ab43a3c1268aff986d52073e4824d4b467b25"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/CANONICAL_RESULT_ENTRY.json",
+      "bytes": 9354,
+      "sha256": "1af26f80ce533cfc906cd6f7bdc8dee74feacf60b50fd3b38c74df2fb6ff94ee"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/CANONICAL_RESULT_RECEIPT.json",
+      "bytes": 1339,
+      "sha256": "231d68036e897fb40b70bc9fd701a68ff14f84bd72302b702aecaa7407636300"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/COMPACT_TESTED_DEFINITION.json",
+      "bytes": 5839,
+      "sha256": "6d3f7ef45b0e7cef0c0934c2c7f04ddaefcba2c21e5d81a047a0b5349013a958"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/FINAL_HANDOFF.json",
+      "bytes": 6357,
+      "sha256": "562fcbd424db6cf5cc0fdb1ba162490fede29d7d9df889417d97eaf3d693ad47"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/LAUNCH_TRACE.json",
+      "bytes": 1186,
+      "sha256": "11af51b797723bc510e929175efbe7a8e2cc5b337e48e3ff6bacfe04521b9778"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/MANIFEST.json",
+      "bytes": 1618,
+      "sha256": "a249c515ddc7be13cb8eb77ceed013e10e0876163c2f8d439743d761dcd1f103"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/README.md",
+      "bytes": 4067,
+      "sha256": "acff0dde81f05ef7aaac10567f452a700161f858d286d790d5e1653ffb5d6150"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/TESTED_LEDGER_ADDENDUM.json",
+      "bytes": 7071,
+      "sha256": "cf9597386e26ad8cf75474cfd1023a77c9e92d34eb787bf7870b2400c75bfdbe"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1433,
+      "sha256": "57ed2236c85b911a81fb4aa39df28b9b1440d83a95eec7891cc489d4954473af"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/PROTOCOL.json",
+      "bytes": 11033,
+      "sha256": "22a794f2943cb368e8acd98d2ba92b71cd0a8beaa47e7c94b347f355a0a8303f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/REGISTRATION_ENTRY.json",
+      "bytes": 11012,
+      "sha256": "fd63373e781c0f8d44f75e1544ecc899798e44d615111d25f007764be5cdbec0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/economic_01/COMPLETED.json",
+      "bytes": 1025,
+      "sha256": "5c952e9333505b054af2ea40696d9234f5b73e13e20ad4926fd24e693552d1ab"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/msft_accrual_2020Q4_reference/economic_01/MANIFEST.json",
+      "bytes": 1454,
+      "sha256": "064f1c9932321a96477a1a351584fc622ae89c2c7c35699993dd62babb0e7074"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/APP_STATE_RECEIPT.json",
+      "bytes": 2622,
+      "sha256": "b322df924e7b4cda9217f62c7385c0520de5fd4e8c55622b30a66d6a88e1d55a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/APP_STATE_RECEIPT_GUARD_V2.json",
+      "bytes": 3212,
+      "sha256": "5ca547dccda592ff20f2909c2c1e30d52244214d7357493d307aa5452557a075"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CANONICAL_REGISTRATION_PROPOSAL.json",
+      "bytes": 1018,
+      "sha256": "0f396cb451fdff2443bf5958893a51fb6da170325100ad81df4f0a626aad61cb"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1368,
+      "sha256": "46595e5b29be8c315fd8d0a44303b38ad0d0aaa80412a06dd68f3ab2d3796cdd"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CONTRACT.json",
+      "bytes": 11819,
+      "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/DEPENDENCY_VERSIONS.json",
+      "bytes": 113,
+      "sha256": "67aa7bad996a7c2da10f15f1ea5c12bbbb805ff290984d6844eef92a76085825"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FAMILIAR_SOURCE_PREPARATION_PLAN.json",
+      "bytes": 3203,
+      "sha256": "4fdda200eab77b3d6328b7506581716e3e16cc6cf3572f4cb4a14d3fb21772b9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE.json",
+      "bytes": 2677,
+      "sha256": "c8e149534148afda6a0fa3e9054d4f9dd281f0100d8bf379fb7e79017814f679"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE_GUARD_V2.json",
+      "bytes": 4473,
+      "sha256": "3e379b5d0e72c545ffb4cb7e599f205ac443fa8c3340599b36293cdb7eab6bb8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE_GUARD_V3.json",
+      "bytes": 6228,
+      "sha256": "6d4a7f04a335676070e69fc6d85b1e319f85555605bb0b291fec3dfcc816ed13"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_AMENDMENT_02.json",
+      "bytes": 1476,
+      "sha256": "8b26f026ac6920bfaba69226133e777bc1b88fa79d21bb91f5b2f99a2920ec9e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_AMENDMENT_03.json",
+      "bytes": 1177,
+      "sha256": "498ce0d93cc48462bde6648df62161f659e910d3b8a15d5b303742d07f27741f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_V2_README.md",
+      "bytes": 2508,
+      "sha256": "c1e4af7768f3bd0a7f856183df7bb4614a4369dae46ec2da021c428c1d49f313"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_V2_TEST_RESULTS.json",
+      "bytes": 3142,
+      "sha256": "6e7daa03990d7b58bbe769b44f759adf55e64d0d292ee318bd1b55021d230c7f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_V3_README.md",
+      "bytes": 1390,
+      "sha256": "b5fd05e5182f4e7d55ace7615a234f291413672cf9a0b3aebaf8874b7e7844f9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/GUARD_V3_TEST_RESULTS.json",
+      "bytes": 3329,
+      "sha256": "f29e3c0057767fd39c05cd6078fe7ca155801beaae1bcde3d61f2e02260522c9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/INVENTED_TEST_RESULTS.json",
+      "bytes": 2345,
+      "sha256": "fad1ecde15c3d9820be66ccf8d4bd6fdaae8112d87e24572697c56f78b0b1554"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/README.md",
+      "bytes": 4270,
+      "sha256": "ce15a01833dfc1233648baa231329b0c9d1560c7b69884a16f842f1229e4defd"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/REGISTRATION_ENTRY_V3.json",
+      "bytes": 5045,
+      "sha256": "381679725cce418537ec53e142b1cefc89a314dba6841a39f4599587179cf255"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/ROOT_RELEASE_SCHEMA.json",
+      "bytes": 1525,
+      "sha256": "1d824ab98a8b32a3140844082aa104fbe4c584e89c94d0f99f088c0dd58d0ee9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/ROOT_RELEASE_SCHEMA_GUARD_V2.json",
+      "bytes": 1539,
+      "sha256": "970d42224c5724d3e70023720be4220db3f3fe21513e5e3a85641042b499c43c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/ROOT_RELEASE_SCHEMA_GUARD_V3.json",
+      "bytes": 1527,
+      "sha256": "657ad124ea120efdc07b860f1b0fbae16f5d984a0fc15d6fd95e0c15255a425b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/SOURCE_BINDINGS.json",
+      "bytes": 3103,
+      "sha256": "dcb5e0fdd78f2cf28ea7efd0f4eec4ba9868d42710d47466cd842a334591c36d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/SOURCE_INPUT_SCHEMA.json",
+      "bytes": 1561,
+      "sha256": "99239503206dad102f543445b73274799794e0c5eff19d33286a6663af3b8cac"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/SOURCE_PREP_RELEASE_SCHEMA.json",
+      "bytes": 2015,
+      "sha256": "d81dd206dd71bc9c87658ece769a9c9fd0b88510adbe98846694275e3376d266"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/SOURCE_PREP_RELEASE_SCHEMA_GUARD_V3.json",
+      "bytes": 2024,
+      "sha256": "b9fec6c0edf6a7f3ff3f5c94f771280bfbb2b377adb65f54403750250854eaa3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter.py",
+      "bytes": 20827,
+      "sha256": "302093be9b25afb1619457d37ecc72ae3884f61a747d5dfdf1cdc7bf20013774"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v2.py",
+      "bytes": 23371,
+      "sha256": "6e501ddb895c361d68c2549e9ad860d7ab64df9fdff3fcdc55bb81b77943d263"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v3.py",
+      "bytes": 23379,
+      "sha256": "7f77a430c3759402e8c238f19139bd2afb1bfe5d7477f4364b03d9a591a3015b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/build_package.py",
+      "bytes": 15886,
+      "sha256": "05a87ddbc018d69b911e424d4fddd2e52517c0ccac2a9e78f9517cf55fd5263e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1402,
+      "sha256": "7a466e2f6843adbe634a82709bb08b11c91cb321bb8863a2b4a5b4eb3ad39f9d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/FREEZE.json",
+      "bytes": 1628,
+      "sha256": "58a0b3cdf5ab653efc86f86f5f3504eeca377607d0f440c69564852402eb66d3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/INVENTED_TEST_RESULTS.json",
+      "bytes": 958,
+      "sha256": "5a214bb8bd8039eff3b9c047de8575228efd1b6765dca8bf85897c3e481f9e86"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/NO_SOURCE_DEMO.json",
+      "bytes": 1347,
+      "sha256": "3adb03125fc4fb18862418432ccc185f908391c215b4b353e8e199f385e762dc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/OBSERVER_CONTRACT.json",
+      "bytes": 2259,
+      "sha256": "93740c1ae94996030f306f5f3f25f751589c86652856152c08fd994e6d8ad112"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/README.md",
+      "bytes": 2179,
+      "sha256": "85e3f8978bd5b81b9804778dcbccf40be443dbc67643457ccbfcc0d91306f2c2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/REGISTRATION_ENTRY.json",
+      "bytes": 3357,
+      "sha256": "2a9f57c49c09a2633031c43e536868440313fcba44dc5db79c1fcce55d2565d4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/ROOT_PACKET_RELEASE_SCHEMA.json",
+      "bytes": 1557,
+      "sha256": "15e5b746068a8d4af208dfce94a1f1efd2f1ff484646467a91e8789025f6949f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/invented_tests.py",
+      "bytes": 5891,
+      "sha256": "bc4382a22855a3c869f17ff12b480738dc2da668af29a9a1a69818712b3b444f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/observer.py",
+      "bytes": 9736,
+      "sha256": "f62fb3d3701ea3d229d01699ba3af4cc6e24d146e436422bd903f35a6a754949"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/prepare.py",
+      "bytes": 5745,
+      "sha256": "d5944b8e7804bf65855a26c1dc8fea0cb8dc1acee0b0d8a2e0fc77fc11a67453"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1433,
+      "sha256": "eca2ec72992d810b0fe44c6f7e459f990339aa4413d2f707eabb0a02a9c72234"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/FREEZE.json",
+      "bytes": 2139,
+      "sha256": "60e3ccc3a2dab51f9ee1f9827f3cbf6ad43f120387b810ff891d98162a87c579"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/INDEPENDENT_REGISTRATION_REVIEW.json",
+      "bytes": 35092,
+      "sha256": "fc123a9439d718feb331afab21d4288059d527c1a6fde38587aca0af94f71cb9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/INVENTED_TEST_RESULTS.json",
+      "bytes": 1517,
+      "sha256": "e64f521810dd952c2362ee47d6bbb0bea6d18b87a6071313d903f70799bb1a0e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/NO_SOURCE_DEMO.json",
+      "bytes": 1572,
+      "sha256": "da2d9fc3d6f77643f7cad3aa54f93af4b06780271da9d39f978883e0338f3921"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/OBSERVER_CONTRACT.json",
+      "bytes": 4104,
+      "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/README.md",
+      "bytes": 2940,
+      "sha256": "cb0d0b5e6bb8b83a1313c5fb109dacf19f5b560eba2848fa8c272b2e3b2aade6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/REGISTRATION_ENTRY.json",
+      "bytes": 5017,
+      "sha256": "cd0e256da765ec48ee08c9109815457dd9375b7989e2f8a64460826ec4da197a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/ROOT_PACKET_RELEASE_SCHEMA.json",
+      "bytes": 1778,
+      "sha256": "420164e2e65653bef9a619ba3e1ae0bc95d55f036b93455931915e569abef51f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/invented_tests_nov02.py",
+      "bytes": 10777,
+      "sha256": "59b18ad7d794a2fe811fc5bd252aee9da7284fdb6460734ef1129093d638c4d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/observer.py",
+      "bytes": 13287,
+      "sha256": "736cd467a04dd1fc1ffbd5918c9c34158c6014a53d63c88d58d9a4927e0dccb9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/prepare_annex.py",
+      "bytes": 8305,
+      "sha256": "212186906c986f418d32fca7a4c8c3e6c22d65e5bbb96b8a7b8dee1552082ed2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/prepare_tests.py",
+      "bytes": 6414,
+      "sha256": "c902375e471040e953844b229e3775ab24a1e31951dc40802a731a038ce952b6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/familiar_replay_attempt_01/rv_ief_barbell_residual_state.json",
+      "bytes": 7022538,
+      "sha256": "47e99e04c021dc492ed491f9778ebb8790b72e03380786a3045aff24446b3d7b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/familiar_replay_attempt_01/rv_xle_brent_residual_state.json",
+      "bytes": 6961515,
+      "sha256": "9d3b15f887b81963b7b3fd356daedd434ee83c22ba45e7c26b83455d5f726ab2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/frozen_helpers.py",
+      "bytes": 3547,
+      "sha256": "c99178cd984290420235f2e59e5d2f0f9ec5ce49fc4e454a97ca7cf80e45cbcf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/frozen_ledger.py",
+      "bytes": 5677,
+      "sha256": "7c4bb9cd73c69f7deee0dd0671340fae33d2ff5ee5204c4a0ecbfea561b2f687"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/frozen_rules.py",
+      "bytes": 21504,
+      "sha256": "ffd1d947cb5d71e3ee76a40df8dd8163b366ea5fd2900cb18985681474bc70bd"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/guard_v2_tests.py",
+      "bytes": 5918,
+      "sha256": "481a6eb88ab6ae11247b0b9a4ec30249925d33c799620ec37d37b594ff3f8f18"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/guard_v3_tests.py",
+      "bytes": 2213,
+      "sha256": "a37238c683e7f07e4fb3cd6852cc3b07ed3463d0fc5d1560b606ee2ae99e1c74"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/invented_tests.py",
+      "bytes": 11928,
+      "sha256": "28d47fe317a6c7287c7bce949642248eaeee2aedeece7dece15278f93cdc3f7f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prepare_guard_v2.py",
+      "bytes": 10127,
+      "sha256": "6f2480f096d528ec863b1b6e0e7fc874f5f47e84d696c9a843ffd94f527af8b3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prepare_guard_v3.py",
+      "bytes": 4688,
+      "sha256": "a5dbd5baa56a4171dce857633dfde1403dd1633d3f99abe1ca2e6da8717ea038"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CALENDAR_QUALIFICATION.json",
+      "bytes": 2413,
+      "sha256": "85ea43e4851217662163743eee022a0af2ae9877b9e25bb9f669574be13305be"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1469,
+      "sha256": "f7c9d0e844985c27044240a4772388a12b033d69ba07ef4572a59343d31b4d8b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/INDEPENDENT_REGISTRATION_REVIEW.json",
+      "bytes": 34338,
+      "sha256": "36a22684de513200b8d3a66f2513a831de83882431159826cb8a11c3eacb0e68"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/NYSE_HOURS_SOURCE_RECEIPT.json",
+      "bytes": 1369,
+      "sha256": "d395ea14770083e700b366165d7a409cd52473d129c2e72fa38c123a34516621"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PLANNED_XNYS_252_SESSIONS.csv",
+      "bytes": 30468,
+      "sha256": "e6533c49b276c0d6c4f237e21fffb452aafccb0f4dc91595beae7076f3c0ecec"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PRESERVATION_RECEIPT.json",
+      "bytes": 6563,
+      "sha256": "5383c19fa710bc1130061968c7f691bccd02410fde09b20723ae81c9cd179358"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PROTOCOL.json",
+      "bytes": 11888,
+      "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PROTOCOL_INITIAL_WINDOW_ONLY.json",
+      "bytes": 10318,
+      "sha256": "354604f6e31384de6fd2e66c5ebd902e3e96d42dadbc9f73e2d13fc3c4b39a5a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/REGISTRATION_ENTRY.json",
+      "bytes": 4661,
+      "sha256": "b249323caec0c3d69b77c0e4e93246363699f55499c852495b0035aa21cd85f0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/REGISTRATION_ENTRY_INITIAL_WINDOW_ONLY.json",
+      "bytes": 3287,
+      "sha256": "763efe1b1caabfef3087201658ad3a4e2f6cbcfcea73a8b129e084ca5cb962bf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/WINDOW_SELECTION.json",
+      "bytes": 1080,
+      "sha256": "10ce89c2681c655b1e9a19ba029a2795669b5c0bd988dd48667e7e19daedbf83"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/build_calendar_metadata.py",
+      "bytes": 14091,
+      "sha256": "7b18e1e2e14bf2ac4d77d4f96cee34b1e102c75f5b1749df865f6fd582bd55e0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/source_prepare.py",
+      "bytes": 8717,
+      "sha256": "3e9f0ada8062ee8c6c84f4f1864a82a74dea405074dda5d3460d3bd3b315aa50"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/source_prepare_guard_v3.py",
+      "bytes": 8717,
+      "sha256": "f84df2adb6172bcc00d06cc42bac071da0188d966471c064ca05e457b9cb5528"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/parallel_batch_20261003/bank_repricing/sources/bac-terms.html",
+      "bytes": 102319,
+      "sha256": "d8847c0db60ea4208873b60d819236029d5700d1e421142047add19af07c16f9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/parallel_batch_20261003/capital_cash_conversion/deliverables/SOURCE_PILOT.md",
+      "bytes": 6238,
+      "sha256": "f9c709bb62a2ce357bd690fd83e31d1c467e31f3a3f84bbb0a6fb434dd01209b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/parallel_batch_20261003/capital_cash_conversion/normalized/development_financial_diagnostics.json",
+      "bytes": 335605,
+      "sha256": "579b47b866e60faecf2461350e717f15c9262f9d9b4c53d7d1d57e4dce13866a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/parallel_batch_20261003/capital_cash_conversion/normalized/original_statement_records.json",
+      "bytes": 891772,
+      "sha256": "461baa6063d6f65bcaf72da289631e3a58769f7f0473582987a154f9ba5beb7a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/deliverables/COMPACT_TESTED_DEFINITIONS.json",
+      "bytes": 12029,
+      "sha256": "eaaeb733b0d4fc7bd8379816ec2dac68b1aed2324128e77004d767e236aa57f6"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/deliverables/FINAL_BRIEF.md",
+      "bytes": 7329,
+      "sha256": "48d4eff15b7e1b6f7bfb8934b545c0411dafdc6d100bb3e0a7859f257cb010f1"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/deliverables/FINAL_HANDOFF.json",
+      "bytes": 3071,
+      "sha256": "99f917ef9ef514ced642921b4bd03129543ea4a34c0871ac350a5c2ba3f233f7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/deliverables/TESTED_LEDGER.json",
+      "bytes": 7399,
+      "sha256": "7302773acd237516882ff97984443597d63119f6b795037de5a5a17c46ca0d8e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/independent_audit/CONTRIBUTION_RESULT_REVIEW.json",
+      "bytes": 91169,
+      "sha256": "547d587cb36ad034bacba3cad267adf8c6827cf110d6ca0bf46dfe60d7dd4653"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/stock_intake/RESEARCH_REFERENCE_PANEL_CONTRACT.json",
+      "bytes": 14485,
+      "sha256": "239768372496d2859dbfcf1a67d9e89ce57ad47ca473b99bb2d99848e3e45512"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/AGENTS.md",
+      "bytes": 6273,
+      "sha256": "6c13c7a0db0c016088c7e8c99d5b4df271cbbd7f68fd55a289f0a9835a38fdc8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/data/qore/research/extreme-heat-shadow-audit.json",
+      "bytes": 377403,
+      "sha256": "00d9dbd8a2c342b088fc470188b13e306ed31f577f7c6213ed5a2050ed156fb5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/docs/extreme-heat-shadow.md",
+      "bytes": 8988,
+      "sha256": "78e108680c17bb98bb43239185cfb29d735c41c2511453208d2efca3b5e8d644"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/docs/strategy.md",
+      "bytes": 37842,
+      "sha256": "326d2f3dacdcafbb915b9b706999cd00be6f1873787c429ee4affea0adc1b2cc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/research/experiment-log/experiments.csv",
+      "bytes": 3733285,
+      "sha256": "766fd5965a74a20075560a7caca806a9489714120033391d62117ad2e9dde7df"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/evaluate-qore-extreme-heat-shadow.mjs",
+      "bytes": 51221,
+      "sha256": "90b5f7ab2cefd582a2a183ea7693d7e76736561aba280d323f2b055fa04259f8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/lib/qore-extreme-heat-shadow.mjs",
+      "bytes": 25806,
+      "sha256": "31be0969a22f649305219d829ece27dcd1f880519317dba7577d4bab061c704e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/test-qore-extreme-heat-shadow.mjs",
+      "bytes": 23215,
+      "sha256": "197f151f8a8192b3defbf44ea87e33522b18565e4a9cbe9da53047eba7e36fc2"
+    }
+  ]
+}

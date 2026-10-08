@@ -42,3 +42,17 @@ Historical replay shows the separately approved, independently audited exports f
 Verify migration and replay with `npm run test:hub-migration` and `npm run test:hub-replay`, alongside the required hub/UI checks.
 
 In a restricted executor, `node scripts/test-qore-hub.mjs --offline`, `node scripts/test-qore-hub-replay.mjs --offline`, and `node scripts/test-qore-native-qa.mjs --state-only` run only their named pure/headless checks. They deliberately skip HTTP/process/native GUI coverage; default test modes still require those facilities.
+
+## Reviewed offline paper candidates
+
+The Paper candidates view adds the same three frozen IDs from the reviewed index: energy residual rotation, Treasury curve residual rotation and BTC monthly loss to cash. Read their original failures, compact definitions, contracts, independent audits, input blockers and fixed prospective dates. Play or step the retained audited results (690 primary5bp relationship sessions; 1,096 BTC days across14 funded account/cost paths). This reads saved outputs only; no strategy engine, new trial or actual account is executed. The existing candidate/baseline historical view and synthetic laboratory are preserved.
+
+Relationship evaluation remains November2,2026–November2,2027. November2 was a preparation buffer, not a strategy or data-mandated minimum. Actual timestamped warmup/NAV/Brent packets are absent; the fixed window remains unstarted if qualification fails. BTC retains its December3,2026 first decision and November30,2027 terminal mark. Future launch is disabled.
+
+CLI-only inspection: `npm run paper:evidence -- catalog`, `npm run paper:evidence -- replay rv_xle_brent_residual`, or `npm run paper:evidence -- replay BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01 primary:strategy`. All provenance paths stay descriptive and are never opened. Native packaging includes the exact evidence bundle; application installation and GUI review stay with the app owner.
+
+Validate with `npm run test:hub-paper` (isolated loopback tests), or `npm run test:hub-paper -- --offline` when listeners are restricted, plus lint/build/hub/UI checks.
+
+The exact retained BTC source result CSV also contains older quad-impact and fee-uncertainty diagnostic paths. Playback admits the reviewed primary/double matrix only (15,344 selected rows across14paths); it does not offer those extra diagnostics or create new accounts. The original BTC result summary is available as a reviewed evidence document.
+
+The experiment reader also supports the research owner's precisely qualified append-only events: revisions remain null, study groups stay distinct from actual inheritance, and the three exact immutable legacy external-group rows are qualified by raw-line hashes. Unknown missing parents, altered qualified rows, cycles, malformed revisions and conflicting identities still fail closed. The canonical experiment log is never rewritten or copied.

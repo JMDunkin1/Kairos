@@ -1,0 +1,463 @@
+{
+  "schema_version": 1,
+  "study_id": "QORE-20261008-PROSPECTIVE-HUB-EXPORT-REVIEW-01",
+  "status": "PASS_ADDITIVE_REGISTERED_PROSPECTIVE_METADATA_EXPORT",
+  "reviewed_utc": "2026-10-08T22:04:57.300661+00:00",
+  "index_core_sha256": "c7bf61d87b5863326805afe6f3ffd9d98c0d57d11b00fa25c0f1fbd308557534",
+  "draft": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/DRAFT_INDEX.json",
+    "bytes": 36155,
+    "sha256": "fdafcb618a1cc86d5f0a84e76bb02f51725f2c1d48d1c997b42955a13b5d3b7c"
+  },
+  "bindings": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/DRAFT_INDEX.json",
+      "bytes": 36155,
+      "sha256": "fdafcb618a1cc86d5f0a84e76bb02f51725f2c1d48d1c997b42955a13b5d3b7c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/integration.py",
+      "bytes": 12050,
+      "sha256": "923ca5e0b3dc63b1edff06b9ddbc977b2499bbc3fcbc8d46d5cdfa300ed4fb50"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/check_prospective_hub_metadata.py",
+      "bytes": 16045,
+      "sha256": "ffb176869a1ba8e2dd6744d94f24c55844371d280efa0e893e0e842c57471d48"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/build_prospective_index.py",
+      "bytes": 5124,
+      "sha256": "4678953f1d8a36fbf7be4d17613280674344b66e24b6ef6fee7b169da17a67c5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/coordinator/admit_prospective_hub.py",
+      "bytes": 4419,
+      "sha256": "c39d0db5a958805b3aba5f471248dc44e73a2f14dd250ac742f44ac4fabfe633"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/RELEASED_REPLAY_APPROVAL.json",
+      "bytes": 1666,
+      "sha256": "d5d76309adb225e172b339f1021b313575dfa34a11f3674205d11bc15d978dd0"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/contract.json",
+      "bytes": 8131,
+      "sha256": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/MANIFEST.json",
+      "bytes": 2405,
+      "sha256": "dc3b1838f4ea281ef41b6a232fd88fedb7cd57cccd27338ae0a5cb046ec2f845"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/HANDOFF_AUDIT.json",
+      "bytes": 4708,
+      "sha256": "07787d8e3a11b0cba343e315ae9a3a3938cd302b1985a0ac3afb88f3934c43c4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/code/definitions.py",
+      "bytes": 3392,
+      "sha256": "2fcc39d544340ef31cc3a1d2b0e27787f94a92ed399796d44e8893edb365d5f5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff/rules.json",
+      "bytes": 1515,
+      "sha256": "19b4f6358228549cb85819e43d4503de593bf8a065973c21df095663b7238597"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CONTRACT.json",
+      "bytes": 11819,
+      "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v3.py",
+      "bytes": 23379,
+      "sha256": "7f77a430c3759402e8c238f19139bd2afb1bfe5d7477f4364b03d9a591a3015b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE_GUARD_V3.json",
+      "bytes": 6228,
+      "sha256": "6d4a7f04a335676070e69fc6d85b1e319f85555605bb0b291fec3dfcc816ed13"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE_GUARD_V2.json",
+      "bytes": 4473,
+      "sha256": "3e379b5d0e72c545ffb4cb7e599f205ac443fa8c3340599b36293cdb7eab6bb8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE.json",
+      "bytes": 2677,
+      "sha256": "c8e149534148afda6a0fa3e9054d4f9dd281f0100d8bf379fb7e79017814f679"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/OBSERVER_CONTRACT.json",
+      "bytes": 2259,
+      "sha256": "93740c1ae94996030f306f5f3f25f751589c86652856152c08fd994e6d8ad112"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/observer.py",
+      "bytes": 9736,
+      "sha256": "f62fb3d3701ea3d229d01699ba3af4cc6e24d146e436422bd903f35a6a754949"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/FREEZE.json",
+      "bytes": 1628,
+      "sha256": "58a0b3cdf5ab653efc86f86f5f3504eeca377607d0f440c69564852402eb66d3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PROTOCOL.json",
+      "bytes": 11888,
+      "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/WINDOW_SELECTION.json",
+      "bytes": 1080,
+      "sha256": "10ce89c2681c655b1e9a19ba029a2795669b5c0bd988dd48667e7e19daedbf83"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PLANNED_XNYS_252_SESSIONS.csv",
+      "bytes": 30468,
+      "sha256": "e6533c49b276c0d6c4f237e21fffb452aafccb0f4dc91595beae7076f3c0ecec"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CALENDAR_QUALIFICATION.json",
+      "bytes": 2413,
+      "sha256": "85ea43e4851217662163743eee022a0af2ae9877b9e25bb9f669574be13305be"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1469,
+      "sha256": "f7c9d0e844985c27044240a4772388a12b033d69ba07ef4572a59343d31b4d8b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/OBSERVER_CONTRACT.json",
+      "bytes": 4104,
+      "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/observer.py",
+      "bytes": 13287,
+      "sha256": "736cd467a04dd1fc1ffbd5918c9c34158c6014a53d63c88d58d9a4927e0dccb9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/FREEZE.json",
+      "bytes": 2139,
+      "sha256": "60e3ccc3a2dab51f9ee1f9827f3cbf6ad43f120387b810ff891d98162a87c579"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/CANONICAL_REGISTRATION_RECEIPT.json",
+      "bytes": 1433,
+      "sha256": "eca2ec72992d810b0fe44c6f7e459f990339aa4413d2f707eabb0a02a9c72234"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/independent_audit/CONTRIBUTION_RESULT_REVIEW.json",
+      "bytes": 91169,
+      "sha256": "547d587cb36ad034bacba3cad267adf8c6827cf110d6ca0bf46dfe60d7dd4653"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CONTRACT.json",
+      "bytes": 9214,
+      "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/adapter.py",
+      "bytes": 25032,
+      "sha256": "6c949b696518075e5b2b8ba3d168bc88390e677a9484f615fe9d09d2d2156e18"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/FREEZE.json",
+      "bytes": 4745,
+      "sha256": "85fbedbc31e99d31996f9c3fb31d34b9502632054f956f342a682198a6177fb9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/ORIGINAL_BINDINGS.json",
+      "bytes": 7158,
+      "sha256": "bbf924b64b5bec24e30cb0de45c383ed2b462addb9e998c44d9ed525b8c9bb4f"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/FIDELITY_RECEIPT.json",
+      "bytes": 728,
+      "sha256": "1b6c753eddd2b9211650553591c1e0d8d1575a9947f64082ebe7b893d6ca3519"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/MODEL_OUTPUT.json",
+      "bytes": 14442,
+      "sha256": "be62e3930f93a193cbabfb3f86c09283dd218084715dc2be1d74b8cd0a2ee892"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/invented_fixture/next_decision/NEXT_STATE.json",
+      "bytes": 16139,
+      "sha256": "23f03e796592ff5b3f36cfbb73f2bdb835639c9aaf0392938acca257391563ab"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/familiar_replay_attempt_01/rv_xle_brent_residual_state.json",
+      "bytes": 6961515,
+      "sha256": "9d3b15f887b81963b7b3fd356daedd434ee83c22ba45e7c26b83455d5f726ab2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/familiar_replay_attempt_01/rv_ief_barbell_residual_state.json",
+      "bytes": 7022538,
+      "sha256": "47e99e04c021dc492ed491f9778ebb8790b72e03380786a3045aff24446b3d7b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/REVIEWED_INDEX.json",
+      "bytes": 23430,
+      "sha256": "fd62d0bc73b2883209bb0a67d17a928ecaad4fd1051f1f5afdcb7b5be7786ab4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/INDEX_ADMISSION.json",
+      "bytes": 7377,
+      "sha256": "f04b966295e4bb54a321b3d83dba0abd4cf555fd7d6c5ff2ef67aaf8e475ac61"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/CATALOGUE.json",
+      "bytes": 10999,
+      "sha256": "09af085bb868abe6b74d8d6915194fefbbab57c8ebbb25e880f49f833c3953a2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/AGENTS.md",
+      "bytes": 6273,
+      "sha256": "6c13c7a0db0c016088c7e8c99d5b4df271cbbd7f68fd55a289f0a9835a38fdc8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/research/experiment-log/experiments.csv",
+      "bytes": 3733285,
+      "sha256": "766fd5965a74a20075560a7caca806a9489714120033391d62117ad2e9dde7df"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/docs/strategy.md",
+      "bytes": 37842,
+      "sha256": "326d2f3dacdcafbb915b9b706999cd00be6f1873787c429ee4affea0adc1b2cc"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/data/qore/research/extreme-heat-shadow-audit.json",
+      "bytes": 377403,
+      "sha256": "00d9dbd8a2c342b088fc470188b13e306ed31f577f7c6213ed5a2050ed156fb5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/docs/extreme-heat-shadow.md",
+      "bytes": 8988,
+      "sha256": "78e108680c17bb98bb43239185cfb29d735c41c2511453208d2efca3b5e8d644"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/evaluate-qore-extreme-heat-shadow.mjs",
+      "bytes": 51221,
+      "sha256": "90b5f7ab2cefd582a2a183ea7693d7e76736561aba280d323f2b055fa04259f8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/lib/qore-extreme-heat-shadow.mjs",
+      "bytes": 25806,
+      "sha256": "31be0969a22f649305219d829ece27dcd1f880519317dba7577d4bab061c704e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/scripts/test-qore-extreme-heat-shadow.mjs",
+      "bytes": 23215,
+      "sha256": "197f151f8a8192b3defbf44ea87e33522b18565e4a9cbe9da53047eba7e36fc2"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+      "bytes": 36445,
+      "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEX_ADMISSION.json",
+      "bytes": 8512,
+      "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_INDEX_REVIEW.json",
+      "bytes": 19630,
+      "sha256": "7a410709b7b50882543e223ece1436da166cc04e1c8c4c59cfd1601cc35ae40b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/CATALOGUE.json",
+      "bytes": 16893,
+      "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    }
+  ],
+  "registrations": {
+    "financial_window": {
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1469,
+        "sha256": "f7c9d0e844985c27044240a4772388a12b033d69ba07ef4572a59343d31b4d8b"
+      },
+      "entry": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/REGISTRATION_ENTRY.json",
+        "bytes": 4661,
+        "sha256": "b249323caec0c3d69b77c0e4e93246363699f55499c852495b0035aa21cd85f0"
+      },
+      "independent_review": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/INDEPENDENT_REGISTRATION_REVIEW.json",
+        "bytes": 34338,
+        "sha256": "36a22684de513200b8d3a66f2513a831de83882431159826cb8a11c3eacb0e68"
+      },
+      "record_number": 762,
+      "canonical_registration_line_sha256": "0892402b27f1b5cd21199c5fae65525e498318fd95006d295f39736a5005dac8"
+    },
+    "daily_observer": {
+      "receipt": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/CANONICAL_REGISTRATION_RECEIPT.json",
+        "bytes": 1433,
+        "sha256": "eca2ec72992d810b0fe44c6f7e459f990339aa4413d2f707eabb0a02a9c72234"
+      },
+      "entry": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/REGISTRATION_ENTRY.json",
+        "bytes": 5017,
+        "sha256": "cd0e256da765ec48ee08c9109815457dd9375b7989e2f8a64460826ec4da197a"
+      },
+      "independent_review": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/INDEPENDENT_REGISTRATION_REVIEW.json",
+        "bytes": 35092,
+        "sha256": "fc123a9439d718feb331afab21d4288059d527c1a6fde38587aca0af94f71cb9"
+      },
+      "record_number": 763,
+      "canonical_registration_line_sha256": "80a4811eeb8bcdfbd179c3231287cd5701e45544009c278cabcbfa57600a10b7"
+    }
+  },
+  "relationship_changes": [
+    {
+      "id": "rv_xle_brent_residual",
+      "changed_fields": [
+        "bindings",
+        "daily_observer",
+        "source_clock_limitations"
+      ],
+      "nov2_registration_only": true,
+      "oct8_observer_preserved": true
+    },
+    {
+      "id": "rv_ief_barbell_residual",
+      "changed_fields": [
+        "bindings",
+        "daily_observer",
+        "source_clock_limitations"
+      ],
+      "nov2_registration_only": true,
+      "oct8_observer_preserved": true
+    }
+  ],
+  "canonical_checkpoint": {
+    "binding": {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/research/experiment-log/experiments.jsonl",
+      "bytes": 8658735,
+      "sha256": "0a3494c0b07ca0e400316d26d149520a158fcd6a83d294ef789026c46bc91837"
+    },
+    "records": 763,
+    "original_prefix_bytes": 8605534,
+    "original_prefix_sha256": "081f76251c661eeed99d2e5f91f33fa9111e26fb2781cdd38d91f3ee47605e86",
+    "original_prefix_preserved": true
+  },
+  "findings": [
+    "Exact five stable IDs and the exact five old familiar/invented observation bindings unchanged; the other three strategy records and all historical status, source/exposure, economic assumptions and diversification fields are byte-equivalent JSON values.",
+    "Only two relationship records gain registeredNov2window/observer bindings, dates and preservedOct8observer metadata. Original failed development selection/opened finals remain unchanged; no new hypothesis, return, validation or actual source observation is supplied.",
+    "Unique canonical window and observer registrations match exact compact lines and both independent registration reviews. New source remains blocked; pre-start warmup and future actual NAV/Brent publication clocks require separate packet admission.",
+    "Original closed index, integration code, six old exports, economicV3, originalOct8annex and BTC window preserved. No collector, account, ownership, orders, runtime, GUI or publication activation.",
+    "Builder deep-copies the pinned closed index into an exclusive new draft after exact registrations; admission binds independent core/hash/dependencies and generates six read-only CLI projections in separate exclusive prospective_v3 outputs. Neither helper imports or reruns economic engines.",
+    "AllsixactualCLIexports/argv/exit0/serialization verified. FiveobservationDTOs are byteidenticalto previouslyauditedexports; cataloguealonecarriesnewregistrationdates. Relationshipmodeledprimary5bpterminalwalletstate remains distinctfrom futureNULLactualownership and targetallocations."
+  ],
+  "stable_id_count": 5,
+  "observation_artifact_count": 5,
+  "new_strategy_count": 0,
+  "new_validation_count": 0,
+  "new_financial_outcomes": 0,
+  "actual_future_observation_count": 0,
+  "financial_engines_rerun": 0,
+  "market_data_reads": 0,
+  "canonical_write_by_reviewer": false,
+  "scope_limit": "Metadata and saved-output review; prospective source/financial release and GUI/app wiring remain separate.",
+  "index": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+    "bytes": 36445,
+    "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+  },
+  "admission": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEX_ADMISSION.json",
+    "bytes": 8512,
+    "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+  },
+  "outputs": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/CATALOGUE.json",
+      "bytes": 16893,
+      "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/export/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    }
+  ],
+  "generated_cli_outputs_verified": 6
+}

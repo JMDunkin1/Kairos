@@ -1,0 +1,1017 @@
+{
+  "schema": "qore-hub.offline-observation.v1",
+  "rule_id": "rv_xle_brent_residual",
+  "artifact_id": "rv_xle_brent_residual_familiar_state",
+  "contract_sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c",
+  "mode": "familiar_replay",
+  "outcome_exposure": "ALREADY_OPENED_2024_2026_FAMILIAR_REPLAY_ONLY",
+  "observed_account_performance": false,
+  "orders_enabled": false,
+  "source_clock_status": "HISTORICAL_UTC_SCAFFOLD_AND_CURRENT_VINTAGE_UNCERTIFIED_NOT_ACTUAL_PUBLICATION",
+  "body": {
+    "observations": [
+      {
+        "date": "2026-09-03",
+        "decision_known_at_utc": "2026-09-03T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 202142.7817135289,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-03T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-04",
+        "decision_known_at_utc": "2026-09-04T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 201413.4298624269,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-04T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-08",
+        "decision_known_at_utc": "2026-09-08T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 200244.7723035651,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-08T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-09",
+        "decision_known_at_utc": "2026-09-09T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 199283.72720538592,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-09T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-10",
+        "decision_known_at_utc": "2026-09-10T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 198141.95541311914,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-10T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-11",
+        "decision_known_at_utc": "2026-09-11T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 199849.92558427196,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922132,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-11T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-14",
+        "decision_known_at_utc": "2026-09-14T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 198893.37112134058,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922132,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-14T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-15",
+        "decision_known_at_utc": "2026-09-15T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 198033.94223540442,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-15T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-16",
+        "decision_known_at_utc": "2026-09-16T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 197157.14380764664,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-16T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-17",
+        "decision_known_at_utc": "2026-09-17T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 199400.70805749536,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-17T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-18",
+        "decision_known_at_utc": "2026-09-18T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 199732.01313778743,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-18T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-21",
+        "decision_known_at_utc": "2026-09-21T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 202729.37491713313,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-21T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-22",
+        "decision_known_at_utc": "2026-09-22T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 202728.35215774496,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-22T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-23",
+        "decision_known_at_utc": "2026-09-23T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 201199.5352511854,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492212,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-23T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-24",
+        "decision_known_at_utc": "2026-09-24T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 201153.93071936007,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-24T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-25",
+        "decision_known_at_utc": "2026-09-25T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 202180.64117746643,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-25T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-28",
+        "decision_known_at_utc": "2026-09-28T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 200622.1152337853,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-28T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-29",
+        "decision_known_at_utc": "2026-09-29T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 200286.4522602326,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.24635492213,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-29T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-09-30",
+        "decision_known_at_utc": "2026-09-30T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 199800.76841287222,
+          "cash": 0.0,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 18533.246354922125,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 1.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": false
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-09-30T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      },
+      {
+        "date": "2026-10-01",
+        "decision_known_at_utc": "2026-10-01T22:00:00+00:00",
+        "signal_event": "flat",
+        "gap_or_invalid_reason": null,
+        "invalid_source": false,
+        "next_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "reference_execution_target": {
+          "SPY": 1.0,
+          "XLE": 0.0,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "owned_state": {
+          "wealth": 200094.22104571093,
+          "cash": 200094.22104571093,
+          "numeraire": "USD_TOTAL_NAV_REFERENCE",
+          "units": {
+            "SPY": 0.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "weights": {
+            "SPY": 0.0,
+            "XLE": 0.0,
+            "IEF": 0.0,
+            "SHY": 0.0,
+            "TLT": 0.0
+          },
+          "terminal_liquidation": true
+        },
+        "pending_execution": {
+          "status": "AWAITING_NEXT_OBSERVED_REFERENCE_AT_DECISION",
+          "signal_known_at_utc": "2026-10-01T22:00:00Z",
+          "planned_calendar_session": null,
+          "observed_reference_known_at_decision": false,
+          "convention": "one observed session; no order or exchange fill"
+        },
+        "source_clock_status": "REPORTED_SOURCE_CLOCKS_WITH_DISCLOSED_LIMITATIONS",
+        "exchange_fill": false
+      }
+    ],
+    "cost_bps": 5,
+    "owned_state_scope": "PRIMARY_5BP_REFERENCE_WALLET"
+  }
+}

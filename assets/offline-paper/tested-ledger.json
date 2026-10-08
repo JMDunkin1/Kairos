@@ -1,0 +1,134 @@
+{
+  "schema": "qore.tested-ledger.readiness-bridge.v1",
+  "recorded_utc": "2026-10-08T22:05:21.014566+00:00",
+  "stable_identities": [
+    {
+      "id": "lev_core_relative_leverage_sleeves_v3",
+      "role": "PRINCIPAL_RESEARCH_CANDIDATE",
+      "historical_status": "PREVIOUSLY_AUDITED_RELEASED_NAV_REPLAY",
+      "recommendation_stage": "EXISTING_RETROSPECTIVE_RESEARCH",
+      "outcome_exposure": "ALREADY_OPENED_2024_2026_NOT_NEW_VALIDATION"
+    },
+    {
+      "id": "TQQQ_50_QQQ_static",
+      "role": "EXPOSURE_BASELINE",
+      "historical_status": "PREVIOUSLY_AUDITED_RELEASED_NAV_REPLAY",
+      "recommendation_stage": "EXISTING_RETROSPECTIVE_RESEARCH",
+      "outcome_exposure": "ALREADY_OPENED_2024_2026_NOT_NEW_VALIDATION"
+    },
+    {
+      "id": "rv_xle_brent_residual",
+      "role": "PAPER_EVALUATION_CANDIDATE",
+      "historical_status": "ORIGINAL_DEVELOPMENT_SELECTION_FAILED_PRESERVED",
+      "recommendation_stage": "REVIEWED_OFFLINE_PAPER_MODEL",
+      "outcome_exposure": "ALREADY_OPENED_2024_2026_FAMILIAR_REPLAY_ONLY"
+    },
+    {
+      "id": "rv_ief_barbell_residual",
+      "role": "PAPER_EVALUATION_CANDIDATE",
+      "historical_status": "ORIGINAL_DEVELOPMENT_SELECTION_FAILED_PRESERVED",
+      "recommendation_stage": "REVIEWED_OFFLINE_PAPER_MODEL",
+      "outcome_exposure": "ALREADY_OPENED_2024_2026_FAMILIAR_REPLAY_ONLY"
+    },
+    {
+      "id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+      "role": "PAPER_EVALUATION_CANDIDATE",
+      "historical_status": "ORIGINAL_RETURN_AND_STABILITY_SCREENS_FAILED_PRESERVED",
+      "recommendation_stage": "REVIEWED_OFFLINE_PAPER_MODEL",
+      "outcome_exposure": "ALREADY_OPENED_2019_2021_FAMILIAR_REPLAY_ONLY"
+    }
+  ],
+  "historical_researched_candidate_count": 1,
+  "comparison_baseline_count": 1,
+  "offline_paper_candidate_count": 3,
+  "new_validated_strategies": 0,
+  "new_live_ready_portfolios": 0,
+  "actual_future_observations": 0,
+  "current_index": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/REVIEWED_INDEX.json",
+    "bytes": 36445,
+    "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+  },
+  "CLI_admission": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEX_ADMISSION.json",
+    "bytes": 8512,
+    "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+  },
+  "CLI_export_review": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/hub/prospective_v3/INDEPENDENT_EXPORT_REVIEW.json",
+    "bytes": 24767,
+    "sha256": "cf927f92a777897651ab5357f7d8fa4a5ad3f15d10d5ba10cfb847c4962e29c0"
+  },
+  "prior_operational_handoff": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/FINAL_HANDOFF.json",
+    "bytes": 3095,
+    "sha256": "3e0a7f774ecf8dc938d50c6466d49d52125f76d8d401538419734beb56825418"
+  },
+  "distinct_diagnostic_handoff": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/FINAL_HANDOFF.json",
+    "bytes": 6357,
+    "sha256": "562fcbd424db6cf5cc0fdb1ba162490fede29d7d9df889417d97eaf3d693ad47"
+  },
+  "distinct_diagnostic_post_append_review": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/audit/NEXT_PHASE_POST_APPEND_REVIEW_20261008.json",
+    "bytes": 9748,
+    "sha256": "22a9f33a36cf0d1b0576ebf2329c835b93893f68ae33d1801c113a6b5224b969"
+  },
+  "distinct_cash_accrual": {
+    "status": "AUDITED_RETROSPECTIVE_ONE_EVENT_PREDICATE_FALSE",
+    "unique_reference_accounts": 30,
+    "policy_aliases": 9,
+    "natural_policy_entries": 0,
+    "recommendation": "NO_NOMINATION",
+    "fresh_validation": false
+  },
+  "bank_source": {
+    "verified_HTTP_200_GETs": 4,
+    "new_numeric_predicates": 0,
+    "new_economic_runs": 0,
+    "next_continuous_proposal_accounts": 75,
+    "proposal_status": "UNIMPLEMENTED_UNREGISTERED_UNRELEASED"
+  },
+  "fixed_relationship_window": {
+    "evaluation_start": "2026-11-02",
+    "first_funded_reference_close_utc": "2026-11-02T21:00:00Z",
+    "evaluation_sessions": 252,
+    "calendar_ordinal_definition": "Nov2 is ordinal1, inclusive. Ordinal63 is implementation review only; ordinal252 is the sole terminal financial reference.",
+    "implementation_review_session": "2027-02-02",
+    "implementation_review_planned_close_utc": "2027-02-02T21:00:00Z",
+    "evaluation_end_planned": "2027-11-02",
+    "terminal_planned_reference_close_utc": "2027-11-02T20:00:00Z",
+    "planned_calendar": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PLANNED_XNYS_252_SESSIONS.csv",
+      "bytes": 30468,
+      "sha256": "e6533c49b276c0d6c4f237e21fffb452aafccb0f4dc91595beae7076f3c0ecec"
+    },
+    "calendar_qualification": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CALENDAR_QUALIFICATION.json",
+      "bytes": 2413,
+      "sha256": "85ea43e4851217662163743eee022a0af2ae9877b9e25bb9f669574be13305be"
+    },
+    "deadline": "Warmup snapshot and any required pre-start model/input qualification must exist strictly before2026-11-02T21:00:00Z. Equality is late.",
+    "no_date_reselection": "Missing/late/unqualifiedpre-startsource means this fixedwindow is unstarted/blocked. Do not automatically move the start or search for a more favorable252session period.",
+    "calendar_changes": "Archive any official unexpected closure/amendment with its original publication clock. A deviation from the frozen plannedcalendar creates a source/calendarqualificationblock; this metadata provides no permission to rewrite the start/end, skip a missing valid session or choose replacement dates after outcomes.",
+    "immutable_selection_binding": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/WINDOW_SELECTION.json",
+      "bytes": 1080,
+      "sha256": "10ce89c2681c655b1e9a19ba029a2795669b5c0bd988dd48667e7e19daedbf83"
+    }
+  },
+  "window_registration": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CANONICAL_REGISTRATION_RECEIPT.json",
+    "bytes": 1469,
+    "sha256": "f7c9d0e844985c27044240a4772388a12b033d69ba07ef4572a59343d31b4d8b"
+  },
+  "observer_registration": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/CANONICAL_REGISTRATION_RECEIPT.json",
+    "bytes": 1433,
+    "sha256": "eca2ec72992d810b0fe44c6f7e459f990339aa4413d2f707eabb0a02a9c72234"
+  },
+  "source_readiness": "SOURCE_PACKETS_ABSENT_PRE_START_QUALIFICATION_REQUIRED_NO_DATE_RESELECTION",
+  "BTC_window": "Unchanged Nov2026 source; Dec3,2026-Nov3,2027 twelve UTC decisions; Nov30,2027 inventory mark.",
+  "runtime_changes": false,
+  "orders_enabled": false
+}
