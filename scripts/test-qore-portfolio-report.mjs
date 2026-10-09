@@ -404,7 +404,7 @@ function testRuntimeFreshnessAndAttributionLabels() {
   assert.deepEqual(stale.risk.blockedReasons, ['Runtime risk telemetry is stale.'])
   assert.equal(stale.attribution.scope, 'dedicated-account')
   const svg = renderPortfolioReportSvg(stale)
-  assert.match(svg, /QORE DEDICATED/)
+  assert.match(svg, /KAIROS DEDICATED/)
   assert.match(svg, /STALE TARGET SNAPSHOT/)
   console.log('ok - stale target/risk state is explicit and dedicated-account labeling requires clean holdings')
 }

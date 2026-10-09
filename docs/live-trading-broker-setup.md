@@ -1,8 +1,8 @@
 # Alpaca Paper and Live Setup
 
-QORE's current broker adapter routes `UNG`, `VOO`, and `QQQM` through an Alpaca **Trading API** account. It deliberately refuses `NG`, `MNG`, and `QG` futures. Use a dedicated Alpaca account if you want Command's portfolio history to represent QORE alone; deposits, manual trades, and unrelated positions affect the account-level curve.
+Kairos's current broker adapter routes `UNG`, `VOO`, and `QQQM` through an Alpaca **Trading API** account. It deliberately refuses `NG`, `MNG`, and `QG` futures. Use a dedicated Alpaca account if you want Command's portfolio history to represent Kairos alone; deposits, manual trades, and unrelated positions affect the account-level curve.
 
-Order-capable broker commands are additionally restricted to Linux host `m1-server`. The main Mac may develop and backtest QORE and display sanitized M1 telemetry, but paper/live reconcile commands fail before broker access. Keep Alpaca credentials only in the M1 deployment's mode-`600` `.env.local`.
+Order-capable broker commands are additionally restricted to Linux host `m1-server`. The main Mac may develop and backtest Kairos and display sanitized M1 telemetry, but paper/live reconcile commands fail before broker access. Keep Alpaca credentials only in the M1 deployment's mode-`600` `.env.local`.
 
 Start in dry-run, then paper. Live routing is a separate reviewed decision.
 
@@ -24,7 +24,7 @@ APCA_API_SECRET_KEY=...
 QORE_PAPER_ORDER_ROUTING_ENABLED=1
 ```
 
-Paper mode is hard-bound to `https://paper-api.alpaca.markets`; live mode is hard-bound to `https://api.alpaca.markets`; market data is hard-bound to `https://data.alpaca.markets`. QORE validates all configured endpoints before sending credentials and rejects redirects.
+Paper mode is hard-bound to `https://paper-api.alpaca.markets`; live mode is hard-bound to `https://api.alpaca.markets`; market data is hard-bound to `https://data.alpaca.markets`. Kairos validates all configured endpoints before sending credentials and rejects redirects.
 
 Live configuration requires every confirmation below:
 
@@ -44,7 +44,7 @@ QORE_ALPACA_ALLOW_SHORTS=1
 QORE_ALPACA_ALLOW_HARD_TO_BORROW=0
 ```
 
-Alpaca does not support fractional short sales, so negative `UNG` targets use whole shares. QORE blocks a target when the account cannot short, Alpaca reports `UNG` unshortable, or it is hard-to-borrow without explicit permission.
+Alpaca does not support fractional short sales, so negative `UNG` targets use whole shares. Kairos blocks a target when the account cannot short, Alpaca reports `UNG` unshortable, or it is hard-to-borrow without explicit permission.
 
 Review the sizing and risk defaults in `.env.live.example` and `config/qore-live-broker-settings.json`. Keep a cash buffer. Paper/live execution must exactly match the sealed broker profile; an environment change to sizing, short policy, order mechanics, data feed, or risk limits blocks until the versioned profile is deliberately updated, rebuilt, and resealed. The reviewed all-year profile requires explicit `QORE_ALPACA_ALLOW_SHORTS=1`; leaving the safer default `0` fails closed. Open-order replacement remains disabled; enabling it also requires a reviewed profile change and reseal, and replacement proceeds only after Alpaca confirms that exact order is terminally canceled with zero filled quantity and the position remains unchanged.
 
@@ -52,7 +52,7 @@ When gains push paper holdings above the current-equity deployment envelope, rec
 
 ### First-time risk-ledger bootstrap
 
-Paper and live reconciliation require an existing risk ledger bound to the current Alpaca account and broker mode. QORE never silently creates or resets that trailing-drawdown baseline. For a first deployment or an intentional mode/account change, engage the kill switch and run the explicit no-order bootstrap:
+Paper and live reconciliation require an existing risk ledger bound to the current Alpaca account and broker mode. Kairos never silently creates or resets that trailing-drawdown baseline. For a first deployment or an intentional mode/account change, engage the kill switch and run the explicit no-order bootstrap:
 
 ```bash
 npm run trade:prepare
@@ -152,7 +152,7 @@ npm run kill:engage -- --reason="operator emergency stop"
 npm run kill:status
 ```
 
-This blocks new QORE submissions. It does not cancel existing Alpaca orders or liquidate positions; use Alpaca directly if an immediate cancel or exit is required.
+This blocks new Kairos submissions. It does not cancel existing Alpaca orders or liquidate positions; use Alpaca directly if an immediate cancel or exit is required.
 
 The kill-switch command, weather risk generation, broker, readiness preflight, and Command dashboard all resolve one canonical file. `QORE_LIVE_OPERATOR_STATE_FILE` has explicit precedence; when it is unset, the path is `operator-state.json` under `QORE_LIVE_WEATHER_STATE_DIR`. Weather cadence configuration cannot override this safety path.
 
@@ -164,7 +164,7 @@ npm run kill:clear -- --confirm=RESUME_TRADING --reason="review complete"
 
 ## Fail-closed order gates
 
-QORE blocks submission when any required state is stale, missing, malformed, or unsafe, including:
+Kairos blocks submission when any required state is stale, missing, malformed, or unsafe, including:
 
 - validated GFS/GEFS inference is absent or not applied to the target;
 - the executable paper strategy binding no longer matches its handoff, or (for live money) the checked-in all-year artifact fails promotion/approval or digest checks;
@@ -198,7 +198,7 @@ The runtime state is intentionally local:
 
 Do not commit these files. `account-status.json` contains read-only account, portfolio-history, and bounded VOO/QQQM benchmark telemetry, while `status.json` remains the reconcile/preflight result. Broker status never initializes or rewrites the risk ledger. The Command UI reads a sanitized loopback telemetry API; its **Refresh Alpaca** action invokes broker status only and cannot reconcile or submit orders. Portfolio reports use the same read-only status path and keep their artifacts and delivery receipts local.
 
-A broker-wide local lock prevents status and reconcile operations from interleaving their snapshots or order activity. QORE never reclaims an existing broker lock automatically. A signal received before any broker mutation removes an owned lock; a signal after a cancellation or submission starts deliberately preserves the lock because broker outcome may be ambiguous. An accepted cancellation also retains the lock until Alpaca proves the exact order is canceled with zero fill and the position is unchanged. In either stale-lock case, first verify and reconcile Alpaca state and confirm no broker process is running, then remove only `.local/qore/broker/operation.lock` manually. The supervisor similarly never reclaims its lock; verify no supervisor is running before manually removing a stale `.local/qore/live-trading-supervisor/supervisor.lock`.
+A broker-wide local lock prevents status and reconcile operations from interleaving their snapshots or order activity. Kairos never reclaims an existing broker lock automatically. A signal received before any broker mutation removes an owned lock; a signal after a cancellation or submission starts deliberately preserves the lock because broker outcome may be ambiguous. An accepted cancellation also retains the lock until Alpaca proves the exact order is canceled with zero fill and the position is unchanged. In either stale-lock case, first verify and reconcile Alpaca state and confirm no broker process is running, then remove only `.local/qore/broker/operation.lock` manually. The supervisor similarly never reclaims its lock; verify no supervisor is running before manually removing a stale `.local/qore/live-trading-supervisor/supervisor.lock`.
 
 ## Paper recovery and monitoring
 

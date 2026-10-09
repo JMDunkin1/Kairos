@@ -921,7 +921,7 @@ function sendJson(req, res, statusCode, body, extraHeaders = {}) {
 
 const server = createServer(async (req, res) => {
   if (!originAllowed(req.headers.origin)) {
-    sendJson(req, res, 403, { error: 'Origin is not allowed for the local QORE telemetry service.' })
+    sendJson(req, res, 403, { error: 'Origin is not allowed for the local Kairos telemetry service.' })
     return
   }
 
@@ -967,7 +967,7 @@ if (snapshotOnly) {
   }
 } else {
   server.listen(port, host, () => {
-    console.log(`QORE telemetry service listening at http://${host}:${port}`)
+    console.log(`Kairos telemetry service listening at http://${host}:${port}`)
   })
   process.on('SIGINT', shutdown)
   process.on('SIGTERM', shutdown)

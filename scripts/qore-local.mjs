@@ -71,18 +71,18 @@ if (!existsSync(viteBin)) {
   process.exit(1)
 }
 
-const dashboardPort = await firstAvailablePort(preferredDashboardPort, dashboardFallbackLimit, 'QORE dashboard port')
+const dashboardPort = await firstAvailablePort(preferredDashboardPort, dashboardFallbackLimit, 'Kairos dashboard port')
 const servicePort = await firstAvailablePort(
   preferredServicePort,
   serviceFallbackLimit,
-  'QORE telemetry service port',
+  'Kairos telemetry service port',
   new Set([dashboardPort]),
 )
 if (dashboardPort !== preferredDashboardPort) {
-  console.log(`QORE dashboard port ${preferredDashboardPort} is busy; using ${dashboardPort}.`)
+  console.log(`Kairos dashboard port ${preferredDashboardPort} is busy; using ${dashboardPort}.`)
 }
 if (servicePort !== preferredServicePort) {
-  console.log(`QORE telemetry service port ${preferredServicePort} is busy; using ${servicePort}.`)
+  console.log(`Kairos telemetry service port ${preferredServicePort} is busy; using ${servicePort}.`)
 }
 
 let viteArgs = withoutOption(rawViteArgs, '--host')
@@ -108,8 +108,8 @@ function spawnChild(command, args) {
   })
 }
 
-console.log(`QORE dashboard: http://${host}:${dashboardPort}`)
-console.log(`QORE M1 telemetry bridge: ${serviceBaseUrl}`)
+console.log(`Kairos dashboard: http://${host}:${dashboardPort}`)
+console.log(`Kairos M1 telemetry bridge: ${serviceBaseUrl}`)
 
 const service = spawnChild(process.execPath, ['scripts/qore-command-bridge.mjs'])
 const vite = spawnChild(viteBin, viteArgs)
@@ -123,7 +123,7 @@ function stopChildren(signal) {
 }
 
 service.on('error', (error) => {
-  console.error(`Could not start QORE M1 telemetry bridge: ${error.message}`)
+  console.error(`Could not start Kairos M1 telemetry bridge: ${error.message}`)
   stopChildren('SIGTERM')
   process.exitCode = 1
 })
@@ -136,7 +136,7 @@ vite.on('error', (error) => {
 
 service.on('exit', (code, signal) => {
   if (shuttingDown) return
-  console.error(`QORE M1 telemetry bridge stopped (${code ?? signal ?? 'unknown'}).`)
+  console.error(`Kairos M1 telemetry bridge stopped (${code ?? signal ?? 'unknown'}).`)
   stopChildren('SIGTERM')
   process.exitCode = code || 1
 })

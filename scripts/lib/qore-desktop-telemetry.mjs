@@ -8,7 +8,7 @@ export function desktopTelemetry(origin, root) {
   let ready = null
   let stopped = false
   const ensure = () => {
-    if (stopped) return Promise.reject(new Error('QORE is closing.'))
+    if (stopped) return Promise.reject(new Error('Kairos is closing.'))
     if (ready) return ready
     ready = new Promise((resolve, reject) => {
       child = spawn(process.execPath, [path.join(root, 'scripts/qore-command-bridge.mjs')], {
@@ -22,7 +22,7 @@ export function desktopTelemetry(origin, root) {
       owned.stdout.on('data', chunk => {
         buffer += chunk
         if (buffer.length > 4096) { owned.kill('SIGTERM'); clearTimeout(timeout); reject(new Error('Invalid read-only connection startup.')); return }
-        const match = buffer.match(/^QORE Command bridge: (http:\/\/127\.0\.0\.1:\d+)\n/)
+        const match = buffer.match(/^(?:Kairos|QORE) Command bridge: (http:\/\/127\.0\.0\.1:\d+)\n/)
         if (match) { clearTimeout(timeout); resolve(match[1]) }
       })
       owned.once('error', () => { clearTimeout(timeout); reject(new Error('The read-only connection could not start.')) })

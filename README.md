@@ -1,6 +1,8 @@
 # Kairos
 
-Kairos is a Mac application for researching and operating a growing symphony of strategies. Its registry can expand to dozens of diverse strategies through reviewed definitions and isolated adapters. Its name refers to the opportune moment: acting on available evidence at the right time. The existing QORE natural-gas subsystem uses `ngas-all-year-beta`, combining internal summer and winter engines, a VOO/QQQM fallback and `UNG` execution at Alpaca. The leverage strategy and three newer candidates retain their separate research and paper-evaluation contracts.
+[GitHub repository](https://github.com/JMDunkin1/Kairos)
+
+Kairos is a Mac application for researching and operating a growing symphony of strategies. Its registry can expand to dozens of diverse strategies through reviewed definitions and isolated adapters. Its name refers to the opportune moment: acting on available evidence at the right time. The existing Kairos natural-gas subsystem uses `ngas-all-year-beta`, combining internal summer and winter engines, a VOO/QQQM fallback and `UNG` execution at Alpaca. The leverage strategy and three newer candidates retain their separate research and paper-evaluation contracts.
 
 The natural-gas subsystem has two surfaces:
 
@@ -15,13 +17,15 @@ Open **Kairos** in Applications or search for **Kairos** in Spotlight. The insta
 
 The starting catalogue includes natural gas, relative leverage sleeves, energy residual rotation, Treasury curve residual rotation and BTC monthly loss to cash. It has no fixed strategy-count limit. Leverage retains its reviewed historical replay and comparison baseline. The three newer candidates retain offline paper status and their fixed future windows. Natural gas opens its original Account and Backtests surfaces inside the same native window; Account uses the existing sanitized, read-only M1 connection.
 
-Maintainers can quit Kairos and run `npm run app:install` to build and replace the installed app from this repository, including an existing QORE installation. The installer verifies the original evidence manifests, adds a release manifest and signs the app. It deletes the replaced app and temporary compiler files. No backup apps, terminal launchers or retained build archives are created. See [the desktop contract](docs/desktop/contract.md) for source, evidence and lifecycle boundaries.
+Maintainers can quit Kairos and run `npm run app:install` to build and replace the installed app from this repository, including a legacy installation. The installer verifies the original evidence manifests, adds a release manifest and signs the app. It deletes the replaced app and temporary compiler files. No backup apps, terminal launchers or retained build archives are created. See [the desktop contract](docs/desktop/contract.md) for source, evidence and lifecycle boundaries.
 
 The desktop icon uses the selected Offset artwork in `desktop/assets/offset-icon.png`: two staggered charcoal and slate bars on an ivory tile. Installation packages this image at all native icon sizes.
 
 ## Developer workflow
 
-QORE requires Node 20.19+ or 22.12+.
+The product is Kairos. Existing `QORE_*` environment variables, `qore-*` script/API identifiers, `data/qore/`, `.local/qore/`, and the native bundle identifier remain compatibility interfaces. Frozen research and provenance retain their original names.
+
+Kairos requires Node 20.19+ or 22.12+.
 
 ```bash
 npm install
@@ -82,7 +86,7 @@ Credentials and confirmations belong in a mode-`600` `.env.local`, never in sour
 
 ## Daily and weekly portfolio reports
 
-QORE can render a private PNG brief from exact-session Alpaca telemetry, including portfolio dollars and percentages, VOO and QQQM performance, and account performance versus the configured VOO/QQQM basket in percentage points and a clearly labeled hypothetical active-gap dollar amount.
+Kairos can render a private PNG brief from exact-session Alpaca telemetry, including portfolio dollars and percentages, VOO and QQQM performance, and account performance versus the configured VOO/QQQM basket in percentage points and a clearly labeled hypothetical active-gap dollar amount.
 
 ```bash
 npm run report:daily
@@ -95,7 +99,7 @@ These commands refresh Alpaca with the read-only `--status` path and create loca
 
 `data/qore/` contains versioned research inputs and reproducible outputs. `.local/qore/` contains mutable runtime state: rolling completed-session market history, live forecasts, inference, broker snapshots, order logs, supervisor status, and local validation output. `.local/` is ignored and must not be promoted into research data without an explicit, reproducible import step. `npm run trade:market-history` refreshes the local Yahoo `NG=F`/`UNG` histories and the VOO/QQQM basket; default live inference runs that refresh automatically and never reads a target-date daily bar.
 
-The all-year research ledger uses Yahoo `UNG` ETF history for every gas return, matching the symbol Alpaca executes. Summer Alpha keeps Yahoo's `NG=F` continuous front-month proxy only as a price-confirmation signal input. The versioned artifact applies a causal adjusted-open rebalance and all-leg UNG/VOO/QQQM turnover costs, while remaining research evidence rather than a promise of exact live fills. QORE refuses `NG`, `MNG`, and `QG` orders until contract selection, expiry, roll, margin, and delivery controls exist.
+The all-year research ledger uses Yahoo `UNG` ETF history for every gas return, matching the symbol Alpaca executes. Summer Alpha keeps Yahoo's `NG=F` continuous front-month proxy only as a price-confirmation signal input. The versioned artifact applies a causal adjusted-open rebalance and all-leg UNG/VOO/QQQM turnover costs, while remaining research evidence rather than a promise of exact live fills. Kairos refuses `NG`, `MNG`, and `QG` orders until contract selection, expiry, roll, margin, and delivery controls exist.
 
 ## Validate changes
 

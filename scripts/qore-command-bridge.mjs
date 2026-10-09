@@ -354,7 +354,7 @@ function connect(force = false) {
     let telemetryAttempted = false
     try {
       await checkExistingT3Route()
-      updateConnection('reading-telemetry', 72, `Reading sanitized QORE state over the existing M1 connection.`)
+      updateConnection('reading-telemetry', 72, `Reading sanitized Kairos state over the existing M1 connection.`)
       telemetryAttempted = true
       await loadRemoteTelemetry(true)
     } catch (error) {
@@ -424,7 +424,7 @@ const server = createServer((request, response) => {
 })
 
 server.listen(port, host, () => {
-  console.log(`QORE Command bridge: http://${host}:${server.address().port}`)
+  console.log(`Kairos Command bridge: http://${host}:${server.address().port}`)
   void connect(true)
 })
 

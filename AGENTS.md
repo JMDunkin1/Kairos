@@ -1,4 +1,4 @@
-# QORE Agent Contract
+# Kairos Agent Contract
 
 ## Strategy mandate
 
@@ -8,11 +8,11 @@ Use a practical burden of proof appropriate to a personal, higher-risk research 
 
 ## Existing NGAS subsystem
 
-Preserve the existing all-year natural-gas engine and its accounting/security contracts. Extend QORE's broader strategy research and portfolio hub through isolated adapters; do not silently change deployed runtime.
+Preserve the existing all-year natural-gas engine and its accounting/security contracts. Extend Kairos's broader strategy research and portfolio hub through isolated adapters; do not silently change deployed runtime.
 
 ## Desktop hub
 
-- `/Applications/Kairos.app` is the single installed application; build it from this repository with `npm run app:install`. Installation deletes its temporary files and the replaced app rather than retaining archives or alternate app bundles. Preserve QORE protocol identifiers, runtime paths and historical evidence when changing the product brand.
+- `/Applications/Kairos.app` is the single installed application; build it from this repository with `npm run app:install`. Installation deletes its temporary files and the replaced app rather than retaining archives or alternate app bundles. Preserve `QORE` protocol identifiers, runtime paths and historical evidence when changing the product brand.
 - `config/qore-desktop.json` is the expandable product registry. Build toward diverse symphonies of dozens of strategies without a fixed catalogue or sleeve count. Add new reviewed definitions through isolated adapters; comparison baselines and seasonal components remain supporting records. Registration alone never establishes an edge or authorizes trading.
 - The desktop entry point is `desktop.html` and `src/hub/`. The isolated NGAS entry point keeps its existing `command` and `backtest` routes. Do not mix account telemetry with historical or simulated results.
 - The desktop has no strategy execution endpoint. Its only POST proxies the existing read-only broker status refresh; it must never submit or reconcile orders.
@@ -77,7 +77,7 @@ For trading code, also run `npm run test:live-inference`, `npm run test:live-tra
 
 - Default to `dry-run`; paper routing requires an explicit flag; live requires all three live confirmations.
 - `trade:prepare` may refresh runtime handoffs but must not submit orders or retrain checked-in research.
-- The kill switch blocks new QORE submissions; it does not cancel existing orders or liquidate positions.
+- The kill switch blocks new Kairos submissions; it does not cancel existing orders or liquidate positions.
 - Treat a dirty code/config worktree as a live-mode blocker until it is reviewed and committed.
 - Preserve loopback binding and strict allowed origins for the dashboard service.
 - Any proposed futures adapter requires a new reviewed contract for delivery month, expiry, rolling, margin, price limits, and delivery risk before implementation.

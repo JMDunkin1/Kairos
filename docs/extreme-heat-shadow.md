@@ -44,7 +44,7 @@ The exact economic claim is stronger than the retained history:
 
 - Historical Summer calendars do not retain complete same-target lead-8 and lead-7 forecast vintages, so a true fresh multi-model demand revision cannot be reconstructed.
 - The historical extreme rows use the legacy hours-0 Summer temperature snapshot, not the corrected four-sample target-local-day contract; the regime itself has not been reproduced under the executable temporal input.
-- QORE does not retain point-in-time production forecasts or production-surprise vintages for 2021–2025.
+- Kairos does not retain point-in-time production forecasts or production-surprise vintages for 2021–2025.
 - A causal estimate of what the futures curve had already priced would require a separately reviewed curve and fundamentals history, not a fitted residual over revised data.
 - Live inference does not currently carry the historical `coolingDemandExtremeCount` field needed to reproduce the 8F/eight-location definition.
 
@@ -72,7 +72,7 @@ All cost scenarios leave the focal full-period increments positive because the v
 
 Do not include any of the three requested gates. The audit contains only 16 extreme forecasts in total, 9–11 changed forecasts per gate, and 4–9 independent causal clusters. The historical inputs were development-visible, none represents the corrected executable Summer calendar, and the current one-candidate prospective registry forbids promotion from this post-hoc family.
 
-The most credible next test remains the narrower prospective rule already isolated in QORE: require a material same-target multi-model demand revision, broad location agreement, and no same-direction issue-session price move. Reconsideration requires a separately sealed candidate, corrected Summer temporal coverage, at least 15 independent changed Summer episodes across two complete prospective Summers, positive leave-one-season-out evidence, acceptable family-adjusted inference, live parity, and a restarted prospective validation window. Until then, storage and recent price are diagnostics, not executable vetoes.
+The most credible next test remains the narrower prospective rule already isolated in Kairos: require a material same-target multi-model demand revision, broad location agreement, and no same-direction issue-session price move. Reconsideration requires a separately sealed candidate, corrected Summer temporal coverage, at least 15 independent changed Summer episodes across two complete prospective Summers, positive leave-one-season-out evidence, acceptable family-adjusted inference, live parity, and a restarted prospective validation window. Until then, storage and recent price are diagnostics, not executable vetoes.
 
 Reproduce the audit with:
 

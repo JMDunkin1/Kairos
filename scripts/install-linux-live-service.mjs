@@ -8,7 +8,7 @@ import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 if (process.platform !== 'linux') {
-  throw new Error('The QORE systemd installer must be run on the Linux VPS.')
+  throw new Error('The Kairos systemd installer must be run on the Linux VPS.')
 }
 
 const repoDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -50,7 +50,7 @@ function escapeUnitDirectivePath(value) {
 const unitDir = path.join(homedir(), '.config', 'systemd', 'user')
 const unitPath = path.join(unitDir, 'qore-live-trading.service')
 const unit = `[Unit]
-Description=QORE live weather and Alpaca trading supervisor
+Description=Kairos live weather and Alpaca trading supervisor
 Wants=network-online.target
 After=network-online.target
 

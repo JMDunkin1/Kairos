@@ -5,7 +5,7 @@ repo_dir=/srv/codex-work/projects/QORE
 node_bin=/usr/bin/node-22
 
 if [[ ${EUID} -ne 0 ]]; then
-  echo "QORE telemetry wrapper must run through sudo." >&2
+  echo "Kairos telemetry wrapper must run through sudo." >&2
   exit 1
 fi
 

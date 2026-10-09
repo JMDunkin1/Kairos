@@ -55,7 +55,7 @@
         "apiKeyEnv": "QORE_REPORT_RESEND_API_KEY",
         "fromEnv": "QORE_REPORT_EMAIL_FROM",
         "toEnv": "QORE_REPORT_EMAIL_TO",
-        "subjectPrefix": "QORE portfolio report"
+        "subjectPrefix": "Kairos portfolio report"
       }
     ]
   }

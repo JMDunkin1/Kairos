@@ -327,4 +327,4 @@ assert.equal(versionedAudit.validationGate.passed, false)
 assert.equal(versionedAudit.validationGate.validationYearPositive['2016'], false)
 assert.equal(versionedAudit.selectionLock.hiddenHoldoutStatus, 'not-evaluated')
 
-process.stdout.write('QORE GEFSv12 reforecast tests passed.\n')
+process.stdout.write('Kairos GEFSv12 reforecast tests passed.\n')

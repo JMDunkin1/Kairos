@@ -393,7 +393,7 @@ function insightRows({ account, benchmark, allocations, risk, attribution }) {
   const relativeUsd = account.baseEquityUsd * (relative / 100)
   const relation = relative > 0.00005 ? 'beat' : relative < -0.00005 ? 'lagged' : 'matched'
   const absoluteRelation = relation === 'matched' ? '' : ` by ${Math.abs(relative).toFixed(2)} pp`
-  const subject = attribution.scope === 'dedicated-account' ? 'QORE dedicated account' : 'QORE account'
+  const subject = attribution.scope === 'dedicated-account' ? 'Kairos dedicated account' : 'Kairos account'
   const insights = [{
     kind: relative > 0.00005 ? 'positive' : relative < -0.00005 ? 'negative' : 'neutral',
     text: `${subject} ${relation} the configured index basket${absoluteRelation}; the hypothetical active gap was ${formatSignedCurrency(relativeUsd)} on opening equity.`,
@@ -423,7 +423,7 @@ function insightRows({ account, benchmark, allocations, risk, attribution }) {
   } else if (allocations.otherPositionCount > 0) {
     insights.push({
       kind: 'negative',
-      text: `${allocations.otherPositionCount} non-QORE position${allocations.otherPositionCount === 1 ? '' : 's'} were aggregated as OTHER; results remain account-level.`,
+      text: `${allocations.otherPositionCount} non-Kairos position${allocations.otherPositionCount === 1 ? '' : 's'} were aggregated as OTHER; results remain account-level.`,
     })
   } else {
     const cash = allocations.rows.find((row) => row.symbol === 'CASH')
@@ -770,7 +770,7 @@ export function renderPortfolioReportSvg(report) {
   )))
   const allocationGap = allocationRows.length > 1 ? Math.min(54, 170 / (allocationRows.length - 1)) : 54
   const allocationEndY = 515 + Math.max(0, allocationRows.length - 1) * allocationGap
-  const performanceLabel = report.attribution?.scope === 'dedicated-account' ? 'QORE DEDICATED' : 'QORE ACCOUNT'
+  const performanceLabel = report.attribution?.scope === 'dedicated-account' ? 'KAIROS DEDICATED' : 'KAIROS ACCOUNT'
   const attributionDisclosure = report.attribution?.scope === 'dedicated-account'
     ? 'DEDICATED-ACCOUNT VIEW · THIS IS NOT ORDER-LINEAGE STRATEGY ATTRIBUTION; CASH FLOWS OR MANUAL TRADES CAN DISTORT RESULTS.'
     : 'ACCOUNT-LEVEL COMPARISON · DEPOSITS, WITHDRAWALS, MANUAL TRADES, OR UNRELATED POSITIONS CAN DISTORT RESULTS.'
@@ -793,7 +793,7 @@ export function renderPortfolioReportSvg(report) {
       : report.risk.killSwitchEngaged === true ? 'KILL SWITCH ENGAGED' : 'NO ACTIVE RISK BLOCKS'
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">QORE ${xml(cadenceLabel)} portfolio report</title>
+  <title id="title">Kairos ${xml(cadenceLabel)} portfolio report</title>
   <desc id="desc">Portfolio equity, period return, VOO and QQQM benchmarks, index-relative performance, allocations, and operational insights.</desc>
   <defs>
     <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
@@ -827,9 +827,10 @@ export function renderPortfolioReportSvg(report) {
   <rect width="1600" height="1000" fill="url(#grid)"/>
   <circle cx="1450" cy="-20" r="390" fill="url(#glow)"/>
   <g transform="translate(80 64)">
-    <path d="M34 0A34 34 0 1 1 16 5" fill="none" stroke="#87ff9f" stroke-width="7" stroke-linecap="round"/>
-    <circle cx="34" cy="34" r="9" fill="#87ff9f"/>
-    <text x="92" y="30" class="wordmark">QORE<tspan class="wordmark-accent">//NG</tspan></text>
+    <rect width="68" height="68" rx="15" fill="#f8f5f0"/>
+    <rect x="23" y="15" width="9" height="30" rx="4.5" fill="#555657"/>
+    <rect x="35" y="26" width="9" height="30" rx="4.5" fill="#7a96b6"/>
+    <text x="92" y="30" class="wordmark">Kairos<tspan class="wordmark-accent">//NG</tspan></text>
     <text x="92" y="58" class="eyebrow">${xml(cadenceLabel)} PORTFOLIO BRIEF · ${xml(report.mode.toUpperCase())}</text>
   </g>
   <text x="1520" y="88" class="eyebrow" text-anchor="end">${xml(periodLabel)}</text>
@@ -878,7 +879,7 @@ export function renderPortfolioReportSvg(report) {
 export function reportCaption(report) {
   const subject = report.attribution?.scope === 'dedicated-account' ? 'Dedicated account' : 'Account'
   return [
-    `QORE ${report.cadence.toUpperCase()} · ${report.mode.toUpperCase()} · ${report.period.endDate}`,
+    `Kairos ${report.cadence.toUpperCase()} · ${report.mode.toUpperCase()} · ${report.period.endDate}`,
     `Equity ${formatCurrency(report.account.equityUsd, 0)} · ${subject} ${formatSignedCurrency(report.account.pnlUsd, 0)} (${formatPercent(report.account.returnPct, 2, true)})`,
     `Index basket ${formatPercent(report.benchmark.basket.returnPct, 2, true)} · active gap ${formatPercentagePoints(report.relative.pctPoints, 2).toLowerCase()} / hypothetical ${formatSignedCurrency(report.relative.usd, 0)}`,
   ].join('\n')

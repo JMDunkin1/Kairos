@@ -1,4 +1,4 @@
-name: UI checks
+name: Kairos checks
 
 on:
   pull_request:

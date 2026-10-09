@@ -143,7 +143,7 @@ async function sendDiscord({ destination, bytes, filename, caption, env, timeout
   form.set('payload_json', JSON.stringify({
     content: caption,
     allowed_mentions: { parse: [] },
-    attachments: [{ id: 0, filename, description: 'QORE portfolio report' }],
+    attachments: [{ id: 0, filename, description: 'Kairos portfolio report' }],
   }))
   form.set('files[0]', new Blob([bytes], { type: 'image/png' }), filename)
   const resolvedUrl = discordUrl(webhook)
@@ -194,7 +194,7 @@ async function sendResend({ destination, bytes, filename, caption, env, timeoutM
   const apiKey = requiredEnv(env, apiKeyEnv, destination.id)
   const from = emailAddress(requiredEnv(env, fromEnv, destination.id), fromEnv, { allowDisplayName: true })
   const to = emailAddress(requiredEnv(env, toEnv, destination.id), toEnv)
-  const subjectPrefix = safeText(destination.subjectPrefix ?? 'QORE portfolio report', 80)
+  const subjectPrefix = safeText(destination.subjectPrefix ?? 'Kairos portfolio report', 80)
   const subject = `${subjectPrefix} · ${safeText(caption.split('\n')[0], 120)}`
   const htmlCaption = caption
     .split('\n')
@@ -204,7 +204,7 @@ async function sendResend({ destination, bytes, filename, caption, env, timeoutM
     from,
     to: [to],
     subject,
-    html: `<p>${htmlCaption}</p><p><img src="cid:qore-report" alt="QORE portfolio report"></p>`,
+    html: `<p>${htmlCaption}</p><p><img src="cid:qore-report" alt="Kairos portfolio report"></p>`,
     attachments: [{
       filename,
       content: Buffer.from(bytes).toString('base64'),

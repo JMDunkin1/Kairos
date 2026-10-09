@@ -55,4 +55,4 @@ assert.equal(paperPresentation({ ...telemetry, stale: true }, now).sourceStatus,
 assert.equal(freshness('invalid', now), 'Unavailable')
 assert.equal(freshness('2026-10-03T00:00:00Z', now), 'Future timestamp')
 assert.equal(paperPresentation({ ...telemetry, sourceGeneratedAt: '2026-10-03T00:00:00Z' }, now).nav, null)
-console.log('PASS: QORE UI accounting availability, deposits, sleeve isolation, fees, missing history and source/signal freshness')
+console.log('PASS: Kairos UI accounting availability, deposits, sleeve isolation, fees, missing history and source/signal freshness')

@@ -1,6 +1,6 @@
 # Portfolio reports
 
-QORE can build a private PNG portfolio brief from read-only Alpaca telemetry and send the same artifact to any combination of Discord, Telegram, and email. Daily is the default cadence; weekly remains available as a separate profile.
+Kairos can build a private PNG portfolio brief from read-only Alpaca telemetry and send the same artifact to any combination of Discord, Telegram, and email. Daily is the default cadence; weekly remains available as a separate profile.
 
 The report contains:
 
@@ -12,7 +12,7 @@ The report contains:
 - UNG, VOO, QQQM, `OTHER`, and cash allocations in dollars and percent;
 - a freshness-validated `ngas-all-year-beta` target plus sanitized, bounded operational insights.
 
-The comparison is account-level by default, not pure strategy attribution. Deposits, withdrawals, manual trades, fees, and unrelated positions can affect Alpaca account equity. A dedicated QORE Alpaca account gives the comparison its cleanest meaning. Set `report.dedicatedQoreAccount` only when the Alpaca account is actually dedicated; the report then says “dedicated account,” not “strategy,” because it does not prove order lineage or neutralize every cash flow. Any non-QORE holding automatically downgrades the label back to account-level and is aggregated as `OTHER` without exposing its symbol.
+The comparison is account-level by default, not pure strategy attribution. Deposits, withdrawals, manual trades, fees, and unrelated positions can affect Alpaca account equity. A dedicated Kairos Alpaca account gives the comparison its cleanest meaning. Set `report.dedicatedQoreAccount` only when the Alpaca account is actually dedicated; the report then says “dedicated account,” not “strategy,” because it does not prove order lineage or neutralize every cash flow. Any non-Kairos holding automatically downgrades the label back to account-level and is aggregated as `OTHER` without exposing its symbol.
 
 ## Data and safety contract
 
@@ -43,7 +43,7 @@ All adapters are disabled in `config/qore-portfolio-reports.json` until explicit
 
 ### Telegram Bot API
 
-Telegram says its bot platform is free for users and developers. Create a bot with `@BotFather`, start a private conversation with it or add it to a private group, and obtain the destination chat ID. `sendPhoto` supports PNG files up to 10 MB; QORE applies a shared 9 MiB cap. See the [Telegram bot introduction](https://core.telegram.org/bots) and [`sendPhoto` reference](https://core.telegram.org/bots/api#sendphoto).
+Telegram says its bot platform is free for users and developers. Create a bot with `@BotFather`, start a private conversation with it or add it to a private group, and obtain the destination chat ID. `sendPhoto` supports PNG files up to 10 MB; Kairos applies a shared 9 MiB cap. See the [Telegram bot introduction](https://core.telegram.org/bots) and [`sendPhoto` reference](https://core.telegram.org/bots/api#sendphoto).
 
 ```dotenv
 QORE_REPORT_TELEGRAM_BOT_TOKEN=...
@@ -68,7 +68,7 @@ Resend's current free tier is 3,000 emails per month and 100 per day, which is a
 
 ```dotenv
 QORE_REPORT_RESEND_API_KEY=...
-QORE_REPORT_EMAIL_FROM=QORE <reports@your-domain.example>
+QORE_REPORT_EMAIL_FROM=Kairos <reports@your-domain.example>
 QORE_REPORT_EMAIL_TO=you@example.com
 ```
 
@@ -83,7 +83,7 @@ QORE_REPORT_SEND_ENABLED=1
 QORE_BROKER_MODE=paper
 ```
 
-Set `QORE_BROKER_MODE` explicitly to `dry-run`, `paper`, or `live` for every outbound run. QORE verifies that it matches the fresh Alpaca status snapshot and requires the one-way binding derived from the full Alpaca account ID.
+Set `QORE_BROKER_MODE` explicitly to `dry-run`, `paper`, or `live` for every outbound run. Kairos verifies that it matches the fresh Alpaca status snapshot and requires the one-way binding derived from the full Alpaca account ID.
 
 Send the current daily report once:
 
@@ -97,7 +97,7 @@ Send a weekly report explicitly:
 npm run report:weekly -- --send
 ```
 
-Successful deliveries are recorded by broker mode, a one-way internal account binding, cadence, market-period end, and destination. Before any provider request, QORE records an uncertain write-ahead attempt; a crash or ambiguous response therefore cannot trigger an automatic duplicate. Clear failures may retry and honor provider `Retry-After` windows, while uncertain outcomes are held for operator review.
+Successful deliveries are recorded by broker mode, a one-way internal account binding, cadence, market-period end, and destination. Before any provider request, Kairos records an uncertain write-ahead attempt; a crash or ambiguous response therefore cannot trigger an automatic duplicate. Clear failures may retry and honor provider `Retry-After` windows, while uncertain outcomes are held for operator review.
 
 Use `--force` only with a one-shot `--send` command after a canonical delivery attempt exists. When canonical destinations are unfinished or uncertain, the reviewed force run reuses the immutable original artifact, targets only those unresolved destinations, and reconciles successful outcomes into canonical state. A clear forced failure never erases a prior ambiguous outcome. To resolve an older retained period after newer sessions exist, select it explicitly:
 
@@ -105,7 +105,7 @@ Use `--force` only with a one-shot `--send` command after a canonical delivery a
 node scripts/qore-portfolio-report.mjs --cadence=daily --send --force --period-end=2026-07-20
 ```
 
-The selected period must still be present in the bounded Alpaca history and have at least one unresolved canonical destination; historical all-complete duplicates are rejected so current account state can never be rendered under an old period label. Without `--period-end`, when every destination for the current period is already complete, `--force` is an intentional duplicate to all enabled destinations. A first-ever force is rejected, as are forced scheduled or looped runs. If a canonical artifact is missing or either hash fails, QORE will not manufacture a replacement or resend; preserve the ledger and period directory, inspect the provider state, and manually quarantine that period before any further operator action.
+The selected period must still be present in the bounded Alpaca history and have at least one unresolved canonical destination; historical all-complete duplicates are rejected so current account state can never be rendered under an old period label. Without `--period-end`, when every destination for the current period is already complete, `--force` is an intentional duplicate to all enabled destinations. A first-ever force is rejected, as are forced scheduled or looped runs. If a canonical artifact is missing or either hash fails, Kairos will not manufacture a replacement or resend; preserve the ledger and period directory, inspect the provider state, and manually quarantine that period before any further operator action.
 
 For continuous scheduling:
 
@@ -119,4 +119,4 @@ Run the scheduler under a dedicated user service manager on the same machine tha
 
 ## Privacy
 
-Every enabled provider receives the PNG's portfolio values and holdings. Use private chats/channels and a recipient you control. QORE sends only its strict report model: no credentials, account identifiers, order IDs, raw Alpaca payloads, logs, raw risk reasons, or non-QORE symbols. Missing, stale, or invalid risk/target telemetry is labeled explicitly. Tokens, webhook URLs, chat IDs, sender addresses, and recipients belong only in `.env.local`; the checked-in config stores environment-variable names, not their values.
+Every enabled provider receives the PNG's portfolio values and holdings. Use private chats/channels and a recipient you control. Kairos sends only its strict report model: no credentials, account identifiers, order IDs, raw Alpaca payloads, logs, raw risk reasons, or non-Kairos symbols. Missing, stale, or invalid risk/target telemetry is labeled explicitly. Tokens, webhook URLs, chat IDs, sender addresses, and recipients belong only in `.env.local`; the checked-in config stores environment-variable names, not their values.

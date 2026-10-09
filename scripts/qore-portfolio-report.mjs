@@ -237,7 +237,7 @@ async function acquireReportLock(operation) {
     const existing = readJson(lockPath, 'report operation lock', {})
     throw new Error(
       `Report operation lock is held by PID ${existing?.pid ?? 'unknown'} at ${relative(lockPath)}. `
-      + 'QORE never reclaims report locks automatically; verify the owner before removing it.',
+      + 'Kairos never reclaims report locks automatically; verify the owner before removing it.',
     )
   }
   const release = async () => {
@@ -705,7 +705,7 @@ function printResult(result) {
   }
   const relation = result.relativePctPoints > 0 ? 'ahead' : result.relativePctPoints < 0 ? 'behind' : 'even'
   console.log(
-    `QORE ${result.cadence} report: equity $${result.equityUsd.toLocaleString('en-US')}; `
+    `Kairos ${result.cadence} report: equity $${result.equityUsd.toLocaleString('en-US')}; `
     + `${result.returnPct >= 0 ? '+' : ''}${result.returnPct.toFixed(2)}%; ${relation} of the index basket by ${Math.abs(result.relativePctPoints).toFixed(2)} pp.`,
   )
   console.log(`Wrote ${result.files.png}.`)
@@ -756,7 +756,7 @@ try {
     if (process.env.QORE_REPORT_SEND_ENABLED !== '1') throw new Error('Report loop requires QORE_REPORT_SEND_ENABLED=1.')
     if (!enabledDestinations(config).length) throw new Error('Report loop requires at least one enabled destination.')
     const pollIntervalMs = positiveInteger(config?.scheduler?.pollIntervalMs, 60_000)
-    console.log(`QORE portfolio report scheduler running in ${timeZone}; polling every ${pollIntervalMs}ms.`)
+    console.log(`Kairos portfolio report scheduler running in ${timeZone}; polling every ${pollIntervalMs}ms.`)
     let lastScheduleCheckAt = null
     while (!stopping) {
       const cycleCheckAt = new Date()

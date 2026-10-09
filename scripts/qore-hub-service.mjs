@@ -27,7 +27,7 @@ export function desktopCatalog(catalog = JSON.parse(fs.readFileSync(path.join(ro
 }
 
 export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = canonicalLedgerRoot, telemetryEnabled = false, telemetryFactory = desktopTelemetry } = {}) {
-  if (host !== '127.0.0.1' || !Number.isInteger(port) || port < 0 || port > 65535) throw new Error('QORE requires a valid loopback listener.')
+  if (host !== '127.0.0.1' || !Number.isInteger(port) || port < 0 || port > 65535) throw new Error('Kairos requires a valid loopback listener.')
   let expectedHost = ''
   let telemetry = null
   const json = (res, status, value) => { res.writeHead(status, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }); res.end(JSON.stringify(value)) }
