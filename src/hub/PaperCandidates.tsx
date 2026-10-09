@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PerformanceChart } from '../components/PerformanceChart'
-import { formatNumber as number } from '../utils/format'
+import { formatNumber as number, signedPercent as percent } from '../utils/format'
+import { paperControlLabel, paperOutcomeLabel } from './paperLabels'
 
 type Candidate = { id: string; name: string; family: string; historical_status: string; outcome_exposure: string; controls: string[]; source_clock_limitations: string[]; definition: { unchanged_original_rule?: { description: string }; rule?: Record<string, unknown>; execution?: Record<string, unknown>; cost_bps?: number[] }; replayStatus: string; sourceStatus: string; prospective: { first: string; last: string; review?: string; sessions?: number; decisions?: number; terminalMark?: string }; futureInputRequirements: string[] }
 type Catalog = { candidates: Candidate[]; reviewedIndexSha256: string; evidence: { id: string; sha256: string }[]; startRationale: { decision_rationale: string; why_original_oct8_not_backdated: string } }
@@ -14,10 +15,11 @@ async function read<T>(url: string, signal?: AbortSignal): Promise<T> {
   return value
 }
 
-export function PaperCandidates({ candidateId }: { candidateId: string }) {
+export function PaperCandidates({ candidateId, view }: { candidateId: string; view: 'performance' | 'details' }) {
   const [catalog, setCatalog] = useState<Catalog | null>(null)
   const selectedId = candidateId
   const [replay, setReplay] = useState<Replay | null>(null)
+  const [comparison, setComparison] = useState<Replay | null>(null)
   const [caseId, setCaseId] = useState('')
   const [position, setPosition] = useState(0)
   const [playing, setPlaying] = useState(false)
@@ -31,7 +33,16 @@ export function PaperCandidates({ candidateId }: { candidateId: string }) {
   }, [])
   useEffect(() => {
     const controller = new AbortController()
-    read<Replay>(`/api/hub/paper-candidates/${encodeURIComponent(selectedId)}/replay${caseId ? `?case=${encodeURIComponent(caseId)}` : ''}`, controller.signal).then(value => { if (!controller.signal.aborted) { setReplay(value); setPosition(0); setError('') } }).catch(e => { if (!controller.signal.aborted) setError(e.message) })
+    const selectedCase = caseId || (selectedId.startsWith('rv_') ? 'primary-5bp' : 'primary:strategy')
+    const [cost, account] = selectedCase.split(':')
+    const comparisonCase = account === 'strategy' ? `${cost}:btc_buyhold` : account === 'portfolio_strategy' ? `${cost}:portfolio_mix` : null
+    const endpoint = `/api/hub/paper-candidates/${encodeURIComponent(selectedId)}/replay`
+    Promise.all([
+      read<Replay>(`${endpoint}?case=${encodeURIComponent(selectedCase)}`, controller.signal),
+      comparisonCase ? read<Replay>(`${endpoint}?case=${encodeURIComponent(comparisonCase)}`, controller.signal) : Promise.resolve(null),
+    ]).then(([value, baseline]) => {
+      if (!controller.signal.aborted) { setReplay(value); setComparison(baseline); setPosition(0); setError('') }
+    }).catch(e => { if (!controller.signal.aborted) { setReplay(null); setComparison(null); setError(e.message) } })
     return () => controller.abort()
   }, [selectedId, caseId])
   useEffect(() => {
@@ -46,19 +57,46 @@ export function PaperCandidates({ candidateId }: { candidateId: string }) {
     return () => controller.abort()
   }, [evidenceId, selectedId])
   if (!catalog) return <div className="notice" role="status">{error || 'Checking the reviewed paper evidence…'}</div>
-  const selected = catalog.candidates.find(c => c.id === selectedId)!
+  const selected = catalog.candidates.find(c => c.id === selectedId)
+  if (!selected) return <div className="notice warning" role="alert">This paper candidate is unavailable.</div>
   const currentReplay = replay?.id === selectedId ? replay : null
   const frame = currentReplay?.frames[position]
+  const currentComparison = comparison?.id === selectedId ? comparison : null
+  const comparisonFrames = new Map(currentComparison?.frames.map(f => [f.date, f]) ?? [])
+  const base = currentReplay?.frames[0]?.wealth ?? 0
+  const comparisonBase = currentComparison?.frames[0]?.wealth ?? 0
+  const chart = currentReplay?.frames.map((f, chartIndex) => ({
+    chartIndex, date: f.date,
+    strategy: base > 0 ? (f.wealth / base - 1) * 100 : null,
+    market: comparisonBase > 0 && comparisonFrames.has(f.date) ? (comparisonFrames.get(f.date)!.wealth / comparisonBase - 1) * 100 : null,
+  })) ?? []
   return <>
     {error && <div className="notice warning" role="alert">{error}</div>}
-    <section className="data-section"><header className="section-header"><h2>{selected.name}</h2><span>Exploratory paper evaluation</span></header><p>{selected.definition.unchanged_original_rule?.description ?? 'Use the immediately preceding complete UTC month’s last BTC close divided by its first open. A ratio below one targets USDT cash; otherwise retain BTC. Execute at the third UTC day’s open under the frozen lot, cost and capacity rules.'}</p><dl className="facts"><div><dt>Original evidence</dt><dd>{selected.historical_status.replaceAll('_', ' ')}<small>{selected.outcome_exposure.replaceAll('_', ' ')}</small></dd></div><div><dt>Actual current ownership / prospective observations</dt><dd>Unavailable / 0<small>Actual owned state is null. Historical modeled balances below do not populate an account.</small></dd></div><div><dt>Costs and funding</dt><dd>{selected.id.startsWith('rv_') ? '$100,000 fractional total-NAV reference units · 5 / 10 / 20bp each side; primary 5bp playback only.' : '1,000 USDT per whole account · 10bp fee + 20 / 40bp impact; BTC lot 0.000001 and minimum 10 USDT.'}<small>Zero cash yield or borrow; disclosed mark/fill assumptions remain.</small></dd></div><div><dt>Comparison controls</dt><dd>{selected.controls.join(' · ')}</dd></div></dl><details className="hub-details"><summary>Exact compact tested definition</summary><pre>{JSON.stringify(selected.definition, null, 2)}</pre></details></section>
-    <section className="data-section"><header className="section-header"><h2>Play retained familiar output</h2><span>{selected.replayStatus}</span></header><p className="section-note">Playback reads completed audited results. It creates no trial and supplies no new validation.</p>{currentReplay && frame ? <>
-      <div className="hub-trace-controls"><label>Retained account / costs<select aria-label="Paper playback account" value={currentReplay.selectedCase} onChange={e => { setCaseId(e.target.value); setPlaying(false); setReplay(null) }}>{currentReplay.cases.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label><label>Retained date<select aria-label="Paper playback date" value={position} onChange={e => { setPlaying(false); setPosition(Number(e.target.value)) }}>{currentReplay.frames.map((f, i) => <option key={f.date} value={i}>{f.date}</option>)}</select></label></div>
-      <div className="hub-panel-action"><button className="text-button" onClick={() => { setPlaying(false); setPosition(0) }}>Restart playback</button><button className="text-button primary" disabled={position === currentReplay.frames.length - 1 && !playing} onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play saved replay'}</button><button className="text-button" disabled={position === currentReplay.frames.length - 1} onClick={() => { setPlaying(false); setPosition(Math.min(position + 1, currentReplay.frames.length - 1)) }}>Next retained observation</button></div>
-      <PerformanceChart title="Familiar modeled wealth" meta={`${frame.unit} · saved output · no actual account`} data={currentReplay.frames.slice(0, position + 1).map((f, chartIndex) => ({ chartIndex, date: f.date, wealth: f.wealth }))} empty="No retained observations." series={[{ axis: 'left', color: '#1767a6', dataKey: 'wealth', id: 'wealth', label: 'Modeled reference wealth', valueFormatter: value => number(value, 2) }]} />
-      <dl className="facts"><div><dt>Historical mark / event</dt><dd>{frame.date} · {frame.event}<small>{frame.terminal ? 'Audited endpoint liquidation; owned reference units zero.' : 'Retained reference state; no observed exchange fill.'}</small></dd></div><div><dt>Modeled wealth / spendable cash</dt><dd>{number(frame.wealth, 8)} / {number(frame.cash, 8)} {frame.unit}<small>{frame.feesCumulative ? 'Cumulative fee' : 'Session fee'} {number(frame.fees, 8)}{frame.impact !== undefined ? ` · cumulative impact ${number(frame.impact, 8)}` : ''}</small></dd></div><div><dt>Modeled owned units</dt><dd>{Object.entries(frame.units).map(([symbol, units]) => `${symbol} ${units}`).join(' · ')}</dd></div><div><dt>Decision clock</dt><dd>{frame.decisionKnownAt ?? 'Daily retained mark; exact monthly rule in compact definition'}<small>Historical declared clocks remain uncertified point-in-time observations.</small></dd></div></dl><details className="hub-details"><summary>Saved observation detail</summary><pre>{JSON.stringify(frame, null, 2)}</pre></details><p className="section-note">{currentReplay.note}</p>
-    </> : <p role="status">Checking saved replay…</p>}</section>
-    <section className="data-section"><header className="section-header"><h2>Registered future window</h2><span>Inputs absent · unstarted</span></header><dl className="facts"><div><dt>First / final decision or reference</dt><dd>{selected.prospective.first} → {selected.prospective.last}<small>{selected.prospective.sessions ? `${selected.prospective.sessions} planned sessions; implementation-only review ${selected.prospective.review}.` : `${selected.prospective.decisions} scheduled decisions; terminal inventory mark ${selected.prospective.terminalMark}.`}</small></dd></div><div><dt>Required inputs</dt><dd>{selected.sourceStatus}</dd></div></dl><ul>{selected.futureInputRequirements.map(text => <li key={text}>{text}</li>)}</ul><button className="text-button" disabled title="No qualified prospective packet has been supplied or root released">Future paper launch unavailable</button>{selected.id.startsWith('rv_') && <details className="hub-details"><summary>Why November 2?</summary><p>{catalog.startRationale.decision_rationale}</p><p>{catalog.startRationale.why_original_oct8_not_backdated}</p><p>Browsing and familiar playback work now. The registered date stays fixed; missing inputs leave it blocked.</p></details>}</section>
-    <section className="data-section"><header className="section-header"><h2>Evidence and limits</h2><span>Hash checked · read-only</span></header><ul>{selected.source_clock_limitations.map(text => <li key={text}>{text}</li>)}</ul><label>Reviewed document<select aria-label="Paper evidence document" value={evidenceId} onChange={e => { setError(''); setEvidence(null); setEvidenceId(e.target.value) }}><option value="">Choose source contract or audit</option>{catalog.evidence.map(e => <option key={e.id} value={e.id}>{e.id.replaceAll('-', ' ')}</option>)}</select></label>{evidence && <details className="hub-details" open><summary>{evidence.id} · sanitized provenance view</summary><p><code>{evidence.sha256}</code></p><pre>{JSON.stringify(evidence.document, null, 2)}</pre></details>}<p className="section-note">Reviewed index SHA-256 <code>{catalog.reviewedIndexSha256}</code>. Local provenance paths are withheld from browser responses; original source bytes remain in the reviewed private bundle. No adapter or account is executed.</p></section>
+    {view === 'performance' && <>
+      <p className="hub-caption">Historical simulation · paper candidate · {paperOutcomeLabel(selected.historical_status)}</p>
+      {currentReplay ? <>
+        <PerformanceChart title={currentComparison ? 'Strategy vs. market' : 'Historical performance'} meta="Return since first saved mark · after modeled costs" data={chart} empty="No saved observations." series={[
+          { axis: 'left', color: '#1767a6', dataKey: 'strategy', id: 'strategy', label: currentReplay.selectedCase.endsWith(':strategy') || currentReplay.selectedCase.endsWith(':portfolio_strategy') || selectedId.startsWith('rv_') ? 'Strategy' : 'Selected reference account', valueFormatter: percent },
+          ...(currentComparison ? [{ axis: 'left' as const, color: '#8795a5', dataKey: 'market' as const, id: 'market', label: currentComparison.selectedCase.endsWith(':portfolio_mix') ? 'Static portfolio mix · same costs' : 'BTC buy & hold · same costs', valueFormatter: percent }] : []),
+        ]} />
+        {!currentComparison && <p className="hub-caption">{selectedId.startsWith('rv_') ? 'Market comparison is unavailable in the reviewed export.' : 'Choose a strategy account to compare with its retained baseline.'}</p>}
+        <details className="hub-details"><summary>Replay controls &amp; saved observations</summary>
+          <div className="hub-trace-controls"><label>Reference account / costs<select aria-label="Paper playback account" value={currentReplay.selectedCase} onChange={e => { setCaseId(e.target.value); setPlaying(false); setReplay(null) }}>{currentReplay.cases.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</select></label><label>Observation<select aria-label="Paper playback date" value={position} onChange={e => { setPlaying(false); setPosition(Number(e.target.value)) }}>{currentReplay.frames.map((f, i) => <option key={f.date} value={i}>{f.date}</option>)}</select></label></div>
+          <div className="hub-panel-action"><button className="text-button" onClick={() => { setPlaying(false); setPosition(0) }}>Restart</button><button className="text-button primary" disabled={position === currentReplay.frames.length - 1 && !playing} onClick={() => setPlaying(!playing)}>{playing ? 'Pause' : 'Play'}</button><button className="text-button" disabled={position === currentReplay.frames.length - 1} onClick={() => { setPlaying(false); setPosition(Math.min(position + 1, currentReplay.frames.length - 1)) }}>Next observation</button></div>
+          {frame && <><dl className="facts"><div><dt>Saved observation</dt><dd>{frame.date} · {frame.event}<small>{frame.terminal ? 'Audited endpoint liquidation.' : 'Modeled reference state; no observed exchange fill.'}</small></dd></div><div><dt>Modeled wealth / cash</dt><dd>{number(frame.wealth, 8)} / {number(frame.cash, 8)} {frame.unit}<small>{frame.feesCumulative ? 'Cumulative fee' : 'Session fee'} {number(frame.fees, 8)}{frame.impact !== undefined ? ` · cumulative impact ${number(frame.impact, 8)}` : ''}</small></dd></div><div><dt>Modeled units</dt><dd>{Object.entries(frame.units).map(([symbol, units]) => `${symbol} ${units}`).join(' · ')}</dd></div><div><dt>Decision clock</dt><dd>{frame.decisionKnownAt ?? 'Daily mark; monthly rule in Details & evidence'}<small>Declared historical clocks are uncertified point-in-time observations.</small></dd></div></dl><details className="hub-details"><summary>Exact observation</summary><pre>{JSON.stringify(frame, null, 2)}</pre></details></>}
+          <p className="section-note">{currentReplay.note}</p>
+        </details>
+      </> : <p role="status">{error ? 'Historical chart unavailable.' : 'Loading historical chart…'}</p>}
+    </>}
+    {view === 'details' && <>
+      <section className="data-section"><header className="section-header"><h2>Rule &amp; assumptions</h2><span>Exploratory paper</span></header>
+        <p className="section-note">{selected.definition.unchanged_original_rule?.description ?? 'Hold BTC after a non-losing UTC month; move to USDT cash after a losing month. Rebalance at the third UTC day’s open.'}</p>
+        <dl className="facts"><div><dt>Original outcome</dt><dd>{paperOutcomeLabel(selected.historical_status)}<small>Previously reviewed historical sample</small></dd></div><div><dt>Prospective evaluation</dt><dd>Unstarted · 0 observations<small>No actual account ownership is recorded.</small></dd></div><div><dt>Funding &amp; costs</dt><dd>{selected.id.startsWith('rv_') ? '$100,000 fractional NAV reference · 5 / 10 / 20bp each side; displayed replay uses 5bp.' : '1,000 USDT per account · 10bp fee + 20 / 40bp impact; BTC lot 0.000001, minimum 10 USDT.'}<small>Zero cash yield or borrow; mark and fill assumptions apply.</small></dd></div><div><dt>Controls</dt><dd>{selected.controls.map(paperControlLabel).join(' · ')}</dd></div></dl>
+        <details className="hub-details"><summary>Original research status</summary><pre>{JSON.stringify({ historical_status: selected.historical_status, outcome_exposure: selected.outcome_exposure }, null, 2)}</pre></details>
+        <details className="hub-details"><summary>Exact tested definition</summary><pre>{JSON.stringify(selected.definition, null, 2)}</pre></details>
+      </section>
+      <section className="data-section"><header className="section-header"><h2>Future evaluation</h2><span>Inputs absent · unstarted</span></header><dl className="facts"><div><dt>First / final reference</dt><dd>{selected.prospective.first} → {selected.prospective.last}<small>{selected.prospective.sessions ? `${selected.prospective.sessions} planned sessions; implementation review ${selected.prospective.review}.` : `${selected.prospective.decisions} decisions; terminal mark ${selected.prospective.terminalMark}.`}</small></dd></div><div><dt>Inputs</dt><dd>{selected.sourceStatus}</dd></div></dl><details className="hub-details"><summary>Input requirements</summary><ul>{selected.futureInputRequirements.map(text => <li key={text}>{text}</li>)}</ul></details>{selected.id.startsWith('rv_') && <details className="hub-details"><summary>Why November 2?</summary><p className="section-note">{catalog.startRationale.decision_rationale}</p><p className="section-note">{catalog.startRationale.why_original_oct8_not_backdated}</p></details>}</section>
+      <section className="data-section"><header className="section-header"><h2>Evidence &amp; limits</h2><span>Hash verified</span></header><ul>{selected.source_clock_limitations.map(text => <li key={text}>{text}</li>)}</ul><div className="hub-trace-controls"><label>Reviewed document<select aria-label="Paper evidence document" value={evidenceId} onChange={e => { setError(''); setEvidence(null); setEvidenceId(e.target.value) }}><option value="">Choose contract or audit</option>{catalog.evidence.map(e => <option key={e.id} value={e.id}>{e.id.replaceAll('-', ' ')}</option>)}</select></label></div>{evidence && <details className="hub-details" open><summary>{evidence.id}</summary><p className="section-note"><code>{evidence.sha256}</code></p><pre>{JSON.stringify(evidence.document, null, 2)}</pre></details>}<details className="hub-details"><summary>Reviewed index fingerprint</summary><p className="section-note"><code>{catalog.reviewedIndexSha256}</code></p></details></section>
+    </>}
   </>
 }

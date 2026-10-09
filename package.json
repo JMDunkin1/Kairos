@@ -78,7 +78,7 @@
     "test:hub-replay": "node scripts/test-qore-hub-replay.mjs",
     "test:hub-ledger": "node scripts/test-qore-hub-ledger-events.mjs",
     "test:portfolio-engine": "node scripts/test-qore-portfolio-engine.mjs",
-    "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs",
+    "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs && node scripts/test-qore-allocation-charts.mjs",
     "test:ui-requests": "node scripts/test-qore-ui-requests.mjs",
     "portfolio:plan": "node scripts/qore-portfolio-control.mjs plan",
     "portfolio:status": "node scripts/qore-portfolio-control.mjs status",
