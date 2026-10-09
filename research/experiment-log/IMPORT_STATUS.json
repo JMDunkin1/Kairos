@@ -1,0 +1,52 @@
+{
+  "current_experiment_records": 374,
+  "record_kinds": {
+    "study": 22,
+    "design": 67,
+    "configuration": 282,
+    "history_group": 1,
+    "study_version": 1,
+    "portfolio_diagnostic": 1
+  },
+  "study_statuses": {
+    "completed_released": 4,
+    "registered_unrun_data_blocked": 1,
+    "completed_selected_forecast_failed_no_trade": 2,
+    "completed_useful_nowcast_no_executable_alpha": 1,
+    "completed_mechanics_only_empirical_tests_data_blocked": 1,
+    "released_retrospective_baseline_not_promoted": 1,
+    "released_needs_validation_version_changed": 1,
+    "released_historical_challengers_rejected": 1,
+    "released_validation_failed_protected_holdout_unopened": 1,
+    "released_baseline_won_challengers_not_selected": 1,
+    "released_diagnostics_no_historical_nomination": 1,
+    "released_no_optimized_threshold_identified": 1,
+    "released_pre2025_challenger_selected_report_only_later_failure": 1,
+    "released_reconciliation_diagnostic_older_artifact_version": 1,
+    "source_gated_unrun_parent_summary": 2,
+    "forward_only_source_and_execution_unverified": 1,
+    "development_aborted_source_schema_failure": 1,
+    "completed_released_descriptive_empty_nomination": 1,
+    "completed_exploratory_released": 1
+  },
+  "equity_tested_configs": 188,
+  "equity_configs_in_completed_released_studies": 188,
+  "equity_individually_final_evaluated_configs": 32,
+  "equity_nominated_individually_final_evaluated_configs": 19,
+  "equity_final_released_configs": 188,
+  "legacy_field_definitions": {
+    "equity_final_released_configs": "Deprecated name: configurations in completed/released studies, NOT individually final-evaluated configurations; use equity_individually_final_evaluated_configs for that count."
+  },
+  "equity_development_only_configs": 0,
+  "relative_development_tested_configs": 0,
+  "relative_partial_batch_tested_configs": 1,
+  "relative_schema_repaired_configs": 2,
+  "relative_unique_configs_with_outputs": 2,
+  "relative_individually_final_evaluated_configs": 2,
+  "portfolio_diagnostics": 1,
+  "all_equity_and_relative_configs_with_outputs": 190,
+  "equity_blocked_unrun_configs": 90,
+  "history_study_summaries": 13,
+  "existing_raw_research_mutations": 0,
+  "protected_GEFS_target_reads": 0
+}

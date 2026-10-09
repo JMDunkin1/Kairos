@@ -1,12 +1,18 @@
 # QORE Agent Contract
 
-## Mission
+## Strategy mandate
 
-Keep QORE focused on the all-year natural-gas system. A change belongs here only if it helps collect or validate natural-gas inputs, train or backtest `ngas-all-year-beta`, infer or execute its current target, enforce trading safety, or show those results in Command or Backtest.
+Build a higher-risk symphony of theory-driven, niche and creative strategies that target market-beating returns, accept greater volatility for greater reward, explore unconventional data and arbitrage opportunities, avoid concentration in repeated approaches, earn inclusion through rigorous training and chronological walk-forward testing with genuinely withheld data and overfitting controls, admit underperformers only for exceptional stability and portfolio benefit, and never reject strong results merely because they are strong when sound testing supports them.
 
-Do not reintroduce crop, generic rotation, volatility-only, broad model-zoo, GitHub-control, or multi-strategy dashboard code.
+Use a practical burden of proof appropriate to a personal, higher-risk research portfolio rather than requiring institutional-grade certainty: promising strategies may advance with transparently documented assumptions, incomplete evidence and residual uncertainty, while retaining honest testing for overfitting, look-ahead bias and realistic costs. Clearly label exploratory and paper evaluation; unresolved research uncertainty alone does not block those stages. Preserve locked historical outcomes and keep live-trading authorization separate.
 
-## Product invariants
+## Existing NGAS subsystem
+
+Preserve the existing all-year natural-gas engine and its accounting/security contracts. Extend QORE's broader strategy research and portfolio hub through isolated adapters; do not silently change deployed runtime.
+
+## NGAS product invariants
+
+These invariants apply to the existing NGAS subsystem.
 
 - `ngas-all-year-beta` is the only public strategy.
 - `ngas-summer-alpha` and `ngas-winter-alpha` are internal component ledgers, not navigation items, selectable strategies, or independently promoted products.

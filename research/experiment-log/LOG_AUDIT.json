@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "audited_utc": "2026-10-02T19:09:06.134872+00:00",
+  "scope": "Independent log integrity and summary audit only; no prior model reruns, raw/protected/unreleased inputs, or live/runtime changes. Released metric CSVs and explicitly released/versioned summary evidence only.",
+  "current_records": 340,
+  "append_only_events": 628,
+  "record_kinds": {
+    "study": 17,
+    "design": 58,
+    "configuration": 264,
+    "history_group": 1
+  },
+  "equity_evaluated_configurations": 174,
+  "equity_designs": 58,
+  "equity_unrun_configurations": 90,
+  "legacy_history_summary_records": 13,
+  "mechanical_rows": 3630,
+  "mechanical_roles": {
+    "mechanical_scenario_not_new_rule": 3072,
+    "benchmark_or_comparator_not_strategy": 558
+  },
+  "source_csv_row_counts": {
+    "research/results/limited_development.csv": 108,
+    "research/results/limited_test.csv": 52,
+    "research/results/limited_stress.csv": 72,
+    "research/results/limited_development_benchmarks.csv": 4,
+    "research/nav/results/development_all_trials.csv": 1520,
+    "research/nav/results/final_metrics.csv": 84,
+    "research/nav/results/cost_delay_stresses.csv": 216,
+    "research/nav/results/payment_date_sensitivity.csv": 30,
+    "research/leveraged/results/development_all_trials.csv": 1160,
+    "research/leveraged/results/final_metrics.csv": 126,
+    "research/leveraged/results/cost_delay_stresses.csv": 162,
+    "research/leveraged/results/payment_date_sensitivity.csv": 48,
+    "research/leveraged/results/captured_cash_omission_sensitivity.csv": 48
+  },
+  "equity_source_refs_verified": 47,
+  "history_summary_refs_verified": 53,
+  "release_manifest_niche_summary_bindings": 40,
+  "versioned_gas_summary_bindings": 13,
+  "checks": [
+    {
+      "check": "Equity catalog/count/parent/inheritance integrity",
+      "status": "PASS",
+      "detail": "54+72+48=174 evaluated configurations; 18+24+16=58 study-level designs; 90 configurations unrun. Three leveraged static controls retain their labels. All study/design/configuration and history parent links resolve."
+    },
+    {
+      "check": "Mechanical source row fidelity and completeness",
+      "status": "PASS",
+      "detail": "All 3,630 rows match their exact cited released CSV rows, indices and hashes; each of 13 source CSVs is covered exactly once, with no duplicate scenario IDs. Embedded per-configuration development/final metrics and mechanical counts match those rows."
+    },
+    {
+      "check": "Equity source citations/frozen bindings/bundle identity",
+      "status": "PASS",
+      "detail": "All 47 equity/blocked source references match SHA256 and byte counts. Study protocols equal cited originals; source_version_hashes equal freeze/release binding metadata. Three released bundle hashes match the recorded fixed versions. Raw dependency files were not opened."
+    },
+    {
+      "check": "Append-only stable-ID revisions and materialized current views",
+      "status": "PASS",
+      "detail": "Isolated temporary-log tests preserve revisions 1/2/3, original failures and idempotence, including repeated imported metadata. All actual revision sequences are contiguous; current CSV fields equal latest records."
+    },
+    {
+      "check": "Equity headline return/control claims",
+      "status": "PASS",
+      "detail": "No selected limited rule beats same-ETF buy-and-hold. NAV QQQ-cap combined return equals QQQ buy-and-hold. Three named leveraged profiles pass all 18 separate-window SPY cost/lag comparisons; only relative sleeves beats its own frozen mean-weight control. All six selected combined CAGRs are below each of TQQQ/UPRO/QLD buy-and-hold. The 2.92 pp figure is CAGR excess, not total-return excess."
+    },
+    {
+      "check": "Niche/gas release and version citation integrity",
+      "status": "PASS",
+      "detail": "All 53 allowed summary refs match hash/bytes. Forty niche summaries bind to the 611-entry explicit release manifest; 13 gas summaries match recorded Git version e16663e094e56a4a08e9817914376dadbc90a8c4. No underlying raw/forecast/target/runtime ledger was opened."
+    },
+    {
+      "check": "Niche/gas counts, partial coverage and artifact separation",
+      "status": "PASS",
+      "detail": "13 study-level imports retain linked catalogs and partial per-configuration coverage. Niche counts distinguish 19 primary designs/57 configurations, 896 registered groups, 12,234 declared variants and 11,340 synthetic cells. Gas searches overlap and are nonadditive; the July/September baseline container adds zero trials. Legacy July, September version6 through March31, and older overnight ledger through July14 are separate."
+    },
+    {
+      "check": "Exposure, status and claim ceiling",
+      "status": "PASS",
+      "detail": "Studied-window exposure and historical/prospective distinctions are explicit; protected 2017–2019 GEFS holdout remains unexamined. Physical forecast accuracy/synthetic contract arithmetic are not labeled executable profit. Unbound final niche audit and changed source copies remain unverified. RSI initialization, historical nominal share feasibility and source-reported deployment status are qualified."
+    }
+  ],
+  "fixed_findings": [
+    "Existing-ID revisions initially skipped; coordinator fixed lock/read/semantic-idempotence/revision append, independently tested.",
+    "Absent baseline history parent replaced with explicitly nonexperimental container.",
+    "Exposed-window wording, RSI seed qualifier, CAGR excess label and human-readable spacing clarified.",
+    "896 registered groups clarified separately from expanded synthetic variants/cells."
+  ],
+  "remaining_blockers": [],
+  "limits": [
+    "This audit reconciles recorded released results and citations; it does not independently recompute every old model or validate exchange fills.",
+    "Large legacy gas configuration catalogs are not fully imported; aggregate history and search counts remain overlapping.",
+    "The historical source-reported deployed policy is not a fresh runtime/account status check.",
+    "The log is a snapshot with append-only revisions; later updates require renewed validation."
+  ],
+  "audited_snapshot_hashes": {
+    "experiment_log.py": "2c550b8a9187e507b16002ea8b541fa9bea03dff64504afc20d554d1fbba6d5d",
+    "research/experiment-log/experiments.jsonl": "53354c0621e6822b312bdfb974ab342d611082a19794792f4ee5488a267b4d5e",
+    "research/experiment-log/experiments.csv": "dc1fb1f9158b78ffa192ed01774ea42ee4ff7005698226bd39014abb49dbd7b8",
+    "research/experiment-log/mechanical_scenarios.jsonl": "9ccfa1a39d618cce4a14ab05a40c9aeb115ac089c7c081e456f44283adb2e8ee",
+    "research/experiment-log/INDEX.md": "a59ba675b169a4fdad756da042cd6a2e16f9d0a2d279508da22c17902d3a1c53",
+    "research/experiment-log/SCHEMA.md": "344f162c9b246a91ecc95b2fcaa3cb6db84b7c312c2b4f776c95877e7fda1583",
+    "research/experiment-log/IMPORT_STATUS.json": "470355470732e530251633e170280ef50ba8e43e0b8f4d0a3ddfbe979d07b53b",
+    "research/experiment-log/history_niche_gas.json": "c827f4414ab2a88321c42f81a935a01ba51121a1abbf4e01bf975461d49eaaff",
+    "research/experiment-log/studies/EQ-20261002-BLOCKED-01.md": "2bdb02af472ed9a1e6abd019eefcc1cb9c6d9a25773f1b044d55df3d32787973",
+    "research/experiment-log/studies/EQ-20261002-LEV-01.md": "08b6679081f5d78eea715d4b44540fa1b3e55db491c6ca026521d34f8004a2f2",
+    "research/experiment-log/studies/EQ-20261002-LIMITED-01.md": "8cbf2995ea177d37a89bb15bfb68da3d147f80ed8eaf66d268254f44b5a4f1a3",
+    "research/experiment-log/studies/EQ-20261002-NAV-01.md": "236dd8ebb70ffe1187fe0e9c2d73f9f7342fed147760736dfeb55980aa07328a",
+    "research/experiment-log/studies/ngas-simplification-demand-and-recent-v1.md": "9fe20a473b84be0f835a008445644277814ff299f6738ab3be7f4113b716af45",
+    "research/experiment-log/studies/ngas-simplification-v1.md": "e9116a7c7d3b61b4b566b96d11034df4c50ff5075b842e7f9430c15196d3e291",
+    "research/experiment-log/studies/ngas-supply-thresholds-v1.md": "24cc2f2e54496c164fa08310e6d71de7577d227c8a9f9791130219e8e09e50ee",
+    "research/experiment-log/studies/niche-dairy-usda-components-formula-20261002-v1.md": "4da81da26e0e29db15d6ed8156a125d9c0521e3bd886b6f3cbede027f49ebd12",
+    "research/experiment-log/studies/niche-power-nyiso-zone-j-20261002-v1.md": "4977bfabf10ac32fca6110147a42e08300f88aa05df8701b51ad06eebe9ed52b",
+    "research/experiment-log/studies/niche-rights-warrants-contract-mechanics-20261002-v1.md": "81678376098a71db79f49309d2643e553d4568c21c18f98e764da2b9e7252254",
+    "research/experiment-log/studies/niche-urea-worldbank-gas-grains-20261002-v1.md": "93cdcafe1240f80f04a7cef97bbdd624dffc29825f233e8fe80b2b85324ebcbf",
+    "research/experiment-log/studies/qore-gas-baseline-july21-2026-legacy-v1.md": "ffddc75928e8d76ae73d0bb969b1657b253c46b7725e95745e6879b14b738ba2",
+    "research/experiment-log/studies/qore-gas-baseline-sep28-2026-artifact-v6.md": "9fbb5e236dc0463d425a33d15795cced9990d96022d016a58f9a7b69ddb42e8c",
+    "research/experiment-log/studies/qore-gas-july21-22-multifamily-research-audit-v1.md": "c73c963dd446a89d3cec9aa0ad98992bc103af76ff5f9ff19e1c24570f3f5469",
+    "research/experiment-log/studies/qore-gefs-v12-fixed-model-reforecast-audit-v1.md": "7af48b68cbbd75968932a9fe57fed78e3cdeec25bdc1019983dac83882aaa669",
+    "research/experiment-log/studies/qore-overnight-return-decomposition-july2026-v1.md": "1bf816dbd851760fbe3f5bdc5575e06281988c2512f1759cccb6d4a32227ba87",
+    "research/experiment-log/studies/qore-overnight-risk-policy-v1.md": "1a95f48a1a4a9911ff11d4105cced8eb1057d2524c343356068d21380fa42c36"
+  }
+}

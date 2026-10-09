@@ -1,0 +1,370 @@
+{
+  "status": "current_research_update_library_saved_chatgpt_attachment_pending_parent",
+  "archive_stage": "external14_final_and_relationship_schema_repair_descriptive_final_with_fixed_portfolio_diagnostic",
+  "prior_delivery": {
+    "status": "library_delivery_confirmed",
+    "archive_stage": "development_checkpoint_and_aborted_relationship_partial_evidence",
+    "bundle": {
+      "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+      "file_id": "file_0000000011cc81f597a7b3fbbd70591c",
+      "current_version_number": 0,
+      "local_sha256": "742bbca54cc8e7d6ebd2da2a587eb74ccd150a7c502f5e06064d45b6ccb25949",
+      "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/external_signal_development_checkpoint.zip"
+    },
+    "bundle_bytes": 29696875,
+    "bundle_payload_files": 353,
+    "native_log_report": {
+      "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+      "file_id": "file_00000000ece081f5866d32f16db95813",
+      "current_version_number": 3,
+      "local_sha256": "7925267170744ee7cab1f6c08a472d3806b336f2a3ad87adc8f6e00f1bf4cd29"
+    },
+    "external_final_gate": "exact_parent_receipt_missing_transport_closed",
+    "external_shortlist_sha256": "3f679018d63d8e230208f7d776de5734ec1c9310150c5b5945592a7ae3fd44ed",
+    "relative_study": "aborted_original_failure_and_partial_evidence_retained_no_empirical_repair",
+    "snapshot_note": "This post-upload pointer is outside the retained ZIP. Model trial counts and all frozen sources remain unchanged; prior audit snapshots cover their stated versions."
+  },
+  "publication_targets": {
+    "bundle": {
+      "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+      "current_version_number": 2
+    },
+    "native_log_report": {
+      "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+      "current_version_number": 4
+    },
+    "current_research_update": {
+      "library_file_id": "libfile_206b3600401481919e8289a9f8b848ca",
+      "current_version_number": 0
+    }
+  },
+  "external_final_gate": "exact_parent_checkpoint_confirmed_final_released_once_independently_reconstructed",
+  "external_shortlist_sha256": "3f679018d63d8e230208f7d776de5734ec1c9310150c5b5945592a7ae3fd44ed",
+  "relative_study": "original_aborted_immutable; separately_frozen_metadata_repair_same_two_rules; final_descriptive; empty_nomination_preserved",
+  "portfolio": "11fixed_profiles_exploratory_already_seen_source_ledgers; modest_variance_benefit_but_worse_combined_drawdown_recovery",
+  "counts": {
+    "events": 697,
+    "current_records": 374,
+    "mechanical_rows": 5069,
+    "unique_equity_and_relationship_configs_with_development_outputs": 190,
+    "equity_individually_final_evaluated": 32,
+    "relative_descriptively_final_evaluated": 2,
+    "equity_locked_nominees_final_evaluated": 19
+  },
+  "approved_hub_replay": {
+    "directory": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/hub_handoff",
+    "approval_sha256": "d5d76309adb225e172b339f1021b313575dfa34a11f3674205d11bc15d978dd0",
+    "historical_only": true,
+    "independent_mechanisms": 1
+  },
+  "snapshot_note": "Confirmed publication receipts remain outside the immutable final archive to avoid recursive hashes; the archive retains accurate prepublication evidence. Prior failed-save receipt and earlier Library versions are preserved. No scientific outputs or runtime configuration changed.",
+  "library_save_status": "Current Research Update.zip created as a new15,641,203-byte Library item. Full bundleversion2 and readablelogversion4 preserved. Only three documented unchanged nested legacy bundles omitted; no new scientific payloads omitted. Both full-bundle ChatGPT attachment attempts explicitly rejected; current-update attachment remains parent-owned.",
+  "reviewed_final_local_bundle": {
+    "archive": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/external_signal_development_checkpoint.zip",
+    "bytes": 33769870,
+    "sha256": "01417a334323b542c87a6bca4b5ce96d9b83a7c045cc2e5a086154a61f48056c",
+    "payload_files": 508,
+    "stage": "external_final_reviewed_relative_version_status_separate",
+    "prior_zip_sha256": "742bbca54cc8e7d6ebd2da2a587eb74ccd150a7c502f5e06064d45b6ccb25949",
+    "manifest_verified": true,
+    "created_utc": "2026-10-02T22:23:15.550733+00:00",
+    "library_replace_id": "libfile_29542b6b60f08191b72849449fa70689",
+    "expected_current_version": 0,
+    "library_receipts_outside_archive_avoid_self_reference": true
+  },
+  "current_local_log": {
+    "sha256": "9c52cb83e3bb694ae7a0d453ec8f4af1897133e1e435cea92c1090ef40d50a7e",
+    "index_sha256": "1a1b1f0430f0a3f63d02cc3eea8e293670363ca8d2635589e903a9ae70dffdda",
+    "events": 697,
+    "current_records": 374,
+    "mechanical_rows": 5069
+  },
+  "last_confirmed_library": {
+    "report": {
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/INDEX.md",
+      "file_id": "file_00000000986c81f5b5c0981ed449955a",
+      "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+      "file_name": "INDEX.md",
+      "current_version_number": 4,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "4"
+        }
+      ],
+      "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+      "mime_type": "text/markdown",
+      "library_artifact_type": "report",
+      "file_size_bytes": 17509,
+      "external_connectors_accessed": false,
+      "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+      "local_sha256": "1a1b1f0430f0a3f63d02cc3eea8e293670363ca8d2635589e903a9ae70dffdda",
+      "local_metadata_applied": true,
+      "local_identity_verified": true,
+      "helper_result": {
+        "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+        "purpose": "replace_library_file",
+        "status": "succeeded",
+        "file_id": "file_00000000986c81f5b5c0981ed449955a",
+        "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+        "file_name": "INDEX.md",
+        "local_metadata_applied": true,
+        "path": "/INDEX.md",
+        "current_version_number": 4
+      }
+    },
+    "bundle": {
+      "operation": "replace_library_file",
+      "status": "succeeded",
+      "path": "/external_signal_development_checkpoint.zip",
+      "file_id": "file_0000000007c881f59370debd1a72f1e7",
+      "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+      "file_name": "external_signal_development_checkpoint.zip",
+      "current_version_number": 2,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "2"
+        }
+      ],
+      "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+      "mime_type": "application/zip",
+      "library_artifact_type": "other",
+      "file_size_bytes": 32378066,
+      "external_connectors_accessed": false,
+      "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/chat_delivery/external_signal_development_checkpoint.zip",
+      "local_sha256": "da09f5276b43a741b47a37d44761d071a71b3a48a65bb9d24e92b37442a74ea9",
+      "local_metadata_applied": true,
+      "local_identity_verified": true,
+      "helper_result": {
+        "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/chat_delivery/external_signal_development_checkpoint.zip",
+        "purpose": "replace_library_file",
+        "status": "succeeded",
+        "file_id": "file_0000000007c881f59370debd1a72f1e7",
+        "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+        "file_name": "external_signal_development_checkpoint.zip",
+        "local_metadata_applied": true,
+        "path": "/external_signal_development_checkpoint.zip",
+        "current_version_number": 2
+      }
+    },
+    "current_research_update": {
+      "operation": "create_library_file",
+      "status": "succeeded",
+      "path": "/Current Research Update.zip",
+      "file_id": "file_0000000004f081f5b1cd4208d5db3795",
+      "library_file_id": "libfile_206b3600401481919e8289a9f8b848ca",
+      "file_name": "Current Research Update.zip",
+      "current_version_number": 0,
+      "restored_from_version_number": null,
+      "xattrs": [
+        {
+          "name": "user.library-file-version",
+          "value": "0"
+        }
+      ],
+      "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+      "mime_type": "application/zip",
+      "library_artifact_type": "other",
+      "file_size_bytes": 15641203,
+      "external_connectors_accessed": false,
+      "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/Current Research Update.zip",
+      "local_sha256": "88a1f2a9d309fbad492320b816047a9d4d37a4f1193ad008754e5d4159251718",
+      "helper_result": {
+        "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/Current Research Update.zip",
+        "purpose": "create_library_file",
+        "status": "succeeded",
+        "file_id": "file_0000000004f081f5b1cd4208d5db3795",
+        "library_file_id": "libfile_206b3600401481919e8289a9f8b848ca",
+        "file_name": "Current Research Update.zip",
+        "local_metadata_applied": true,
+        "path": "/Current Research Update.zip",
+        "current_version_number": 0
+      },
+      "local_identity_verified": true,
+      "local_metadata_applied": true
+    }
+  },
+  "native_log_report": {
+    "operation": "replace_library_file",
+    "status": "succeeded",
+    "path": "/INDEX.md",
+    "file_id": "file_00000000986c81f5b5c0981ed449955a",
+    "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+    "file_name": "INDEX.md",
+    "current_version_number": 4,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "4"
+      }
+    ],
+    "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+    "mime_type": "text/markdown",
+    "library_artifact_type": "report",
+    "file_size_bytes": 17509,
+    "external_connectors_accessed": false,
+    "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+    "local_sha256": "1a1b1f0430f0a3f63d02cc3eea8e293670363ca8d2635589e903a9ae70dffdda",
+    "local_metadata_applied": true,
+    "local_identity_verified": true,
+    "helper_result": {
+      "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+      "purpose": "replace_library_file",
+      "status": "succeeded",
+      "file_id": "file_00000000986c81f5b5c0981ed449955a",
+      "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+      "file_name": "INDEX.md",
+      "local_metadata_applied": true,
+      "path": "/INDEX.md",
+      "current_version_number": 4
+    }
+  },
+  "bundle": {
+    "operation": "replace_library_file",
+    "status": "succeeded",
+    "path": "/external_signal_development_checkpoint.zip",
+    "file_id": "file_0000000007c881f59370debd1a72f1e7",
+    "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+    "file_name": "external_signal_development_checkpoint.zip",
+    "current_version_number": 2,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "2"
+      }
+    ],
+    "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+    "mime_type": "application/zip",
+    "library_artifact_type": "other",
+    "file_size_bytes": 32378066,
+    "external_connectors_accessed": false,
+    "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/chat_delivery/external_signal_development_checkpoint.zip",
+    "local_sha256": "da09f5276b43a741b47a37d44761d071a71b3a48a65bb9d24e92b37442a74ea9",
+    "local_metadata_applied": true,
+    "local_identity_verified": true,
+    "helper_result": {
+      "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/chat_delivery/external_signal_development_checkpoint.zip",
+      "purpose": "replace_library_file",
+      "status": "succeeded",
+      "file_id": "file_0000000007c881f59370debd1a72f1e7",
+      "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+      "file_name": "external_signal_development_checkpoint.zip",
+      "local_metadata_applied": true,
+      "path": "/external_signal_development_checkpoint.zip",
+      "current_version_number": 2
+    }
+  },
+  "delivery_bundle": {
+    "archive": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/chat_delivery/external_signal_development_checkpoint.zip",
+    "repack_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/external_signal_final_delivery.zip",
+    "bytes": 32378066,
+    "MiB": 30.878129959106445,
+    "sha256": "da09f5276b43a741b47a37d44761d071a71b3a48a65bb9d24e92b37442a74ea9",
+    "canonical_archive_sha256": "01417a334323b542c87a6bca4b5ce96d9b83a7c045cc2e5a086154a61f48056c",
+    "payload_files": 508,
+    "manifest_files": 1,
+    "all_509_extracted_sha256_identical": true,
+    "under_31_MiB": true,
+    "library_file_id": "libfile_29542b6b60f08191b72849449fa70689",
+    "file_id": "file_0000000007c881f59370debd1a72f1e7",
+    "current_version_number": 2,
+    "chatgpt_attachment_status": "REJECTED_EXPLICITLY: A Library file exceeds the ChatGPT upload limit. Preserved full Library version2; current smaller update is the new delivery target."
+  },
+  "current_research_update": {
+    "operation": "create_library_file",
+    "status": "succeeded",
+    "path": "/Current Research Update.zip",
+    "file_id": "file_0000000004f081f5b1cd4208d5db3795",
+    "library_file_id": "libfile_206b3600401481919e8289a9f8b848ca",
+    "file_name": "Current Research Update.zip",
+    "current_version_number": 0,
+    "restored_from_version_number": null,
+    "xattrs": [
+      {
+        "name": "user.library-file-version",
+        "value": "0"
+      }
+    ],
+    "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+    "mime_type": "application/zip",
+    "library_artifact_type": "other",
+    "file_size_bytes": 15641203,
+    "external_connectors_accessed": false,
+    "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/Current Research Update.zip",
+    "local_sha256": "88a1f2a9d309fbad492320b816047a9d4d37a4f1193ad008754e5d4159251718",
+    "helper_result": {
+      "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/Current Research Update.zip",
+      "purpose": "create_library_file",
+      "status": "succeeded",
+      "file_id": "file_0000000004f081f5b1cd4208d5db3795",
+      "library_file_id": "libfile_206b3600401481919e8289a9f8b848ca",
+      "file_name": "Current Research Update.zip",
+      "local_metadata_applied": true,
+      "path": "/Current Research Update.zip",
+      "current_version_number": 0
+    },
+    "local_identity_verified": true,
+    "local_metadata_applied": true
+  },
+  "current_research_update_package": {
+    "status": "PASS_EXPLICIT_UPDATE_INCLUDED_HASHES_MATCH_AUDITED_FULL_ARCHIVE",
+    "archive": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/Current Research Update.zip",
+    "bytes": 15641203,
+    "sha256": "88a1f2a9d309fbad492320b816047a9d4d37a4f1193ad008754e5d4159251718",
+    "included_original_payload_files": 505,
+    "included_original_manifest_files": 1,
+    "excluded_legacy_nested_bundles": 3,
+    "added_delivery_documents_including_manifest": 3,
+    "total_entries": 509,
+    "new_scientific_payloads_excluded": 0,
+    "all_506_included_original_entries_equal_audited_full": true,
+    "original_full_archive_and_Library_v2_preserved": true,
+    "manifest_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/external/deliverables/CURRENT_UPDATE_MANIFEST.json",
+    "excluded_legacy_bundles": [
+      {
+        "audited_archive_entry": "research/deliverables/composer_strategy_research_final.zip",
+        "sha256": "04346b6e7dee5fd099882daf8d7f1c676485e1005073d8b646382854dce80949",
+        "bytes": 2531687,
+        "previous_library_file_id": "libfile_e29bb868a17c8191a405295cc1ecfcbc",
+        "previous_file_id": "file_00000000dec081f6a5ca5a2e158c456f",
+        "previous_library_filename": "composer_strategy_research_final.zip",
+        "previous_current_version_number": 0,
+        "source_receipt": "research/library_final_receipt.json",
+        "source_receipt_sha256": "551ad4e8a6ec41bbf1bf004cf7e240d0561c763eb1a80d49d74e6122dd2966d9",
+        "reason": "Unchanged nested legacy bundle previously saved separately to Library; individual legacy files elsewhere in the full archive remain included."
+      },
+      {
+        "audited_archive_entry": "research/nav/deliverables/composer_nav_strategy_research.zip",
+        "sha256": "fde3799a317c2ca68e6d18464f42e7bdba649051f76a1c1e932d50adbdaed6f7",
+        "bytes": 6419497,
+        "previous_library_file_id": "libfile_04f2bfa012488191ad72ce50c5c26546",
+        "previous_file_id": "file_00000000bee481f5836fc5d2b976f7e7",
+        "previous_library_filename": "composer_nav_strategy_research.zip",
+        "previous_current_version_number": 0,
+        "source_receipt": "research/nav/library_nav_bundle_receipt.json",
+        "source_receipt_sha256": "9c6c0fe13ab9e6e1acfd9a0af318f341336540da859de0b6f07b5fe6c21db6f9",
+        "reason": "Unchanged nested legacy bundle previously saved separately to Library; individual legacy files elsewhere in the full archive remain included."
+      },
+      {
+        "audited_archive_entry": "research/leveraged/deliverables/composer_leveraged_strategy_research_v2.zip",
+        "sha256": "cbe8cab68b688bf9a30d0f147c8eee4152a000f135eb9de8ad40ce1a48980f40",
+        "bytes": 7880812,
+        "previous_library_file_id": "libfile_d4d4994684508191b4f2cf813720320a",
+        "previous_file_id": "file_00000000cca0820dada2870d50810af3",
+        "previous_library_filename": "composer_leveraged_strategy_research_v2.zip",
+        "previous_current_version_number": 0,
+        "source_receipt": "research/leveraged/library_lev_bundle_receipt.json",
+        "source_receipt_sha256": "53e376012577e5d6df9897901fc3009e5f526748c8e87d653a9d4ba688c8d38b",
+        "reason": "Unchanged nested legacy bundle previously saved separately to Library; individual legacy files elsewhere in the full archive remain included."
+      }
+    ],
+    "no_research_runs": true
+  }
+}

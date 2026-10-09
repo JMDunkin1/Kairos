@@ -1,0 +1,36 @@
+{
+  "operation": "replace_library_file",
+  "status": "succeeded",
+  "path": "/INDEX.md",
+  "file_id": "file_00000000986c81f5b5c0981ed449955a",
+  "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+  "file_name": "INDEX.md",
+  "current_version_number": 4,
+  "restored_from_version_number": null,
+  "xattrs": [
+    {
+      "name": "user.library-file-version",
+      "value": "4"
+    }
+  ],
+  "directory_id": "libdir_64e97d99703c8191bbdc00242e61df6b",
+  "mime_type": "text/markdown",
+  "library_artifact_type": "report",
+  "file_size_bytes": 17509,
+  "external_connectors_accessed": false,
+  "original_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+  "local_sha256": "1a1b1f0430f0a3f63d02cc3eea8e293670363ca8d2635589e903a9ae70dffdda",
+  "local_metadata_applied": true,
+  "local_identity_verified": true,
+  "helper_result": {
+    "local_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/experiment-log/INDEX.md",
+    "purpose": "replace_library_file",
+    "status": "succeeded",
+    "file_id": "file_00000000986c81f5b5c0981ed449955a",
+    "library_file_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+    "file_name": "INDEX.md",
+    "local_metadata_applied": true,
+    "path": "/INDEX.md",
+    "current_version_number": 4
+  }
+}

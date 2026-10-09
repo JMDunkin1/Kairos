@@ -1,0 +1,123 @@
+{
+  "status": "PASS",
+  "audited_utc": "2026-10-02T20:17:26.662232+00:00",
+  "scope": "Read-only checkpoint reconciliation; no model rerun, new outcome, protected QORE/GEFS body read, Library mutation, or runtime change. Only these new owned audit files are written.",
+  "append_events": 660,
+  "current_records": 370,
+  "record_kinds": {
+    "study": 22,
+    "design": 67,
+    "configuration": 280,
+    "history_group": 1
+  },
+  "configuration_statuses": {
+    "selected_final_evaluated": 18,
+    "development_evaluated_not_selected": 156,
+    "unrun_data_blocked": 90,
+    "development_evaluated_not_nominated_final_sealed": 13,
+    "development_nominated_final_sealed": 1,
+    "unrun_code_preparation": 2
+  },
+  "equity_development_only_configs": 14,
+  "equity_tested_configs": 188,
+  "broad_unrun_configs": 90,
+  "relationship_unrun_configs": 2,
+  "zero_test_source_or_forward_proposals": 3,
+  "mechanical_rows": 3810,
+  "source_csv_row_counts": {
+    "research/results/limited_development.csv": 108,
+    "research/results/limited_test.csv": 52,
+    "research/results/limited_stress.csv": 72,
+    "research/results/limited_development_benchmarks.csv": 4,
+    "research/nav/results/development_all_trials.csv": 1520,
+    "research/nav/results/final_metrics.csv": 84,
+    "research/nav/results/cost_delay_stresses.csv": 216,
+    "research/nav/results/payment_date_sensitivity.csv": 30,
+    "research/leveraged/results/development_all_trials.csv": 1160,
+    "research/leveraged/results/final_metrics.csv": 126,
+    "research/leveraged/results/cost_delay_stresses.csv": 162,
+    "research/leveraged/results/payment_date_sensitivity.csv": 48,
+    "research/leveraged/results/captured_cash_omission_sensitivity.csv": 48,
+    "research/external/results/development_all_trials.csv": 56,
+    "research/external/results/expanding_training_2020.csv": 28,
+    "research/external/results/expanding_training_2021.csv": 28,
+    "research/external/results/expanding_training_2022.csv": 28,
+    "research/external/results/expanding_training_2023.csv": 28,
+    "research/external/results/expanding_selector.csv": 12
+  },
+  "new_source_refs_verified": 19,
+  "library_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+  "library_version": 2,
+  "qore_dirty_file_scope": "6 unchanged from retained publisher metadata; protected bodies not independently reopened",
+  "checks": [
+    {
+      "check": "Original history and failed studies retained",
+      "status": "PASS",
+      "detail": "First 628 event lines and first 3,630 mechanical lines exactly match the initial audit hashes. Every old stable ID remains. Original LOG_AUDIT files were not edited; legacy released evidence is inherited from that audit rather than protected source bodies reopened."
+    },
+    {
+      "check": "Current views, revisions and parents",
+      "status": "PASS",
+      "detail": "All actual revision numbers are contiguous from 1; current CSV equals latest event fields; study/design/configuration/inheritance parents resolve; no duplicate stable IDs in current views or scenario IDs."
+    },
+    {
+      "check": "Count and phase separation",
+      "status": "PASS",
+      "detail": "370 current records =22 studies+67 designs+280 configurations+1 zero-trial history group. Equity tests are 174 configurations in completed/released studies plus 14 development-only=188. Only 18 selected configurations from the earlier studies have individual final outputs. The 90 broad unrun configurations, 2 relationship configurations under preparation and 3 zero-test source/forward proposals are separate. Mechanisms, asset implementations, thresholds, mirrors and artifacts are not additional independent hypotheses."
+    },
+    {
+      "check": "Exact mechanical metric fidelity",
+      "status": "PASS",
+      "detail": "All 3,810 rows match their cited CSV hashes, zero-based indices, fields and scalar values; 19 CSVs each covered exactly once. The new external 180 rows are 56 development/validation +112 prior-training +12 annual selector/control rows. Annual selectors/comparators remain non-strategy scenarios."
+    },
+    {
+      "check": "New source and freeze citations",
+      "status": "PASS",
+      "detail": "19 new external/relationship source references match hashes and byte counts. External 201 frozen bindings and exact shortlist metadata match; current independent development evidence is bound to phase 30770def5b288474431c547d908d30b6749c18c401218c5b6ea414a84997bd10. A later final audit phase will require a new log revision, not silently replace this snapshot."
+    },
+    {
+      "check": "Library and standalone mirror identity",
+      "status": "PASS",
+      "detail": "Retained Library replacement receipt uses stable ID libfile_bbd6ee9f8624819199a753f2a9ce6a57 version 2; hash/size match INDEX.md. Fresh check after canonical schema publish verifies all 32 base QORE standalone mirror files against current local bytes. Receipt records 34 files including this audit pair; the pair is excluded from its own mirror proof and will be republished after handoff. Six unrelated dirty files are covered by retained publisher snapshot/receipt only; protected bodies were not reopened."
+    },
+    {
+      "check": "Historical exposure and claim limits",
+      "status": "PASS",
+      "detail": "New external outcomes remain development-only; final release absent and receipt pending. Familiar historical regimes/current source vintages are explicit, with no prospective/alpha or execution assertion. September 28 gas artifact is qualified as ending March 31, 2026; July/September versions and nonadditive legacy history remain distinct."
+    },
+    {
+      "check": "Latest schema clarification",
+      "status": "PASS",
+      "detail": "SCHEMA.md correctly distinguishes earlier selected-only final scope from fixed all-rule descriptive external/relationship final scope; nominees remain locked. Development scenarios, phase counts and immutable earlier audit checkpoint are explicit. No new outcomes or log revisions introduced."
+    }
+  ],
+  "remaining_findings": [],
+  "limits": [
+    "Legacy history aggregate catalogs remain partial and overlapping; old hashes and failures were preserved, not old models rerun.",
+    "Library identity is verified against local retained receipt, not a new remote API read.",
+    "This point-in-time log audit is not automatically valid after later source/audit/result revisions."
+  ],
+  "snapshot_hashes": {
+    "research/experiment-log/experiments.jsonl": "6b43d48e9b5061f6661dd65ddf0e13de1b0208a6e03680e08501660144e476df",
+    "research/experiment-log/experiments.csv": "cf587452bb674b0256fa39971708486683bc5f35d0bca3ebcd384c986f414c54",
+    "research/experiment-log/mechanical_scenarios.jsonl": "d81a63cd5c5d7e9da545d5eaca56e0a1be75ac51ac341bef2d322697d63b8e8d",
+    "research/experiment-log/INDEX.md": "8c994e3feeb8930dce96c46bae78e47c76c445fd8b8ab7dcc8aeeea65c807c82",
+    "research/experiment-log/SCHEMA.md": "19e4c9916627d4f1e2ecf0f44b13a9b8940ee6007d597cbc12b2d9c3fa4d074d",
+    "research/experiment-log/IMPORT_STATUS.json": "f0b8a99e29f56b1d9a368aebed61ecb84b5b93212b48086bcf9ea741069fedfd",
+    "research/experiment-log/Libraryidentity.json": "4bd4ad616b88666924c80ea4cff29190e99cb0d128401b9b2e975b1cf932d7a5",
+    "research/experiment-log/QORE_PUBLISH_RECEIPT.json": "af53bfd93ed7846043d6aec25fef46641c2a35c5c7223225a435264592962a15",
+    "research/experiment-log/QORE_PREWRITE_SNAPSHOT.json": "2518850a7d7c2c442eb3fa6b2658210718cfdadc3e4dd9c0ee8f8b8db30827aa",
+    "research/experiment-log/history_niche_gas.json": "c827f4414ab2a88321c42f81a935a01ba51121a1abbf4e01bf975461d49eaaff",
+    "research/experiment-log/LOG_AUDIT.json": "b0c4355d57a43c0c3e1b83d4d121b39a30368b86bd023a7edec9d20bd2956889",
+    "research/experiment-log/LOG_AUDIT.md": "8169a8ace5f1b8c54e23c151a622df747bac0da25d8e8b45e7cb048dcd9bef83"
+  },
+  "qore_mirror_base_files_currently_byte_verified": 32,
+  "qore_publish_receipt_files": 34,
+  "own_audit_files_excluded_from_mirror_claim": [
+    "LOG_UPDATE_AUDIT.json",
+    "LOG_UPDATE_AUDIT.md"
+  ],
+  "equity_configurations_in_completed_released_studies": 174,
+  "equity_individually_final_evaluated_configurations": 18,
+  "source_phase_count_semantics": "IMPORT_STATUS equity_final_released_configs=174 counts configurations belonging to completed/released studies; it does not mean every rule received final evaluation. The earlier studies finalized only 18 selected configurations. All 174 have retained development outcomes."
+}

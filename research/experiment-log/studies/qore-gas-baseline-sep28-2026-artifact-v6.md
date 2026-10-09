@@ -1,0 +1,41 @@
+# September gas composite artifact version6
+
+Stable ID: `qore-gas-baseline-sep28-2026-artifact-v6`. Status: **released_needs_validation_version_changed**.
+
+September artifact: 173.85% full net return, 21.22% CAGR, 1.04 Sharpe, −28.34% drawdown. Its historical series ends March 31, 2026; September is the artifact date. Pre-2025 p=0.26904; zero eligible candidates. This is version-specific research, not live performance.
+
+## What was tested
+
+{
+  "fixed_composite_designs": 1,
+  "independent_new_experiments_for_version_copy": 0,
+  "current_candidate_count": 1,
+  "current_eligible_candidates": 0
+}
+
+Rules, exact windows, selection, costs, availability and source caveats are preserved in this machine record and its original frozen protocol.
+
+## Evidence
+
+- [run-summary.json](/Users/jamesdunkin/Documents/Local Automations/QORE/data/qore/research/strategy-agent-runs/ngas-all-year-beta/run-summary.json), SHA256 `bb730f1302ee56e8a3ab738b2eea423eba1d0cc484b7f3800a39606f6fc2577b`.
+- [qore-research-execution.json](/Users/jamesdunkin/Documents/Local Automations/QORE/config/qore-research-execution.json), SHA256 `c18dea27526796dd6ad06ecffaa5cb1a32ac34fc587bc0cf79e0a007626e106d`.
+
+**plain rules**: ["Use a material Summer row, otherwise a material Winter row, otherwise the shared index fallback. The composite adds no independent optimization.", "Preserve September artifact version 6 separately from the earlier July ledger and paper or live accounts."]
+
+**splits**: {"trainEnd": "2023-12-31", "selectionEnd": "2024-12-31", "validationEnd": "2025-10-31", "holdoutStart": "2025-11-01", "summerTrainEnd": "2023-12-31", "summerValidationEnd": "2024-12-31", "summerHoldoutStart": "2025-01-01", "winterTrainEnd": "2024-03-31", "winterValidationEnd": "2025-10-31", "winterHoldoutStart": "2025-11-01"}
+
+**costs timing contract**: {"schemaVersion": 1, "contractId": "qore-causal-etf-execution-v2", "selectionScenarioId": "baseline", "priceConvention": "Yahoo daily split-and-distribution-adjusted open and close", "signalTiming": "prior close holdings earn close-to-open returns; the current target becomes effective at the current adjusted open", "initialState": "already invested in the configured VOO/QQQM fallback at the prior close", "deploymentFraction": 0.98, "rebalanceDeadbandPct": 0.25, "rebalanceDeadbandPolicyId": "risk-reductions-and-ung-transitions-bypass-v1", "indexWeights": {"VOO": 0.8, "QQQM": 0.2}, "turnoverConvention": "absolute signed pre-trade weight to target weight, summed across UNG, VOO, and QQQM", "benchmarkConvention": "gross 80/20 VOO/QQQM daily target-weight close-to-close return", "selectionRule": "cost and execution parameters are frozen before candidate evaluation and must never be optimized for return", "costCalibration": "aggregate all-in research allowances; replace only with a separately versioned calibration built from stored historical quotes and fills", "scenarios": {"baseline": {"selectionEligible": true, "oneWayBps": {"UNG": 3.2, "VOO": 1, "QQQM": 1}, "annualBorrowRatePct": 0, "borrowBasis": "default live routing opens UNG shorts only when Alpaca reports easy-to-borrow status"}, "elevated": {"selectionEligible": false, "oneWayBps": {"UNG": 5, "VOO": 2, "QQQM": 2}, "annualBorrowRatePct": 0}, "stress": {"selectionEligible": false, "oneWayBps": {"UNG": 10, "VOO": 5, "QQQM": 5}, "annualBorrowRatePct": 10}}}
+
+**exact reported metrics**: {"allMetrics": {"totalReturnPct": 173.85, "cagrPct": 21.22, "annualVolPct": 20.5, "sharpe": 1.04, "sortino": 1.55, "maxDrawdownPct": -28.34, "calmar": 0.75, "winRatePct": 54.3, "profitFactor": 1.2, "tradeCount": 287, "exposurePct": 8.5, "turnover": 177.03, "gasTurnover": 92.24, "indexTurnover": 84.79, "var95Pct": -1.86, "cvar95Pct": -2.87, "averageDailyPnlPct": 0.085, "firstEntry": "2021-01-04", "lastExit": "2026-03-31", "averageHoldDays": 1, "tStat": 2.39}, "trainMetrics": {"totalReturnPct": 60.32, "cagrPct": 17.15, "annualVolPct": 20.75, "sharpe": 0.87, "sortino": 1.26, "maxDrawdownPct": -28.34, "calmar": 0.61, "winRatePct": 53, "profitFactor": 1.16, "tradeCount": 151, "exposurePct": 7.9, "turnover": 90.27, "gasTurnover": 46.49, "indexTurnover": 43.78, "var95Pct": -2.08, "cvar95Pct": -2.96, "averageDailyPnlPct": 0.071, "firstEntry": "2021-01-04", "lastExit": "2023-12-29", "averageHoldDays": 1, "tStat": 1.5}, "validationMetrics": {"totalReturnPct": 70.57, "cagrPct": 33.91, "annualVolPct": 20.33, "sharpe": 1.54, "sortino": 2.38, "maxDrawdownPct": -16.68, "calmar": 2.03, "winRatePct": 57.3, "profitFactor": 1.33, "tradeCount": 95, "exposurePct": 8.1, "turnover": 58.12, "gasTurnover": 30.71, "indexTurnover": 27.42, "var95Pct": -1.8, "cvar95Pct": -2.79, "averageDailyPnlPct": 0.124, "firstEntry": "2024-01-02", "lastExit": "2025-10-31", "averageHoldDays": 1, "tStat": 2.08}, "holdoutMetrics": {"totalReturnPct": 0.14, "cagrPct": 0.35, "annualVolPct": 19.44, "sharpe": 0.11, "sortino": 0.17, "maxDrawdownPct": -9.38, "calmar": 0.04, "winRatePct": 50, "profitFactor": 1.02, "tradeCount": 41, "exposurePct": 14.9, "turnover": 28.64, "gasTurnover": 15.05, "indexTurnover": 13.6, "var95Pct": -1.71, "cvar95Pct": -2.19, "averageDailyPnlPct": 0.009, "firstEntry": "2025-11-03", "lastExit": "2026-03-31", "averageHoldDays": 1, "tStat": 0.07}, "indexMetrics": {"all": {"totalReturnPct": 88.55, "cagrPct": 12.88, "annualVolPct": 17.7, "sharpe": 0.77, "sortino": 1.12, "maxDrawdownPct": -26.52, "calmar": 0.49, "winRatePct": 54.7, "profitFactor": 1.15, "tradeCount": 0, "exposurePct": 0, "turnover": 0, "gasTurnover": 0, "indexTurnover": 0, "var95Pct": -1.75, "cvar95Pct": -2.55, "averageDailyPnlPct": 0.054, "firstEntry": "2021-01-04", "lastExit": "2026-03-31", "averageHoldDays": 1, "tStat": 1.77}, "train": {"totalReturnPct": 33.44, "cagrPct": 10.16, "annualVolPct": 18.55, "sharpe": 0.61, "sortino": 0.88, "maxDrawdownPct": -26.52, "calmar": 0.38, "winRatePct": 52.6, "profitFactor": 1.11, "tradeCount": 0, "exposurePct": 0, "turnover": 0, "gasTurnover": 0, "indexTurnover": 0, "var95Pct": -1.84, "cvar95Pct": -2.66, "averageDailyPnlPct": 0.045, "firstEntry": "2021-01-04", "lastExit": "2023-12-29", "averageHoldDays": 1, "tStat": 1.06}, "validation": {"totalReturnPct": 48.58, "cagrPct": 24.17, "annualVolPct": 16.99, "sharpe": 1.36, "sortino": 2.01, "maxDrawdownPct": -19.5, "calmar": 1.24, "winRatePct": 58.6, "profitFactor": 1.3, "tradeCount": 0, "exposurePct": 0, "turnover": 0, "gasTurnover": 0, "indexTurnover": 0, "var95Pct": -1.64, "cvar95Pct": -2.48, "averageDailyPnlPct": 0.092, "firstEntry": "2024-01-02", "lastExit": "2025-10-31", "averageHoldDays": 1, "tStat": 1.84}, "holdout": {"totalReturnPct": -4.91, "cagrPct": -11.67, "annualVolPct": 14.15, "sharpe": -0.81, "sortino": -1.09, "maxDrawdownPct": -9.46, "calmar": -1.23, "winRatePct": 52.9, "profitFactor": 0.88, "tradeCount": 0, "exposurePct": 0, "turnover": 0, "gasTurnover": 0, "indexTurnover": 0, "var95Pct": -1.64, "cvar95Pct": -1.79, "averageDailyPnlPct": -0.045, "firstEntry": "2025-11-03", "lastExit": "2026-03-31", "averageHoldDays": 1, "tStat": -0.51}}, "splitEdges": {"train": 26.88, "validation": 21.99, "holdout": 5.05, "all": 85.3}, "componentTradeCounts": {"summer": 87, "winter": 200}, "indexFallbackRows": 1029, "materialRows": 287}
+
+**exposure attribution**: The artifact includes 287 material gas rows and 1,029 fallback rows. Its 173.85% return versus index 88.55% is historical blended portfolio performance, not prospective gas alpha.
+
+**failure scope**: historical_baseline_needs_validation
+
+**valid retry change**: A changed source or rule contract requires newly sealed future evidence; material artifact changes cannot inherit the old curve as validation.
+
+**untested future**: ["End-to-endcorrectedSummerprospectivemeasurement"]
+
+**historical exposure**: Historical 2021–2026 years were already observed during development. Exclusion from a later fit is not investigator-wide blindness. This log opened no raw forecasts, protected 2017–2019 targets, normalized holdouts, credentials or runtime records.
+
+**audit status**: Source paths and hashes verified as listed. Released documents/summaries were read; underlying raw inputs, prediction ledgers and protected targets were not reopened. Any unverified later audit or source-version binding is flagged separately.

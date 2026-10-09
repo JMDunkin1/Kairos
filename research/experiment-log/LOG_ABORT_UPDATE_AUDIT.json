@@ -1,0 +1,163 @@
+{
+  "status": "PASS",
+  "scope": "Fresh read-only abort-log reconciliation; no model reruns, empirical repair, source NAV price interpretation, protected QORE/GEFS body reads, or edits to earlier audits.",
+  "audited_utc": "2026-10-02T20:34:00.858837+00:00",
+  "append_events": 666,
+  "current_records": 370,
+  "record_kinds": {
+    "study": 22,
+    "design": 67,
+    "configuration": 280,
+    "history_group": 1
+  },
+  "config_statuses": {
+    "selected_final_evaluated": 18,
+    "development_evaluated_not_selected": 156,
+    "unrun_data_blocked": 90,
+    "development_evaluated_not_nominated_final_sealed": 13,
+    "development_nominated_final_sealed": 1,
+    "failed_before_outcomes_source_schema": 1,
+    "development_evaluated_partial_batch_aborted": 1
+  },
+  "mechanical_rows": 3814,
+  "source_csv_counts": {
+    "research/results/limited_development.csv": 108,
+    "research/results/limited_test.csv": 52,
+    "research/results/limited_stress.csv": 72,
+    "research/results/limited_development_benchmarks.csv": 4,
+    "research/nav/results/development_all_trials.csv": 1520,
+    "research/nav/results/final_metrics.csv": 84,
+    "research/nav/results/cost_delay_stresses.csv": 216,
+    "research/nav/results/payment_date_sensitivity.csv": 30,
+    "research/leveraged/results/development_all_trials.csv": 1160,
+    "research/leveraged/results/final_metrics.csv": 126,
+    "research/leveraged/results/cost_delay_stresses.csv": 162,
+    "research/leveraged/results/payment_date_sensitivity.csv": 48,
+    "research/leveraged/results/captured_cash_omission_sensitivity.csv": 48,
+    "research/external/results/development_all_trials.csv": 56,
+    "research/external/results/expanding_training_2020.csv": 28,
+    "research/external/results/expanding_training_2021.csv": 28,
+    "research/external/results/expanding_training_2022.csv": 28,
+    "research/external/results/expanding_training_2023.csv": 28,
+    "research/external/results/expanding_selector.csv": 12,
+    "research/relative/results/development_all_trials.csv": 4
+  },
+  "new_current_refs_verified": 35,
+  "prior_prefix_events_verified": 660,
+  "prior_prefix_mechanical_rows_verified": 3810,
+  "old_audit_hashes": {
+    "research/experiment-log/LOG_AUDIT.md": "8169a8ace5f1b8c54e23c151a622df747bac0da25d8e8b45e7cb048dcd9bef83",
+    "research/experiment-log/LOG_AUDIT.json": "b0c4355d57a43c0c3e1b83d4d121b39a30368b86bd023a7edec9d20bd2956889",
+    "research/experiment-log/LOG_UPDATE_AUDIT.md": "4b3b669e8f916f388d817222d2d8df784e05cd3f93eff678bc7840e9a6372010",
+    "research/experiment-log/LOG_UPDATE_AUDIT.json": "9515b41128f42b55dcf490bbc4dae984cedc714798fcffc33c53dc6be73618b0",
+    "research/external/deliverables/DEVELOPMENT_DELIVERY_AUDIT.md": "805cfa00d5f5681f3465f308d018e157358a176b914a2ef8caae668d4a716c56",
+    "research/external/deliverables/DEVELOPMENT_DELIVERY_AUDIT.json": "6221da05ce0aed3d2b0bcbffaff259c817b1617e56ae4a78f1257855d4eb32f0"
+  },
+  "freeze_counts": {
+    "research/relative": 117,
+    "research/external": 201
+  },
+  "rv_freeze_sha256": "364eb5e006a3d2ab2792b95411ab970429d631f571e860fd81fabf71a60cb1c4",
+  "external_freeze_sha256": "82ce6ca1d84dcb99fa4eb4eaf3dbc192857374ff9d74824222ca2144e2509286",
+  "rv_independent_audit_sha256": "8392926358bae81809ab6cf51fa82893fd8150d265d6e10a353d1bf110ecb684",
+  "rv_independent_checker_sha256": "3f0fa8263f5fc90dbc32f04c1d6daf533c2f0a92e3881fba2b4699e0d3e9e46c",
+  "rv_prep_snapshot_sha256": "9c60396448542941cb33de8206e5d22d14d98157fa4ab21181daaa58b552c4b3",
+  "rv_registry_event_counts": {
+    "relative_two_candidate_plan_registered_before_outcomes": 1,
+    "relative_protocol_code_data_frozen": 1,
+    "relative_development_started": 1,
+    "relative_failed_trial": 1,
+    "relative_aborted_partials_preserved": 1,
+    "relative_schema_repair_proposed_no_retry": 1
+  },
+  "mirrored_base_files": 34,
+  "mirror_dirty_scope": "Six unrelated files unchanged per retained publisher snapshot/receipt; protected bodies not reopened",
+  "library_version": 3,
+  "library_id": "libfile_bbd6ee9f8624819199a753f2a9ce6a57",
+  "latest_six_events": [
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01",
+      "revision": 2
+    },
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01-D-XLE_residual",
+      "revision": 2
+    },
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01-C-XLE_residual",
+      "revision": 2
+    },
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01-D-IEF_barbell",
+      "revision": 2
+    },
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01-C-IEF_barbell",
+      "revision": 2
+    },
+    {
+      "id": "RV-20261002-RELATIONSHIPS-01",
+      "revision": 3
+    }
+  ],
+  "snapshot_hashes": {
+    "research/experiment-log/experiments.jsonl": "38474299f7bef9c2d04851d9efc0d225b5a4a458a18352178ef91132b579ad24",
+    "research/experiment-log/experiments.csv": "eb85bd9f5514d6311255c45fbabaa6b373ce9831cdee37c358108cb02a989777",
+    "research/experiment-log/mechanical_scenarios.jsonl": "abaa70f5e5a11c2ade7403567f5adf3459e1edbe9b88745748c913da07222ea5",
+    "research/experiment-log/IMPORT_STATUS.json": "194744bc68bc98d8c6fd3f320b9a293058015c13a4a9be67c331cd34010fd0d8",
+    "research/experiment-log/INDEX.md": "7925267170744ee7cab1f6c08a472d3806b336f2a3ad87adc8f6e00f1bf4cd29",
+    "research/experiment-log/SCHEMA.md": "8e18f86d6e1cd86722489d41ee4dcc107e43ecff261790aec6c73197a26b94f0",
+    "research/experiment-log/Libraryidentity.json": "84a2e57fca74902d68dbd89b195b360eb341c3957fa50e4e936a147fca60fd4e",
+    "research/experiment-log/QORE_PUBLISH_RECEIPT.json": "af53bfd93ed7846043d6aec25fef46641c2a35c5c7223225a435264592962a15"
+  },
+  "configuration_output_counts": {
+    "equity_complete_development": 188,
+    "relative_partial_bond": 1,
+    "all_with_outputs": 189,
+    "individually_final_evaluated_earlier_rules": 18,
+    "configurations_in_completed_released_earlier_studies": 174,
+    "broad_unrun": 90,
+    "XLE_failed_before_outcomes": 1,
+    "zero_test_source_or_forward_proposals": 3
+  },
+  "checks": [
+    {
+      "check": "Append history/current views/parents",
+      "status": "PASS",
+      "detail": "666 append events, 370 current records. All revisions contiguous, latest CSV values exact, parent/inheritance links resolve. Prior 660-event and 3,810-row byte prefixes match the immutable earlier audit snapshot."
+    },
+    {
+      "check": "Metric rows/duplicates/phase counts",
+      "status": "PASS",
+      "detail": "All 3,814 mechanical rows exactly reconcile cited hashes, zero-based row indices and fields across 20 CSVs. Four added bond rows counted once; identical abort-partial copies retained without duplicate trial counting. 188 equity configurations have complete development outputs; one additional bond configuration has incomplete-batch outputs, totaling 189 configurations with any outcomes."
+    },
+    {
+      "check": "RV failure/partial/result class",
+      "status": "PASS",
+      "detail": "XLE source named-index failure has empty metrics. IEF four partial rows match retained source CSV and current configuration record. One development start, one failure, one abort, zero nominees/releases/empirical retries. Repair bridge remains invented-data metadata-only evidence."
+    },
+    {
+      "check": "Current source refs and frozen closures",
+      "status": "PASS",
+      "detail": "All 35 current external/RV source references match current bytes/hash. Live independent RV audit 8392926358bae81809ab6cf51fa82893fd8150d265d6e10a353d1bf110ecb684 is correctly cited; prep 9c60396448542941cb33de8206e5d22d14d98157fa4ab21181daaa58b552c4b3 remains immutable. All 201 external and 117 RV bindings unchanged."
+    },
+    {
+      "check": "Library/mirror and earlier audit immutability",
+      "status": "PASS",
+      "detail": "Stable Library ID libfile_bbd6ee9f8624819199a753f2a9ce6a57 version 3 retained receipt matches INDEX hash/size. All 34 base canonical QORE log files match current local bytes; this new owned audit pair is excluded from its own mirror proof. Six unrelated dirty files unchanged per publisher metadata, protected bodies not reopened. Earlier six audit files retain their exact hashes."
+    },
+    {
+      "check": "Count label/version/claim distinctions",
+      "status": "PASS",
+      "detail": "Deprecated 174 final_released field explicitly means configurations in completed/released studies, not 174 final-tested rules; actual individual final count 18. Current schema/index distinguish aborted partial study, familiar retrospective history, failed-before-output XLE, synthetic bridge and unrun source/forward proposals. No new final, prospective-alpha or successful-complete-batch claim."
+    }
+  ],
+  "remaining_findings": [],
+  "limits": [
+    "Source hash checks include byte hashing of frozen dependencies, not interpretation of sequestered NAV or protected targets.",
+    "Library identity is checked from retained local receipt, not a new remote API status call.",
+    "Legacy study coverage remains partial and overlapping as documented in prior immutable audits.",
+    "After incorporating this audit pair, the new mirror/package requires its own read-only byte/manifest check."
+  ]
+}
+
