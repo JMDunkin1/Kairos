@@ -1,0 +1,58 @@
+{
+  "study_id": "QORE-20261008-RELATIONSHIP-DAILY-SIGNAL-OBSERVER-NOV02-01",
+  "schema_version": 1,
+  "rule_ids": [
+    "rv_xle_brent_residual",
+    "rv_ief_barbell_residual"
+  ],
+  "stage": "SEPARATE_NOV2_SIGNAL_OBSERVER_PREPARED_REVIEW_PENDING_SOURCE_ABSENT",
+  "first_eligible_date": "2026-11-02",
+  "max_prospective_sessions": 252,
+  "new_rules": 0,
+  "new_parameters": 0,
+  "existing_v3_freeze_sha256": "6d4a7f04a335676070e69fc6d85b1e319f85555605bb0b291fec3dfcc816ed13",
+  "existing_economic_contract_sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c",
+  "scope": "Archive latest two unchanged rule decisions from completed past-only supplied prefix; no economic wallet or return computation",
+  "source_schema": "Existing V3 supplied schema and warmup qualification; latest row additionally includes planned_next_reference_cutoff_utc, matching planned calendar date and strictly later than decision",
+  "time": "Actual invocation captured before source reads. All V3 future-clock checks apply. Reject invocation at/after planned next-reference cutoff as late. Plan is not an observed future reference.",
+  "warmup": "Exposed snapshot known strictly before first future reference; archived future NAV/Brent actual availability required; no historical PIT claim",
+  "source_prefix": "Expectedfutureprefix must equal frozenNov2plannedcalendar ordinals1..252 with exactreferenceclose/nextcutoffUTC; atleast273exposedwarmuplevels required.",
+  "claim": "One durable date claim per root-pinned packet, exclusive and fsynced before numeric source hashing/read; duplicates/reversed dates/budget exhausted rejected; failed claim consumed without automaticretry",
+  "output": "Latest decision, entry-frozen fit, target, plannedcalendar/cutoff and pendingactualreference; actualownedunits/cash alwaysnull; no forceddailyliquidation",
+  "financial_wallet": "Unchanged separate V3 fixed252-session prospective report remains separately released; dailyobserverdoesnotcreatea wallet or validatefinancialreturns",
+  "authorization": "One exact root-pinned packet release binds code/freeze/source/hash/latestdate/ordinal, reviewedregistryreceipt; no activated collector/order/runtime",
+  "network": false,
+  "orders": false,
+  "wallets": false,
+  "return_outcomes": false,
+  "window_selection_binding": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/WINDOW_SELECTION.json",
+    "bytes": 1080,
+    "sha256": "10ce89c2681c655b1e9a19ba029a2795669b5c0bd988dd48667e7e19daedbf83"
+  },
+  "original_oct8_observer_preserved": {
+    "contract": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/OBSERVER_CONTRACT.json",
+      "bytes": 2259,
+      "sha256": "93740c1ae94996030f306f5f3f25f751589c86652856152c08fd994e6d8ad112"
+    },
+    "adapter": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/observer.py",
+      "bytes": 9736,
+      "sha256": "f62fb3d3701ea3d229d01699ba3af4cc6e24d146e436422bd903f35a6a754949"
+    },
+    "freeze": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/FREEZE.json",
+      "bytes": 1628,
+      "sha256": "58a0b3cdf5ab653efc86f86f5f3504eeca377607d0f440c69564852402eb66d3"
+    }
+  },
+  "dated_window": "SeparatefixedNov2annex; no Oct8prefix substitution or silentlymodifiedoldobserver.63rdFeb2implementation-only;252ndNov2,2027reportwindowends.",
+  "terminal_next_plan": "Nov3,2027unobservedplannedreferenceonly; informationalsignaloutsidefinancialwindow,nofundedexecutionornewfinancialreference.",
+  "accounting": "No wallets, cashflow, ownership or financialreturn calculation; original unchangedV3packet builder/state projection only.",
+  "collector_active": false,
+  "actual_source_packet": null,
+  "actual_owned_units": null,
+  "actual_spendable_cash": null,
+  "no_date_reselection": true
+}

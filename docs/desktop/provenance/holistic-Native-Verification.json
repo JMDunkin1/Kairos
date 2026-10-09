@@ -1,0 +1,101 @@
+{
+  "recordedUtc": "2026-10-08T23:59:12.831Z",
+  "postFixChecks": [
+    {
+      "command": "npm run lint",
+      "initial": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "854ac5",
+          "wall_time_seconds": 1.000661503,
+          "session_id": 27124,
+          "original_token_count": 8,
+          "output": "\n> qore@0.0.0 lint\n> eslint .\n\n"
+        }
+      },
+      "completion": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "e157d3",
+          "wall_time_seconds": 0.000029134,
+          "exit_code": 0,
+          "original_token_count": 0,
+          "output": ""
+        }
+      }
+    },
+    {
+      "command": "npm run build",
+      "initial": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "a92e28",
+          "wall_time_seconds": 1.000689221,
+          "session_id": 48987,
+          "original_token_count": 11,
+          "output": "\n> qore@0.0.0 build\n> tsc -b && vite build\n\n"
+        }
+      },
+      "completion": {
+        "status": "fulfilled",
+        "value": {
+          "chunk_id": "2394ed",
+          "wall_time_seconds": 0.000022255,
+          "exit_code": 0,
+          "original_token_count": 88,
+          "output": "vite v8.0.16 building client environment for production...\n\u001b[2K\rtransforming...✓ 25 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.63 kB │ gzip:  0.37 kB\ndist/assets/index-r6iXG36g.css   17.92 kB │ gzip:  4.53 kB\ndist/assets/index-B637NVlA.js   253.49 kB │ gzip: 77.05 kB\n\n✓ built in 52ms\n"
+        }
+      }
+    }
+  ],
+  "nativeBuild": {
+    "initial": {
+      "chunk_id": "15ad30",
+      "wall_time_seconds": 1.000960169,
+      "session_id": 51302,
+      "original_token_count": 28,
+      "output": "\n> qore@0.0.0 desktop:build\n> node scripts/build-qore-desktop.mjs\n\n\n> qore@0.0.0 build\n> tsc -b && vite build\n\n"
+    },
+    "completion": {
+      "chunk_id": "130d6f",
+      "wall_time_seconds": 0.000015704,
+      "exit_code": 0,
+      "original_token_count": 226,
+      "output": "vite v8.0.16 building client environment for production...\n\u001b[2K\rtransforming...✓ 25 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.63 kB │ gzip:  0.37 kB\ndist/assets/index-r6iXG36g.css   17.92 kB │ gzip:  4.53 kB\ndist/assets/index-B637NVlA.js   253.49 kB │ gzip: 77.05 kB\n\n✓ built in 50ms\n/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery/.local/desktop/QORE Strategy Hub.app/Contents/Resources/runtime/node: replacing existing signature\n/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery/.local/desktop/QORE Strategy Hub.app: replacing existing signature\nNative local candidate: /Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery/.local/desktop/QORE Strategy Hub.app\nDouble-click to launch. Runs persist in the dedicated Application Support folder. No external connection or order path.\n"
+    }
+  },
+  "nativeSignatureAndBundledReaders": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "184271",
+        "wall_time_seconds": 0.971753067,
+        "exit_code": 0,
+        "original_token_count": 85,
+        "output": ".local/desktop/QORE Strategy Hub.app: valid on disk\n.local/desktop/QORE Strategy Hub.app: satisfies its Designated Requirement\n.local/desktop/QORE Strategy Hub.app/Contents/MacOS/QoreDesktop:      Mach-O 64-bit executable arm64\n.local/desktop/QORE Strategy Hub.app/Contents/Resources/runtime/node: Mach-O 64-bit executable arm64\nv22.22.1\n"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "9b78bb",
+        "wall_time_seconds": 1.209788107,
+        "exit_code": 0,
+        "original_token_count": 170,
+        "output": "{\"status\":\"PASS\",\"runtime\":\"22.22.1\",\"architecture\":\"arm64\",\"paperIds\":[\"rv_xle_brent_residual\",\"rv_ief_barbell_residual\",\"BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01\"],\"frames\":[690,690,1096],\"btcCases\":14,\"evidenceDocuments\":13,\"newValidatedStrategies\":0,\"actualFutureObservations\":0,\"actualOwnedState\":null,\"ordersEnabled\":false,\"futureLaunchEnabled\":false,\"financialEnginesRerun\":false,\"historicalReplayKeys\":[\"status\",\"classification\",\"first\",\"last\",\"sessions\",\"independentMechanisms\",\"auditUtc\",\"approvalUtc\",\"definitions\",\"hashes\",\"limitations\"],\"canonicalHistory\":769,\"canonicalLatest\":443,\"canonicalHash\":\"b59b3265c17139dd55bb57894d90941b3cdef49f3a47d00383e6a297bbecc990\"}\n"
+      }
+    }
+  ],
+  "nativeExactResourceBindings": {
+    "chunk_id": "bb6029",
+    "wall_time_seconds": 0.00002591,
+    "exit_code": 0,
+    "original_token_count": 52,
+    "output": "{\"status\": \"PASS\", \"packageFiles\": 65, \"exactSourceResourceBindings\": 60, \"offlinePaperAssets\": 25, \"olderHistoricalReplayPreserved\": true, \"compiledPlaybackControlsPresent\": true, \"reviewFixPresent\": true}\n"
+  },
+  "guiInspection": {
+    "available": false,
+    "launched": false,
+    "reason": "No supported GUI/browser/computer/native desktop tools exposed. Earlier process/listener denials were not retried."
+  }
+}

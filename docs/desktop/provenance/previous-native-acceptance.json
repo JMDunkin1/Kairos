@@ -1,0 +1,25 @@
+{
+  "app": "/Applications/QORE.app",
+  "recordedUtc": "2026-10-09T03:08:04.870509+00:00",
+  "appSourceCommit": "7007d49da74a32afee5efc411953e78766d5c79c",
+  "nativeChecks": {
+    "launch": "PASS",
+    "threePaperCandidates": "PASS",
+    "savedReplayStep": "PASS: 2024-01-02 to 2024-01-03",
+    "savedReplayPlayPause": "PASS",
+    "evidenceDocument": "PASS: compact-definitions.json",
+    "quitAndServiceCleanup": "PASS: app PID 88417 and service PID 88448 exited; port 57991 no longer listening",
+    "reopen": "PASS: native QORE window at loopback port 58123"
+  },
+  "packagedHubBytes": "All reviewed hub resource hashes retained exactly",
+  "archives": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/retired-launchers/20261009T030358Z",
+  "checks": {
+    "lint": "PASS",
+    "build": "PASS",
+    "commandBridge": "PASS",
+    "dashboardService": "PASS",
+    "liveInference": "PASS",
+    "fullSuite": "FAIL: existing capped paper reconcile winter fixture rejects current October 9 UTC target under sealed seasonal policy"
+  },
+  "unrelatedWork": "Research owner appended experiment ledger during task; left untouched."
+}

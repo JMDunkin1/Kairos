@@ -1,0 +1,124 @@
+{
+  "schema": "qore-hub.implementation-checks.v1",
+  "recorded_utc": "2026-10-08 22:27:46 UTC",
+  "status": "PASS_FINAL_SOURCE_AND_NATIVE_PACKAGE_NO_GUI",
+  "initial_restricted_http_attempt": {
+    "command": "npm run test:hub-paper",
+    "exit_code": 1,
+    "error": "listen EPERM: operation not permitted 127.0.0.1",
+    "pure_checks_completed": 11,
+    "permission_escalation": "Subsequent exact finite temporary-loopback tests automatically approved; no manual approval requested."
+  },
+  "tests": [
+    {
+      "command": "npm run lint",
+      "result": {
+        "chunk_id": "0dce24",
+        "wall_time_seconds": 2.537585793,
+        "exit_code": 0,
+        "original_token_count": 8,
+        "output": "\n> qore@0.0.0 lint\n> eslint .\n\n"
+      }
+    },
+    {
+      "command": "npm run build",
+      "result": {
+        "chunk_id": "23a126",
+        "wall_time_seconds": 1.255913683,
+        "exit_code": 0,
+        "original_token_count": 99,
+        "output": "\n> qore@0.0.0 build\n> tsc -b && vite build\n\nvite v8.0.16 building client environment for production...\n\u001b[2K\rtransforming...✓ 25 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.63 kB │ gzip:  0.37 kB\ndist/assets/index-r6iXG36g.css   17.92 kB │ gzip:  4.53 kB\ndist/assets/index-B-DlZ0sD.js   253.48 kB │ gzip: 77.04 kB\n\n✓ built in 55ms\n"
+      }
+    },
+    {
+      "command": "npm run test:hub-ledger-events",
+      "result": {
+        "chunk_id": "cb907b",
+        "wall_time_seconds": 0.012345721,
+        "exit_code": 0,
+        "original_token_count": 221,
+        "output": "\n> qore@0.0.0 test:hub-ledger-events\n> node scripts/test-qore-hub-ledger-events.mjs\n\nPASS supported research event has null revision and distinct grouping label\nPASS version1 unrevisioned event and exact duplicate retain all history rows\nPASS explicit parent wins over study group and fallback existing study parent\nPASS explicit parent_experiment_id precedes missing optional study group\nPASS missing explicit parent and explicit cycle stay fail closed\nPASS conflicting append-only identities and mixed formats stay fail closed\nPASS only precise allowed append-only envelope accepted; malformed revision never converted\nPASS legacy revisions remain latest-selected and conflicts rejected\nPASS legacy group exception requires exact original row hash and parent\nPASS partial final append retained and malformed complete JSON rejected\n{\"status\":\"PASS\",\"checks\":10,\"canonicalWrites\":0}\n"
+      }
+    },
+    {
+      "command": "npm run test:ui-accounting",
+      "result": {
+        "chunk_id": "ec2875",
+        "wall_time_seconds": 0.012412301,
+        "exit_code": 0,
+        "original_token_count": 49,
+        "output": "\n> qore@0.0.0 test:ui-accounting\n> node scripts/test-qore-ui-accounting.mjs\n\nPASS: QORE UI accounting availability, deposits, sleeve isolation, fees, missing history and source/signal freshness\n"
+      }
+    },
+    {
+      "command": "npm run test:ui-requests",
+      "result": {
+        "chunk_id": "5f70d6",
+        "wall_time_seconds": 0.01246185,
+        "exit_code": 0,
+        "original_token_count": 50,
+        "output": "\n> qore@0.0.0 test:ui-requests\n> node scripts/test-qore-ui-requests.mjs\n\nPASS: manual refresh remains authoritative, passive polling resumes, late unmounted reads ignored, errors release busy state\n"
+      }
+    },
+    {
+      "command": "npm run test:hub-migration",
+      "result": {
+        "chunk_id": "e262f3",
+        "wall_time_seconds": 0.117538311,
+        "exit_code": 0,
+        "original_token_count": 59,
+        "output": "\n> qore@0.0.0 test:hub-migration\n> node scripts/test-qore-hub-migration.mjs\n\nPASS: preserved originals, existing history, immutable copies, idempotence, conflicts, malformed/symlink refusal, interrupted recovery, and shared writer lock\n"
+      }
+    },
+    {
+      "command": "npm run test:hub",
+      "result": {
+        "chunk_id": "d98249",
+        "wall_time_seconds": 0.532629004,
+        "exit_code": 0,
+        "original_token_count": 137,
+        "output": "\n> qore@0.0.0 test:hub\n> node scripts/test-qore-hub.mjs\n\nPASS: compatible runtime enforcement, deterministic clock, execution-bounded offset cuts/order, simultaneous opening quotes, validated test warm-up history, causality, shared/opposing positions, fees, income, net prior-short borrow attribution, newly funded sleeve TWR, flows/TWR, stale/missing data, unsupported products, frozen negative/blocked trials, report reconciliation, ledger inheritance/revisions/partial append, local API security, repeated reads and launcher-selected CLI port\n"
+      }
+    },
+    {
+      "command": "npm run test:hub-replay",
+      "result": {
+        "chunk_id": "7f8a61",
+        "wall_time_seconds": 0.104598146,
+        "exit_code": 0,
+        "original_token_count": 52,
+        "output": "\n> qore@0.0.0 test:hub-replay\n> node scripts/test-qore-hub-replay.mjs\n\nPASS: approved closure, 690-session candidate/baseline arithmetic and chronology, tamper refusal, read-only API, and no trial mutation\n"
+      }
+    },
+    {
+      "command": "npm run test:hub-paper",
+      "result": {
+        "chunk_id": "770f15",
+        "wall_time_seconds": 2.3842027789999998,
+        "exit_code": 0,
+        "original_token_count": 253,
+        "output": "\n> qore@0.0.0 test:hub-paper\n> node scripts/test-qore-hub-paper.mjs\n\nPASS exact three paper identities, retained roles and null forward ownership\nPASS registered dates and no-date-change rationale retained\nPASS rv_xle_brent_residual: full funded familiar chronology, primary scope and terminal units\nPASS rv_ief_barbell_residual: full funded familiar chronology, primary scope and terminal units\nPASS all fourteen actual funded BTC paths project exact saved terminal NAV\nPASS outbound catalogue/replay/evidence contain no local provenance paths\nPASS fixture evidence never becomes a retained playback case\nPASS unknown strategy/case/document and source paths fail closed\nPASS same production GET dispatcher resolves three replays and audited evidence\nPASS changed manifest refused\nPASS changed saved financial output refused before playback\nPASS intermediate directory symlink refused\n{\"status\":\"PASS\",\"checks\":23,\"mode\":\"pure and isolated loopback HTTP\",\"economicEnginesRerun\":0,\"actualFutureObservations\":0}\n"
+      }
+    },
+    {
+      "command": "npm run desktop:build",
+      "result": {
+        "chunk_id": "b973b8",
+        "wall_time_seconds": 1.856453618,
+        "exit_code": 0,
+        "original_token_count": 271,
+        "output": "\n> qore@0.0.0 desktop:build\n> node scripts/build-qore-desktop.mjs\n\n\n> qore@0.0.0 build\n> tsc -b && vite build\n\nvite v8.0.16 building client environment for production...\n\u001b[2K\rtransforming...✓ 25 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.63 kB │ gzip:  0.37 kB\ndist/assets/index-r6iXG36g.css   17.92 kB │ gzip:  4.53 kB\ndist/assets/index-B-DlZ0sD.js   253.48 kB │ gzip: 77.04 kB\n\n✓ built in 53ms\n/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/runtime/node: replacing existing signature\n/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app: replacing existing signature\nNative local candidate: /Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app\nDouble-click to launch. Runs persist in the dedicated Application Support folder. No external connection or order path.\n"
+      }
+    },
+    {
+      "command": "codesign --verify --deep --strict staged app",
+      "exit_code": 0
+    }
+  ],
+  "actual_canonical_reader_receipt": "CANONICAL_READER_CHECK.json",
+  "native_resource_receipt": "NATIVE_PACKAGE_CHECK.json",
+  "economic_engines_executed": 0,
+  "gui_launches": 0,
+  "installed_app_changes": 0,
+  "actual_future_observations": 0
+}

@@ -1,0 +1,78 @@
+{
+  "gui": "Released; no pending GUI actions and recorded app/service PIDs stopped",
+  "communication": "Codex thread messaging is unavailable in the current tool surface; final notification and this durable handoff remain available",
+  "candidate_root": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-hub",
+  "branch": "codex/strategy-hub-desktop",
+  "base": "64c253d2471b8e8e23c54270c297bd00502192b6",
+  "app": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/deliverables/QORE Strategy Hub.app",
+  "implemented": [
+    "three editable synthetic strategy families",
+    "up to 24 sleeves from those three templates",
+    "causal deterministic shared simulation",
+    "sleeve attribution and netted account reconciliation",
+    "prior net-short borrow, fees, income and flow-adjusted returns",
+    "immutable run results and append-only local protocol/outcome registry",
+    "read-only canonical experiment history with revisions and inheritance",
+    "portfolio traces and independent run comparisons",
+    "weekly JSON/CSV export hooks and native save panel",
+    "small AppKit/WebKit shell with bundled Node and automatic loopback service"
+  ],
+  "unavailable": [
+    "Approved real-data/released-target replay",
+    "NGAS runtime integration",
+    "Alpaca paper connectivity",
+    "Live execution",
+    "Derivatives and exogenous feed adapters",
+    "Actual PAPER report export and scheduled email"
+  ],
+  "verified": [
+    "Lint and production UI build",
+    "Hub accounting/integration regression suite",
+    "Both approved UI regression checks",
+    "Headless native startup/deadline/owned-process cleanup checks",
+    "Full native own-window QA with 10 rendered screenshots and canonical read-only ledger",
+    "Actual macOS LaunchServices synthetic portfolio/report smoke with app/service stop receipt",
+    "Cold npm ci and actual bin/qore startup with compiled UI HTTP 200",
+    "Ad-hoc signature and macOS 13.0 deployment target"
+  ],
+  "native_evidence": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/deliverables",
+  "review": {
+    "status": "Clean fresh independent review of all 24 changed paths; startup fixes committed"
+  },
+  "pending": [
+    "Integrate reviewed released strategy replay contract",
+    "Add read-only broker reconciliation after separately authorized setup",
+    "Consume reviewed actual PAPER report export once available"
+  ],
+  "preservation": "Original checkout, all dirty research files, canonical experiment log, NGAS runtime, hidden/protected data and live server untouched",
+  "full_legacy_suite": "Not run because sparse candidate intentionally excludes research/protected datasets",
+  "status": "Complete local first-slice candidate; no public push/merge/deploy",
+  "latestValidation": {
+    "passed": [
+      "Lint and production UI build",
+      "Hub accounting/integration regression suite",
+      "Both approved UI regression checks",
+      "Headless native startup/deadline/owned-process cleanup checks",
+      "Full native own-window QA with 10 rendered screenshots and canonical read-only ledger",
+      "Actual macOS LaunchServices synthetic portfolio/report smoke with app/service stop receipt",
+      "Cold npm ci and actual bin/qore startup with compiled UI HTTP 200",
+      "Ad-hoc signature and macOS 13.0 deployment target"
+    ]
+  },
+  "nativeBundleStatus": "Final source packaged and ad-hoc signature verified; full native QA and LaunchServices smoke passed",
+  "checkpoint": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/checkpoint-20261002-2059/manifest.json",
+  "archive": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-source-checkpoint-20261002-2059.tar.gz",
+  "source_commit": "3ede0a68a2c58d8827bff4a822c36ed78116d9fe",
+  "state_path": "~/Library/Application Support/QORE Strategy Hub Candidate",
+  "library_delivery": {
+    "status": "uncertain; no duplicate write attempted",
+    "confirmed_library_file_ids": [],
+    "retained": [
+      "deliverables/QORE-Native-Portfolio-Synthetic-Simulation.png",
+      "deliverables/QORE-Native-Weekly-Report-Synthetic-Simulation.png",
+      "deliverables/QORE-Desktop-Portfolio-Synthetic-Final.png",
+      "deliverables/QORE-Desktop-Weekly-Simulation-Final.png"
+    ]
+  },
+  "final_manifest": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/deliverables/QORE-Delivery-Manifest.json"
+}

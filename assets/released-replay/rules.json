@@ -1,0 +1,42 @@
+[
+  {
+    "classification": "HIGH_RISK_RETROSPECTIVE_NAV_RESEARCH_CANDIDATE",
+    "description": "Monthly half QQQ/half SPY; substitute TQQQ for QQQ half when QQQ 252-session return is positive and exceeds SPY; substitute UPRO for SPY half under the reciprocal condition.",
+    "design": "relative_leverage_sleeves",
+    "development_mean_weights_comparator": {
+      "QLD": 0.0,
+      "QQQ": 0.1596628746676545,
+      "SHY": 0.0,
+      "SPY": 0.42164359098410625,
+      "TQQQ": 0.3422901455506449,
+      "UPRO": 0.07640338879759433
+    },
+    "family": "leverage_allocation",
+    "frozen_source_id": "lev_core_relative_leverage_sleeves_v3",
+    "id": "lev_core_relative_leverage_sleeves_v3",
+    "insufficient_252_session_history": "100% SHY",
+    "params": {
+      "n": 252
+    },
+    "preferred_research_candidate": true,
+    "schedule": "monthly",
+    "static_control": false,
+    "ties_or_both_nonpositive": "Keep 50% QQQ + 50% SPY; this rule has no negative-momentum cash exit",
+    "variant": 3
+  },
+  {
+    "classification": "EXPOSURE_BASELINE_NO_TIMING_EDGE",
+    "description": "Monthly fixed 0.5 TQQQ and remaining QQQ. Static allocation control; no timing edge.",
+    "design": "fixed_tech_leverage_mix",
+    "family": "leverage_allocation",
+    "frozen_source_id": "lev_core_fixed_tech_leverage_mix_v2",
+    "id": "TQQQ_50_QQQ_static",
+    "params": {
+      "fraction": 0.5
+    },
+    "preferred_research_candidate": false,
+    "schedule": "monthly",
+    "static_control": true,
+    "variant": 2
+  }
+]

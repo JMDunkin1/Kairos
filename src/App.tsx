@@ -26,10 +26,11 @@ export default function App() {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <a className="wordmark" href="#command" onClick={() => navigate('command')} aria-label="QORE account overview">
-          <span>QORE</span><b>Natural gas research</b>
+        <a className="wordmark" href="#command" onClick={() => navigate('command')} aria-label="Kairos account overview">
+          <span>Kairos</span><b>Natural gas research</b>
         </a>
         <nav aria-label="Primary">
+          {window.location.pathname === '/ngas.html' && <a className="desktop-home" href="/">All strategies</a>}
           <button
             type="button"
             className={view === 'command' ? 'active' : ''}

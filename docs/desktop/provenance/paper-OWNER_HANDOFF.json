@@ -1,0 +1,110 @@
+{
+  "schema": "qore-hub.reviewed-owner-handoff.v1",
+  "created_utc": "2026-10-08T22:34:57.137883+00:00",
+  "status": "READY_FOR_EXISTING_SOURCE_OWNER_INTEGRATION_AND_GUI_DELIVERY",
+  "source_owner_thread": "01a0fed7-9d19-7717-ba30-9102fc2690d6",
+  "source_root": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery",
+  "required_base_commit": "149b47b71f29d5fcaa5056a9c658a7772b63dd7a",
+  "candidate_root": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate",
+  "native_staged_candidate": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app",
+  "frozen_manifest": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/FINAL_MANIFEST.json",
+    "bytes": 17488,
+    "sha256": "c776b2c325cfe2606e8567385e616b9b834511d58f3ac1d6d8784e28f7ca4ca3"
+  },
+  "independent_review": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/hub_independent_audit/INDEPENDENT_APP_REVIEW.json",
+    "bytes": 10736,
+    "sha256": "977dd851573c2b8183ce58195bb8ffc852e58fc7d35c05405d490e759f8c343e"
+  },
+  "source_patch": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/SOURCE_CHANGES.patch",
+    "bytes": 69677,
+    "sha256": "2fab7b38f49b0fa1decd6f43495f5f1a918143776d86167b53404aa66ce43a70"
+  },
+  "evidence_asset_manifest": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/MANIFEST.json",
+    "bytes": 9017,
+    "sha256": "5b9f5987e41c10b3931511a1d32b8d3210807c7f27267aec9e6461d28cb96a88"
+  },
+  "native_manifest": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/NATIVE_MANIFEST.json",
+    "bytes": 25918,
+    "sha256": "8f45a7b2ee6ef4a8f1d6ddb8ad00f047456632c3b660803fbf29d0110fe7589b"
+  },
+  "test_receipt": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/TEST_RECEIPT.json",
+    "bytes": 8118,
+    "sha256": "f862bfe35fec5ac261c7ef650fc723cbe0cac1acd92b56c164336c244382981c"
+  },
+  "owner_steps": [
+    "Reconcile against the owner checkout and its AGENTS.md; preserve any subsequent dirty source. The reviewed base was clean commit 149b47b71f29d5fcaa5056a9c658a7772b63dd7a.",
+    "Apply the 12-file SOURCE_CHANGES.patch only after its apply check. Copy the 25 exact candidate/assets/offline-paper files listed by FINAL_MANIFEST.json; the source patch intentionally excludes those assets.",
+    "Verify all 37 proposed files against FINAL_MANIFEST.json and run the required lint/build/test:hub/two UI checks plus paper/replay/ledger/migration tests. Later canonical appends should remain readable through the qualified reader.",
+    "Use the reviewed staged native app or rebuild from the reconciled source. Coordinate GUI inspection and app delivery with the phone/app owner. No GUI launch or install was performed by this CLI research task."
+  ],
+  "admitted_behavior": [
+    "Actual existing broader hub gains a Paper candidates navigation view for the same three frozen strategy IDs.",
+    "Browse original failed screens, exposed-history labels, compact rules, clocks, funding/cost assumptions, controls,13reviewed evidence documents and fixed future input blockers.",
+    "Play, pause, step or select retained familiar dates without strategy-engine invocation or new trials. Two690-session RV reference histories expose primary5bp ownership; BTC has1096days for each14primary/doublefundedcase.",
+    "Existing690-session candidate/baseline view and synthetic lab remain separate; exactfive economic identities preserved.",
+    "Read all764canonicalhistoryevents through the hub reader.27append-onlyevents remain revisionnull. Threeexacthash-qualified externalgroup references are labels, not fabricated inheritable parents. ActualBTCchild inheritance remains.",
+    "Self-contained exact evidence copies and changed service modules are present in the built signed staged native package."
+  ],
+  "stable_ids": [
+    "lev_core_relative_leverage_sleeves_v3",
+    "TQQQ_50_QQQ_static",
+    "rv_xle_brent_residual",
+    "rv_ief_barbell_residual",
+    "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01"
+  ],
+  "research_counts": {
+    "retained_candidate": 1,
+    "comparison_baseline": 1,
+    "offline_paper_candidates": 3,
+    "new_validated_strategies": 0,
+    "live_ready_portfolios": 0
+  },
+  "validation": {
+    "saved_output_direct_field_identities": 153276,
+    "actual_ephemeral_http_checks": 25,
+    "ledger_regression_fixture_groups": 10,
+    "exact_evidence_file_copies": 24,
+    "native_files_checked": 66,
+    "independent_native_readonly_reader_sizes": [
+      690,
+      690,
+      1096
+    ],
+    "canonical_history_events": 764,
+    "canonical_latest_records": 438,
+    "canonical_null_revision_events": 27,
+    "canonical_sha256": "c89287333c872df668fe2d8ed0ab5299a7198821924412d3fba01fe582456a99",
+    "orders_or_current_future_state_claims": false,
+    "read_only_requests_created_trials": 0,
+    "gui_inspections": 0
+  },
+  "november_2": {
+    "relationship_first": "2026-11-02T21:00:00Z",
+    "relationship_last": "2027-11-02",
+    "sessions": 252,
+    "implementation_review_sessions": 63,
+    "rationale": "Root planning buffer; no strategy or public-data release lag requires Nov2. Exact preregistered dates are preserved.",
+    "missing_actual_inputs": "Qualified pre-start273-levelwarmup and timestampedfuture NAV/Brent packets. Missing qualification leaves fixedwindow unstarted, without backdating or silent shift.",
+    "BTC_first": "2026-12-03T00:00:00Z",
+    "BTC_terminal_mark": "2027-11-30",
+    "qualified_future_packets": 0,
+    "actual_future_observations": 0,
+    "actual_owned_state": null,
+    "future_launch_enabled": false
+  },
+  "limitations": [
+    "Audited historical playback uses retained familiar research outputs; this did not recompute engines or create new economic validation.",
+    "Qualified future NAV/Brent/BTC inputs, actual owned state and collectors remain absent. Future launch is disabled until qualification.",
+    "Source owner integration and GUI delivery remain outstanding; the canonical owner checkout and installed app are unchanged."
+  ],
+  "orders_enabled": false,
+  "allow_trading": false,
+  "allow_publication": false,
+  "accounts_credentials_or_subscriptions_created": 0
+}

@@ -1,0 +1,2167 @@
+{
+  "schemaVersion": 1,
+  "evaluationId": "ngas-summer-power-impact-audit-v1",
+  "generatedAt": "2026-07-25T03:10:01.849Z",
+  "role": "research-only-development-contaminated",
+  "executionEligible": false,
+  "publicStrategyChanged": false,
+  "mainBranchChanged": false,
+  "correctedForecastTemporalContractId": "summer-target-local-day-four-sample-mean-v1",
+  "design": {
+    "hypothesis": "Hourly and spatial temperature cells are weighted by preregistered marginal gas-fired power-dispatch impact, not by forecast accuracy.",
+    "coolingDegreeBaseF": 65,
+    "sampledValidOffsetsHoursUtc": [
+      6,
+      12,
+      18,
+      24
+    ],
+    "forecastIssueRunHourUtc": "00",
+    "signalDirection": "summer-heat-long-only",
+    "weatherGateTrainingPeriod": "2021-01-01-through-2023-12-31",
+    "sourceConsensus": "both-gfs-and-gefs-mean-must-exceed-own-gate",
+    "timingAndSizing": "unchanged-causal-UNG-execution-and-costs; fixed-follow/storage/reversion-contract; hard-2pct-reversion-gate",
+    "physicalWeightsReturnSelected": false
+  },
+  "inputFiles": {
+    "calibration": {
+      "path": ".local/qore/research/summer-power-impact/calibration.json",
+      "bytes": 161343,
+      "digestSha256": "75231bc2fe0d174b0457b2882ca5ece4fd65dabaac1aa28b9ccd74525e14e1d8"
+    },
+    "correctedForecasts": [
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/research/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv",
+        "bytes": 2248438,
+        "digestSha256": "8faaf8c9ab429961a146f5925bf1ab59b3853acd69215897ccf9b49fdb87c3e3"
+      },
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv",
+        "bytes": 9421574,
+        "digestSha256": "41d645628d336a1c827f1950303a2ca1c03206b3c7cb333fab04f06a81cccc63"
+      },
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json",
+        "bytes": 6604,
+        "digestSha256": "7f1acbfea09131fea28740e59690e26288d7c99906a5627ba10f7792b5dbaf5c"
+      },
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv",
+        "bytes": 2348788,
+        "digestSha256": "0a93009220da7653186a109b6fb9e6490a030a080baccb031f15ebb5e5b8f3ef"
+      },
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv",
+        "bytes": 9622028,
+        "digestSha256": "f1667bd6a698cb9a3fcaf7431de2c42530b7b4ba3c82645082bf3d0307d82853"
+      },
+      {
+        "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json",
+        "bytes": 6650,
+        "digestSha256": "7e760ebb28de7c1d6a01a11b2a1e72a4bcf769cf281738e5b8af1004d161f664"
+      }
+    ],
+    "verifiedCalibrationInputs": [
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_BALANCE_2019_Jan_Jun.csv",
+        "digestSha256": "02548d6bc49f3cffba1e66eb83a42e1d40194b1301f0f872baf2945e615af1b0",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_BALANCE_2019_Jul_Dec.csv",
+        "digestSha256": "5ec5c85be997c6c56bdcf42be3443a4bb6eb0851d704065c11c02eac0d3c48d1",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_BALANCE_2020_Jan_Jun.csv",
+        "digestSha256": "fff83ed20365e69933bdd6ebde06afaa8083930c613363c438844b0fd52034cf",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_BALANCE_2020_Jul_Dec.csv",
+        "digestSha256": "47788a718c26eae5a2453e3471c2b9e7d1a11062a0de70e2dca803163de5a754",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_SUBREGION_2019_Jan_Jun.csv",
+        "digestSha256": "b42424ade9de251096a0ce92917e5cebab87bdaf1e1bce0c8c7b0eaeca8c03f0",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_SUBREGION_2019_Jul_Dec.csv",
+        "digestSha256": "fc3b125665c9db02c78e47a88739e63a82804b9210e4d87b67b4e14a21044d4a",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_SUBREGION_2020_Jan_Jun.csv",
+        "digestSha256": "8042b3ce60006bb5e7c1e3d39d2a63f9afb5cb2f5f3a8d9f429cdf339f24fbfe",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/EIA930_SUBREGION_2020_Jul_Dec.csv",
+        "digestSha256": "7b3b8e70aeba8806252947ec9e6aae60590984cae5e12fa1a46e5989a12e5c1b",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-minneapolis-2001-2020.json",
+        "digestSha256": "b37fca29b56de57c4dd417f385b83307887f2737e08ca4d68b896b61f3d9b59f",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-chicago-2001-2020.json",
+        "digestSha256": "3f2ba5e6c646b3d7f082167ce503e81d49e673f846c7e301a2826d0464c7245d",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-detroit-2001-2020.json",
+        "digestSha256": "858075b175f2230304344f87f4725a3baac95c46944b1f77fb14eeb6a0ebc1ef",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-cleveland-2001-2020.json",
+        "digestSha256": "1c96d6064f77754d0d9f6f42b96472d0329a83fdf1a47e15c380815f5dfa3dd8",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-indianapolis-2001-2020.json",
+        "digestSha256": "b3ecda99a60b2f8b3fde51317b2c75c7896d68234d9c2fc88c458604f1676af6",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-st-louis-2001-2020.json",
+        "digestSha256": "4626394df31873ebb764d248bdd1ba02e7f0386a4e8d0897d020a23037d8f454",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-kansas-city-2001-2020.json",
+        "digestSha256": "d44063a3fb2dccabbbc0c4f97337ee01dc7b46cf1a2579e491480ce36f62c799",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-nashville-2001-2020.json",
+        "digestSha256": "140463b208636a5843b6629bd4e6a7dac256b3cdebe7d647a247d6775efb9f5f",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-memphis-2001-2020.json",
+        "digestSha256": "208d50345bb1ea0dc6f81752b1fe54aa0aca6e6a55873b14fb4ac909d29a96b4",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-atlanta-2001-2020.json",
+        "digestSha256": "7a6f5fc872926508a5ea5db3926a856b005e0284b3c62394c6ded8915c77fb88",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-charlotte-2001-2020.json",
+        "digestSha256": "1474892470dcd55a193063835587f167f01aaacbf9943c1398b7da0154f70401",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-raleigh-2001-2020.json",
+        "digestSha256": "a9c3cc45c735e52f2dec6d12dbd1a3b20fc44e84166a368277bdb30898af8859",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-washington-dc-2001-2020.json",
+        "digestSha256": "bde955408addb7c6cb2946b8a79a2718604348cac91e6ad0b85e2b0f0000d8d5",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-philadelphia-2001-2020.json",
+        "digestSha256": "d2acf3c93f5c330b68937d4b4bddeb1ba3d86070e6cfa26df472e8290443d31d",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-new-york-2001-2020.json",
+        "digestSha256": "29d919a9a502b20f8645eee47215df05334af3ce2ddfcc279f458f79340faa40",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-boston-2001-2020.json",
+        "digestSha256": "fc2ccca3230e7a9d01493343da386292c6a9f3db40f18a485e5af856da26bf91",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-dallas-2001-2020.json",
+        "digestSha256": "2cb7417c5e2731e94c1c779be4a63712e674af3bf23d69f9872ca8269148f2f2",
+        "verified": true
+      },
+      {
+        "path": ".local/qore/research/summer-power-impact/raw/nasa-power-hourly-t2m-houston-2001-2020.json",
+        "digestSha256": "97c2f4b3591c2c3844416abb53a32127c2a4b8157468cd2d1adb8f7ff9a2c237",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/minneapolis-1991-01-01-2020-12-31.json",
+        "digestSha256": "783c46d0c07a7a7b99ff3fa8f65c66e4773f1bf5d7ae19f7e6b2f17a311584e6",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/chicago-1991-01-01-2020-12-31.json",
+        "digestSha256": "371516b28991c393b58e0397b11fec342fa0889673dfd349cf1f4e303f37003b",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/detroit-1991-01-01-2020-12-31.json",
+        "digestSha256": "2e824bb05e63c57f04b5920e50151539d9a7098badf46a90cd42d230a8aac7f2",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/cleveland-1991-01-01-2020-12-31.json",
+        "digestSha256": "2796510c46879cfd3000abc92f23fe433abda00cb69bef106b5576698224b135",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/indianapolis-1991-01-01-2020-12-31.json",
+        "digestSha256": "dd17c50dc054452117f2924a591c07694d15f84c11545dbb29523bdc6468854c",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/st-louis-1991-01-01-2020-12-31.json",
+        "digestSha256": "afe6c6bac4ed1e9812cb767798328eddc6c7d8bf4c34ee024af26a4ac250befc",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/kansas-city-1991-01-01-2020-12-31.json",
+        "digestSha256": "69456f00d87cb878a5519ed38c73c0bf241995a5a2f88cb8335a9535dab607f7",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/nashville-1991-01-01-2020-12-31.json",
+        "digestSha256": "f8d2cd1ef3b61c6c360f7cf7d685c187da76dc78986e69395a216e88c0aa0689",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/memphis-1991-01-01-2020-12-31.json",
+        "digestSha256": "9abe74e9c50ed3b38351c9e2e348c614f51cca718e4238099a0def5f96315125",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/atlanta-1991-01-01-2020-12-31.json",
+        "digestSha256": "0810f0fc8a90118b9ee78160ca0a8b07ff765c211e2b358ccb1ad515a5d0f9ec",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/charlotte-1991-01-01-2020-12-31.json",
+        "digestSha256": "79c72d67eaeaa2f7a571397b527ce7e643101fe2e59e4662af47f89bbd135589",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/raleigh-1991-01-01-2020-12-31.json",
+        "digestSha256": "02d9ee85ef2804f9a482f1c97d460bf5348064ee498b6cb78f3a2f414e825852",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/washington-dc-1991-01-01-2020-12-31.json",
+        "digestSha256": "475680dd2ac2d3ec115de7bbeb6eb37da8dbea2afe51777a34ff802bf1bda11f",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/philadelphia-1991-01-01-2020-12-31.json",
+        "digestSha256": "4c0ebfca3239e592cced47e0ba1e1a8d315bbf3892434811fa4766d16d73bb36",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/new-york-1991-01-01-2020-12-31.json",
+        "digestSha256": "da386333e72f33767c006da9febf366ed0b2090168caaf911e4577588b562938",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/boston-1991-01-01-2020-12-31.json",
+        "digestSha256": "f1ace71546bd44d70b32c8281ffd0c8146e43e5a70e4519b1dd4724a70c21ff9",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/dallas-1991-01-01-2020-12-31.json",
+        "digestSha256": "4b3d8648923891fab65ad6cf3ff64146f4462deaf80c0c2e8ec3d2e4db2348fd",
+        "verified": true
+      },
+      {
+        "path": "data/qore/weather/nasa-power/normals/houston-1991-01-01-2020-12-31.json",
+        "digestSha256": "520c32658c959069798e70f4acf024e687f937dee358507780208922db6781f5",
+        "verified": true
+      }
+    ]
+  },
+  "inputSummary": {
+    "rawLocationRows": 30240,
+    "locationCount": 18,
+    "temporalInputs": [
+      {
+        "schemaVersion": 2,
+        "contractId": "summer-target-local-day-four-sample-mean-v1",
+        "complete": true,
+        "promotionEligible": true,
+        "sourceId": "gfs",
+        "scoreRowCount": 840,
+        "locationRowCount": 15120,
+        "failures": []
+      },
+      {
+        "schemaVersion": 2,
+        "contractId": "summer-target-local-day-four-sample-mean-v1",
+        "complete": true,
+        "promotionEligible": true,
+        "sourceId": "gefs-mean",
+        "scoreRowCount": 840,
+        "locationRowCount": 15120,
+        "failures": []
+      }
+    ],
+    "marketStart": "2021-01-04",
+    "marketEnd": "2026-07-14",
+    "marketSessions": 1387
+  },
+  "splitPolicy": {
+    "trainEnd": "2023-12-31",
+    "validationEnd": "2024-12-31",
+    "reportingOnlyStart": "2025-01-01",
+    "candidateSelectionUsesTrainOnly": true,
+    "validationUsedForCandidateSelection": false,
+    "reportingOnlyUsedForCandidateSelection": false,
+    "reportingOnlyEvidenceStatus": "development-contaminated",
+    "reportingOnlyRevealed": true
+  },
+  "physicalCalibrationGate": {
+    "required": true,
+    "passes": false,
+    "status": "not-passed",
+    "declaredEvidence": {
+      "comparatorProfileId": "control",
+      "challengerProfileId": "full",
+      "aggregateGasGenerationMaeImprovementMw": 1961.862068,
+      "aggregateGasGenerationMaeImprovementPct": 22.343946,
+      "topDecileHitRateDelta": -0.125,
+      "fullImprovesAggregateMae": true,
+      "fullImprovesTopDecileHitRate": false,
+      "fullImprovesBoth": false,
+      "interpretation": "The learned location-by-time cooling profile did not improve both untouched 2020 physical gates versus the equal-time reviewed-basket control."
+    },
+    "rule": "The preregistered 2019 EIA-930 profile must improve both untouched-2020 aggregate gas-generation MAE and top-decile hit rate versus the reviewed equal-time control.",
+    "tradingReturnsUsedToChoosePhysicalWeights": false,
+    "calibrationFileDigestSha256": "75231bc2fe0d174b0457b2882ca5ece4fd65dabaac1aa28b9ccd74525e14e1d8",
+    "returnSelectionAllowedToOverrideProfile": false
+  },
+  "candidateFamily": {
+    "newCandidateCount": 6,
+    "priorCorrectedCandidateCount": 36,
+    "absoluteRealityCheckFamilyCount": 42,
+    "profiles": [
+      "locationOnly",
+      "timeOnly",
+      "full"
+    ],
+    "weatherOnlyGateQuantiles": [
+      0.8,
+      0.9
+    ],
+    "frozenTradingParameters": {
+      "weatherFraction": 0.35,
+      "reversionFraction": 0.35,
+      "followHoldDays": 3,
+      "reversionHoldDays": 1,
+      "realizedMoveGatePct": 2,
+      "freshHeatLookbackDays": 3
+    }
+  },
+  "selection": {
+    "method": "train-only-economic-score-among-six-preregistered-physical-profile-and-weather-gate-candidates",
+    "trainingSelectableCandidateCount": 6,
+    "selectedCandidateId": "power-impact-full-q90",
+    "selectedCandidateTrainingEconomicGate": {
+      "passes": false,
+      "failures": [
+        "train-edge<=0",
+        "train-active-sharpe<=0",
+        "positive-train-years<2"
+      ]
+    },
+    "economicValidationGate": {
+      "passes": false,
+      "failures": [
+        "validation-gas-target-sessions<10"
+      ]
+    },
+    "statisticalGate": {
+      "passes": false,
+      "absolute42FamilyPasses": false,
+      "incrementalSixFamilyPasses": false
+    },
+    "promotionGate": {
+      "passes": false,
+      "physicalCalibrationPasses": false,
+      "trainingEconomicGatePasses": false,
+      "untouched2024EconomicValidationPasses": false,
+      "statisticalGatePasses": false,
+      "prospectiveEvidencePasses": false,
+      "reason": "This audit is research-only and 2025+ is development-contaminated; prospective evidence remains unavailable."
+    },
+    "verdict": "do-not-promote",
+    "absolute42FamilyRealityCheck": {
+      "method": "centered-circular-block-bootstrap-family-maximum",
+      "candidateFamilySize": 42,
+      "sessions": 1005,
+      "blockLengthSessions": 10,
+      "iterations": 5000,
+      "observedMaximumMeanActiveReturnPct": 0.010322,
+      "pValue": 0.6005,
+      "passThreshold": 0.2,
+      "passes": false,
+      "seed": 1729,
+      "window": "2021-through-2024-post-selection-statistic",
+      "selectionInput": false
+    },
+    "incrementalSixFamilyRealityCheckVsFrozenCorrected": {
+      "method": "paired-centered-circular-block-bootstrap-six-candidate-maximum-vs-frozen-corrected-candidate",
+      "candidateFamilySize": 6,
+      "sessions": 1005,
+      "blockLengthSessions": 10,
+      "iterations": 5000,
+      "seed": 1729,
+      "observedMaximumMeanIncrementalReturnPct": -0.011485,
+      "pValue": 0.934,
+      "passThreshold": 0.2,
+      "passes": false
+    }
+  },
+  "candidates": [
+    {
+      "candidateId": "power-impact-locationOnly-q80",
+      "parameters": {
+        "impactProfile": "locationOnly",
+        "weatherOnlyGateQuantile": 0.8,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 4.624627,
+          "gefs-mean": 5.554371
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 111,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 65,
+          "totalReturnPct": 10.117251,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -22.695367,
+          "sharpe": 0.265513,
+          "activeSharpe": -0.899815,
+          "maxDrawdownPct": -37.441681,
+          "turnover": 34.006838,
+          "gasTurnover": 17.475932
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 23,
+          "totalReturnPct": 20.304484,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": -4.307898,
+          "sharpe": 1.38005,
+          "activeSharpe": -0.663298,
+          "maxDrawdownPct": -12.040827,
+          "turnover": 10.194816,
+          "gasTurnover": 5.723178
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 43,
+          "totalReturnPct": 39.666997,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": 7.481235,
+          "sharpe": 1.31028,
+          "activeSharpe": 0.732942,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 20.932321,
+          "gasTurnover": 12.490175
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 131,
+          "totalReturnPct": 85.025239,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -33.743475,
+          "sharpe": 0.716104,
+          "activeSharpe": -0.48115,
+          "maxDrawdownPct": -37.441681,
+          "turnover": 65.133975,
+          "gasTurnover": 35.689285
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 88,
+          "totalReturnPct": 32.475992,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -33.024976,
+          "sharpe": 0.486175,
+          "activeSharpe": -0.846983,
+          "maxDrawdownPct": -37.441681,
+          "turnover": 44.201654,
+          "gasTurnover": 23.19911,
+          "followTargetSessions": 81,
+          "reversionTargetSessions": 7
+        }
+      },
+      "positiveTrainYears": 1,
+      "followTrainValidationEdgePctPoints": -39.495342,
+      "reversionTrainValidationEdgePctPoints": 8.476129,
+      "eligibilityFailures": [
+        "train-edge<=0",
+        "validation-edge<=0",
+        "validation-active-sharpe<=0",
+        "train-validation-follow-edge<=0",
+        "positive-train-years<2"
+      ],
+      "eligible": false,
+      "selectionScore": -50.767665,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0",
+          "positive-train-years<2"
+        ]
+      },
+      "trainingSelectionScore": -35.809769
+    },
+    {
+      "candidateId": "power-impact-locationOnly-q90",
+      "parameters": {
+        "impactProfile": "locationOnly",
+        "weatherOnlyGateQuantile": 0.9,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 6.024577,
+          "gefs-mean": 6.491955
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 44,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 39,
+          "totalReturnPct": 25.920105,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -6.892513,
+          "sharpe": 0.506241,
+          "activeSharpe": -0.31892,
+          "maxDrawdownPct": -32.621414,
+          "turnover": 21.578019,
+          "gasTurnover": 10.913876
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 8,
+          "totalReturnPct": 22.253956,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": -2.358426,
+          "sharpe": 1.558602,
+          "activeSharpe": -0.642273,
+          "maxDrawdownPct": -9.266331,
+          "turnover": 2.89809,
+          "gasTurnover": 1.388849
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 18,
+          "totalReturnPct": 33.31472,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": 1.128959,
+          "sharpe": 1.154022,
+          "activeSharpe": 0.160691,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 7.724444,
+          "gasTurnover": 4.487859
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 65,
+          "totalReturnPct": 105.22776,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -13.540954,
+          "sharpe": 0.830354,
+          "activeSharpe": -0.241883,
+          "maxDrawdownPct": -32.621414,
+          "turnover": 32.200552,
+          "gasTurnover": 16.790584
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 47,
+          "totalReturnPct": 53.94231,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -11.558657,
+          "sharpe": 0.705071,
+          "activeSharpe": -0.36107,
+          "maxDrawdownPct": -32.621414,
+          "turnover": 24.476109,
+          "gasTurnover": 12.302725,
+          "followTargetSessions": 44,
+          "reversionTargetSessions": 3
+        }
+      },
+      "positiveTrainYears": 2,
+      "followTrainValidationEdgePctPoints": -18.36678,
+      "reversionTrainValidationEdgePctPoints": 7.647122,
+      "eligibilityFailures": [
+        "validation-gas-target-sessions<10",
+        "train-validation-reversion-target-sessions<6",
+        "train-edge<=0",
+        "validation-edge<=0",
+        "validation-active-sharpe<=0",
+        "train-validation-follow-edge<=0"
+      ],
+      "eligible": false,
+      "selectionScore": -25.543525,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0"
+        ]
+      },
+      "trainingSelectionScore": -11.974925
+    },
+    {
+      "candidateId": "power-impact-timeOnly-q80",
+      "parameters": {
+        "impactProfile": "timeOnly",
+        "weatherOnlyGateQuantile": 0.8,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 6.538252,
+          "gefs-mean": 7.026232
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 113,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 61,
+          "totalReturnPct": 18.903939,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -13.908679,
+          "sharpe": 0.401095,
+          "activeSharpe": -0.455763,
+          "maxDrawdownPct": -36.6314,
+          "turnover": 32.962765,
+          "gasTurnover": 16.962984
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 15,
+          "totalReturnPct": 21.186233,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": -3.426149,
+          "sharpe": 1.524876,
+          "activeSharpe": -0.619988,
+          "maxDrawdownPct": -7.809032,
+          "turnover": 7.214305,
+          "gasTurnover": 3.540335
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 35,
+          "totalReturnPct": 29.22474,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": -2.961021,
+          "sharpe": 1.033146,
+          "activeSharpe": -0.290077,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 16.7987,
+          "gasTurnover": 9.71157
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 111,
+          "totalReturnPct": 86.206655,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -32.562059,
+          "sharpe": 0.726374,
+          "activeSharpe": -0.429826,
+          "maxDrawdownPct": -36.6314,
+          "turnover": 56.97577,
+          "gasTurnover": 30.214889
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 76,
+          "totalReturnPct": 44.095205,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -21.405762,
+          "sharpe": 0.607654,
+          "activeSharpe": -0.472626,
+          "maxDrawdownPct": -36.6314,
+          "turnover": 40.17707,
+          "gasTurnover": 20.503319,
+          "followTargetSessions": 71,
+          "reversionTargetSessions": 5
+        }
+      },
+      "positiveTrainYears": 1,
+      "followTrainValidationEdgePctPoints": -32.452376,
+      "reversionTrainValidationEdgePctPoints": 13.752206,
+      "eligibilityFailures": [
+        "train-validation-reversion-target-sessions<6",
+        "train-edge<=0",
+        "validation-edge<=0",
+        "validation-active-sharpe<=0",
+        "train-validation-follow-edge<=0",
+        "positive-train-years<2"
+      ],
+      "eligible": false,
+      "selectionScore": -36.120689,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0",
+          "positive-train-years<2"
+        ]
+      },
+      "trainingSelectionScore": -22.461019
+    },
+    {
+      "candidateId": "power-impact-timeOnly-q90",
+      "parameters": {
+        "impactProfile": "timeOnly",
+        "weatherOnlyGateQuantile": 0.9,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 7.764318,
+          "gefs-mean": 8.246272
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 48,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 33,
+          "totalReturnPct": 24.537032,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -8.275586,
+          "sharpe": 0.486956,
+          "activeSharpe": -0.369127,
+          "maxDrawdownPct": -33.814926,
+          "turnover": 18.186912,
+          "gasTurnover": 9.221684
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 3,
+          "totalReturnPct": 22.065981,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": -2.546401,
+          "sharpe": 1.57051,
+          "activeSharpe": -1.669691,
+          "maxDrawdownPct": -9.730321,
+          "turnover": 1.515725,
+          "gasTurnover": 0.700393
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 23,
+          "totalReturnPct": 33.634656,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": 1.448895,
+          "sharpe": 1.146848,
+          "activeSharpe": 0.165564,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 11.705891,
+          "gasTurnover": 6.480016
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 59,
+          "totalReturnPct": 103.147864,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -15.62085,
+          "sharpe": 0.818565,
+          "activeSharpe": -0.261614,
+          "maxDrawdownPct": -33.814926,
+          "turnover": 31.408528,
+          "gasTurnover": 16.402093
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 52.01735,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -13.483617,
+          "sharpe": 0.689025,
+          "activeSharpe": -0.42308,
+          "maxDrawdownPct": -33.814926,
+          "turnover": 19.702637,
+          "gasTurnover": 9.922077,
+          "followTargetSessions": 33,
+          "reversionTargetSessions": 3
+        }
+      },
+      "positiveTrainYears": 2,
+      "followTrainValidationEdgePctPoints": -20.206609,
+      "reversionTrainValidationEdgePctPoints": 7.647122,
+      "eligibilityFailures": [
+        "validation-gas-target-sessions<10",
+        "train-validation-reversion-target-sessions<6",
+        "train-edge<=0",
+        "validation-edge<=0",
+        "validation-active-sharpe<=0",
+        "train-validation-follow-edge<=0"
+      ],
+      "eligible": false,
+      "selectionScore": -39.142007,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0"
+        ]
+      },
+      "trainingSelectionScore": -14.039095
+    },
+    {
+      "candidateId": "power-impact-full-q80",
+      "parameters": {
+        "impactProfile": "full",
+        "weatherOnlyGateQuantile": 0.8,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 5.568347,
+          "gefs-mean": 6.062443
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 103,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 57,
+          "totalReturnPct": 17.409571,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -15.403047,
+          "sharpe": 0.376218,
+          "activeSharpe": -0.451819,
+          "maxDrawdownPct": -36.829024,
+          "turnover": 31.686239,
+          "gasTurnover": 15.97425
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 22,
+          "totalReturnPct": 18.931126,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": -5.681256,
+          "sharpe": 1.302493,
+          "activeSharpe": -0.892109,
+          "maxDrawdownPct": -11.037506,
+          "turnover": 10.651518,
+          "gasTurnover": 5.634199
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 32,
+          "totalReturnPct": 35.409094,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": 3.223333,
+          "sharpe": 1.202428,
+          "activeSharpe": 0.347195,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 16.257296,
+          "gasTurnover": 9.137654
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 111,
+          "totalReturnPct": 89.080554,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -29.68816,
+          "sharpe": 0.732901,
+          "activeSharpe": -0.347613,
+          "maxDrawdownPct": -36.829024,
+          "turnover": 58.595053,
+          "gasTurnover": 30.746104
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 79,
+          "totalReturnPct": 39.636526,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -25.864442,
+          "sharpe": 0.554811,
+          "activeSharpe": -0.514022,
+          "maxDrawdownPct": -36.829024,
+          "turnover": 42.337757,
+          "gasTurnover": 21.608449,
+          "followTargetSessions": 75,
+          "reversionTargetSessions": 4
+        }
+      },
+      "positiveTrainYears": 1,
+      "followTrainValidationEdgePctPoints": -32.023608,
+      "reversionTrainValidationEdgePctPoints": 7.619923,
+      "eligibilityFailures": [
+        "train-validation-reversion-target-sessions<6",
+        "train-edge<=0",
+        "validation-edge<=0",
+        "validation-active-sharpe<=0",
+        "train-validation-follow-edge<=0",
+        "positive-train-years<2"
+      ],
+      "eligible": false,
+      "selectionScore": -44.705371,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0",
+          "positive-train-years<2"
+        ]
+      },
+      "trainingSelectionScore": -23.945591
+    },
+    {
+      "candidateId": "power-impact-full-q90",
+      "parameters": {
+        "impactProfile": "full",
+        "weatherOnlyGateQuantile": 0.9,
+        "sourceMode": "both",
+        "sourceThresholdsCddImpactF": {
+          "gfs": 6.653128,
+          "gefs-mean": 7.078158
+        },
+        "requiresBothSources": true,
+        "summerShortAllowed": false
+      },
+      "signalCount": 45,
+      "periods": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 27.58824,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -5.224379,
+          "sharpe": 0.52987,
+          "activeSharpe": -0.221596,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 18.557709,
+          "gasTurnover": 9.410752
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 4,
+          "totalReturnPct": 27.796644,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": 3.184262,
+          "sharpe": 1.881106,
+          "activeSharpe": 1.238353,
+          "maxDrawdownPct": -9.021154,
+          "turnover": 2.403591,
+          "gasTurnover": 1.490804
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 28,
+          "totalReturnPct": 31.421846,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": -0.763916,
+          "sharpe": 1.095375,
+          "activeSharpe": -0.071071,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 14.035789,
+          "gasTurnover": 7.655539
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 68,
+          "totalReturnPct": 114.287904,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -4.48081,
+          "sharpe": 0.873563,
+          "activeSharpe": -0.061978,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 34.997089,
+          "gasTurnover": 18.557096
+        },
+        "trainValidation": {
+          "sessions": 1005,
+          "gasTargetSessions": 40,
+          "totalReturnPct": 63.053489,
+          "comparatorReturnPct": 65.500968,
+          "edgePctPoints": -2.447479,
+          "sharpe": 0.787077,
+          "activeSharpe": -0.058742,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 20.9613,
+          "gasTurnover": 10.901556,
+          "followTargetSessions": 36,
+          "reversionTargetSessions": 4
+        }
+      },
+      "positiveTrainYears": 1,
+      "followTrainValidationEdgePctPoints": -9.639533,
+      "reversionTrainValidationEdgePctPoints": 7.619923,
+      "eligibilityFailures": [
+        "validation-gas-target-sessions<10",
+        "train-validation-reversion-target-sessions<6",
+        "train-edge<=0",
+        "train-validation-follow-edge<=0",
+        "positive-train-years<2"
+      ],
+      "eligible": false,
+      "selectionScore": 4.73199,
+      "trainingSelectionFailures": [],
+      "trainingSelectable": true,
+      "trainingEconomicGate": {
+        "passes": false,
+        "failures": [
+          "train-edge<=0",
+          "train-active-sharpe<=0",
+          "positive-train-years<2"
+        ]
+      },
+      "trainingSelectionScore": -10.309852
+    }
+  ],
+  "selectedCandidate": {
+    "candidateId": "power-impact-full-q90",
+    "parameters": {
+      "impactProfile": "full",
+      "weatherOnlyGateQuantile": 0.9,
+      "sourceMode": "both",
+      "sourceThresholdsCddImpactF": {
+        "gfs": 6.653128,
+        "gefs-mean": 7.078158
+      },
+      "requiresBothSources": true,
+      "summerShortAllowed": false
+    },
+    "signalCount": 45,
+    "periods": {
+      "train": {
+        "sessions": 753,
+        "gasTargetSessions": 36,
+        "totalReturnPct": 27.58824,
+        "comparatorReturnPct": 32.812618,
+        "edgePctPoints": -5.224379,
+        "sharpe": 0.52987,
+        "activeSharpe": -0.221596,
+        "maxDrawdownPct": -29.130087,
+        "turnover": 18.557709,
+        "gasTurnover": 9.410752
+      },
+      "validation": {
+        "sessions": 252,
+        "gasTargetSessions": 4,
+        "totalReturnPct": 27.796644,
+        "comparatorReturnPct": 24.612383,
+        "edgePctPoints": 3.184262,
+        "sharpe": 1.881106,
+        "activeSharpe": 1.238353,
+        "maxDrawdownPct": -9.021154,
+        "turnover": 2.403591,
+        "gasTurnover": 1.490804
+      },
+      "reportingOnly": {
+        "sessions": 382,
+        "gasTargetSessions": 28,
+        "totalReturnPct": 31.421846,
+        "comparatorReturnPct": 32.185761,
+        "edgePctPoints": -0.763916,
+        "sharpe": 1.095375,
+        "activeSharpe": -0.071071,
+        "maxDrawdownPct": -19.124364,
+        "turnover": 14.035789,
+        "gasTurnover": 7.655539
+      },
+      "all": {
+        "sessions": 1387,
+        "gasTargetSessions": 68,
+        "totalReturnPct": 114.287904,
+        "comparatorReturnPct": 118.768714,
+        "edgePctPoints": -4.48081,
+        "sharpe": 0.873563,
+        "activeSharpe": -0.061978,
+        "maxDrawdownPct": -29.130087,
+        "turnover": 34.997089,
+        "gasTurnover": 18.557096
+      },
+      "trainValidation": {
+        "sessions": 1005,
+        "gasTargetSessions": 40,
+        "totalReturnPct": 63.053489,
+        "comparatorReturnPct": 65.500968,
+        "edgePctPoints": -2.447479,
+        "sharpe": 0.787077,
+        "activeSharpe": -0.058742,
+        "maxDrawdownPct": -29.130087,
+        "turnover": 20.9613,
+        "gasTurnover": 10.901556,
+        "followTargetSessions": 36,
+        "reversionTargetSessions": 4
+      }
+    },
+    "positiveTrainYears": 1,
+    "followTrainValidationEdgePctPoints": -9.639533,
+    "reversionTrainValidationEdgePctPoints": 7.619923,
+    "eligibilityFailures": [
+      "validation-gas-target-sessions<10",
+      "train-validation-reversion-target-sessions<6",
+      "train-edge<=0",
+      "train-validation-follow-edge<=0",
+      "positive-train-years<2"
+    ],
+    "eligible": false,
+    "selectionScore": 4.73199,
+    "trainingSelectionFailures": [],
+    "trainingSelectable": true,
+    "trainingEconomicGate": {
+      "passes": false,
+      "failures": [
+        "train-edge<=0",
+        "train-active-sharpe<=0",
+        "positive-train-years<2"
+      ]
+    },
+    "trainingSelectionScore": -10.309852
+  },
+  "frozenCorrectedComparator": {
+    "candidateId": "corrected-a4-c0.15-q0.35",
+    "parameters": {
+      "anomalyThresholdF": 4,
+      "coverageThreshold": 0.15,
+      "minimumConfidence": 0.35
+    },
+    "signalCount": 178,
+    "periods": {
+      "train": {
+        "sessions": 753,
+        "gasTargetSessions": 76,
+        "totalReturnPct": 38.087556,
+        "comparatorReturnPct": 32.812618,
+        "edgePctPoints": 5.274938,
+        "sharpe": 0.657464,
+        "activeSharpe": 0.171905,
+        "maxDrawdownPct": -29.541745,
+        "turnover": 41.658247,
+        "gasTurnover": 21.363127
+      },
+      "validation": {
+        "sessions": 252,
+        "gasTargetSessions": 45,
+        "totalReturnPct": 31.838302,
+        "comparatorReturnPct": 24.612383,
+        "edgePctPoints": 7.225919,
+        "sharpe": 1.923763,
+        "activeSharpe": 0.798042,
+        "maxDrawdownPct": -10.768257,
+        "turnover": 21.631178,
+        "gasTurnover": 12.405868
+      },
+      "reportingOnly": {
+        "sessions": 382,
+        "gasTargetSessions": 62,
+        "totalReturnPct": 31.442109,
+        "comparatorReturnPct": 32.185761,
+        "edgePctPoints": -0.743652,
+        "sharpe": 1.056576,
+        "activeSharpe": -0.025085,
+        "maxDrawdownPct": -19.124364,
+        "turnover": 32.408088,
+        "gasTurnover": 17.582661
+      },
+      "all": {
+        "sessions": 1387,
+        "gasTargetSessions": 183,
+        "totalReturnPct": 139.293369,
+        "comparatorReturnPct": 118.768714,
+        "edgePctPoints": 20.524654,
+        "sharpe": 0.954363,
+        "activeSharpe": 0.228018,
+        "maxDrawdownPct": -29.541745,
+        "turnover": 95.697512,
+        "gasTurnover": 51.351656
+      },
+      "trainValidation": {
+        "sessions": 1005,
+        "gasTargetSessions": 121,
+        "totalReturnPct": 82.052289,
+        "comparatorReturnPct": 65.500968,
+        "edgePctPoints": 16.551321,
+        "sharpe": 0.914144,
+        "activeSharpe": 0.30895,
+        "maxDrawdownPct": -29.541745,
+        "turnover": 63.289425,
+        "gasTurnover": 33.768995,
+        "followTargetSessions": 102,
+        "reversionTargetSessions": 19
+      }
+    },
+    "positiveTrainYears": 2,
+    "followTrainValidationEdgePctPoints": 1.380098,
+    "reversionTrainValidationEdgePctPoints": 14.97837,
+    "eligibilityFailures": [],
+    "eligible": true,
+    "selectionScore": 19.239903
+  },
+  "diagnostics": {
+    "negativeControls": {
+      "rotatedTime": {
+        "candidateId": "power-impact-full-q90",
+        "parameters": {
+          "impactProfile": "full",
+          "weatherOnlyGateQuantile": 0.9,
+          "sourceMode": "both",
+          "sourceThresholdsCddImpactF": {
+            "gfs": 10.762505,
+            "gefs-mean": 11.317424
+          },
+          "requiresBothSources": true,
+          "summerShortAllowed": false
+        },
+        "signalCount": 41,
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 30,
+            "totalReturnPct": 21.848031,
+            "comparatorReturnPct": 32.812618,
+            "edgePctPoints": -10.964587,
+            "sharpe": 0.447367,
+            "activeSharpe": -0.539529,
+            "maxDrawdownPct": -34.096981,
+            "turnover": 16.358364,
+            "gasTurnover": 8.303946
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 6,
+            "totalReturnPct": 22.512394,
+            "comparatorReturnPct": 24.612383,
+            "edgePctPoints": -2.099989,
+            "sharpe": 1.591084,
+            "activeSharpe": -0.785945,
+            "maxDrawdownPct": -9.266331,
+            "turnover": 2.891131,
+            "gasTurnover": 1.38409
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 18,
+            "totalReturnPct": 34.683754,
+            "comparatorReturnPct": 32.185761,
+            "edgePctPoints": 2.497993,
+            "sharpe": 1.183375,
+            "activeSharpe": 0.311799,
+            "maxDrawdownPct": -19.124364,
+            "turnover": 8.357185,
+            "gasTurnover": 4.80922
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 54,
+            "totalReturnPct": 101.054481,
+            "comparatorReturnPct": 118.768714,
+            "edgePctPoints": -17.714233,
+            "sharpe": 0.808346,
+            "activeSharpe": -0.326865,
+            "maxDrawdownPct": -34.096981,
+            "turnover": 27.60668,
+            "gasTurnover": 14.497257
+          },
+          "trainValidation": {
+            "sessions": 1005,
+            "gasTargetSessions": 36,
+            "totalReturnPct": 49.27894,
+            "comparatorReturnPct": 65.500968,
+            "edgePctPoints": -16.222028,
+            "sharpe": 0.66185,
+            "activeSharpe": -0.546274,
+            "maxDrawdownPct": -34.096981,
+            "turnover": 19.249495,
+            "gasTurnover": 9.688036,
+            "followTargetSessions": 33,
+            "reversionTargetSessions": 3
+          }
+        },
+        "positiveTrainYears": 2,
+        "followTrainValidationEdgePctPoints": -22.823912,
+        "reversionTrainValidationEdgePctPoints": 7.647122,
+        "eligibilityFailures": [
+          "validation-gas-target-sessions<10",
+          "train-validation-reversion-target-sessions<6",
+          "train-edge<=0",
+          "validation-edge<=0",
+          "validation-active-sharpe<=0",
+          "train-validation-follow-edge<=0"
+        ],
+        "eligible": false,
+        "selectionScore": -32.474035,
+        "trainingSelectionFailures": [],
+        "trainingSelectable": true,
+        "trainingEconomicGate": {
+          "passes": false,
+          "failures": [
+            "train-edge<=0",
+            "train-active-sharpe<=0"
+          ]
+        },
+        "trainingSelectionScore": -18.474424
+      },
+      "permutedLocation": {
+        "candidateId": "power-impact-full-q90",
+        "parameters": {
+          "impactProfile": "full",
+          "weatherOnlyGateQuantile": 0.9,
+          "sourceMode": "both",
+          "sourceThresholdsCddImpactF": {
+            "gfs": 7.87524,
+            "gefs-mean": 6.96894
+          },
+          "requiresBothSources": true,
+          "summerShortAllowed": false
+        },
+        "signalCount": 48,
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 39,
+            "totalReturnPct": 18.538007,
+            "comparatorReturnPct": 32.812618,
+            "edgePctPoints": -14.274611,
+            "sharpe": 0.39464,
+            "activeSharpe": -0.512929,
+            "maxDrawdownPct": -36.325674,
+            "turnover": 19.618404,
+            "gasTurnover": 9.937189
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 3,
+            "totalReturnPct": 21.880001,
+            "comparatorReturnPct": 24.612383,
+            "edgePctPoints": -2.732381,
+            "sharpe": 1.554645,
+            "activeSharpe": -1.900316,
+            "maxDrawdownPct": -9.022612,
+            "turnover": 1.489183,
+            "gasTurnover": 0.687716
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 25,
+            "totalReturnPct": 27.77874,
+            "comparatorReturnPct": 32.185761,
+            "edgePctPoints": -4.407022,
+            "sharpe": 0.991295,
+            "activeSharpe": -0.457186,
+            "maxDrawdownPct": -19.124364,
+            "turnover": 14.390038,
+            "gasTurnover": 7.797989
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 67,
+            "totalReturnPct": 84.607216,
+            "comparatorReturnPct": 118.768714,
+            "edgePctPoints": -34.161498,
+            "sharpe": 0.715127,
+            "activeSharpe": -0.511995,
+            "maxDrawdownPct": -36.325674,
+            "turnover": 35.497625,
+            "gasTurnover": 18.422895
+          },
+          "trainValidation": {
+            "sessions": 1005,
+            "gasTargetSessions": 42,
+            "totalReturnPct": 44.474125,
+            "comparatorReturnPct": 65.500968,
+            "edgePctPoints": -21.026843,
+            "sharpe": 0.608818,
+            "activeSharpe": -0.531771,
+            "maxDrawdownPct": -36.325674,
+            "turnover": 21.107587,
+            "gasTurnover": 10.624906,
+            "followTargetSessions": 39,
+            "reversionTargetSessions": 3
+          }
+        },
+        "positiveTrainYears": 2,
+        "followTrainValidationEdgePctPoints": -27.416234,
+        "reversionTrainValidationEdgePctPoints": 7.647122,
+        "eligibilityFailures": [
+          "validation-gas-target-sessions<10",
+          "train-validation-reversion-target-sessions<6",
+          "train-edge<=0",
+          "validation-edge<=0",
+          "validation-active-sharpe<=0",
+          "train-validation-follow-edge<=0"
+        ],
+        "eligible": false,
+        "selectionScore": -48.787929,
+        "trainingSelectionFailures": [],
+        "trainingSelectable": true,
+        "trainingEconomicGate": {
+          "passes": false,
+          "failures": [
+            "train-edge<=0",
+            "train-active-sharpe<=0"
+          ]
+        },
+        "trainingSelectionScore": -21.852752
+      }
+    },
+    "sourceAblations": {
+      "gfsOnly": {
+        "candidateId": "power-impact-full-q90",
+        "parameters": {
+          "impactProfile": "full",
+          "weatherOnlyGateQuantile": 0.9,
+          "sourceMode": "gfs",
+          "sourceThresholdsCddImpactF": {
+            "gfs": 6.653128,
+            "gefs-mean": 7.078158
+          },
+          "requiresBothSources": false,
+          "summerShortAllowed": false
+        },
+        "signalCount": 73,
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 61,
+            "totalReturnPct": 26.134844,
+            "comparatorReturnPct": 32.812618,
+            "edgePctPoints": -6.677774,
+            "sharpe": 0.503007,
+            "activeSharpe": -0.207423,
+            "maxDrawdownPct": -35.426648,
+            "turnover": 32.30998,
+            "gasTurnover": 16.646789
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 20,
+            "totalReturnPct": 26.532518,
+            "comparatorReturnPct": 24.612383,
+            "edgePctPoints": 1.920135,
+            "sharpe": 1.711758,
+            "activeSharpe": 0.277514,
+            "maxDrawdownPct": -10.274647,
+            "turnover": 10.598434,
+            "gasTurnover": 5.950155
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 29,
+            "totalReturnPct": 30.962455,
+            "comparatorReturnPct": 32.185761,
+            "edgePctPoints": -1.223306,
+            "sharpe": 1.088519,
+            "activeSharpe": -0.124914,
+            "maxDrawdownPct": -19.124364,
+            "turnover": 15.373611,
+            "gasTurnover": 8.327853
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 110,
+            "totalReturnPct": 109.018166,
+            "comparatorReturnPct": 118.768714,
+            "edgePctPoints": -9.750548,
+            "sharpe": 0.836674,
+            "activeSharpe": -0.106725,
+            "maxDrawdownPct": -35.426648,
+            "turnover": 58.282025,
+            "gasTurnover": 30.924797
+          },
+          "trainValidation": {
+            "sessions": 1005,
+            "gasTargetSessions": 81,
+            "totalReturnPct": 59.601594,
+            "comparatorReturnPct": 65.500968,
+            "edgePctPoints": -5.899374,
+            "sharpe": 0.741645,
+            "activeSharpe": -0.104157,
+            "maxDrawdownPct": -35.426648,
+            "turnover": 42.908414,
+            "gasTurnover": 22.596944,
+            "followTargetSessions": 75,
+            "reversionTargetSessions": 6
+          }
+        },
+        "positiveTrainYears": 1,
+        "followTrainValidationEdgePctPoints": -12.252139,
+        "reversionTrainValidationEdgePctPoints": 6.828949,
+        "eligibilityFailures": [
+          "train-edge<=0",
+          "train-validation-follow-edge<=0",
+          "positive-train-years<2"
+        ],
+        "eligible": false,
+        "selectionScore": -10.500255,
+        "trainingSelectionFailures": [],
+        "trainingSelectable": true,
+        "trainingEconomicGate": {
+          "passes": false,
+          "failures": [
+            "train-edge<=0",
+            "train-active-sharpe<=0",
+            "positive-train-years<2"
+          ]
+        },
+        "trainingSelectionScore": -12.566001
+      },
+      "gefsMeanOnly": {
+        "candidateId": "power-impact-full-q90",
+        "parameters": {
+          "impactProfile": "full",
+          "weatherOnlyGateQuantile": 0.9,
+          "sourceMode": "gefs-mean",
+          "sourceThresholdsCddImpactF": {
+            "gfs": 6.653128,
+            "gefs-mean": 7.078158
+          },
+          "requiresBothSources": false,
+          "summerShortAllowed": false
+        },
+        "signalCount": 78,
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 45,
+            "totalReturnPct": 32.680387,
+            "comparatorReturnPct": 32.812618,
+            "edgePctPoints": -0.132231,
+            "sharpe": 0.597752,
+            "activeSharpe": 0.011519,
+            "maxDrawdownPct": -26.94785,
+            "turnover": 23.374133,
+            "gasTurnover": 11.809887
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 10,
+            "totalReturnPct": 26.088476,
+            "comparatorReturnPct": 24.612383,
+            "edgePctPoints": 1.476094,
+            "sharpe": 1.803202,
+            "activeSharpe": 0.344254,
+            "maxDrawdownPct": -9.074372,
+            "turnover": 5.203028,
+            "gasTurnover": 2.890668
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 36,
+            "totalReturnPct": 18.173136,
+            "comparatorReturnPct": 32.185761,
+            "edgePctPoints": -14.012625,
+            "sharpe": 0.70845,
+            "activeSharpe": -1.382929,
+            "maxDrawdownPct": -19.124364,
+            "turnover": 16.040408,
+            "gasTurnover": 9.319307
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 91,
+            "totalReturnPct": 97.697368,
+            "comparatorReturnPct": 118.768714,
+            "edgePctPoints": -21.071346,
+            "sharpe": 0.79085,
+            "activeSharpe": -0.294325,
+            "maxDrawdownPct": -26.94785,
+            "turnover": 44.617569,
+            "gasTurnover": 24.019862
+          },
+          "trainValidation": {
+            "sessions": 1005,
+            "gasTargetSessions": 55,
+            "totalReturnPct": 67.294679,
+            "comparatorReturnPct": 65.500968,
+            "edgePctPoints": 1.793711,
+            "sharpe": 0.82211,
+            "activeSharpe": 0.057447,
+            "maxDrawdownPct": -26.94785,
+            "turnover": 28.577161,
+            "gasTurnover": 14.700555,
+            "followTargetSessions": 51,
+            "reversionTargetSessions": 4
+          }
+        },
+        "positiveTrainYears": 1,
+        "followTrainValidationEdgePctPoints": -5.995351,
+        "reversionTrainValidationEdgePctPoints": 8.064811,
+        "eligibilityFailures": [
+          "train-validation-reversion-target-sessions<6",
+          "train-edge<=0",
+          "train-validation-follow-edge<=0",
+          "positive-train-years<2"
+        ],
+        "eligible": false,
+        "selectionScore": -0.711607,
+        "trainingSelectionFailures": [],
+        "trainingSelectable": true,
+        "trainingEconomicGate": {
+          "passes": false,
+          "failures": [
+            "train-edge<=0",
+            "positive-train-years<2"
+          ]
+        },
+        "trainingSelectionScore": -2.559218
+      }
+    },
+    "leaveOnePreReportingYearOut": [
+      {
+        "excludedYear": 2021,
+        "periodsUsed": [
+          2022,
+          2023,
+          2024
+        ],
+        "metrics": {
+          "sessions": 753,
+          "gasTargetSessions": 31,
+          "totalReturnPct": 26.548153,
+          "comparatorReturnPct": 29.340261,
+          "edgePctPoints": -2.792107,
+          "sharpe": 0.515678,
+          "activeSharpe": -0.114768,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 15.606941,
+          "gasTurnover": 8.304887
+        }
+      },
+      {
+        "excludedYear": 2022,
+        "periodsUsed": [
+          2021,
+          2023,
+          2024
+        ],
+        "metrics": {
+          "sessions": 754,
+          "gasTargetSessions": 25,
+          "totalReturnPct": 114.796081,
+          "comparatorReturnPct": 108.805878,
+          "edgePctPoints": 5.990202,
+          "sharpe": 1.924946,
+          "activeSharpe": 0.296042,
+          "maxDrawdownPct": -10.091619,
+          "turnover": 12.065303,
+          "gasTurnover": 6.539291
+        }
+      },
+      {
+        "excludedYear": 2023,
+        "periodsUsed": [
+          2021,
+          2022,
+          2024
+        ],
+        "metrics": {
+          "sessions": 755,
+          "gasTargetSessions": 28,
+          "totalReturnPct": 24.996392,
+          "comparatorReturnPct": 26.382174,
+          "edgePctPoints": -1.385782,
+          "sharpe": 0.495051,
+          "activeSharpe": -0.058109,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 16.653946,
+          "gasTurnover": 8.449739
+        }
+      },
+      {
+        "excludedYear": 2024,
+        "periodsUsed": [
+          2021,
+          2022,
+          2023
+        ],
+        "metrics": {
+          "sessions": 753,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 27.58824,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -5.224379,
+          "sharpe": 0.52987,
+          "activeSharpe": -0.221596,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 18.557709,
+          "gasTurnover": 9.410752
+        }
+      }
+    ],
+    "executionCosts": {
+      "baseline": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 27.58824,
+          "comparatorReturnPct": 32.812618,
+          "edgePctPoints": -5.224379,
+          "sharpe": 0.52987,
+          "activeSharpe": -0.221596,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 18.557709,
+          "gasTurnover": 9.410752
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 4,
+          "totalReturnPct": 27.796644,
+          "comparatorReturnPct": 24.612383,
+          "edgePctPoints": 3.184262,
+          "sharpe": 1.881106,
+          "activeSharpe": 1.238353,
+          "maxDrawdownPct": -9.021154,
+          "turnover": 2.403591,
+          "gasTurnover": 1.490804
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 28,
+          "totalReturnPct": 31.421846,
+          "comparatorReturnPct": 32.185761,
+          "edgePctPoints": -0.763916,
+          "sharpe": 1.095375,
+          "activeSharpe": -0.071071,
+          "maxDrawdownPct": -19.124364,
+          "turnover": 14.035789,
+          "gasTurnover": 7.655539
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 68,
+          "totalReturnPct": 114.287904,
+          "comparatorReturnPct": 118.768714,
+          "edgePctPoints": -4.48081,
+          "sharpe": 0.873563,
+          "activeSharpe": -0.061978,
+          "maxDrawdownPct": -29.130087,
+          "turnover": 34.997089,
+          "gasTurnover": 18.557096
+        }
+      },
+      "elevated": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 27.256864,
+          "comparatorReturnPct": 32.807182,
+          "edgePctPoints": -5.550318,
+          "sharpe": 0.525183,
+          "activeSharpe": -0.236668,
+          "maxDrawdownPct": -29.218302,
+          "turnover": 18.565196,
+          "gasTurnover": 9.410788
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 4,
+          "totalReturnPct": 27.751323,
+          "comparatorReturnPct": 24.610947,
+          "edgePctPoints": 3.140375,
+          "sharpe": 1.878837,
+          "activeSharpe": 1.227811,
+          "maxDrawdownPct": -9.02131,
+          "turnover": 2.403652,
+          "gasTurnover": 1.49089
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 28,
+          "totalReturnPct": 31.15689,
+          "comparatorReturnPct": 32.183726,
+          "edgePctPoints": -1.026836,
+          "sharpe": 1.088125,
+          "activeSharpe": -0.099534,
+          "maxDrawdownPct": -19.124518,
+          "turnover": 14.036392,
+          "gasTurnover": 7.655508
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 68,
+          "totalReturnPct": 113.224808,
+          "comparatorReturnPct": 118.753873,
+          "edgePctPoints": -5.529064,
+          "sharpe": 0.868456,
+          "activeSharpe": -0.080188,
+          "maxDrawdownPct": -29.218302,
+          "turnover": 35.005239,
+          "gasTurnover": 18.557186
+        }
+      },
+      "stress": {
+        "train": {
+          "sessions": 753,
+          "gasTargetSessions": 36,
+          "totalReturnPct": 26.208502,
+          "comparatorReturnPct": 32.788734,
+          "edgePctPoints": -6.580231,
+          "sharpe": 0.510341,
+          "activeSharpe": -0.285114,
+          "maxDrawdownPct": -29.467833,
+          "turnover": 18.569148,
+          "gasTurnover": 9.411063
+        },
+        "validation": {
+          "sessions": 252,
+          "gasTargetSessions": 4,
+          "totalReturnPct": 27.607342,
+          "comparatorReturnPct": 24.606642,
+          "edgePctPoints": 3.0007,
+          "sharpe": 1.871418,
+          "activeSharpe": 1.188263,
+          "maxDrawdownPct": -9.021779,
+          "turnover": 2.403915,
+          "gasTurnover": 1.49113
+        },
+        "reportingOnly": {
+          "sessions": 382,
+          "gasTargetSessions": 28,
+          "totalReturnPct": 30.30064,
+          "comparatorReturnPct": 32.177358,
+          "edgePctPoints": -1.876718,
+          "sharpe": 1.064691,
+          "activeSharpe": -0.192508,
+          "maxDrawdownPct": -19.12498,
+          "turnover": 14.03377,
+          "gasTurnover": 7.655599
+        },
+        "all": {
+          "sessions": 1387,
+          "gasTargetSessions": 68,
+          "totalReturnPct": 109.850895,
+          "comparatorReturnPct": 118.705391,
+          "edgePctPoints": -8.854496,
+          "sharpe": 0.852176,
+          "activeSharpe": -0.138888,
+          "maxDrawdownPct": -29.467833,
+          "turnover": 35.006833,
+          "gasTurnover": 18.557792
+        }
+      }
+    },
+    "bestEventConcentration": {
+      "period": "2021-01-01-through-2024-12-31",
+      "eventCount": 14,
+      "selectedReturnPct": 63.053489,
+      "eventContributions": [
+        {
+          "issueDate": "2023-08-28",
+          "targetDates": [
+            "2023-09-04"
+          ],
+          "returnContributionPctPoints": 6.627429
+        },
+        {
+          "issueDate": "2024-05-02",
+          "targetDates": [
+            "2024-05-09"
+          ],
+          "returnContributionPctPoints": 4.062744
+        },
+        {
+          "issueDate": "2021-09-12",
+          "targetDates": [
+            "2021-09-19"
+          ],
+          "returnContributionPctPoints": 3.567124
+        },
+        {
+          "issueDate": "2022-05-14",
+          "targetDates": [
+            "2022-05-21"
+          ],
+          "returnContributionPctPoints": 3.210135
+        },
+        {
+          "issueDate": "2022-07-16",
+          "targetDates": [
+            "2022-07-23"
+          ],
+          "returnContributionPctPoints": 2.800298
+        },
+        {
+          "issueDate": "2023-08-29",
+          "targetDates": [
+            "2023-09-05"
+          ],
+          "returnContributionPctPoints": 2.777378
+        },
+        {
+          "issueDate": "2021-08-18",
+          "targetDates": [
+            "2021-08-25"
+          ],
+          "returnContributionPctPoints": 0.502951
+        },
+        {
+          "issueDate": "2022-09-12",
+          "targetDates": [
+            "2022-09-19"
+          ],
+          "returnContributionPctPoints": 0.385038
+        },
+        {
+          "issueDate": "2023-08-13",
+          "targetDates": [
+            "2023-08-20"
+          ],
+          "returnContributionPctPoints": -2.515172
+        },
+        {
+          "issueDate": "2021-08-05",
+          "targetDates": [
+            "2021-08-12"
+          ],
+          "returnContributionPctPoints": -3.008622
+        },
+        {
+          "issueDate": "2023-08-08",
+          "targetDates": [
+            "2023-08-15"
+          ],
+          "returnContributionPctPoints": -3.490325
+        },
+        {
+          "issueDate": "2023-08-27",
+          "targetDates": [
+            "2023-09-03"
+          ],
+          "returnContributionPctPoints": -4.133889
+        },
+        {
+          "issueDate": "2022-07-28",
+          "targetDates": [
+            "2022-08-04"
+          ],
+          "returnContributionPctPoints": -6.519153
+        },
+        {
+          "issueDate": "2022-05-25",
+          "targetDates": [
+            "2022-06-01"
+          ],
+          "returnContributionPctPoints": -7.255382
+        }
+      ],
+      "removeBestOneReturnPct": 56.42606,
+      "removeBestOneDeltaVsComparatorPctPoints": -9.074908
+    },
+    "realizedMoveRamp1_5To2Pct": {
+      "baseline": {
+        "changedTargetCount": 0,
+        "changedTargets": [],
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 36,
+            "totalReturnPct": 27.58824,
+            "comparatorReturnPct": 27.58824,
+            "edgePctPoints": 0,
+            "sharpe": 0.52987,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.130087,
+            "turnover": 18.557709,
+            "gasTurnover": 9.410752
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 4,
+            "totalReturnPct": 27.796644,
+            "comparatorReturnPct": 27.796644,
+            "edgePctPoints": 0,
+            "sharpe": 1.881106,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -9.021154,
+            "turnover": 2.403591,
+            "gasTurnover": 1.490804
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 28,
+            "totalReturnPct": 31.421846,
+            "comparatorReturnPct": 31.421846,
+            "edgePctPoints": 0,
+            "sharpe": 1.095375,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -19.124364,
+            "turnover": 14.035789,
+            "gasTurnover": 7.655539
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 68,
+            "totalReturnPct": 114.287904,
+            "comparatorReturnPct": 114.287904,
+            "edgePctPoints": 0,
+            "sharpe": 0.873563,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.130087,
+            "turnover": 34.997089,
+            "gasTurnover": 18.557096
+          }
+        },
+        "concentration": {
+          "episodeContributions": [],
+          "comparatorFullReturnPct": 114.287904,
+          "rampFullReturnPct": 114.287904,
+          "fullReturnDeltaPctPoints": 0,
+          "removeBestOneFullReturnDeltaPctPoints": 0
+        }
+      },
+      "elevated": {
+        "changedTargetCount": 0,
+        "changedTargets": [],
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 36,
+            "totalReturnPct": 27.256864,
+            "comparatorReturnPct": 27.256864,
+            "edgePctPoints": 0,
+            "sharpe": 0.525183,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.218302,
+            "turnover": 18.565196,
+            "gasTurnover": 9.410788
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 4,
+            "totalReturnPct": 27.751323,
+            "comparatorReturnPct": 27.751323,
+            "edgePctPoints": 0,
+            "sharpe": 1.878837,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -9.02131,
+            "turnover": 2.403652,
+            "gasTurnover": 1.49089
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 28,
+            "totalReturnPct": 31.15689,
+            "comparatorReturnPct": 31.15689,
+            "edgePctPoints": 0,
+            "sharpe": 1.088125,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -19.124518,
+            "turnover": 14.036392,
+            "gasTurnover": 7.655508
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 68,
+            "totalReturnPct": 113.224808,
+            "comparatorReturnPct": 113.224808,
+            "edgePctPoints": 0,
+            "sharpe": 0.868456,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.218302,
+            "turnover": 35.005239,
+            "gasTurnover": 18.557186
+          }
+        },
+        "concentration": {
+          "episodeContributions": [],
+          "comparatorFullReturnPct": 113.224808,
+          "rampFullReturnPct": 113.224808,
+          "fullReturnDeltaPctPoints": 0,
+          "removeBestOneFullReturnDeltaPctPoints": 0
+        }
+      },
+      "stress": {
+        "changedTargetCount": 0,
+        "changedTargets": [],
+        "periods": {
+          "train": {
+            "sessions": 753,
+            "gasTargetSessions": 36,
+            "totalReturnPct": 26.208502,
+            "comparatorReturnPct": 26.208502,
+            "edgePctPoints": 0,
+            "sharpe": 0.510341,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.467833,
+            "turnover": 18.569148,
+            "gasTurnover": 9.411063
+          },
+          "validation": {
+            "sessions": 252,
+            "gasTargetSessions": 4,
+            "totalReturnPct": 27.607342,
+            "comparatorReturnPct": 27.607342,
+            "edgePctPoints": 0,
+            "sharpe": 1.871418,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -9.021779,
+            "turnover": 2.403915,
+            "gasTurnover": 1.49113
+          },
+          "reportingOnly": {
+            "sessions": 382,
+            "gasTargetSessions": 28,
+            "totalReturnPct": 30.30064,
+            "comparatorReturnPct": 30.30064,
+            "edgePctPoints": 0,
+            "sharpe": 1.064691,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -19.12498,
+            "turnover": 14.03377,
+            "gasTurnover": 7.655599
+          },
+          "all": {
+            "sessions": 1387,
+            "gasTargetSessions": 68,
+            "totalReturnPct": 109.850895,
+            "comparatorReturnPct": 109.850895,
+            "edgePctPoints": 0,
+            "sharpe": 0.852176,
+            "activeSharpe": 0,
+            "maxDrawdownPct": -29.467833,
+            "turnover": 35.006833,
+            "gasTurnover": 18.557792
+          }
+        },
+        "concentration": {
+          "episodeContributions": [],
+          "comparatorFullReturnPct": 109.850895,
+          "rampFullReturnPct": 109.850895,
+          "fullReturnDeltaPctPoints": 0,
+          "removeBestOneFullReturnDeltaPctPoints": 0
+        }
+      }
+    }
+  },
+  "caveats": [
+    "The physical calibration is fixed before trading-return evaluation.",
+    "Forecast level, not forecast revision, is tested because the retained corrected archive contains one 00Z issue per day.",
+    "2025+ data are development-contaminated and hidden unless explicitly requested.",
+    "No audit result may modify live inference, public strategy artifacts, or order routing."
+  ]
+}

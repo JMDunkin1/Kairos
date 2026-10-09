@@ -1,6 +1,8 @@
 import type { CommandConnection, LiveTelemetry } from './types'
 
-const apiBaseUrl = (import.meta.env.VITE_QORE_API_URL ?? 'http://127.0.0.1:4775').replace(/\/$/, '')
+const apiBaseUrl = (window.location.pathname === '/ngas.html'
+  ? ''
+  : import.meta.env.VITE_QORE_API_URL ?? 'http://127.0.0.1:4775').replace(/\/$/, '')
 
 async function request<T extends { error?: string | null }>(path: string, options: RequestInit = {}, timeoutMs = 8_000) {
   const controller = new AbortController()

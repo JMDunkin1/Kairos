@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-07-23T04:00:31.700Z",
+  "source": "NOAA GEFS 0.25 degree ensemble mean forecast archive on AWS, TMP 2 m above ground",
+  "forecastSource": "gefs-mean",
+  "range": {
+    "startDate": "2021-05-01",
+    "issueEndDate": "2026-07-14",
+    "targetEndDate": "2026-07-21"
+  },
+  "runHour": "00",
+  "leadDays": [
+    7
+  ],
+  "validTimeOffsetsHoursFromTargetUtcMidnight": [
+    6,
+    12,
+    18,
+    24
+  ],
+  "validHoursUtc": [
+    6,
+    12,
+    18,
+    24
+  ],
+  "temporalSampling": {
+    "schemaVersion": 2,
+    "contractId": "summer-target-local-day-four-sample-mean-v1",
+    "forecastIssueRunHourUtc": "00",
+    "leadDays": [
+      7
+    ],
+    "validTimeOffsetsHoursFromTargetUtcMidnight": [
+      6,
+      12,
+      18,
+      24
+    ],
+    "aggregation": "equal-weighted-arithmetic-mean",
+    "targetDateSemantics": "The targetDate remains issueDate plus leadDays. Offset 24 samples the following UTC midnight and is aggregated into that targetDate as the reviewed Eastern/Central US local-day approximation.",
+    "targetDayBasis": "eastern-central-us-local-calendar-day-four-sample-approximation",
+    "comparisonStatistic": "NASA-POWER-daily-T2M-mean",
+    "valueBinding": {
+      "schemaVersion": 1,
+      "sampleValuesField": "sampledForecastValuesF",
+      "sampleValuesEncoding": "pipe-delimited-degrees-F-in-offset-order-decimal-round-trip",
+      "sampleProvenanceField": "forecastSampleProvenanceJson",
+      "sampleProvenanceDigestField": "forecastSampleProvenanceDigestSha256",
+      "locationVectorDigestField": "forecastSampleVectorDigestSha256",
+      "locationSetDigestField": "locationSampleVectorSetDigestSha256",
+      "normalIdentityFields": [
+        "normalSourceContractId",
+        "normalSourceContractDigestSha256",
+        "normalSourcePayloadDigestSha256"
+      ],
+      "normalSourceContract": {
+        "contractId": "nasa-power-merra2-lst-t2m-1991-2020-v1",
+        "apiName": "POWER Daily API",
+        "apiVersion": "v2.9.4",
+        "upstreamSource": "MERRA2",
+        "timeStandard": "LST",
+        "parameter": "T2M",
+        "startDate": "1991-01-01",
+        "endDate": "2020-12-31",
+        "aggregation": "same-calendar-month-day-arithmetic-mean-converted-C-to-F",
+        "retainedPayloadPathTemplate": "data/qore/weather/nasa-power/normals/{locationId}-1991-01-01-2020-12-31.json",
+        "payloadDigestSha256ByLocationId": {
+          "atlanta": "0810f0fc8a90118b9ee78160ca0a8b07ff765c211e2b358ccb1ad515a5d0f9ec",
+          "boston": "f1ace71546bd44d70b32c8281ffd0c8146e43e5a70e4519b1dd4724a70c21ff9",
+          "charlotte": "79c72d67eaeaa2f7a571397b527ce7e643101fe2e59e4662af47f89bbd135589",
+          "chicago": "371516b28991c393b58e0397b11fec342fa0889673dfd349cf1f4e303f37003b",
+          "cleveland": "2796510c46879cfd3000abc92f23fe433abda00cb69bef106b5576698224b135",
+          "dallas": "4b3d8648923891fab65ad6cf3ff64146f4462deaf80c0c2e8ec3d2e4db2348fd",
+          "detroit": "2e824bb05e63c57f04b5920e50151539d9a7098badf46a90cd42d230a8aac7f2",
+          "houston": "520c32658c959069798e70f4acf024e687f937dee358507780208922db6781f5",
+          "indianapolis": "dd17c50dc054452117f2924a591c07694d15f84c11545dbb29523bdc6468854c",
+          "kansas-city": "69456f00d87cb878a5519ed38c73c0bf241995a5a2f88cb8335a9535dab607f7",
+          "memphis": "9abe74e9c50ed3b38351c9e2e348c614f51cca718e4238099a0def5f96315125",
+          "minneapolis": "783c46d0c07a7a7b99ff3fa8f65c66e4773f1bf5d7ae19f7e6b2f17a311584e6",
+          "nashville": "f8d2cd1ef3b61c6c360f7cf7d685c187da76dc78986e69395a216e88c0aa0689",
+          "new-york": "da386333e72f33767c006da9febf366ed0b2090168caaf911e4577588b562938",
+          "philadelphia": "4c0ebfca3239e592cced47e0ba1e1a8d315bbf3892434811fa4766d16d73bb36",
+          "raleigh": "02d9ee85ef2804f9a482f1c97d460bf5348064ee498b6cb78f3a2f414e825852",
+          "st-louis": "afe6c6bac4ed1e9812cb767798328eddc6c7d8bf4c34ee024af26a4ac250befc",
+          "washington-dc": "475680dd2ac2d3ec115de7bbeb6eb37da8dbea2afe51777a34ff802bf1bda11f"
+        }
+      },
+      "normalSourceContractDigestSha256": "18b1670dbbab93e68a3a9bfb67853f7961a7d125095627df20ebec276b322bcf",
+      "reviewedWindowId": "rumor",
+      "reviewedModelIds": {
+        "gfs": "ncep-gfs-global-00z-noaa-aws",
+        "gefs-mean": "ncep-gefs-mean-00z-noaa-aws",
+        "graphcastgfs": "ncep-gfs-graphcast-00z-noaa-aws",
+        "aigfs": "ncep-aigfs-025-00z-openmeteo-single-runs",
+        "ecmwf-ifs": "ecmwf-ifs-00z-openmeteo-single-runs",
+        "ecmwf-aifs": "ecmwf-aifs-025-00z-openmeteo-single-runs",
+        "gem-global": "gem-global-00z-openmeteo-single-runs"
+      },
+      "acquisitionIdentityFields": [
+        "sourceUrl",
+        "indexUrl",
+        "indexLine",
+        "sourceIndexPayloadDigestSha256",
+        "sourcePayloadDigestSha256"
+      ],
+      "aggregateRule": "forecastMeanF-equals-rounded-3dp-arithmetic-mean-of-stored-samples",
+      "digestAlgorithm": "sha256-canonical-json",
+      "acquisitionTrustBoundary": "The builder hashes each fetched GRIB field or Open-Meteo response and binds that digest plus upstream object identity into the persisted score provenance. Relabel-only or accidental value changes fail validation. Raw forecast bytes are not retained and SHA-256 bindings are not signatures, so a malicious process able to fabricate values and recompute every digest remains inside the trusted builder acquisition-attestation boundary."
+    },
+    "summerExecutionEligible": true
+  },
+  "heatingSeasonOnly": false,
+  "coolingSeasonOnly": true,
+  "allowPartial": false,
+  "modelId": "ncep-gefs-mean-00z-noaa-aws",
+  "locations": 18,
+  "expectedScoreRows": 840,
+  "existingCompleteRowsBeforeRun": 0,
+  "resumePrunedRowsBeforeRun": 0,
+  "itemRowsAttemptedThisRun": 840,
+  "itemRowsCompletedThisRun": 840,
+  "finalCompleteRows": 840,
+  "missingCompleteRows": 0,
+  "failures": [],
+  "files": {
+    "locationAnomalies": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv",
+    "signalScores": ".local/qore/research/corrected-summer-v2-20260722/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv",
+    "signalReturns": ".local/qore/research/corrected-summer-v2-20260722/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-returns.csv",
+    "manifest": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json"
+  }
+}

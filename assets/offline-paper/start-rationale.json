@@ -1,0 +1,30 @@
+{
+  "schema": "qore.prospective-start-rationale.v1",
+  "recorded_utc": "2026-10-08T22:15:50.610899+00:00",
+  "status": "EXPLANATORY_ADDENDUM_NO_WINDOW_OR_ECONOMIC_CHANGE",
+  "registered_protocol": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PROTOCOL.json",
+    "bytes": 11888,
+    "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+  },
+  "selected_date": "2026-11-02",
+  "selected_first_funded_reference_utc": "2026-11-02T21:00:00Z",
+  "decision_rationale": "Root selected the first planned session of the next calendar month to leave preparation time for pre-start source qualification and exact metadata/code registration. No strategy rule, public-data release lag or measured minimum waiting period requires November2. It was a planning buffer, not a financial parameter search or guaranteed data-ready date.",
+  "why_original_oct8_not_backdated": "At the dated-window freeze on Oct8 at21:52UTC, that day's planned20UTC reference had already passed. No qualified pre-start warmup, actual future NAV/Brent packet or observation claim existed. Recording those later as available before that reference would be false. The original Oct8 observer remains preserved and unstarted.",
+  "actual_constraints": [
+    "At least273 prior levels for SPY,XLE,IEF,SHY,TLT with exposed-snapshot byte identity and actual known-at time strictly before the first funded reference.",
+    "Future NAV valuation/reference times, actual publication/availability, decision/invocation and Brent observation/publication/first-seen/asof-eligibility must satisfy the unchanged causal contract.",
+    "Do not substitute familiar historical timestamp scaffolds, forward-filled marks or later archives for contemporaneously qualified prospective observations.",
+    "No eligible pre-start inputs means the fixed window stays blocked/unstarted. No silent date shift or backdating."
+  ],
+  "work_available_now": [
+    "Browse the three offline paper candidates, their original failures, tested definitions and limitations.",
+    "Inspect or play back retained, independently audited familiar historical outputs with explicit familiar-replay labels.",
+    "Qualify supplied source schemas and clock evidence and test implementation on clearly invented fixtures; neither is new economic validation."
+  ],
+  "preservation": "This explanatory addendum does not amend the Nov2 registration, oldOct8 observer, economic thresholds/costs, BTC dates or current reviewed index.",
+  "new_economic_outcomes": 0,
+  "new_validated_strategies": 0,
+  "orders_enabled": false,
+  "runtime_changes": false
+}

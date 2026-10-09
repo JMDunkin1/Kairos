@@ -1,0 +1,383 @@
+{
+  "schema": "qore-hub.isolated-implementation-handoff.v1",
+  "frozen_utc": "2026-10-08T22:28:19.338849+00:00",
+  "status": "READY_FOR_FRESH_INDEPENDENT_REVIEW_SOURCE_AND_STAGED_NATIVE_CANDIDATE",
+  "source_owner_thread": "01a0fed7-9d19-7717-ba30-9102fc2690d6",
+  "source_root": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery",
+  "source_commit": "149b47b71f29d5fcaa5056a9c658a7772b63dd7a",
+  "source_status": "clean and all215baselinebytes unchanged",
+  "candidate_root": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate",
+  "changed_files": {
+    "README.md": {
+      "old": {
+        "bytes": 5649,
+        "sha256": "b07a536d7fca4a26ff73b412f5adb0c30780862a3a8a6abd244ded5208ccd0d9"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/README.md",
+        "bytes": 8022,
+        "sha256": "30093432abc534bb44b3849fb55f2d6e6497c92ed44bfa21e46b9743b10146d6"
+      }
+    },
+    "assets/offline-paper/MANIFEST.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/MANIFEST.json",
+        "bytes": 9017,
+        "sha256": "5b9f5987e41c10b3931511a1d32b8d3210807c7f27267aec9e6461d28cb96a88"
+      }
+    },
+    "assets/offline-paper/btc/daily.csv": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/btc/daily.csv",
+        "bytes": 9318968,
+        "sha256": "0699a91f69ea80c84e5fd314df56fe7eace3a6aa7a9274cdedbbe3ec423059b3"
+      }
+    },
+    "assets/offline-paper/btc/summary.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/btc/summary.json",
+        "bytes": 83069,
+        "sha256": "fc87d82606e8ee8682f74c6cd09887e649c9aeb7adba6385da28d8e407236597"
+      }
+    },
+    "assets/offline-paper/btc-contract.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/btc-contract.json",
+        "bytes": 9214,
+        "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+      }
+    },
+    "assets/offline-paper/btc-fidelity-audit.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/btc-fidelity-audit.json",
+        "bytes": 7427,
+        "sha256": "2df21598121a8aa9879a1a01a1268cc0137e6a4dbbdfd1137b18f956f14d5652"
+      }
+    },
+    "assets/offline-paper/catalogue.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/catalogue.json",
+        "bytes": 16893,
+        "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+      }
+    },
+    "assets/offline-paper/compact-definitions.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/compact-definitions.json",
+        "bytes": 29728,
+        "sha256": "a48aa9413f31cfbdd3d6d42bde7503de34fe4ec1b919dd0d42b642f277996f87"
+      }
+    },
+    "assets/offline-paper/export-review.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/export-review.json",
+        "bytes": 24767,
+        "sha256": "cf927f92a777897651ab5357f7d8fa4a5ad3f15d10d5ba10cfb847c4962e29c0"
+      }
+    },
+    "assets/offline-paper/index-admission.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/index-admission.json",
+        "bytes": 8512,
+        "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+      }
+    },
+    "assets/offline-paper/index-review.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/index-review.json",
+        "bytes": 19630,
+        "sha256": "7a410709b7b50882543e223ece1436da166cc04e1c8c4c59cfd1601cc35ae40b"
+      }
+    },
+    "assets/offline-paper/index.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/index.json",
+        "bytes": 36445,
+        "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+      }
+    },
+    "assets/offline-paper/observations/btc_familiar_fidelity.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/observations/btc_familiar_fidelity.json",
+        "bytes": 998,
+        "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+      }
+    },
+    "assets/offline-paper/observations/btc_invented_next_decision.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/observations/btc_invented_next_decision.json",
+        "bytes": 1225,
+        "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+      }
+    },
+    "assets/offline-paper/observations/btc_invented_owned_state.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/observations/btc_invented_owned_state.json",
+        "bytes": 5059,
+        "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+      }
+    },
+    "assets/offline-paper/observations/rv_ief_barbell_residual_familiar_state.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/observations/rv_ief_barbell_residual_familiar_state.json",
+        "bytes": 30341,
+        "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+      }
+    },
+    "assets/offline-paper/observations/rv_xle_brent_residual_familiar_state.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/observations/rv_xle_brent_residual_familiar_state.json",
+        "bytes": 30351,
+        "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+      }
+    },
+    "assets/offline-paper/post-append-review.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/post-append-review.json",
+        "bytes": 76644,
+        "sha256": "8410a91ab0a8b745c3091fabf863441a3253179b1bf13f2c6c07ed90b988c6cf"
+      }
+    },
+    "assets/offline-paper/relationship-contract.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/relationship-contract.json",
+        "bytes": 11819,
+        "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+      }
+    },
+    "assets/offline-paper/relationship-fidelity-audit.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/relationship-fidelity-audit.json",
+        "bytes": 33453,
+        "sha256": "abca861418d5be01dd1caa524eb531d9659f6b64dcd2a5b1eb0b9a31d3d1f500"
+      }
+    },
+    "assets/offline-paper/relationship-observer.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/relationship-observer.json",
+        "bytes": 4104,
+        "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+      }
+    },
+    "assets/offline-paper/relationship-window.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/relationship-window.json",
+        "bytes": 11888,
+        "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+      }
+    },
+    "assets/offline-paper/start-rationale.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/start-rationale.json",
+        "bytes": 2693,
+        "sha256": "8f2d640da5aef16eee8e9a1d702575dd8bf5662d6af291691d03b0accee95405"
+      }
+    },
+    "assets/offline-paper/states/rv_ief_barbell_residual.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/states/rv_ief_barbell_residual.json",
+        "bytes": 7022538,
+        "sha256": "47e99e04c021dc492ed491f9778ebb8790b72e03380786a3045aff24446b3d7b"
+      }
+    },
+    "assets/offline-paper/states/rv_xle_brent_residual.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/states/rv_xle_brent_residual.json",
+        "bytes": 6961515,
+        "sha256": "9d3b15f887b81963b7b3fd356daedd434ee83c22ba45e7c26b83455d5f726ab2"
+      }
+    },
+    "assets/offline-paper/tested-ledger.json": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/tested-ledger.json",
+        "bytes": 7286,
+        "sha256": "b57153c56bd43994509566af902aee2e2ecd941b1c9679e1f9b6d2d55c32eb75"
+      }
+    },
+    "package.json": {
+      "old": {
+        "bytes": 7322,
+        "sha256": "8abfd24b58e9716f6465cc9f415fe8cc9f93fd5bdff3d75e165fcdbb71bc649b"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/package.json",
+        "bytes": 7524,
+        "sha256": "b7db7b116f2164d8764c6540ac7053ac9881f7afeaf838e1b808d5e3aabdb389"
+      }
+    },
+    "scripts/build-qore-desktop.mjs": {
+      "old": {
+        "bytes": 4319,
+        "sha256": "e9421dd39f8fb721ffe63e38c59901c3814f8584d806d98d853f2b41ce28fac2"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/build-qore-desktop.mjs",
+        "bytes": 4457,
+        "sha256": "8cf799f5e9a274fa90d8b5246c98b2e9e121570ca3195b42f2d47d7235531a46"
+      }
+    },
+    "scripts/lib/qore-hub-ledger.mjs": {
+      "old": {
+        "bytes": 4764,
+        "sha256": "a26c35178d4f0f9cceca68a7cad9c76f1e97c2369151cc0a274242a49e4b48a3"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/lib/qore-hub-ledger.mjs",
+        "bytes": 7967,
+        "sha256": "8c315090cbf142a53d4ed486504c495b9b015b6dd07ed4649f0052f705340f80"
+      }
+    },
+    "scripts/lib/qore-hub-paper.mjs": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/lib/qore-hub-paper.mjs",
+        "bytes": 11503,
+        "sha256": "c3865c4f1ec820701c30cf0072bc6395c4943c2544d4a644dddbc05a3ed6f7bf"
+      }
+    },
+    "scripts/qore-hub-service.mjs": {
+      "old": {
+        "bytes": 10598,
+        "sha256": "17cce4a38d384a98c2c6940c043385d7ac841660d5e6cea5eeacb385afd71482"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/qore-hub-service.mjs",
+        "bytes": 10794,
+        "sha256": "d3a81eab720bf3f9c6cca660e6f1fa559c5578285be1185611dcd7b679c6d4c7"
+      }
+    },
+    "scripts/qore-paper-evidence.mjs": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/qore-paper-evidence.mjs",
+        "bytes": 773,
+        "sha256": "73267a7b539e94d5abf4aab424d670ea98b6d9042a36fc4802c27ab4dee45e16"
+      }
+    },
+    "scripts/test-qore-hub-ledger-events.mjs": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/test-qore-hub-ledger-events.mjs",
+        "bytes": 5770,
+        "sha256": "95d3620d7f9f440d8955dc9650c7475f8be98ea46a99774c9c0a21d18da7917f"
+      }
+    },
+    "scripts/test-qore-hub-paper.mjs": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/scripts/test-qore-hub-paper.mjs",
+        "bytes": 8124,
+        "sha256": "a24a2be6fb088592be26b2b87a3657a3838ba7f090bb7b97e2c8ac58f1e46775"
+      }
+    },
+    "src/hub/PaperCandidates.tsx": {
+      "old": null,
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/src/hub/PaperCandidates.tsx",
+        "bytes": 11867,
+        "sha256": "2cbe330c2bf622e0c71d308756feb4f10e02a906b16eb7e7d3220c85b8309785"
+      }
+    },
+    "src/hub/StrategyHub.tsx": {
+      "old": {
+        "bytes": 32437,
+        "sha256": "694b6cca9faa5b73f066daec397afe637d511e471d697a101af17314f1892c4a"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/src/hub/StrategyHub.tsx",
+        "bytes": 33088,
+        "sha256": "0925da07c11bcdac0d68f206c232ff00fe556653ec641805daaebb98c6505edb"
+      }
+    },
+    "src/hub/types.ts": {
+      "old": {
+        "bytes": 3834,
+        "sha256": "f35338c0e6d0042ec46931861b90593ed55a2f72f6709415b361ee52f2d2302c"
+      },
+      "proposed": {
+        "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/src/hub/types.ts",
+        "bytes": 3947,
+        "sha256": "8b1479ae505be4db699f88ce7ebce35b67b33c3633546c68afef04c4d72d3a0f"
+      }
+    }
+  },
+  "source_patch": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/SOURCE_CHANGES.patch",
+    "bytes": 69677,
+    "sha256": "2fab7b38f49b0fa1decd6f43495f5f1a918143776d86167b53404aa66ce43a70"
+  },
+  "asset_bundle": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/assets/offline-paper/MANIFEST.json",
+    "bytes": 9017,
+    "sha256": "5b9f5987e41c10b3931511a1d32b8d3210807c7f27267aec9e6461d28cb96a88"
+  },
+  "asset_patch_policy": "Copy the exact proposed assets/offline-paper files listed here; source patch excludes these24copiedlargeevidencefiles andtheirmanifest. No original data directory is part of this patch.",
+  "native_manifest": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/NATIVE_MANIFEST.json",
+    "bytes": 25918,
+    "sha256": "8f45a7b2ee6ef4a8f1d6ddb8ad00f047456632c3b660803fbf29d0110fe7589b"
+  },
+  "test_receipt": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/TEST_RECEIPT.json",
+    "bytes": 8118,
+    "sha256": "f862bfe35fec5ac261c7ef650fc723cbe0cac1acd92b56c164336c244382981c"
+  },
+  "canonical_reader_check": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/CANONICAL_READER_CHECK.json",
+    "bytes": 912,
+    "sha256": "f4c8e36ca3b01986cd0f4665da4973def8b0ff514c127e7dfa47396231915558"
+  },
+  "native_package_check": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/NATIVE_PACKAGE_CHECK.json",
+    "bytes": 864,
+    "sha256": "64bad3151d41ba4a24bc5565e49ba929a772506efe5017b715c5bd06075f985d"
+  },
+  "legacy_qualification": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/LEGACY_LEDGER_REFERENCE_QUALIFICATION.json",
+    "bytes": 2270,
+    "sha256": "13d748aa67916a1f76812a8720073cec9f70eba40bf12d7d853e5d7a287a4761"
+  },
+  "source_baseline": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/SOURCE_BASELINE.json",
+    "bytes": 34630,
+    "sha256": "5798adef34302c77a6411055031acd34615db6210758969b9ebb4605bfce99ee"
+  },
+  "orders_enabled": false,
+  "actual_paper_account": false,
+  "qualified_actual_future_packets": 0,
+  "strategy_engines_rerun": 0,
+  "installed_app_changes": 0,
+  "gui_launches": 0,
+  "research_counts": {
+    "retained_candidate": 1,
+    "comparison_baseline": 1,
+    "offline_paper_candidates": 3,
+    "new_validated_strategies": 0,
+    "live_ready_portfolios": 0
+  }
+}

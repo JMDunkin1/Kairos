@@ -2100,7 +2100,7 @@ async function testStaleStrategyBindingRefreshesImmediately() {
   assert.deepEqual(status.cycle.dueJobs, ['strategyInference'])
   assert.equal(status.liveJobs.strategyInference.ok, false)
   assert.equal(status.strategyInference, null, 'Old-contract output must not be hydrated after refresh failure')
-  assert.match(status.liveJobs.strategyInference.error, /ENOENT|No valid|forecast|calendar/i)
+  assert.match(status.liveJobs.strategyInference.error, /ENOENT|No valid|forecast|calendar|demand-input set is stale or incomplete/i)
   console.log('ok - fresh prior-deployment inference refreshes immediately despite its one-hour cadence')
 }
 
@@ -3047,6 +3047,9 @@ try {
   })
   await scenario({
     name: 'capped paper reconcile advances through two consecutively filled tranches',
+    ...(currentTestInferenceSeason === 'summer'
+      ? { targetDate: '2026-07-21', handoffNow: '2026-07-21T15:00:00.000Z' }
+      : winterShortFixture),
     gasPosition: currentTestLongGasPositionCap,
     indexFraction: 1 - currentTestLongGasPositionCap,
     cashFraction: 0,
@@ -3196,6 +3199,8 @@ try {
       { symbol: 'VOO', qty: '78.4', side: 'long', current_price: '100', market_value: '7840' },
       { symbol: 'QQQM', qty: '39.2', side: 'long', current_price: '50', market_value: '1960' },
     ],
+    targetDate: '2026-07-21',
+    handoffNow: '2026-07-21T15:00:00.000Z',
     gasPosition: 0.35,
     indexFraction: 0.65,
     cashFraction: 0,
@@ -3210,6 +3215,8 @@ try {
       { symbol: 'VOO', qty: '52', side: 'long', current_price: '100', market_value: '5200' },
       { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
     ],
+    targetDate: '2026-07-21',
+    handoffNow: '2026-07-21T15:00:00.000Z',
     gasPosition: 0.35,
     indexFraction: 0.65,
     expectedOrderCount: 0,
@@ -3222,6 +3229,8 @@ try {
       { symbol: 'VOO', qty: '52', side: 'long', current_price: '100', market_value: '5200' },
       { symbol: 'QQQM', qty: '26', side: 'long', current_price: '50', market_value: '1300' },
     ],
+    targetDate: '2026-07-21',
+    handoffNow: '2026-07-21T15:00:00.000Z',
     gasPosition: 0.35,
     indexFraction: 0.65,
     expectedOrderCount: 1,
@@ -3857,6 +3866,8 @@ try {
   })
   await scenario({
     name: 'intrarun equity peak persists before a later drawdown check',
+    targetDate: '2026-07-21',
+    handoffNow: '2026-07-21T15:00:00.000Z',
     gasPosition: 0.35, indexFraction: 0.65, cashFraction: 0,
     maxGrossExposurePct: '200',
     accountOverridesBySubmittedOrder: [

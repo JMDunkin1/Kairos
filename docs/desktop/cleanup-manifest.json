@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "cleanupUtc": "2026-10-09T04:05:12.237291+00:00",
+  "authoritativeSource": "QORE repository",
+  "installedApplication": "/Applications/Kairos.app",
+  "publicStrategyManifest": "config/qore-desktop.json",
+  "historicalHubSourceCommit": "7007d49da74a32afee5efc411953e78766d5c79c",
+  "historyPreservation": "Imported original hub Git ancestry before deleting obsolete checkouts; retained instructions, reviews, source/evidence manifests and frozen exports. Canonical experiment log was not rewritten.",
+  "deleted": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/retired-launchers",
+      "deletedKiB": 294620
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/app-install",
+      "deletedKiB": 68260
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/archives",
+      "deletedKiB": 194984
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery",
+      "deletedKiB": 257808
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-hub",
+      "deletedKiB": 302896
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate",
+      "deletedKiB": 253168
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/baseline",
+      "deletedKiB": 88
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/staged",
+      "deletedKiB": 136
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/checkpoint-20261002-2059",
+      "deletedKiB": 328
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/checkpoint-final-20261003",
+      "deletedKiB": 336
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/summer-power-impact",
+      "deletedKiB": 388272
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/audit-summer",
+      "deletedKiB": 18572
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/audit-winter",
+      "deletedKiB": 4192
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/audit-selector",
+      "deletedKiB": 488
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/audit-summer-fresh",
+      "deletedKiB": 2860
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/strategy-audit-2026-07-21",
+      "deletedKiB": 20072
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/localday-chunks",
+      "deletedKiB": 6288
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/localday-smoke",
+      "deletedKiB": 100
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/daily-mean-smoke",
+      "deletedKiB": 100
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/daily-mean-full",
+      "deletedKiB": 1160
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/localday-full",
+      "deletedKiB": 260
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/report-preview-fixture",
+      "deletedKiB": 20
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/report-preview-output",
+      "deletedKiB": 616
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/portfolio-reports/synthetic-preview",
+      "deletedKiB": 216
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Local Automations/QORE/.local/qore/research/missed-replay-20260821",
+      "deletedKiB": 888
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/QORE-Holistic-Integration.patch",
+      "deletedKiB": 23719
+    }
+  ],
+  "deletedMiB": 1797.3,
+  "retiredExecutableResearch": [
+    "extreme-heat-shadow",
+    "price-exhaustion-shadow",
+    "storage-contradiction-shadow"
+  ],
+  "retainedResearch": "Original frozen audit JSON, implementation manifests and research documents remain. Unique power-impact outcomes/calibration and one copy of corrected historical inputs retained under data/qore/research/ngas-power-impact-study. Locked GEFS research data, NGAS components, costs, training and live contracts are retained.",
+  "noArchivesCreated": true
+}

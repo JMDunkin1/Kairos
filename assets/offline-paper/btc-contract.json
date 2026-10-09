@@ -1,0 +1,115 @@
+{
+  "adapter_id": "QORE-OFFLINE-BTC-MONTH-LOSS-ADAPTER-20261007",
+  "rule_id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+  "original_study_id": "QORE-20261005-BTC-CASH-MONTH-01",
+  "prepared_utc": "2026-10-07T18:18:10.915Z",
+  "stage": "ISOLATED_OFFLINE_REPLAY_AND_PROSPECTIVE_PAPER_MODEL_PREPARATION",
+  "identity": "This is the existing risk_off_test_20261005 monthly-loss rule itself; not a new trend/risk-off family or validation.",
+  "historical_outcome_preserved": "Frozen original return and exceptional-stability screens failed. Reassessment can separately permit exploratory/paper study with documented uncertainty; no old screen is relabeled.",
+  "rule": {
+    "numerator": "BTCUSDT final UTC calendar-day CLOSE of immediately preceding complete month",
+    "denominator": "first UTC calendar-day OPEN of same complete month",
+    "cash": "strict ratio<1",
+    "BTC": "ratio>=1; equality remainsBTC",
+    "cadence": "third UTC calendar day nominal dailyOPEN at00:00UTC",
+    "month_end_lag": "decision>=prior_month_end_exclusive+48hours",
+    "persistence": "prior target between decisions; no intramonthstop/filter/reentry/annualreset",
+    "missing": "missing/duplicate/nonfinite/incoherent required field stops dependent episode; preserve gaps, no substitute or outcome-baseddrop"
+  },
+  "execution": {
+    "fees_bp": 10,
+    "impact_scenarios": [
+      [
+        "primary",
+        20
+      ],
+      [
+        "double",
+        40
+      ]
+    ],
+    "original_diagnostics_preserved_not_replayed": [
+      "quad_diagnostic10fee/80impact",
+      "fee_uncertainty_diagnostic100fee/20impact"
+    ],
+    "BTC_step": "0.000001",
+    "minimum_USDT": "10",
+    "receiving_fee": "Buy fee deducted from receivedBTC; sell fee from receivedUSDT",
+    "dust": "floor executablelots; retain all unsellableownedBTCdust and residualUSDT; cash target does not eraseunits",
+    "capacity": "Each final order AND same-account/day/asset/side sum<=0.0001*mean actualquotevolume D-8..D-2 inclusive; no capacity-drivenresize/split/retry",
+    "continuedBTC": "keep existingnetunits; use fundedcash only, no fee-fundedfullsell/rebuy",
+    "settlement": "immediate internal modeledcashsettlement; no borrow/topups/yield/shorts/imaginedincome"
+  },
+  "funded_accounts": {
+    "strategy": "100%BTC or USDT state",
+    "btc_buyhold": "initial100%BTC, drift thereafter",
+    "monthly_50_cash": "monthly50BTC/50USDT",
+    "cash": "zero-yield100%USDT",
+    "portfolio_strategy": "funded75BTCcore/25state sleeve",
+    "portfolio_mix": "funded75BTCcore/25monthly50BTC50USDTsleeve",
+    "portfolio_cash": "funded75BTCcore/25USDTsleeve"
+  },
+  "capital": "1000USDT per wholeaccount; initialstandalone1000 or portfolio750core/250other. USDT notUSD/risk-free/insuredcash. No actualaccount connection.",
+  "portfolio": "At scheduled third-day afterinitial entry, use STOREDactualprior-month-end core/totalNAV snapshot. Net signedcore\u2192other transfer=coreNAV\u2212.75totalNAV. Fund payer by ownedlot sales including originalauditedceil/floorrepair, transferactualUSDT, receivercorebuys onlytransferredcash, state/mixsleeveapplies scheduledtarget afterward. Aggregatefunding+targetorders; no arithmeticreturnblend.",
+  "historical_replay": {
+    "mode": "replay",
+    "only_dates": "2018-12warmup and2019-01-01..2021-12-31",
+    "initial": "allfundedJan1,cashJan1\u20132,commonfirstexecutionJan3",
+    "terminal": "Dec31,2021CLOSEmark; noforcedsale/Jan2022decision",
+    "purpose": "Fidelity only: import frozen originalsimulate/nativewallet, compare all14fundedprimary/double accountpaths/orders/transfers/decisions/terminalbalances exactly against retainedaudited outputs. No newperformancefit/screen/bootstrap/validation. Outputcompactcomparisonreceipt, notduplicatedhistoricalpanels/curves.",
+    "historical_data_familiar": true,
+    "later_archives_allowed": false
+  },
+  "prospective": {
+    "mode": "paper_decision andpaper_mark",
+    "first_source_month": "2026-11-01..2026-11-30, whollyfutureafterthisfreeze",
+    "initial_funding": "2026-12-01 hypothetical1000USDT/account; cashthroughDec2",
+    "first_decision": "2026-12-03T00:00:00Z",
+    "last_decision": "2027-11-03T00:00:00Z",
+    "terminal": "2027-11-30T23:59:59.999Z markedinventory, noforcedsale orDecemberdecision",
+    "decisions": 12,
+    "retuning": false,
+    "owner_sources": "Only separately rootreleased lawful originalspotdaily observation JSONpackets; no network/auth/request/API/account/order. Inputpackets must identify source/usebasis and actual observation/available/recorded clocks. Reportedclocks are not independentPITcertification.",
+    "signal_inputs": "Everydate of completepriorBTCmonth with nominalOHLC/timestamps/quotevolume and known_at_utc<=decision00UTC; preserve exact firstOPEN/finalCLOSE and \u226548h month-endclock.",
+    "capacity_inputs": "All D-8..D-2 BTCquotevolumebars knownbydecision; sourcevolume positive actualfields, not currentday or D-1.",
+    "execution_reference": "BTC nominal third-day first-trade OPEN, reported observed and known clocks from 00:00 UTC through 00:05 UTC; model invocation must also occur within that interval and after the reference is known. Full modeled fill and OPEN sizing are assumptions; no actual order/fill.",
+    "availability_failure": "Late/missing required signal/capacity/reference or late/early model entry stops the dependent episode with immutable failure receipt. No retrospective presumed fill. Missing monthly decision prevents subsequent marks; daily mark gaps remain explicit.",
+    "mark_inputs": "ObservedBTCdailyCLOSE/time, knownaftercompletedday; markmodepricesownedunits/cash and captures immutablemonth-end wallet+NAVsnapshot. Missingdaily mark is explicit coveragegap, neverzero/fabricatedreturn. Mark gapsdo not inventmonthlytiming.",
+    "snapshots": "Noninitialdecisionrequiresprior-month-end snapshot previouslyrecorded beforedecision with walletunits/cash unchanged sinceitscapture. No reconstructingoldNAVfrom altered currentunits.",
+    "paper_eligibility": "Exploratory/offlinepaper model may proceed with declaredfees/fills/currentvintage/custody residualuncertainty; operationalsuccess is fidelity/accounting, notfinancialproof.",
+    "evaluation_frozen_before_outcomes": [
+      "reportall12scheduleddecisions/persistedtargets andgap/failurecounts",
+      "all14wholefundedpaths atprimary/double; returns/risk/costs/turnover/negativeBTCmonths/exposure participation",
+      "samecapital/cost/cadence BTC/monthly50cash/cash controls andactual75/25portfolios",
+      "distinguish standaloneBTC-risk reductionfromcashallocation/generalcryptobeta; noequity/NGASdiversificationinference",
+      "freezeallcosts,monthclock,symbol,quantitygrid,cap andperiod; no bestvariantpromotion",
+      "reuseoldscreen definitions onlyasdescriptivecomparisonsifreported,neverretroactivelychangefailedhistory"
+    ],
+    "state_chronology": "A decision cannot consume a same-day/future marked state. Every mark requires the latest scheduled monthly decision; duplicate marks, altered snapshot wallet units/cash, missing snapshot, or snapshot recorded after decision stop the episode."
+  },
+  "adapter_deltas": {
+    "replay": "Frozen original BTC/ETH parser/simulate unchanged; ETHrealdata retainedbutneverheld/signaled.",
+    "paper": "Private importednativewallet module narrowsunheldSYMBOLS toBTCUSDT, avoidinginventedETHprices. Frozenwallet codeunmodified; exactBTCexecution/transferprimitives reused. Adapteradds explicitavailability,ownedstatechain,storedsnapshot androotreleaseguards."
+  },
+  "overlap": {
+    "same_identity": "risk_off_test_20261005 monthlyloss",
+    "different_price_timing": "passiveabsorptionweeklyflow+price,weekendcalendar,minerfee/taxcalendar cash exits; distinctsignalcontractsbutsharedBTC/USDTmarketexposure",
+    "inventory_band": "BTC/ETHbandrebalancing, differentrule; walletreuseisnotidentity",
+    "funding_carry": "hedgedspot/perpshort fundingcashflow, differentcontract/obligations; thisadapterhasNOperpetual,fundingorborrow"
+  },
+  "guards": {
+    "expected_external_release_SHA_required": true,
+    "bind_exact_adapter_path_and_attempt_directory": true,
+    "bind_contract_original_source_code_results_state_packet_hashes": true,
+    "exclusive_attempt_marker": true,
+    "no_source_economicread_before_release": true,
+    "allow_network": false,
+    "allow_auth": false,
+    "allow_orders": false,
+    "allow_runtime_change": false,
+    "allow_canonical_write": false,
+    "allow_live_trading": false,
+    "launch_lifecycle": "Verify trusted external release, authored freeze, independent code preflight and code/metadata recorded bindings first. Reserve exclusive durable attempt before hashing/parsing actual historical numeric outcomes/panel or prospective packet/state. Paper mode never reads the historical panel/outcomes."
+  },
+  "outputs": "EVENT_RECEIPT.json separates stage, source clock/exposure, intended targets from actual owned MODEL units/cash, intended/observed/model clocks, gaps/stops and attempt id. Real account balances and actual execution clocks are null. Compact familiar fidelity receipt retains no duplicated histories; every actual-input operation needs exact root-reviewed release. Fixtures are invented."
+}

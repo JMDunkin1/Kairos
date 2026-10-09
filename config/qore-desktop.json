@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "application": "Kairos",
+  "brokerSubmissionEnabled": false,
+  "instructions": [
+    "Show the registered strategies and support expanding the catalogue to dozens of diverse strategies. Comparison baselines and NGAS seasonal components are supporting records, not additional strategies.",
+    "Add new strategies through reviewed definitions and isolated evidence or runtime adapters. There is no fixed strategy-count limit; registration alone does not authorize trading.",
+    "Keep real account telemetry separate from historical research and offline paper playback.",
+    "Preserve the canonical experiment ledger, failed and blocked outcomes, frozen protocols and original evidence manifests.",
+    "This desktop application cannot authorize or submit paper or real-money orders."
+  ],
+  "strategies": [
+    { "id": "ngas-all-year-beta", "name": "Natural gas", "stage": "paper-runtime", "label": "Alpaca paper runtime", "description": "All-year UNG strategy with its VOO/QQQM fallback. Read current M1 telemetry and checked-in backtests.", "view": "ngas" },
+    { "id": "lev_core_relative_leverage_sleeves_v3", "name": "Relative leverage sleeves", "stage": "historical-research", "label": "Reviewed historical research", "description": "Retained leverage strategy, frozen historical playback and its exposure comparison baseline.", "view": "leverage" },
+    { "id": "rv_xle_brent_residual", "name": "Energy residual rotation", "stage": "exploratory-paper", "label": "Offline paper candidate", "description": "Frozen XLE/SPY/Brent residual rule. Historical outcomes retained; prospective evaluation unstarted.", "view": "paper" },
+    { "id": "rv_ief_barbell_residual", "name": "Treasury curve residual rotation", "stage": "exploratory-paper", "label": "Offline paper candidate", "description": "Frozen IEF/SHY/TLT residual rule. Historical outcomes retained; prospective evaluation unstarted.", "view": "paper" },
+    { "id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01", "name": "BTC monthly loss to cash", "stage": "exploratory-paper", "label": "Offline paper candidate", "description": "Frozen BTC monthly cash rule. Historical outcomes retained; prospective evaluation unstarted.", "view": "paper" }
+  ]
+}

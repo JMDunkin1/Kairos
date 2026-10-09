@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "study_id": "QORE-20261007-RELATIONSHIP-PAPER-ADAPTER-01",
+  "implementation_version": "UNCHANGED_RULE_OFFLINE_NAV_REFERENCE_ADAPTER_01",
+  "stage": "PAPER_EVALUATION_CANDIDATE_IMPLEMENTATION_READY_PENDING_AUDIT_AND_REPLAY_RELEASE",
+  "rules": [
+    {
+      "id": "rv_xle_brent_residual",
+      "family": "relative_value",
+      "design": "xle_brent_residual",
+      "schedule": "daily",
+      "params": {
+        "training": 252,
+        "dislocation": 20,
+        "entry_z": 2.0,
+        "exit_z": 0.0,
+        "holding_intervals": 20,
+        "execution_lag": 1,
+        "brent_availability_days": 8
+      },
+      "description": "Default SPY. Fit XLE log returns on SPY and availability-stamped Brent with nonnegative slopes and free intercept on prior252 before last20. At z<=-2 command 100% XLE at next NAV; freeze fit, exit z>=0 or after20 holding intervals."
+    },
+    {
+      "id": "rv_ief_barbell_residual",
+      "family": "relative_value",
+      "design": "ief_barbell_residual",
+      "schedule": "daily",
+      "params": {
+        "training": 252,
+        "dislocation": 20,
+        "entry_z": 2.0,
+        "exit_z": 0.0,
+        "holding_intervals": 20,
+        "execution_lag": 1,
+        "brent_availability_days": 8
+      },
+      "description": "Default SHY. Fit IEF log returns on SHY/TLT using prior252 before last20. At z<=-2 buy IEF; at z>=2 buy funded SHY/TLT proportional to positive-sum nonnegative slopes. Freeze fit/weights, exit zero crossing or20 holding intervals."
+    }
+  ],
+  "rule_ids": [
+    "rv_xle_brent_residual",
+    "rv_ief_barbell_residual"
+  ],
+  "new_rules": 0,
+  "new_parameter_or_weight_search": 0,
+  "historical_status": {
+    "old_shortlist_preserved": [],
+    "old_development_selection_failed": true,
+    "opened_final_is_retrospective": true,
+    "implementation_test_is_new_validation": false
+  },
+  "source_identity": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/rv_rules.py",
+      "sha256": "ffd1d947cb5d71e3ee76a40df8dd8163b366ea5fd2900cb18985681474bc70bd",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/rv_engine.py",
+      "sha256": "fae87795935c8eb13d412f5c269413026c0c176444a4f8eea81c1c9c50288cf8",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/lev_engine.py",
+      "sha256": "1dd88b853fc19862147079bc36400bf6692e0e1ea145ea47ac83a77704175404",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/ext_engine.py",
+      "sha256": "4b2a02de5836fad2de12cb2a99a9c83ad37d3d9b42eaa62abd93ae76231080bf",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/rvr_schema_bridge.py",
+      "sha256": "fc564b5036667b5c7d852a7254d08bd5f803541bcec2f70c1260d9677ea623a4",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/PROTOCOL.json",
+      "sha256": "a50c943d9db521849b8b9a50cad3ad2b53c6ff3b5f6d20859239aec4aef7c7d6",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/catalog.json",
+      "sha256": "b0f66534aeb06a066cd399897f6c733a90af9a4ded4da3480ee4395c3c0b6788",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/shortlist.json",
+      "sha256": "bd051582c68e3ec16a57a2a51e938567a5f64b1f83e26dfda2a36261abcbe0da",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/FREEZE.json",
+      "sha256": "c2ad0088a02faf33ea6fe8655a08c6ae6b9e22db7cd0b834300a3cdb78fa5e30",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/RELEASE.json",
+      "sha256": "7447cb9860f84a2ebc12b48c87b4e8976cb9524df055aac00751fde322e67ff5",
+      "role": "opened_code_or_released_metadata_only"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/relative_repair/audit/rvr_independent_audit.json",
+      "sha256": "e2105862da8dae76c36797f166ec4b647a4f9630f47583f2243585d78c8790ab",
+      "role": "opened_code_or_released_metadata_only"
+    }
+  ],
+  "source_files_copied": "Code only; no raw market histories or arrays copied or read",
+  "math": {
+    "training_return_positions": "i-271 through i-20 inclusive (252); first possible i=272 after273levels",
+    "dislocation_return_positions": "i-19 through i inclusive (20)",
+    "fit": "Centered two-feature active-subset nonnegative least squares with free intercept; full centered rank2 required. Subsets (), (0), (1), (0,1); reject slopes<-1e-12; cliptinyneg to0; SSE tie tolerance32*eps*max(1,SSE,bestSSE), earlier subset retained.",
+    "sigma": "Sample residualSD ddof1 on training; finite>0 required",
+    "z": "sum20 residual logs / (entry_training_sigma*sqrt20); not a cointegration or Gaussian claim",
+    "entry_fit": "Freeze beta/intercept/sigma/fit start/end/entry dislocation and normalized barbell weights through exit",
+    "age": "At signal position i, age=i-(entry_signal_position+1). At age>=19 signal exit for i+1, giving20held close-to-close intervals",
+    "exit_priority": "max_hold first, then invalid_active_features, then zero_crossing",
+    "holdings": "Barbell weights drift between actual target-change events; no daily reset"
+  },
+  "clock": {
+    "primary_lag_sessions": 1,
+    "extra_lag_sessions": 0,
+    "signals": "Current-session logtotalNAV and already available Brent at decision; latest target shiftedonce by originalbuild_packet",
+    "execution": "Next observed NAV reference. Old ownedunits earn intervalinto thatreference; newunits earn followinginterval. No exchange fill claim.",
+    "brent": "Latest observation_date+8calendar days <= NAVsession date; exact matches allowed; preserve original convention. Actual historical publication/vintage unproven.",
+    "future": "Require actualNAV availability by archiveddecision and previousdecision strictlybefore nextreferenceclose. ActualBrent publication ANDfirstseen must beknown by firstsession where +8 permits use. Unqualified clocks stop; do not silently retime to newrule.",
+    "app_pending": "Atdecision store plannedcalendar session and awaiting-next-reference status. Next actualobserveddate/availabletime in complete replay is separate AFTER_DECISION_AUDIT_ONLY; never markas known earlier."
+  },
+  "funding": {
+    "capital_reference_usd": 100000,
+    "long_only": true,
+    "margin_or_borrow": false,
+    "units": "Funded fractional current-share-equivalent totalNAV reference units; not nominalETFshares",
+    "fee_solution": "q=available-dot(rates,abs(weights*q-existingholdings)); exactoriginalpiecewise algebraic helper",
+    "gross": "Charge buys+sells independently at5/10/20bp; initial entry and one terminal liquidation; nofee netting",
+    "cash": "Actual residualfundedcash, zeroyield; SHY retains supplied totalNAVreturn",
+    "expenses": "Fundexpense/financing/distributions alreadyin totalNAV; no recharging. Synthetic reinvestment is not actualpayment-datecash.",
+    "initial": "On declared evaluationstart initialize latest alreadylagged target even without event; startcapital100000",
+    "terminal": "Declared evaluationend only; skipordinaryeventtrade andliquidate once. Originalterminalsaved exposure precedes liquidation; appownedunits arezeroafter.",
+    "other": "No tax, minimumcommission, sharegrid, extra funding, order, account or broker adapter"
+  },
+  "cost_bps": [
+    5,
+    10,
+    20
+  ],
+  "fixed_controls": {
+    "SPY_BUYHOLD": {
+      "weights": {
+        "SPY": 1
+      },
+      "monthly_rebalance": false
+    },
+    "XLE_BUYHOLD": {
+      "weights": {
+        "XLE": 1
+      },
+      "monthly_rebalance": false
+    },
+    "IEF_BUYHOLD": {
+      "weights": {
+        "IEF": 1
+      },
+      "monthly_rebalance": false
+    },
+    "SHY_BUYHOLD": {
+      "weights": {
+        "SHY": 1
+      },
+      "monthly_rebalance": false
+    },
+    "TLT_BUYHOLD": {
+      "weights": {
+        "TLT": 1
+      },
+      "monthly_rebalance": false
+    },
+    "SHY_TLT_50_MONTHLY": {
+      "weights": {
+        "SHY": 0.5,
+        "TLT": 0.5
+      },
+      "monthly_rebalance": true
+    },
+    "rv_xle_brent_residual_FROZEN_VALIDATION_STATIC": {
+      "weights": {
+        "SPY": 0.9005964214711729,
+        "XLE": 0.09940357852882704,
+        "IEF": 0.0,
+        "SHY": 0.0,
+        "TLT": 0.0
+      },
+      "monthly_rebalance": true
+    },
+    "rv_ief_barbell_residual_FROZEN_VALIDATION_STATIC": {
+      "weights": {
+        "SPY": 0.0,
+        "XLE": 0.0,
+        "IEF": 0.11928429423459244,
+        "SHY": 0.8671508770633,
+        "TLT": 0.013564828702107538
+      },
+      "monthly_rebalance": true
+    }
+  },
+  "finite_replay_budget": {
+    "attempts_per_separately_released_phase": 1,
+    "phases": [
+      "familiar_replay",
+      "prospective_paper"
+    ],
+    "separate_attempt_directories": [
+      "familiar_replay_attempt_01",
+      "prospective_evaluation_attempt_01"
+    ],
+    "rules": 2,
+    "controls": 8,
+    "costs": 3,
+    "funded_wallet_cases_per_phase": 30,
+    "evaluation_windows_per_phase": 1,
+    "threshold_search": 0,
+    "lag_search": 0,
+    "new_market_fetches": 0
+  },
+  "prospective": {
+    "first_eligible_date": "2026-10-08",
+    "evaluation_sessions": 252,
+    "implementation_review_at_sessions": 63,
+    "rule_freeze": "This contract/code freeze precedes any new supplied prospective outcome",
+    "warmup": "Atleast273 priorlevels + availableBrent; warmupdata exposed/informationonly, no futureoutcomeclaim",
+    "observations": "Archive each NAV observationID, availableat, decisiontime, plannedcalendar session, Brentobservation/publication/firstseen and sourcehash. No collector orpaperorder activation.",
+    "review": "At63sessions review availability/implementation/errors only. At252 reportall30cases, standalone benchmark/stability/fees/exposure and actualentry/exit counts; independentaudit before changedrecommendation.",
+    "selection": "No automaticranking/pass, retuning, weightselection or postfinalnomination. Preserve oldfailures. Returnandexceptionalstability both matter; strongreturns/highvol alone are not vetoes.",
+    "limit": "Future NAVreference evaluation is not proof of exchange execution oractualcashactions; portfolio contribution remains separately measured diagnostic."
+  },
+  "failure_policy": {
+    "input_failure": "Stopconsumedrun oninvalidschema, clocks, sourcehash, ordereddate/fivefundNAV, missingpublication orfunding; writeFIRST_STOP and retainnoautomaticretry",
+    "model_flat_failure": "Exactoriginal warmup/rank/zero_sigma/invalidfeatures/zero_barbell_sum ->flatbaseline SPYorSHY anddailyreason",
+    "active_failure": "Exactoriginal invalidactive20featurewindow ->nextNAVbaselineexit; sourcevalidation maystop earlierwhen executionmarks unusable",
+    "exposure_labels": [
+      "OPENED_HISTORY_IMPLEMENTATION_REPLAY_NOT_VALIDATION",
+      "PROSPECTIVE_TIMESTAMPED_REFERENCE_EVALUATION"
+    ],
+    "uncertainty": "Unverifiedhistorical availability/actions do not veto disclosedreleasedNAVreference replay; prospective actualclocks mustbequalified"
+  },
+  "authorization": {
+    "numeric_source_read_requires_root_reviewed_release": true,
+    "orders": false,
+    "network": false,
+    "runtime_changes": false,
+    "canonical_writer": "root"
+  }
+}

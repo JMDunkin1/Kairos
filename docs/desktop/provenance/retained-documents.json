@@ -1,0 +1,77 @@
+{
+  "purpose": "Original contracts, handoffs, manifests and audit receipts retained byte-for-byte during source consolidation. Historical paths are descriptive; QORE source now lives in the main repository.",
+  "files": {
+    "hub-contract.md": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery/AGENTS.md",
+      "sha256": "5a0ad54005b999946ff815407c6167ddc6b08ffc4db08d98db75464cfc6b9c62"
+    },
+    "hub-history.md": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/qore-recovery/README.md",
+      "sha256": "30093432abc534bb44b3849fb55f2d6e6497c92ed44bfa21e46b9743b10146d6"
+    },
+    "holistic-QORE-Holistic-Manifest.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/QORE-Holistic-Manifest.json",
+      "sha256": "9a630664ce471f52ccf99c0cdcea114b2ab21b0ce27bce35932c0fadc5bb1d96"
+    },
+    "holistic-Fresh-Independent-Review.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/Fresh-Independent-Review.json",
+      "sha256": "cf9053c234bac1b5a7246c716bf4043e69e9a740f9eac5de0805cf5d135b8817"
+    },
+    "holistic-Native-Verification.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/Native-Verification.json",
+      "sha256": "9b66d7ee639109faeae085d23dccd310c5ab3cf8c4a5bc422084898d5bfd9c12"
+    },
+    "holistic-Owner-Test-Receipt.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/Owner-Test-Receipt.json",
+      "sha256": "43bcafd7ae746019e2c141e70d1178b059b6259389eed7fc503dd37eba0522a2"
+    },
+    "recovery-QORE-Recovery-Manifest.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/deliverables/QORE-Recovery-Manifest.json",
+      "sha256": "5464f3935037cd876b195327197a756359832fd0ada9b8a6bba38e9a1a88d53b"
+    },
+    "hub-qore-hub-handoff.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-hub-handoff.json",
+      "sha256": "1e9d1ca0fa0abdfa9d0e279c37dc00c20aa5b558770b67da24d9e080ed138175"
+    },
+    "hub-candidate-scope.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/candidate-scope.json",
+      "sha256": "86a45effc550a07a6bec0b4950fa97490e3bc7a7722e764270089e947e1fc902"
+    },
+    "paper-OWNER_HANDOFF.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/OWNER_HANDOFF.json",
+      "sha256": "b8b687d049adfd71c7094285179c541286e80c5bca4c3756df5c60cef7e0fc5f"
+    },
+    "paper-FINAL_MANIFEST.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/FINAL_MANIFEST.json",
+      "sha256": "c776b2c325cfe2606e8567385e616b9b834511d58f3ac1d6d8784e28f7ca4ca3"
+    },
+    "paper-NATIVE_MANIFEST.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/NATIVE_MANIFEST.json",
+      "sha256": "8f45a7b2ee6ef4a8f1d6ddb8ad00f047456632c3b660803fbf29d0110fe7589b"
+    },
+    "paper-TEST_RECEIPT.json": {
+      "originalPath": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/TEST_RECEIPT.json",
+      "sha256": "f862bfe35fec5ac261c7ef650fc723cbe0cac1acd92b56c164336c244382981c"
+    },
+    "recovery-final-source-hashes.json": {
+      "sha256": "14c6feb5b6764a6cbb214d82056a7b4f6a5bafec3ee4811182eeb16720479402",
+      "purpose": "Retained original historical manifest or verification receipt"
+    },
+    "holistic-integration-checkpoint.json": {
+      "sha256": "16537483bb6d1e767239a4ef6a81a880e2a9e6054cc490170d7c9940b9647733",
+      "purpose": "Retained original historical manifest or verification receipt"
+    },
+    "previous-native-acceptance.json": {
+      "sha256": "2c1d8bb305c0aa1734868cac33c9657660103a50b0b243ae75f23084a762c55c",
+      "purpose": "Retained original historical manifest or verification receipt"
+    },
+    "recovery-final-verification.json": {
+      "sha256": "43c9f1c68623b6ddefb2e697cc33fa4074b5a37875d131ee962a0191a7328760",
+      "purpose": "Retained original historical manifest or verification receipt"
+    },
+    "previous-paper-recovery-manifest.json": {
+      "sha256": "02d08b8b28644d19bda7b583a20d6196b7ac240d0d201911409f6e2bd08b540c",
+      "purpose": "Retained original historical manifest or verification receipt"
+    }
+  }
+}

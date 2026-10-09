@@ -1,0 +1,478 @@
+{
+  "schema": "qore.compact-paper-readiness.v1",
+  "unchanged_economic_definitions": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/deliverables/COMPACT_PAPER_DEFINITIONS.json",
+    "bytes": 26860,
+    "sha256": "70306ea2c6815f40f7ba9d5dfbbd2075b9ee5321d920b027ee680b31384a69eb"
+  },
+  "definitions": {
+    "schema": "qore.operational-paper-definitions.v1",
+    "records": [
+      {
+        "id": "rv_xle_brent_residual",
+        "unchanged_original_rule": {
+          "id": "rv_xle_brent_residual",
+          "family": "relative_value",
+          "design": "xle_brent_residual",
+          "schedule": "daily",
+          "params": {
+            "training": 252,
+            "dislocation": 20,
+            "entry_z": 2.0,
+            "exit_z": 0.0,
+            "holding_intervals": 20,
+            "execution_lag": 1,
+            "brent_availability_days": 8
+          },
+          "description": "Default SPY. Fit XLE log returns on SPY and availability-stamped Brent with nonnegative slopes and free intercept on prior252 before last20. At z<=-2 command 100% XLE at next NAV; freeze fit, exit z>=0 or after20 holding intervals."
+        },
+        "contract": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CONTRACT.json",
+          "bytes": 11819,
+          "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+        },
+        "adapter": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v3.py",
+          "bytes": 23379,
+          "sha256": "7f77a430c3759402e8c238f19139bd2afb1bfe5d7477f4364b03d9a591a3015b"
+        },
+        "math": {
+          "training_return_positions": "i-271 through i-20 inclusive (252); first possible i=272 after273levels",
+          "dislocation_return_positions": "i-19 through i inclusive (20)",
+          "fit": "Centered two-feature active-subset nonnegative least squares with free intercept; full centered rank2 required. Subsets (), (0), (1), (0,1); reject slopes<-1e-12; cliptinyneg to0; SSE tie tolerance32*eps*max(1,SSE,bestSSE), earlier subset retained.",
+          "sigma": "Sample residualSD ddof1 on training; finite>0 required",
+          "z": "sum20 residual logs / (entry_training_sigma*sqrt20); not a cointegration or Gaussian claim",
+          "entry_fit": "Freeze beta/intercept/sigma/fit start/end/entry dislocation and normalized barbell weights through exit",
+          "age": "At signal position i, age=i-(entry_signal_position+1). At age>=19 signal exit for i+1, giving20held close-to-close intervals",
+          "exit_priority": "max_hold first, then invalid_active_features, then zero_crossing",
+          "holdings": "Barbell weights drift between actual target-change events; no daily reset"
+        },
+        "clock": {
+          "primary_lag_sessions": 1,
+          "extra_lag_sessions": 0,
+          "signals": "Current-session logtotalNAV and already available Brent at decision; latest target shiftedonce by originalbuild_packet",
+          "execution": "Next observed NAV reference. Old ownedunits earn intervalinto thatreference; newunits earn followinginterval. No exchange fill claim.",
+          "brent": "Latest observation_date+8calendar days <= NAVsession date; exact matches allowed; preserve original convention. Actual historical publication/vintage unproven.",
+          "future": "Require actualNAV availability by archiveddecision and previousdecision strictlybefore nextreferenceclose. ActualBrent publication ANDfirstseen must beknown by firstsession where +8 permits use. Unqualified clocks stop; do not silently retime to newrule.",
+          "app_pending": "Atdecision store plannedcalendar session and awaiting-next-reference status. Next actualobserveddate/availabletime in complete replay is separate AFTER_DECISION_AUDIT_ONLY; never markas known earlier."
+        },
+        "funding": {
+          "capital_reference_usd": 100000,
+          "long_only": true,
+          "margin_or_borrow": false,
+          "units": "Funded fractional current-share-equivalent totalNAV reference units; not nominalETFshares",
+          "fee_solution": "q=available-dot(rates,abs(weights*q-existingholdings)); exactoriginalpiecewise algebraic helper",
+          "gross": "Charge buys+sells independently at5/10/20bp; initial entry and one terminal liquidation; nofee netting",
+          "cash": "Actual residualfundedcash, zeroyield; SHY retains supplied totalNAVreturn",
+          "expenses": "Fundexpense/financing/distributions alreadyin totalNAV; no recharging. Synthetic reinvestment is not actualpayment-datecash.",
+          "initial": "On declared evaluationstart initialize latest alreadylagged target even without event; startcapital100000",
+          "terminal": "Declared evaluationend only; skipordinaryeventtrade andliquidate once. Originalterminalsaved exposure precedes liquidation; appownedunits arezeroafter.",
+          "other": "No tax, minimumcommission, sharegrid, extra funding, order, account or broker adapter"
+        },
+        "cost_bps": [
+          5,
+          10,
+          20
+        ],
+        "fixed_controls": {
+          "SPY_BUYHOLD": {
+            "weights": {
+              "SPY": 1
+            },
+            "monthly_rebalance": false
+          },
+          "XLE_BUYHOLD": {
+            "weights": {
+              "XLE": 1
+            },
+            "monthly_rebalance": false
+          },
+          "IEF_BUYHOLD": {
+            "weights": {
+              "IEF": 1
+            },
+            "monthly_rebalance": false
+          },
+          "SHY_BUYHOLD": {
+            "weights": {
+              "SHY": 1
+            },
+            "monthly_rebalance": false
+          },
+          "TLT_BUYHOLD": {
+            "weights": {
+              "TLT": 1
+            },
+            "monthly_rebalance": false
+          },
+          "SHY_TLT_50_MONTHLY": {
+            "weights": {
+              "SHY": 0.5,
+              "TLT": 0.5
+            },
+            "monthly_rebalance": true
+          },
+          "rv_xle_brent_residual_FROZEN_VALIDATION_STATIC": {
+            "weights": {
+              "SPY": 0.9005964214711729,
+              "XLE": 0.09940357852882704,
+              "IEF": 0.0,
+              "SHY": 0.0,
+              "TLT": 0.0
+            },
+            "monthly_rebalance": true
+          },
+          "rv_ief_barbell_residual_FROZEN_VALIDATION_STATIC": {
+            "weights": {
+              "SPY": 0.0,
+              "XLE": 0.0,
+              "IEF": 0.11928429423459244,
+              "SHY": 0.8671508770633,
+              "TLT": 0.013564828702107538
+            },
+            "monthly_rebalance": true
+          }
+        },
+        "prospective_criteria": {
+          "first_eligible_date": "2026-10-08",
+          "evaluation_sessions": 252,
+          "implementation_review_at_sessions": 63,
+          "rule_freeze": "This contract/code freeze precedes any new supplied prospective outcome",
+          "warmup": "Atleast273 priorlevels + availableBrent; warmupdata exposed/informationonly, no futureoutcomeclaim",
+          "observations": "Archive each NAV observationID, availableat, decisiontime, plannedcalendar session, Brentobservation/publication/firstseen and sourcehash. No collector orpaperorder activation.",
+          "review": "At63sessions review availability/implementation/errors only. At252 reportall30cases, standalone benchmark/stability/fees/exposure and actualentry/exit counts; independentaudit before changedrecommendation.",
+          "selection": "No automaticranking/pass, retuning, weightselection or postfinalnomination. Preserve oldfailures. Returnandexceptionalstability both matter; strongreturns/highvol alone are not vetoes.",
+          "limit": "Future NAVreference evaluation is not proof of exchange execution oractualcashactions; portfolio contribution remains separately measured diagnostic."
+        },
+        "failure_policy": {
+          "input_failure": "Stopconsumedrun oninvalidschema, clocks, sourcehash, ordereddate/fivefundNAV, missingpublication orfunding; writeFIRST_STOP and retainnoautomaticretry",
+          "model_flat_failure": "Exactoriginal warmup/rank/zero_sigma/invalidfeatures/zero_barbell_sum ->flatbaseline SPYorSHY anddailyreason",
+          "active_failure": "Exactoriginal invalidactive20featurewindow ->nextNAVbaselineexit; sourcevalidation maystop earlierwhen executionmarks unusable",
+          "exposure_labels": [
+            "OPENED_HISTORY_IMPLEMENTATION_REPLAY_NOT_VALIDATION",
+            "PROSPECTIVE_TIMESTAMPED_REFERENCE_EVALUATION"
+          ],
+          "uncertainty": "Unverifiedhistorical availability/actions do not veto disclosedreleasedNAVreference replay; prospective actualclocks mustbequalified"
+        },
+        "daily_signal_observer": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/observer.py",
+          "bytes": 9736,
+          "sha256": "f62fb3d3701ea3d229d01699ba3af4cc6e24d146e436422bd903f35a6a754949"
+        },
+        "familiar_owned_state_scope": "PRIMARY_5BP_REFERENCE_WALLET_ONLY",
+        "historical_status": {
+          "old_shortlist_preserved": [],
+          "old_development_selection_failed": true,
+          "opened_final_is_retrospective": true,
+          "implementation_test_is_new_validation": false
+        },
+        "prospective_status": "NO_ACTUAL_SOURCE_PACKET_OR_FUNDED_WINDOW_STARTED",
+        "audit": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/RELATIONSHIP_FAMILIAR_FIDELITY_REVIEW_V3.json",
+          "bytes": 33453,
+          "sha256": "abca861418d5be01dd1caa524eb531d9659f6b64dcd2a5b1eb0b9a31d3d1f500"
+        },
+        "orders_enabled": false
+      },
+      {
+        "id": "rv_ief_barbell_residual",
+        "unchanged_original_rule": {
+          "id": "rv_ief_barbell_residual",
+          "family": "relative_value",
+          "design": "ief_barbell_residual",
+          "schedule": "daily",
+          "params": {
+            "training": 252,
+            "dislocation": 20,
+            "entry_z": 2.0,
+            "exit_z": 0.0,
+            "holding_intervals": 20,
+            "execution_lag": 1,
+            "brent_availability_days": 8
+          },
+          "description": "Default SHY. Fit IEF log returns on SHY/TLT using prior252 before last20. At z<=-2 buy IEF; at z>=2 buy funded SHY/TLT proportional to positive-sum nonnegative slopes. Freeze fit/weights, exit zero crossing or20 holding intervals."
+        },
+        "contract": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CONTRACT.json",
+          "bytes": 11819,
+          "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+        },
+        "adapter": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v3.py",
+          "bytes": 23379,
+          "sha256": "7f77a430c3759402e8c238f19139bd2afb1bfe5d7477f4364b03d9a591a3015b"
+        },
+        "math": {
+          "training_return_positions": "i-271 through i-20 inclusive (252); first possible i=272 after273levels",
+          "dislocation_return_positions": "i-19 through i inclusive (20)",
+          "fit": "Centered two-feature active-subset nonnegative least squares with free intercept; full centered rank2 required. Subsets (), (0), (1), (0,1); reject slopes<-1e-12; cliptinyneg to0; SSE tie tolerance32*eps*max(1,SSE,bestSSE), earlier subset retained.",
+          "sigma": "Sample residualSD ddof1 on training; finite>0 required",
+          "z": "sum20 residual logs / (entry_training_sigma*sqrt20); not a cointegration or Gaussian claim",
+          "entry_fit": "Freeze beta/intercept/sigma/fit start/end/entry dislocation and normalized barbell weights through exit",
+          "age": "At signal position i, age=i-(entry_signal_position+1). At age>=19 signal exit for i+1, giving20held close-to-close intervals",
+          "exit_priority": "max_hold first, then invalid_active_features, then zero_crossing",
+          "holdings": "Barbell weights drift between actual target-change events; no daily reset"
+        },
+        "clock": {
+          "primary_lag_sessions": 1,
+          "extra_lag_sessions": 0,
+          "signals": "Current-session logtotalNAV and already available Brent at decision; latest target shiftedonce by originalbuild_packet",
+          "execution": "Next observed NAV reference. Old ownedunits earn intervalinto thatreference; newunits earn followinginterval. No exchange fill claim.",
+          "brent": "Latest observation_date+8calendar days <= NAVsession date; exact matches allowed; preserve original convention. Actual historical publication/vintage unproven.",
+          "future": "Require actualNAV availability by archiveddecision and previousdecision strictlybefore nextreferenceclose. ActualBrent publication ANDfirstseen must beknown by firstsession where +8 permits use. Unqualified clocks stop; do not silently retime to newrule.",
+          "app_pending": "Atdecision store plannedcalendar session and awaiting-next-reference status. Next actualobserveddate/availabletime in complete replay is separate AFTER_DECISION_AUDIT_ONLY; never markas known earlier."
+        },
+        "funding": {
+          "capital_reference_usd": 100000,
+          "long_only": true,
+          "margin_or_borrow": false,
+          "units": "Funded fractional current-share-equivalent totalNAV reference units; not nominalETFshares",
+          "fee_solution": "q=available-dot(rates,abs(weights*q-existingholdings)); exactoriginalpiecewise algebraic helper",
+          "gross": "Charge buys+sells independently at5/10/20bp; initial entry and one terminal liquidation; nofee netting",
+          "cash": "Actual residualfundedcash, zeroyield; SHY retains supplied totalNAVreturn",
+          "expenses": "Fundexpense/financing/distributions alreadyin totalNAV; no recharging. Synthetic reinvestment is not actualpayment-datecash.",
+          "initial": "On declared evaluationstart initialize latest alreadylagged target even without event; startcapital100000",
+          "terminal": "Declared evaluationend only; skipordinaryeventtrade andliquidate once. Originalterminalsaved exposure precedes liquidation; appownedunits arezeroafter.",
+          "other": "No tax, minimumcommission, sharegrid, extra funding, order, account or broker adapter"
+        },
+        "cost_bps": [
+          5,
+          10,
+          20
+        ],
+        "fixed_controls": {
+          "SPY_BUYHOLD": {
+            "weights": {
+              "SPY": 1
+            },
+            "monthly_rebalance": false
+          },
+          "XLE_BUYHOLD": {
+            "weights": {
+              "XLE": 1
+            },
+            "monthly_rebalance": false
+          },
+          "IEF_BUYHOLD": {
+            "weights": {
+              "IEF": 1
+            },
+            "monthly_rebalance": false
+          },
+          "SHY_BUYHOLD": {
+            "weights": {
+              "SHY": 1
+            },
+            "monthly_rebalance": false
+          },
+          "TLT_BUYHOLD": {
+            "weights": {
+              "TLT": 1
+            },
+            "monthly_rebalance": false
+          },
+          "SHY_TLT_50_MONTHLY": {
+            "weights": {
+              "SHY": 0.5,
+              "TLT": 0.5
+            },
+            "monthly_rebalance": true
+          },
+          "rv_xle_brent_residual_FROZEN_VALIDATION_STATIC": {
+            "weights": {
+              "SPY": 0.9005964214711729,
+              "XLE": 0.09940357852882704,
+              "IEF": 0.0,
+              "SHY": 0.0,
+              "TLT": 0.0
+            },
+            "monthly_rebalance": true
+          },
+          "rv_ief_barbell_residual_FROZEN_VALIDATION_STATIC": {
+            "weights": {
+              "SPY": 0.0,
+              "XLE": 0.0,
+              "IEF": 0.11928429423459244,
+              "SHY": 0.8671508770633,
+              "TLT": 0.013564828702107538
+            },
+            "monthly_rebalance": true
+          }
+        },
+        "prospective_criteria": {
+          "first_eligible_date": "2026-10-08",
+          "evaluation_sessions": 252,
+          "implementation_review_at_sessions": 63,
+          "rule_freeze": "This contract/code freeze precedes any new supplied prospective outcome",
+          "warmup": "Atleast273 priorlevels + availableBrent; warmupdata exposed/informationonly, no futureoutcomeclaim",
+          "observations": "Archive each NAV observationID, availableat, decisiontime, plannedcalendar session, Brentobservation/publication/firstseen and sourcehash. No collector orpaperorder activation.",
+          "review": "At63sessions review availability/implementation/errors only. At252 reportall30cases, standalone benchmark/stability/fees/exposure and actualentry/exit counts; independentaudit before changedrecommendation.",
+          "selection": "No automaticranking/pass, retuning, weightselection or postfinalnomination. Preserve oldfailures. Returnandexceptionalstability both matter; strongreturns/highvol alone are not vetoes.",
+          "limit": "Future NAVreference evaluation is not proof of exchange execution oractualcashactions; portfolio contribution remains separately measured diagnostic."
+        },
+        "failure_policy": {
+          "input_failure": "Stopconsumedrun oninvalidschema, clocks, sourcehash, ordereddate/fivefundNAV, missingpublication orfunding; writeFIRST_STOP and retainnoautomaticretry",
+          "model_flat_failure": "Exactoriginal warmup/rank/zero_sigma/invalidfeatures/zero_barbell_sum ->flatbaseline SPYorSHY anddailyreason",
+          "active_failure": "Exactoriginal invalidactive20featurewindow ->nextNAVbaselineexit; sourcevalidation maystop earlierwhen executionmarks unusable",
+          "exposure_labels": [
+            "OPENED_HISTORY_IMPLEMENTATION_REPLAY_NOT_VALIDATION",
+            "PROSPECTIVE_TIMESTAMPED_REFERENCE_EVALUATION"
+          ],
+          "uncertainty": "Unverifiedhistorical availability/actions do not veto disclosedreleasedNAVreference replay; prospective actualclocks mustbequalified"
+        },
+        "daily_signal_observer": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/observer.py",
+          "bytes": 9736,
+          "sha256": "f62fb3d3701ea3d229d01699ba3af4cc6e24d146e436422bd903f35a6a754949"
+        },
+        "familiar_owned_state_scope": "PRIMARY_5BP_REFERENCE_WALLET_ONLY",
+        "historical_status": {
+          "old_shortlist_preserved": [],
+          "old_development_selection_failed": true,
+          "opened_final_is_retrospective": true,
+          "implementation_test_is_new_validation": false
+        },
+        "prospective_status": "NO_ACTUAL_SOURCE_PACKET_OR_FUNDED_WINDOW_STARTED",
+        "audit": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/RELATIONSHIP_FAMILIAR_FIDELITY_REVIEW_V3.json",
+          "bytes": 33453,
+          "sha256": "abca861418d5be01dd1caa524eb531d9659f6b64dcd2a5b1eb0b9a31d3d1f500"
+        },
+        "orders_enabled": false
+      },
+      {
+        "id": "BTC_PRIOR_CALENDAR_MONTH_LOSS_TO_CASH_01",
+        "original_study_id": "QORE-20261005-BTC-CASH-MONTH-01",
+        "identity": "This is the existing risk_off_test_20261005 monthly-loss rule itself; not a new trend/risk-off family or validation.",
+        "contract": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CONTRACT.json",
+          "bytes": 9214,
+          "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+        },
+        "adapter": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/adapter.py",
+          "bytes": 25032,
+          "sha256": "6c949b696518075e5b2b8ba3d168bc88390e677a9484f615fe9d09d2d2156e18"
+        },
+        "rule": {
+          "numerator": "BTCUSDT final UTC calendar-day CLOSE of immediately preceding complete month",
+          "denominator": "first UTC calendar-day OPEN of same complete month",
+          "cash": "strict ratio<1",
+          "BTC": "ratio>=1; equality remainsBTC",
+          "cadence": "third UTC calendar day nominal dailyOPEN at00:00UTC",
+          "month_end_lag": "decision>=prior_month_end_exclusive+48hours",
+          "persistence": "prior target between decisions; no intramonthstop/filter/reentry/annualreset",
+          "missing": "missing/duplicate/nonfinite/incoherent required field stops dependent episode; preserve gaps, no substitute or outcome-baseddrop"
+        },
+        "execution": {
+          "fees_bp": 10,
+          "impact_scenarios": [
+            [
+              "primary",
+              20
+            ],
+            [
+              "double",
+              40
+            ]
+          ],
+          "original_diagnostics_preserved_not_replayed": [
+            "quad_diagnostic10fee/80impact",
+            "fee_uncertainty_diagnostic100fee/20impact"
+          ],
+          "BTC_step": "0.000001",
+          "minimum_USDT": "10",
+          "receiving_fee": "Buy fee deducted from receivedBTC; sell fee from receivedUSDT",
+          "dust": "floor executablelots; retain all unsellableownedBTCdust and residualUSDT; cash target does not eraseunits",
+          "capacity": "Each final order AND same-account/day/asset/side sum<=0.0001*mean actualquotevolume D-8..D-2 inclusive; no capacity-drivenresize/split/retry",
+          "continuedBTC": "keep existingnetunits; use fundedcash only, no fee-fundedfullsell/rebuy",
+          "settlement": "immediate internal modeledcashsettlement; no borrow/topups/yield/shorts/imaginedincome"
+        },
+        "funded_accounts": {
+          "strategy": "100%BTC or USDT state",
+          "btc_buyhold": "initial100%BTC, drift thereafter",
+          "monthly_50_cash": "monthly50BTC/50USDT",
+          "cash": "zero-yield100%USDT",
+          "portfolio_strategy": "funded75BTCcore/25state sleeve",
+          "portfolio_mix": "funded75BTCcore/25monthly50BTC50USDTsleeve",
+          "portfolio_cash": "funded75BTCcore/25USDTsleeve"
+        },
+        "capital": "1000USDT per wholeaccount; initialstandalone1000 or portfolio750core/250other. USDT notUSD/risk-free/insuredcash. No actualaccount connection.",
+        "portfolio": "At scheduled third-day afterinitial entry, use STOREDactualprior-month-end core/totalNAV snapshot. Net signedcore\u2192other transfer=coreNAV\u2212.75totalNAV. Fund payer by ownedlot sales including originalauditedceil/floorrepair, transferactualUSDT, receivercorebuys onlytransferredcash, state/mixsleeveapplies scheduledtarget afterward. Aggregatefunding+targetorders; no arithmeticreturnblend.",
+        "prospective_criteria": {
+          "mode": "paper_decision andpaper_mark",
+          "first_source_month": "2026-11-01..2026-11-30, whollyfutureafterthisfreeze",
+          "initial_funding": "2026-12-01 hypothetical1000USDT/account; cashthroughDec2",
+          "first_decision": "2026-12-03T00:00:00Z",
+          "last_decision": "2027-11-03T00:00:00Z",
+          "terminal": "2027-11-30T23:59:59.999Z markedinventory, noforcedsale orDecemberdecision",
+          "decisions": 12,
+          "retuning": false,
+          "owner_sources": "Only separately rootreleased lawful originalspotdaily observation JSONpackets; no network/auth/request/API/account/order. Inputpackets must identify source/usebasis and actual observation/available/recorded clocks. Reportedclocks are not independentPITcertification.",
+          "signal_inputs": "Everydate of completepriorBTCmonth with nominalOHLC/timestamps/quotevolume and known_at_utc<=decision00UTC; preserve exact firstOPEN/finalCLOSE and \u226548h month-endclock.",
+          "capacity_inputs": "All D-8..D-2 BTCquotevolumebars knownbydecision; sourcevolume positive actualfields, not currentday or D-1.",
+          "execution_reference": "BTC nominal third-day first-trade OPEN, reported observed and known clocks from 00:00 UTC through 00:05 UTC; model invocation must also occur within that interval and after the reference is known. Full modeled fill and OPEN sizing are assumptions; no actual order/fill.",
+          "availability_failure": "Late/missing required signal/capacity/reference or late/early model entry stops the dependent episode with immutable failure receipt. No retrospective presumed fill. Missing monthly decision prevents subsequent marks; daily mark gaps remain explicit.",
+          "mark_inputs": "ObservedBTCdailyCLOSE/time, knownaftercompletedday; markmodepricesownedunits/cash and captures immutablemonth-end wallet+NAVsnapshot. Missingdaily mark is explicit coveragegap, neverzero/fabricatedreturn. Mark gapsdo not inventmonthlytiming.",
+          "snapshots": "Noninitialdecisionrequiresprior-month-end snapshot previouslyrecorded beforedecision with walletunits/cash unchanged sinceitscapture. No reconstructingoldNAVfrom altered currentunits.",
+          "paper_eligibility": "Exploratory/offlinepaper model may proceed with declaredfees/fills/currentvintage/custody residualuncertainty; operationalsuccess is fidelity/accounting, notfinancialproof.",
+          "evaluation_frozen_before_outcomes": [
+            "reportall12scheduleddecisions/persistedtargets andgap/failurecounts",
+            "all14wholefundedpaths atprimary/double; returns/risk/costs/turnover/negativeBTCmonths/exposure participation",
+            "samecapital/cost/cadence BTC/monthly50cash/cash controls andactual75/25portfolios",
+            "distinguish standaloneBTC-risk reductionfromcashallocation/generalcryptobeta; noequity/NGASdiversificationinference",
+            "freezeallcosts,monthclock,symbol,quantitygrid,cap andperiod; no bestvariantpromotion",
+            "reuseoldscreen definitions onlyasdescriptivecomparisonsifreported,neverretroactivelychangefailedhistory"
+          ],
+          "state_chronology": "A decision cannot consume a same-day/future marked state. Every mark requires the latest scheduled monthly decision; duplicate marks, altered snapshot wallet units/cash, missing snapshot, or snapshot recorded after decision stop the episode."
+        },
+        "overlap": {
+          "same_identity": "risk_off_test_20261005 monthlyloss",
+          "different_price_timing": "passiveabsorptionweeklyflow+price,weekendcalendar,minerfee/taxcalendar cash exits; distinctsignalcontractsbutsharedBTC/USDTmarketexposure",
+          "inventory_band": "BTC/ETHbandrebalancing, differentrule; walletreuseisnotidentity",
+          "funding_carry": "hedgedspot/perpshort fundingcashflow, differentcontract/obligations; thisadapterhasNOperpetual,fundingorborrow"
+        },
+        "historical_status": "Frozen original return and exceptional-stability screens failed. Reassessment can separately permit exploratory/paper study with documented uncertainty; no old screen is relabeled.",
+        "prospective_status": "FIRST_SOURCE_MONTH_NOVEMBER_2026_NOT_SUPPLIED",
+        "audit": {
+          "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BTC_FAMILIAR_FIDELITY_REVIEW.json",
+          "bytes": 7427,
+          "sha256": "2df21598121a8aa9879a1a01a1268cc0137e6a4dbbdfd1137b18f956f14d5652"
+        },
+        "orders_enabled": false
+      }
+    ],
+    "unchanged_rule_identities": 3,
+    "new_validated_strategies": 0,
+    "runtime_enabled": false,
+    "prior_compact_definitions": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/practical_mandate_reassessment_20261007/deliverables/COMPACT_TESTED_DEFINITIONS.json",
+      "bytes": 12029,
+      "sha256": "eaaeb733b0d4fc7bd8379816ec2dac68b1aed2324128e77004d767e236aa57f6"
+    }
+  },
+  "definition_provenance": "Embedded original economic definitions are immutable provenance, including their original date and pre-run clauses. The separately registered Nov2 window governs current relationship dates; the original Oct8 observer remains preserved and unstarted. BTC dates are unchanged.",
+  "registered_relationship_window": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PROTOCOL.json",
+    "bytes": 11888,
+    "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+  },
+  "registered_signal_observer": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/OBSERVER_CONTRACT.json",
+    "bytes": 4104,
+    "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+  },
+  "nov2_signal_adapter": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/observer.py",
+    "bytes": 13287,
+    "sha256": "736cd467a04dd1fc1ffbd5918c9c34158c6014a53d63c88d58d9a4927e0dccb9"
+  },
+  "cash_accrual_tested_definition": {
+    "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/next_distinct_phase/deliverables/COMPACT_TESTED_DEFINITION.json",
+    "bytes": 5839,
+    "sha256": "6d3f7ef45b0e7cef0c0934c2c7f04ddaefcba2c21e5d81a047a0b5349013a958"
+  },
+  "new_economic_rules": 0,
+  "actual_paper_accounts": false,
+  "orders_enabled": false
+}

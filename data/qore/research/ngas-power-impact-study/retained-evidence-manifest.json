@@ -1,0 +1,25 @@
+{
+  "purpose": "Retained frozen outcomes, calibration and one copy of corrected historical inputs for the retired power-impact study. Raw EIA download cache and repeated scratch outputs are deleted. This retained evidence is excluded from the application bundle and supplies no new validation.",
+  "files": {
+    "evaluation-v2-final.json": "8d77f115ce242f3763f73cd743a01f7891dab2a763daf80f8fb898157b5c058c",
+    "evaluation-v2.json": "fe9edbb7d0832e40bc32290c206a4d22c9ca55d16f386e09480fd9d25ffa5d7f",
+    "calibration.json": "8f7375c95f529a7eda0591fb421a25771ac635bc84068dabb991497b37bdad42",
+    "evaluation-segmented-final-with-reporting.json": "8fbd0f326ab4ffdc17296cfa36ab020d18efe4270c323c769c4e75cd632a0a6b",
+    "evaluation-segmented-final.json": "0eecbb4e051b3d9403b43131dc30512b87c175ae791ea83f58c967fe8ea2963a",
+    "evaluation-v2-with-reporting.json": "d264e49a1b2bb816cb75079b2df2a18cc6c93ce575c2f0d925bab6f8c6f3345a",
+    "evaluation-segmented-default-verified.json": "04c9e25cff97abd3e1d44d5f8c1ffb499259e06c9ee31139235f2743e63ceca7",
+    "evaluation-v2-final-with-reporting.json": "f9fbdc778006f165d119e0071fe8aa235a0e8658885e23ae4b0533b481996575",
+    "evaluation-with-reporting.json": "304f8285996fbb3e78f766efb9c3b64473c531ba42564c7369fdb7d1989fe9da",
+    "evaluation.json": "d974fa8929f911f5e4a1b3e3b4e985fbf552a8c35ee7802532cf38dad274f74e",
+    "corrected-forecast-inputs/fixed-candidate-evaluation.json": "bee50e20733392642a39af9d90b3c2094b210b771c41675ce41949331d7a14e1",
+    "corrected-forecast-inputs/validation.json": "89d6105490272f9ce708b891f70102d782af6933d48e295a40830aaeec331957",
+    "corrected-forecast-inputs/research/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv": "8faaf8c9ab429961a146f5925bf1ab59b3853acd69215897ccf9b49fdb87c3e3",
+    "corrected-forecast-inputs/research/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-returns.csv": "cfd2b59832f2e32d07efd7b5dd0d7e4ee1fdb5d4c572f6a69a5a1523c6a1e51d",
+    "corrected-forecast-inputs/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-returns.csv": "b3bd1957f3240d0d564502a150024f63ea2986887882b88bc49c5c939faa716d",
+    "corrected-forecast-inputs/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv": "0a93009220da7653186a109b6fb9e6490a030a080baccb031f15ebb5e5b8f3ef",
+    "corrected-forecast-inputs/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json": "7e760ebb28de7c1d6a01a11b2a1e72a4bcf769cf281738e5b8af1004d161f664",
+    "corrected-forecast-inputs/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv": "f1667bd6a698cb9a3fcaf7431de2c42530b7b4ba3c82645082bf3d0307d82853",
+    "corrected-forecast-inputs/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv": "41d645628d336a1c827f1950303a2ca1c03206b3c7cb333fab04f06a81cccc63",
+    "corrected-forecast-inputs/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json": "7f1acbfea09131fea28740e59690e26288d7c99906a5627ba10f7792b5dbaf5c"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "qore-hub.owner-independent-review.v1",
+  "reviewer": "/root/holistic_integration_review",
+  "recordedUtc": "2026-10-08T23:59:12.416Z",
+  "status": "PASS_INTEGRATED_SOURCE_AND_READONLY_OFFLINE_BEHAVIOR",
+  "unresolvedMaterialFindings": [],
+  "resolvedFindings": [
+    {
+      "file": "src/hub/PaperCandidates.tsx",
+      "line": 48,
+      "issue": "Selecting already active candidate cleared replay but did not change fetch dependencies.",
+      "fix": "Return early when candidate id already selected.",
+      "independentlyRechecked": true
+    }
+  ],
+  "validation": {
+    "exactFrozenAssetHashes": 25,
+    "unrelatedBaselinePathsUnchanged": 207,
+    "savedFieldComparisons": 122588,
+    "framesChecked": 16724,
+    "btcCases": 14,
+    "evidenceDocuments": 13,
+    "evidenceSanitizedWithoutDepthTruncation": true,
+    "stableIdsPreserved": true,
+    "canonicalHistoryEvents": 769,
+    "canonicalLatestRecords": 443,
+    "canonicalNullRevisionRecords": 32,
+    "canonicalHash": "b59b3265c17139dd55bb57894d90941b3cdef49f3a47d00383e6a297bbecc990",
+    "pendingAppend": false,
+    "qualifiedExternalGroups": 3,
+    "sourceWrites": 0,
+    "appsLaunched": 0,
+    "listenersOpened": 0
+  },
+  "limits": [
+    "Native launch and visual behavior not inspected by reviewer.",
+    "Owner separately executed packaged read-only modules and signature/resource checks."
+  ],
+  "ordersEnabled": false
+}

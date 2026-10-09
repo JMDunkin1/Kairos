@@ -1,15 +1,25 @@
-# QORE // Natural Gas
+# Kairos
 
-QORE is a local research and execution-control system for one strategy: `ngas-all-year-beta`. It combines internal summer and winter natural-gas signal engines, keeps unallocated capital in a VOO/QQQM index fallback, and routes the executable gas leg through `UNG` at Alpaca.
+Kairos is a Mac application for researching and operating a growing symphony of strategies. Its registry can expand to dozens of diverse strategies through reviewed definitions and isolated adapters. Its name refers to the opportune moment: acting on available evidence at the right time. The existing QORE natural-gas subsystem uses `ngas-all-year-beta`, combining internal summer and winter engines, a VOO/QQQM fallback and `UNG` execution at Alpaca. The leverage strategy and three newer candidates retain their separate research and paper-evaluation contracts.
 
-The browser has two surfaces:
+The natural-gas subsystem has two surfaces:
 
 - **Command** shows actual Alpaca paper/live equity history, positions, open orders, the current all-year target, and fail-closed risk state. Its refresh action is read-only.
 - **Backtest** shows the checked-in all-year research curve, train/validation/holdout results, block-bootstrap Monte Carlo, and weather diagnostics.
 
-No other strategy is part of the public product. Summer and winter components remain in the repository only because the all-year selector and live inference depend on them.
+Summer and winter are internal components of the natural-gas strategy. The broader desktop catalogue lists natural gas, leverage and the three newer candidates without promoting seasonal components or comparison baselines into extra strategies.
 
-## Start locally
+## Open the Mac application
+
+Open **Kairos** in Applications or search for **Kairos** in Spotlight. The installed app is `/Applications/Kairos.app`. It opens its own native window and starts and stops its bundled local research service automatically. No terminal, Node installation or browser is needed to use it. Existing saved hub runs stay in the same Application Support folder.
+
+The starting catalogue includes natural gas, relative leverage sleeves, energy residual rotation, Treasury curve residual rotation and BTC monthly loss to cash. It has no fixed strategy-count limit. Leverage retains its reviewed historical replay and comparison baseline. The three newer candidates retain offline paper status and their fixed future windows. Natural gas opens its original Account and Backtests surfaces inside the same native window; Account uses the existing sanitized, read-only M1 connection.
+
+Maintainers can quit Kairos and run `npm run app:install` to build and replace the installed app from this repository, including an existing QORE installation. The installer verifies the original evidence manifests, adds a release manifest and signs the app. It deletes the replaced app and temporary compiler files. No backup apps, terminal launchers or retained build archives are created. See [the desktop contract](docs/desktop/contract.md) for source, evidence and lifecycle boundaries.
+
+The desktop icon uses the selected Offset artwork in `desktop/assets/offset-icon.png`: two staggered charcoal and slate bars on an ivory tile. Installation packages this image at all native icon sizes.
+
+## Developer workflow
 
 QORE requires Node 20.19+ or 22.12+.
 
@@ -21,13 +31,6 @@ npm run dev
 `npm run dev` binds the Vite dashboard and its telemetry service to loopback, chooses free local ports when necessary, and prints both URLs. Use `npm run dev:vite` only for UI work that does not need Command telemetry.
 
 On the main Mac, `npm run dev` keeps the app and Backtest data local. Command alone uses the already-paired T3 route to `m1-server` over Tailscale, then reads a bounded, sanitized snapshot through the existing SSH identity. The connection meter reports the T3 route and M1 telemetry stages. It does not start or configure Tailscale, copy the M1 runtime directory, call Alpaca from the Mac, or expose an M1 port.
-
-The installed launcher is optional:
-
-```bash
-npm run install:command
-qore
-```
 
 ## Research workflow
 

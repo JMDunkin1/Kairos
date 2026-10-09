@@ -27,3 +27,8 @@ jobs:
       - run: npm run build
       - run: node scripts/test-qore-ui-accounting.mjs
       - run: node scripts/test-qore-ui-requests.mjs
+      - run: npm run test:hub
+      - run: npm run test:hub-paper
+      - run: npm run test:hub-replay
+      - run: npm run test:hub-ledger
+      - run: npm run test:portfolio-engine

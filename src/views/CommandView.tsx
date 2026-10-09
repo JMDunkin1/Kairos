@@ -83,7 +83,7 @@ export function CommandView() {
     <p className="section-note">Recorded NAV and current holding P&amp;L are broker observations. They do not establish strategy attribution or flow-adjusted account performance.</p>
   </>
   return <main className="view" id="command-view">
-    <div className="breadcrumb">QORE / Account</div>
+    <div className="breadcrumb">Kairos / Account</div>
     <header className="view-header"><div className="view-heading"><h1>{title}</h1><div className="header-meta"><span className="mode-label">{mode}</span><span>{intent?.strategyId ?? 'Strategy version unavailable'}</span></div></div><SourceDialog title="Account data & calculations">{sources}</SourceDialog></header>
     <div className="control-strip"><div><span>Period</span><strong>{period}</strong></div><div><span>Source</span><strong>Recorded broker data</strong></div><div><span>As of</span><strong>{time(telemetry?.sourceGeneratedAt)}</strong></div><button className="text-button primary" type="button" disabled={refreshing || !connection?.connected} onClick={() => void load(true)}>{refreshing ? 'Refreshing…' : 'Refresh account'}</button></div>
     {(connectionError || connection?.error || !connection?.connected || error) && <div className="notice" role="status"><strong>Telemetry unavailable</strong><span>{error || connection?.error || connectionError || connection?.detail || 'Waiting for the read-only bridge.'}</span></div>}

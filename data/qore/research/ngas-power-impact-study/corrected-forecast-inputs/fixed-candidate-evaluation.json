@@ -1,0 +1,2212 @@
+{
+  "schemaVersion": 1,
+  "evaluationId": "fresh-corrected-summer-fixed-realized-move-audit-20260722",
+  "generatedAt": "2026-07-23T04:12:19.134Z",
+  "evaluatedThrough": "2026-07-14",
+  "weatherInputWindow": {
+    "issueStart": "2021-05-01",
+    "issueEnd": "2026-07-14",
+    "targetEnd": "2026-07-21",
+    "offsetsUtc": [
+      6,
+      12,
+      18,
+      24
+    ],
+    "contractId": "summer-target-local-day-four-sample-mean-v1"
+  },
+  "splitContract": {
+    "trainEnd": "2023-12-31",
+    "validationEnd": "2024-12-31",
+    "holdoutStart": "2025-01-01",
+    "holdoutUse": "reporting-only-no-selection"
+  },
+  "selectionPolicy": "three-frozen-candidates-no-ranking-no-tuning-no-winner",
+  "selectedCandidateId": null,
+  "winnerCandidateId": null,
+  "executionContractId": "qore-causal-etf-execution-v2",
+  "selectionScenarioId": "baseline",
+  "candidateInputs": {
+    "current-hard-2.0": {
+      "role": "frozen-comparator",
+      "tradesPath": ".local/qore/audit-summer-fresh/current-hard-2.0/selected-trades.csv",
+      "summaryPath": ".local/qore/audit-summer-fresh/current-hard-2.0/run-summary.json",
+      "optimizerCandidateId": "summer-auditbaseline-variantcurrent-a5-q0.5-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv2-fresh3-cddanone-cddc0-st1-sf1-wrnone-sdef1.25-vol0-fixed"
+    },
+    "hard-1.5": {
+      "role": "frozen-research-challenger",
+      "tradesPath": ".local/qore/audit-summer-fresh/hard-1.5/selected-trades.csv",
+      "summaryPath": ".local/qore/audit-summer-fresh/hard-1.5/run-summary.json",
+      "optimizerCandidateId": "summer-auditrealized-move-variantminRealizedMovePct-1.5-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv1.5-fresh3-cddanone-cddc0-st1-sf1-wrnone-sdef1.25-vol0-fixed"
+    },
+    "linear-ramp-1.5-to-2.0": {
+      "role": "frozen-research-challenger",
+      "tradesPath": ".local/qore/audit-summer-fresh/linear-ramp-1.5-to-2.0/selected-trades.csv",
+      "summaryPath": ".local/qore/audit-summer-fresh/linear-ramp-1.5-to-2.0/run-summary.json",
+      "optimizerCandidateId": "summer-auditrealized-move-ramp-variantramp-1.5-to-2-gfs-gefs-core-equal-a5-c0.25-q0.5-wf0.35-rf0.35-rdcooling-demand-tiered-fh3-rh1-mv1.5-fresh3-cddanone-cddc0-st1-sf1-wrnone-sdef1.25-vol0-fixed"
+    }
+  },
+  "prohibitedTargetsByCandidate": {
+    "current-hard-2.0": [
+      {
+        "date": "2025-05-19",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-20",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-22",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-25",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-26",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-27",
+        "thesisKind": "reversion-long",
+        "target": 0.35
+      }
+    ],
+    "hard-1.5": [
+      {
+        "date": "2025-05-19",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-20",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-22",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-25",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-26",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-27",
+        "thesisKind": "reversion-long",
+        "target": 0.35
+      }
+    ],
+    "linear-ramp-1.5-to-2.0": [
+      {
+        "date": "2025-05-19",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-20",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-05-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-21",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-22",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-25",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-26",
+        "thesisKind": "summer-cold-short",
+        "target": -0.35
+      },
+      {
+        "date": "2025-08-27",
+        "thesisKind": "reversion-long",
+        "target": 0.35
+      }
+    ]
+  },
+  "projections": {
+    "raw-as-audited": {
+      "interpretation": "Literal replay of each corrected optimizer target ledger.",
+      "prohibitedThesisKindsZeroed": [],
+      "scenarios": {
+        "baseline": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 24.326015,
+                "cagrPct": 7.558875,
+                "annualVolPct": 18.806286,
+                "sharpe": 0.481543,
+                "maxDrawdownPct": -29.713127,
+                "turnover": 29.993889,
+                "gasTurnover": 15.532197,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 37.182654,
+                "cagrPct": 37.182654,
+                "annualVolPct": 14.382127,
+                "sharpe": 2.271121,
+                "maxDrawdownPct": -9.021154,
+                "turnover": 12.251902,
+                "gasTurnover": 7.708061,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 26.092145,
+                "cagrPct": 16.525902,
+                "annualVolPct": 18.006197,
+                "sharpe": 0.938924,
+                "maxDrawdownPct": -19.124364,
+                "turnover": 22.731693,
+                "gasTurnover": 12.892873,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 115.054854,
+                "cagrPct": 14.926428,
+                "annualVolPct": 17.854502,
+                "sharpe": 0.86854,
+                "maxDrawdownPct": -29.713127,
+                "turnover": 64.977485,
+                "gasTurnover": 36.13313,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 24.326015,
+                  "cagrPct": 7.558875,
+                  "annualVolPct": 18.806286,
+                  "sharpe": 0.481543,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 29.993889,
+                  "gasTurnover": 15.532197,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 37.182654,
+                  "cagrPct": 37.182654,
+                  "annualVolPct": 14.382127,
+                  "sharpe": 2.271121,
+                  "maxDrawdownPct": -9.021154,
+                  "turnover": 12.251902,
+                  "gasTurnover": 7.708061,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 26.914003,
+                  "cagrPct": 17.026383,
+                  "annualVolPct": 18.015854,
+                  "sharpe": 0.962322,
+                  "maxDrawdownPct": -19.124364,
+                  "turnover": 24.296945,
+                  "gasTurnover": 13.66997,
+                  "incrementalDailySumPct": 0.652734
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 116.456563,
+                  "cagrPct": 15.062164,
+                  "annualVolPct": 17.85722,
+                  "sharpe": 0.875048,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 66.542737,
+                  "gasTurnover": 36.910227,
+                  "incrementalDailySumPct": 0.652734
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.821858,
+                "full": 1.401709
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 116.456563,
+                    "ablatedFullReturnPct": 115.054854,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.401709,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.401709,
+                    "completeEpisodeArithmeticContributionPct": 0.652734,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 115.054854,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 115.054854,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 24.326015,
+                  "cagrPct": 7.558875,
+                  "annualVolPct": 18.806286,
+                  "sharpe": 0.481543,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 29.993889,
+                  "gasTurnover": 15.532197,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 37.182654,
+                  "cagrPct": 37.182654,
+                  "annualVolPct": 14.382127,
+                  "sharpe": 2.271121,
+                  "maxDrawdownPct": -9.021154,
+                  "turnover": 12.251902,
+                  "gasTurnover": 7.708061,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 26.144177,
+                  "cagrPct": 16.55762,
+                  "annualVolPct": 18.006516,
+                  "sharpe": 0.940423,
+                  "maxDrawdownPct": -19.124364,
+                  "turnover": 22.829551,
+                  "gasTurnover": 12.941397,
+                  "incrementalDailySumPct": 0.04137
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 115.143596,
+                  "cagrPct": 14.935042,
+                  "annualVolPct": 17.854592,
+                  "sharpe": 0.868956,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 65.075342,
+                  "gasTurnover": 36.181655,
+                  "incrementalDailySumPct": 0.04137
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.052032,
+                "full": 0.088742
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 115.143596,
+                    "ablatedFullReturnPct": 115.054854,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.088742,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.088742,
+                    "completeEpisodeArithmeticContributionPct": 0.04137,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 115.054854,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 115.054854,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ],
+          "optimizerReplayValidation": {
+            "current-hard-2.0": {
+              "maximumAbsoluteDailyNetReturnDifferencePct": 0.000049998682,
+              "tolerancePct": 0.0000501,
+              "toleranceReason": "Optimizer selected-trades netReturnPct is persisted to four decimals.",
+              "pass": true
+            },
+            "hard-1.5": {
+              "maximumAbsoluteDailyNetReturnDifferencePct": 0.000049998682,
+              "tolerancePct": 0.0000501,
+              "toleranceReason": "Optimizer selected-trades netReturnPct is persisted to four decimals.",
+              "pass": true
+            },
+            "linear-ramp-1.5-to-2.0": {
+              "maximumAbsoluteDailyNetReturnDifferencePct": 0.000049998682,
+              "tolerancePct": 0.0000501,
+              "toleranceReason": "Optimizer selected-trades netReturnPct is persisted to four decimals.",
+              "pass": true
+            }
+          }
+        },
+        "elevated": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 23.794372,
+                "cagrPct": 7.40473,
+                "annualVolPct": 18.808228,
+                "sharpe": 0.473887,
+                "maxDrawdownPct": -29.835718,
+                "turnover": 29.997876,
+                "gasTurnover": 15.532405,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 36.927742,
+                "cagrPct": 36.927742,
+                "annualVolPct": 14.38021,
+                "sharpe": 2.258456,
+                "maxDrawdownPct": -9.02131,
+                "turnover": 12.246596,
+                "gasTurnover": 7.708317,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 25.677928,
+                "cagrPct": 16.273238,
+                "annualVolPct": 18.004178,
+                "sharpe": 0.926946,
+                "maxDrawdownPct": -19.124518,
+                "turnover": 22.732969,
+                "gasTurnover": 12.893088,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 113.035195,
+                "cagrPct": 14.729572,
+                "annualVolPct": 17.854736,
+                "sharpe": 0.858924,
+                "maxDrawdownPct": -29.835718,
+                "turnover": 64.977442,
+                "gasTurnover": 36.13381,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 23.794372,
+                  "cagrPct": 7.40473,
+                  "annualVolPct": 18.808228,
+                  "sharpe": 0.473887,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 29.997876,
+                  "gasTurnover": 15.532405,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.927742,
+                  "cagrPct": 36.927742,
+                  "annualVolPct": 14.38021,
+                  "sharpe": 2.258456,
+                  "maxDrawdownPct": -9.02131,
+                  "turnover": 12.246596,
+                  "gasTurnover": 7.708317,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 26.469555,
+                  "cagrPct": 16.755868,
+                  "annualVolPct": 18.013401,
+                  "sharpe": 0.949573,
+                  "maxDrawdownPct": -19.124518,
+                  "turnover": 24.298305,
+                  "gasTurnover": 13.670227,
+                  "incrementalDailySumPct": 0.63083
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 114.377073,
+                  "cagrPct": 14.860534,
+                  "annualVolPct": 17.857331,
+                  "sharpe": 0.865218,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 66.542778,
+                  "gasTurnover": 36.91095,
+                  "incrementalDailySumPct": 0.63083
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.791627,
+                "full": 1.341878
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 114.377073,
+                    "ablatedFullReturnPct": 113.035195,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.341878,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.341878,
+                    "completeEpisodeArithmeticContributionPct": 0.63083,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 113.035195,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 113.035195,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 23.794372,
+                  "cagrPct": 7.40473,
+                  "annualVolPct": 18.808228,
+                  "sharpe": 0.473887,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 29.997876,
+                  "gasTurnover": 15.532405,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.927742,
+                  "cagrPct": 36.927742,
+                  "annualVolPct": 14.38021,
+                  "sharpe": 2.258456,
+                  "maxDrawdownPct": -9.02131,
+                  "turnover": 12.246596,
+                  "gasTurnover": 7.708317,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 25.728071,
+                  "cagrPct": 16.303839,
+                  "annualVolPct": 18.004484,
+                  "sharpe": 0.928395,
+                  "maxDrawdownPct": -19.124518,
+                  "turnover": 22.830827,
+                  "gasTurnover": 12.941612,
+                  "incrementalDailySumPct": 0.04
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 113.120191,
+                  "cagrPct": 14.737887,
+                  "annualVolPct": 17.854823,
+                  "sharpe": 0.859327,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 65.0753,
+                  "gasTurnover": 36.182335,
+                  "incrementalDailySumPct": 0.04
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.050143,
+                "full": 0.084996
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 113.120191,
+                    "ablatedFullReturnPct": 113.035195,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.084996,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.084996,
+                    "completeEpisodeArithmeticContributionPct": 0.04,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 113.035195,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 113.035195,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ]
+        },
+        "stress": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 22.223789,
+                "cagrPct": 6.946767,
+                "annualVolPct": 18.810914,
+                "sharpe": 0.451129,
+                "maxDrawdownPct": -30.178622,
+                "turnover": 30.019688,
+                "gasTurnover": 15.533174,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 36.113239,
+                "cagrPct": 36.113239,
+                "annualVolPct": 14.377588,
+                "sharpe": 2.217296,
+                "maxDrawdownPct": -9.022301,
+                "turnover": 12.261221,
+                "gasTurnover": 7.709065,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 24.297132,
+                "cagrPct": 15.428927,
+                "annualVolPct": 17.996302,
+                "sharpe": 0.886754,
+                "maxDrawdownPct": -19.12498,
+                "turnover": 22.73798,
+                "gasTurnover": 12.894028,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 106.784135,
+                "cagrPct": 14.110447,
+                "annualVolPct": 17.853564,
+                "sharpe": 0.828648,
+                "maxDrawdownPct": -30.178622,
+                "turnover": 65.018888,
+                "gasTurnover": 36.136266,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 22.223789,
+                  "cagrPct": 6.946767,
+                  "annualVolPct": 18.810914,
+                  "sharpe": 0.451129,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 30.019688,
+                  "gasTurnover": 15.533174,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.113239,
+                  "cagrPct": 36.113239,
+                  "annualVolPct": 14.377588,
+                  "sharpe": 2.217296,
+                  "maxDrawdownPct": -9.022301,
+                  "turnover": 12.261221,
+                  "gasTurnover": 7.709065,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 24.988936,
+                  "cagrPct": 15.852339,
+                  "annualVolPct": 18.004163,
+                  "sharpe": 0.906794,
+                  "maxDrawdownPct": -19.12498,
+                  "turnover": 24.303661,
+                  "gasTurnover": 13.671288,
+                  "incrementalDailySumPct": 0.557514
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 107.93504,
+                  "cagrPct": 14.225576,
+                  "annualVolPct": 17.855772,
+                  "sharpe": 0.834219,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 66.58457,
+                  "gasTurnover": 36.913526,
+                  "incrementalDailySumPct": 0.557514
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.691804,
+                "full": 1.150905
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 107.93504,
+                    "ablatedFullReturnPct": 106.784135,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.150905,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.150905,
+                    "completeEpisodeArithmeticContributionPct": 0.557514,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 106.784135,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 106.784135,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 22.223789,
+                  "cagrPct": 6.946767,
+                  "annualVolPct": 18.810914,
+                  "sharpe": 0.451129,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 30.019688,
+                  "gasTurnover": 15.533174,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.113239,
+                  "cagrPct": 36.113239,
+                  "annualVolPct": 14.377588,
+                  "sharpe": 2.217296,
+                  "maxDrawdownPct": -9.022301,
+                  "turnover": 12.261221,
+                  "gasTurnover": 7.709065,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 24.341038,
+                  "cagrPct": 15.455823,
+                  "annualVolPct": 17.996565,
+                  "sharpe": 0.888039,
+                  "maxDrawdownPct": -19.12498,
+                  "turnover": 22.835844,
+                  "gasTurnover": 12.942553,
+                  "incrementalDailySumPct": 0.035411
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 106.857178,
+                  "cagrPct": 14.117769,
+                  "annualVolPct": 17.853639,
+                  "sharpe": 0.829005,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 65.116753,
+                  "gasTurnover": 36.184791,
+                  "incrementalDailySumPct": 0.035411
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.043906,
+                "full": 0.073043
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 106.857178,
+                    "ablatedFullReturnPct": 106.784135,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.073043,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.073043,
+                    "completeEpisodeArithmeticContributionPct": 0.035411,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 106.784135,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 106.784135,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "production-admissible-projection": {
+      "interpretation": "Counterfactual replay with summer-cold-short and reversion-long targets zeroed.",
+      "prohibitedThesisKindsZeroed": [
+        "summer-cold-short",
+        "reversion-long"
+      ],
+      "scenarios": {
+        "baseline": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 24.326015,
+                "cagrPct": 7.558875,
+                "annualVolPct": 18.806286,
+                "sharpe": 0.481543,
+                "maxDrawdownPct": -29.713127,
+                "turnover": 29.993889,
+                "gasTurnover": 15.532197,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 37.182654,
+                "cagrPct": 37.182654,
+                "annualVolPct": 14.382127,
+                "sharpe": 2.271121,
+                "maxDrawdownPct": -9.021154,
+                "turnover": 12.251902,
+                "gasTurnover": 7.708061,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 28.720433,
+                "cagrPct": 18.122574,
+                "annualVolPct": 17.761665,
+                "sharpe": 1.026048,
+                "maxDrawdownPct": -19.124364,
+                "turnover": 19.208297,
+                "gasTurnover": 10.774767,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 119.537498,
+                "cagrPct": 15.358002,
+                "annualVolPct": 17.787195,
+                "sharpe": 0.892232,
+                "maxDrawdownPct": -29.713127,
+                "turnover": 61.454089,
+                "gasTurnover": 34.015025,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 24.326015,
+                  "cagrPct": 7.558875,
+                  "annualVolPct": 18.806286,
+                  "sharpe": 0.481543,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 29.993889,
+                  "gasTurnover": 15.532197,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 37.182654,
+                  "cagrPct": 37.182654,
+                  "annualVolPct": 14.382127,
+                  "sharpe": 2.271121,
+                  "maxDrawdownPct": -9.021154,
+                  "turnover": 12.251902,
+                  "gasTurnover": 7.708061,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 29.559151,
+                  "cagrPct": 18.629749,
+                  "annualVolPct": 17.771517,
+                  "sharpe": 1.049703,
+                  "maxDrawdownPct": -19.124364,
+                  "turnover": 20.773542,
+                  "gasTurnover": 11.551864,
+                  "incrementalDailySumPct": 0.652575
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 120.967962,
+                  "cagrPct": 15.494204,
+                  "annualVolPct": 17.789967,
+                  "sharpe": 0.898757,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 63.019334,
+                  "gasTurnover": 34.792122,
+                  "incrementalDailySumPct": 0.652575
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.838718,
+                "full": 1.430464
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 120.967962,
+                    "ablatedFullReturnPct": 119.537498,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.430464,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.430464,
+                    "completeEpisodeArithmeticContributionPct": 0.652575,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 119.537498,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 119.537498,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 24.326015,
+                  "cagrPct": 7.558875,
+                  "annualVolPct": 18.806286,
+                  "sharpe": 0.481543,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 29.993889,
+                  "gasTurnover": 15.532197,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 37.182654,
+                  "cagrPct": 37.182654,
+                  "annualVolPct": 14.382127,
+                  "sharpe": 2.271121,
+                  "maxDrawdownPct": -9.021154,
+                  "turnover": 12.251902,
+                  "gasTurnover": 7.708061,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 28.773192,
+                  "cagrPct": 18.15451,
+                  "annualVolPct": 17.76216,
+                  "sharpe": 1.027547,
+                  "maxDrawdownPct": -19.124364,
+                  "turnover": 19.306148,
+                  "gasTurnover": 10.823291,
+                  "incrementalDailySumPct": 0.041141
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 119.62748,
+                  "cagrPct": 15.366591,
+                  "annualVolPct": 17.787335,
+                  "sharpe": 0.892645,
+                  "maxDrawdownPct": -29.713127,
+                  "turnover": 61.55194,
+                  "gasTurnover": 34.063549,
+                  "incrementalDailySumPct": 0.041141
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.052759,
+                "full": 0.089982
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 119.62748,
+                    "ablatedFullReturnPct": 119.537498,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.089982,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.089982,
+                    "completeEpisodeArithmeticContributionPct": 0.041141,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 119.537498,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 119.537498,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ]
+        },
+        "elevated": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 23.794372,
+                "cagrPct": 7.40473,
+                "annualVolPct": 18.808228,
+                "sharpe": 0.473887,
+                "maxDrawdownPct": -29.835718,
+                "turnover": 29.997876,
+                "gasTurnover": 15.532405,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 36.927742,
+                "cagrPct": 36.927742,
+                "annualVolPct": 14.38021,
+                "sharpe": 2.258456,
+                "maxDrawdownPct": -9.02131,
+                "turnover": 12.246596,
+                "gasTurnover": 7.708317,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 28.364385,
+                "cagrPct": 17.906931,
+                "annualVolPct": 17.759245,
+                "sharpe": 1.015868,
+                "maxDrawdownPct": -19.124518,
+                "turnover": 19.209391,
+                "gasTurnover": 10.774934,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 117.588978,
+                "cagrPct": 15.171299,
+                "annualVolPct": 17.78733,
+                "sharpe": 0.883116,
+                "maxDrawdownPct": -29.835718,
+                "turnover": 61.453864,
+                "gasTurnover": 34.015656,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 23.794372,
+                  "cagrPct": 7.40473,
+                  "annualVolPct": 18.808228,
+                  "sharpe": 0.473887,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 29.997876,
+                  "gasTurnover": 15.532405,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.927742,
+                  "cagrPct": 36.927742,
+                  "annualVolPct": 14.38021,
+                  "sharpe": 2.258456,
+                  "maxDrawdownPct": -9.02131,
+                  "turnover": 12.246596,
+                  "gasTurnover": 7.708317,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 29.172682,
+                  "cagrPct": 18.396189,
+                  "annualVolPct": 17.768654,
+                  "sharpe": 1.038745,
+                  "maxDrawdownPct": -19.124518,
+                  "turnover": 20.774721,
+                  "gasTurnover": 11.552073,
+                  "incrementalDailySumPct": 0.630683
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 118.959112,
+                  "cagrPct": 15.302724,
+                  "annualVolPct": 17.789976,
+                  "sharpe": 0.889425,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 63.019194,
+                  "gasTurnover": 34.792795,
+                  "incrementalDailySumPct": 0.630683
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.808297,
+                "full": 1.370134
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 118.959112,
+                    "ablatedFullReturnPct": 117.588978,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.370134,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.370134,
+                    "completeEpisodeArithmeticContributionPct": 0.630683,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 117.588978,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 117.588978,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 23.794372,
+                  "cagrPct": 7.40473,
+                  "annualVolPct": 18.808228,
+                  "sharpe": 0.473887,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 29.997876,
+                  "gasTurnover": 15.532405,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.927742,
+                  "cagrPct": 36.927742,
+                  "annualVolPct": 14.38021,
+                  "sharpe": 2.258456,
+                  "maxDrawdownPct": -9.02131,
+                  "turnover": 12.246596,
+                  "gasTurnover": 7.708317,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 28.415202,
+                  "cagrPct": 17.937721,
+                  "annualVolPct": 17.759715,
+                  "sharpe": 1.017317,
+                  "maxDrawdownPct": -19.124518,
+                  "turnover": 19.307243,
+                  "gasTurnover": 10.823458,
+                  "incrementalDailySumPct": 0.039734
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 117.675117,
+                  "cagrPct": 15.179582,
+                  "annualVolPct": 17.787462,
+                  "sharpe": 0.883515,
+                  "maxDrawdownPct": -29.835718,
+                  "turnover": 61.551716,
+                  "gasTurnover": 34.064181,
+                  "incrementalDailySumPct": 0.039734
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.050817,
+                "full": 0.086139
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 117.675117,
+                    "ablatedFullReturnPct": 117.588978,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.086139,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.086139,
+                    "completeEpisodeArithmeticContributionPct": 0.039734,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 117.588978,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 117.588978,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ]
+        },
+        "stress": {
+          "comparator": {
+            "candidateId": "current-hard-2.0",
+            "periods": {
+              "train2021To2023": {
+                "sessions": 753,
+                "totalReturnPct": 22.223789,
+                "cagrPct": 6.946767,
+                "annualVolPct": 18.810914,
+                "sharpe": 0.451129,
+                "maxDrawdownPct": -30.178622,
+                "turnover": 30.019688,
+                "gasTurnover": 15.533174,
+                "incrementalDailySumPct": 0
+              },
+              "validation2024": {
+                "sessions": 252,
+                "totalReturnPct": 36.113239,
+                "cagrPct": 36.113239,
+                "annualVolPct": 14.377588,
+                "sharpe": 2.217296,
+                "maxDrawdownPct": -9.022301,
+                "turnover": 12.261221,
+                "gasTurnover": 7.709065,
+                "incrementalDailySumPct": 0
+              },
+              "holdoutReportingOnly2025Onward": {
+                "sessions": 382,
+                "totalReturnPct": 27.252455,
+                "cagrPct": 17.232167,
+                "annualVolPct": 17.748951,
+                "sharpe": 0.983999,
+                "maxDrawdownPct": -19.12498,
+                "turnover": 19.213431,
+                "gasTurnover": 10.775536,
+                "incrementalDailySumPct": 0
+              },
+              "full": {
+                "sessions": 1387,
+                "totalReturnPct": 111.700692,
+                "cagrPct": 14.598659,
+                "annualVolPct": 17.785525,
+                "sharpe": 0.85515,
+                "maxDrawdownPct": -30.178622,
+                "turnover": 61.49434,
+                "gasTurnover": 34.017775,
+                "incrementalDailySumPct": 0
+              }
+            }
+          },
+          "challengers": [
+            {
+              "candidateId": "hard-1.5",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.4,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 22.223789,
+                  "cagrPct": 6.946767,
+                  "annualVolPct": 18.810914,
+                  "sharpe": 0.451129,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 30.019688,
+                  "gasTurnover": 15.533174,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.113239,
+                  "cagrPct": 36.113239,
+                  "annualVolPct": 14.377588,
+                  "sharpe": 2.217296,
+                  "maxDrawdownPct": -9.022301,
+                  "turnover": 12.261221,
+                  "gasTurnover": 7.709065,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 27.960524,
+                  "cagrPct": 17.662082,
+                  "annualVolPct": 17.756956,
+                  "sharpe": 1.004263,
+                  "maxDrawdownPct": -19.12498,
+                  "turnover": 20.779107,
+                  "gasTurnover": 11.552796,
+                  "incrementalDailySumPct": 0.557413
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 112.878655,
+                  "cagrPct": 14.71425,
+                  "annualVolPct": 17.787776,
+                  "sharpe": 0.860735,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 63.060015,
+                  "gasTurnover": 34.795035,
+                  "incrementalDailySumPct": 0.557413
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.708069,
+                "full": 1.177963
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.4,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 112.878655,
+                    "ablatedFullReturnPct": 111.700692,
+                    "candidateVsComparatorFullReturnDeltaPct": 1.177963,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 1.177963,
+                    "completeEpisodeArithmeticContributionPct": 0.557413,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 111.700692,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 111.700692,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            },
+            {
+              "candidateId": "linear-ramp-1.5-to-2.0",
+              "changedTargetCount": 1,
+              "changedTargets": [
+                {
+                  "calendarIndex": 1095,
+                  "entryTradeDate": "2025-05-14",
+                  "issueDate": "2025-05-08",
+                  "targetDate": "2025-05-15",
+                  "windowId": "weather-reversion",
+                  "thesisKind": "reversion-short",
+                  "comparatorTarget": 0,
+                  "candidateTarget": -0.0249,
+                  "realizedMovePct": 1.5312
+                }
+              ],
+              "periods": {
+                "train2021To2023": {
+                  "sessions": 753,
+                  "totalReturnPct": 22.223789,
+                  "cagrPct": 6.946767,
+                  "annualVolPct": 18.810914,
+                  "sharpe": 0.451129,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 30.019688,
+                  "gasTurnover": 15.533174,
+                  "incrementalDailySumPct": 0
+                },
+                "validation2024": {
+                  "sessions": 252,
+                  "totalReturnPct": 36.113239,
+                  "cagrPct": 36.113239,
+                  "annualVolPct": 14.377588,
+                  "sharpe": 2.217296,
+                  "maxDrawdownPct": -9.022301,
+                  "turnover": 12.261221,
+                  "gasTurnover": 7.709065,
+                  "incrementalDailySumPct": 0
+                },
+                "holdoutReportingOnly2025Onward": {
+                  "sessions": 382,
+                  "totalReturnPct": 27.296852,
+                  "cagrPct": 17.259147,
+                  "annualVolPct": 17.749327,
+                  "sharpe": 0.985279,
+                  "maxDrawdownPct": -19.12498,
+                  "turnover": 19.311291,
+                  "gasTurnover": 10.824061,
+                  "incrementalDailySumPct": 0.035008
+                },
+                "full": {
+                  "sessions": 1387,
+                  "totalReturnPct": 111.774553,
+                  "cagrPct": 14.605922,
+                  "annualVolPct": 17.785632,
+                  "sharpe": 0.855502,
+                  "maxDrawdownPct": -30.178622,
+                  "turnover": 61.5922,
+                  "gasTurnover": 34.0663,
+                  "incrementalDailySumPct": 0.035008
+                }
+              },
+              "totalReturnDeltaPctPoints": {
+                "train2021To2023": 0,
+                "validation2024": 0,
+                "holdoutReportingOnly2025Onward": 0.044397,
+                "full": 0.073861
+              },
+              "completeEpisodeAblations": {
+                "episodeEmbargoSessions": 10,
+                "episodeCount": 1,
+                "episodes": [
+                  {
+                    "episodeId": "changed-target-2025-05-14",
+                    "startDate": "2025-05-14",
+                    "endDate": "2025-05-14",
+                    "changedTargetDates": [
+                      "2025-05-14"
+                    ],
+                    "changes": [
+                      {
+                        "calendarIndex": 1095,
+                        "entryTradeDate": "2025-05-14",
+                        "issueDate": "2025-05-08",
+                        "targetDate": "2025-05-15",
+                        "windowId": "weather-reversion",
+                        "thesisKind": "reversion-short",
+                        "comparatorTarget": 0,
+                        "candidateTarget": -0.0249,
+                        "realizedMovePct": 1.5312
+                      }
+                    ],
+                    "candidateFullReturnPct": 111.774553,
+                    "ablatedFullReturnPct": 111.700692,
+                    "candidateVsComparatorFullReturnDeltaPct": 0.073861,
+                    "ablatedVsComparatorFullReturnDeltaPct": 0,
+                    "completeEpisodeCompoundContributionPctPoints": 0.073861,
+                    "completeEpisodeArithmeticContributionPct": 0.035008,
+                    "affectedSessionDates": [
+                      "2025-05-14",
+                      "2025-05-15",
+                      "2025-05-16",
+                      "2025-05-19",
+                      "2025-05-20",
+                      "2025-05-21",
+                      "2025-05-22",
+                      "2025-05-23",
+                      "2025-05-27",
+                      "2025-05-28",
+                      "2025-05-29",
+                      "2025-05-30",
+                      "2025-06-02",
+                      "2025-06-03"
+                    ]
+                  }
+                ],
+                "removeBestOne": {
+                  "requestedCount": 1,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 111.700692,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeBestTwo": {
+                  "requestedCount": 2,
+                  "removedEpisodeIds": [
+                    "changed-target-2025-05-14"
+                  ],
+                  "removedCount": 1,
+                  "remainingFullReturnPct": 111.700692,
+                  "remainingFullReturnDeltaVsComparatorPctPoints": 0,
+                  "remainingArithmeticDailyDeltaVsComparatorPct": 0
+                },
+                "removeAllChangedEpisodes": {
+                  "removedEpisodeCount": 1,
+                  "maximumAbsoluteDailyDifferenceVsComparatorPct": 0,
+                  "fullReturnDeltaVsComparatorPctPoints": 0,
+                  "pass": true
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

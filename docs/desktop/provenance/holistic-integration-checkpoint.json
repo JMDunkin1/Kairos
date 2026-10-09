@@ -1,0 +1,32 @@
+{
+  "createdUtc": "2026-10-08T23:51:23.529143+00:00",
+  "baseCommit": "149b47b71f29d5fcaa5056a9c658a7772b63dd7a",
+  "handOffSha256": "b8b687d049adfd71c7094285179c541286e80c5bca4c3756df5c60cef7e0fc5f",
+  "patchAndAssets": "37 proposed hashes verified and integrated",
+  "extraOwnerChange": "Added exact supplemental personal-risk research paragraph from canonical QORE AGENTS; original mandate sentence preserved.",
+  "guiToolsAvailable": false,
+  "priorDeniedRoutesRetried": false,
+  "fallback": "39 existing delivered app hashes verified unchanged",
+  "ordersEnabled": false,
+  "updatedUtc": "2026-10-08T23:59:54.321287+00:00",
+  "branch": "codex/strategy-hub-paper-integration",
+  "ownerChanges": [
+    "Exact supplemental personal-risk AGENTS paragraph; original mandate sentence preserved.",
+    "Fresh review fix: clicking the already selected Paper candidate preserves its loaded replay."
+  ],
+  "ownerTests": "All9commands passed; lint/build repeated after review fix and passed.",
+  "canonicalReader": {
+    "historyCount": 769,
+    "latestRecords": 443,
+    "nullRevisions": 32,
+    "hash": "b59b3265c17139dd55bb57894d90941b3cdef49f3a47d00383e6a297bbecc990",
+    "pendingAppend": false,
+    "writes": 0
+  },
+  "nativeBuild": "passed",
+  "independentReview": "passed; no unresolved material findings",
+  "sourceCommit": "7007d49da74a32afee5efc411953e78766d5c79c",
+  "sourceClean": true,
+  "app": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-12/holistic-integration-20261008/QORE Strategy Hub.app",
+  "status": "INTEGRATED_REVIEWED_BUILT_SIGNED_GUI_PENDING"
+}

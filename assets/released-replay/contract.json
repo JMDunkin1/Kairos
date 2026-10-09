@@ -1,0 +1,187 @@
+{
+  "classification": "RETROSPECTIVE_NAV_PROXY_BACKTEST",
+  "costs": {
+    "asset_bps": {
+      "QLD": 15.0,
+      "QQQ": 5.0,
+      "SHY": 5.0,
+      "SPY": 5.0,
+      "TQQQ": 15.0,
+      "UPRO": 15.0
+    },
+    "expenses": "Already embedded in issuer NAV; no duplicate fund expense deduction",
+    "initial_entry_and_terminal_exit": true,
+    "known_baseline_cost_cases": {
+      "already_released_cases": 3,
+      "cost_multipliers": [
+        1,
+        2,
+        4
+      ],
+      "extra_NAV_lags": [
+        0
+      ],
+      "extra_delay_cases_1_2": "Not calculated in this handoff"
+    },
+    "known_candidate_stresses": {
+      "already_released_cases": 9,
+      "cost_multipliers": [
+        1,
+        2,
+        4
+      ],
+      "extra_NAV_lags": [
+        0,
+        1,
+        2
+      ]
+    },
+    "leveraged_oneway_bps": 15,
+    "measured_spread_slippage_or_commission": false,
+    "ordinary_oneway_bps": 5,
+    "per_gross_traded_dollar": true,
+    "verified_taxes_or_platform_fees": false
+  },
+  "exact_selected_catalog": {
+    "absolute_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/leveraged/shortlist.json",
+    "sha256": "32dd83785b311b7fdbe4a49670411d9e3a4de5cf0acda0b27247e6b79251955d",
+    "workspace_path": "research/leveraged/shortlist.json"
+  },
+  "execution": {
+    "additional_lag_sessions": 0,
+    "base_signal_lag_sessions": 1,
+    "chronology": "Prior holdings earn NAV movement before a scheduled trade; new holdings first earn the following session movement",
+    "execution": "Next observed audited NAV session, not an exchange fill",
+    "first_entry_return_into_execution_bar": false,
+    "first_execution_date": "2024-01-02",
+    "first_signal_date": "2023-12-29",
+    "no_double_shift": true,
+    "observed_targets": "Same-day raw causal target is informational until a completed monthly signal executes at the next session",
+    "schedule": "monthly",
+    "signal": "Completed monthly observed NAV signal",
+    "start": "Start flat with $100000; latest completed valid prior-window signal initializes the first window NAV allocation",
+    "terminal": "Ignore terminal scheduled allocation and liquidate existing holdings exactly once on 2026-10-01",
+    "terminal_weights_metric_convention": "Metric mark weights are immediately before endpoint liquidation; exported posttrade inventory is zero and equity is cash"
+  },
+  "exposure_baseline_id": "TQQQ_50_QQQ_static",
+  "full_catalog": {
+    "absolute_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/leveraged/catalog.json",
+    "sha256": "5df09c607623261b51dd5ba31d384bd7cd2f799dd02c4f0ae634f615726a32b6",
+    "workspace_path": "research/leveraged/catalog.json"
+  },
+  "funding": {
+    "actual_market_fill_validation": false,
+    "actual_paper_account_created": false,
+    "capital_dollars": 100000.0,
+    "external_margin": false,
+    "fees_funded_from_available_wealth": true,
+    "fractional_rebased_NAV_units": true,
+    "funded_weights_max_sum": 1,
+    "idle_cash_yield": 0,
+    "long_only": true,
+    "whole_share_2000_feasibility": "UNVERIFIED"
+  },
+  "independent_handoff_audit": "PENDING_PARENT_REVIEW",
+  "input_contract": {
+    "broker_credentials": null,
+    "candidate_lookback_observed_sessions": 252,
+    "common_history_first": "2016-09-01",
+    "common_history_rows": 2534,
+    "configured_brokers": null,
+    "full_signal_history_required": true,
+    "future_feed": null,
+    "market_quote_feed": null,
+    "no_additional_splits": true,
+    "raw_input_history_in_export": false,
+    "source": "Audited issuer actual-fund total-NAV indices including captured cash"
+  },
+  "local_export_files": {
+    "code/definitions.py": "2fcc39d544340ef31cc3a1d2b0e27787f94a92ed399796d44e8893edb365d5f5",
+    "code/engine.py": "c2fde06bdcf026fb48f70d38cca67cc7f1faa40902f3da95521be967c55c51f0",
+    "code/lev_engine.py": "1dd88b853fc19862147079bc36400bf6692e0e1ea145ea47ac83a77704175404",
+    "code/lev_families_core.py": "22777c51450294dbd0c580a6976e1323991f654935181f953285685dd6f77e36",
+    "daily_nav_replay.csv": "3b2761045f4daab003bc33da762a810624e7571d6ba37ba99fb6bb37d3d9c18a",
+    "execution_events.csv": "df588b7a15a25561402f9b57bf1e0f0a37cec915f740a830ec4ec8adb919520f",
+    "known_candidate_cost_delay_stresses.csv": "cbf7c6eb802fad041ea2b4e7a4bcca526d245ae3902047f7c422b6d1378f77e1",
+    "metric_comparison_checks.csv": "8ace0906fdd4c1da5e2b966168dc5429fb6e3f9d3c8be376d4569e73f45c8067",
+    "metrics_reproduction.csv": "0ff394ea017d26b22c4b165d09e945061e502be82dc245f6a5436356c8027a18",
+    "provenance.json": "ef611153857348493636be905faf6b12802a537fd3d45cec0899a819ff86b852",
+    "released_comparison_metrics.csv": "55dc5a2b1af8248d8e7ff8f0782bd61d2ab0c45968ff3fe9154d8f7a496b529a",
+    "reproduction_checks.json": "5d08ccb7d26ea511cab15175f1d330e5db6dc5769d40c294dcb9c903f8dc4bee",
+    "rules.json": "19b4f6358228549cb85819e43d4503de593bf8a065973c21df095663b7238597",
+    "targets_and_execution.csv": "9c036071ecc67ac55b8de60b1f627dc24a68c35de34777cacecf77ad6135f596"
+  },
+  "manifest_excludes_own_recursive_hash": true,
+  "no_timing_edge_claim_for_baseline": true,
+  "original_final_audit": {
+    "absolute_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/leveraged/audit/lev_final_result_audit.json",
+    "sha256": "e42f8b98d2df7857beafb3122d8482ccbd906484f2feb424b2cf6922e82c042f",
+    "workspace_path": "research/leveraged/audit/lev_final_result_audit.json"
+  },
+  "original_release": {
+    "absolute_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/leveraged/RELEASE.json",
+    "sha256": "1ff8b18c03a6407fec40740a2833760d93bb3cc774fdf3f2ea9184c9dd49862d",
+    "workspace_path": "research/leveraged/RELEASE.json"
+  },
+  "original_source_audit": {
+    "absolute_path": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-4/research/leveraged/audit/lev_source_audit.json",
+    "sha256": "5ae0812fd6a5e90dee09f4864ad3746c3a2e15ec688f99e4e564533ad6d329bc",
+    "workspace_path": "research/leveraged/audit/lev_source_audit.json"
+  },
+  "per_file_manifest": "MANIFEST.json",
+  "permissions": {
+    "brokers": null,
+    "future_feed": null,
+    "live_enabled": false,
+    "live_runtime_or_config_changes": false,
+    "orders_authorized": false,
+    "paper_execution_enabled": false,
+    "uploads_or_public_pushes_performed": false
+  },
+  "preferred_candidate_id": "lev_core_relative_leverage_sleeves_v3",
+  "provenance_file": "provenance.json",
+  "released_window": {
+    "first": "2024-01-02",
+    "last": "2026-10-01",
+    "name": "combined_2024_2026",
+    "overlapping_other_released_windows": true,
+    "prospective": false,
+    "sessions": 690
+  },
+  "reproduction_checks": "reproduction_checks.json",
+  "risk": {
+    "actual_fund_paths_not_synthetic_multiple_returns": true,
+    "bounded_parent_performance_check": "1m\u201310yr within0.48bp consistency, not cash-completeness certification; lifetime UPRO/QLD residual8.38/75.22bp covers an earlier source window",
+    "contract_exposure_proxy_not_realized_beta": true,
+    "daily_reset_contracts": {
+      "QLD": "2x daily Nasdaq-100",
+      "TQQQ": "3x daily Nasdaq-100",
+      "UPRO": "3x daily S&P500"
+    },
+    "fixed_known_today_survivor_availability_bias": true,
+    "multi_day_path_dependency": true,
+    "no_proven_alpha": true,
+    "paid_cash_sensitivity_reinvestment_policy_confounded": true,
+    "parent_DOM_snapshot_not_original_HTTP_bytes": true,
+    "partial_2026_CAGR_annualized_not_forecast": true,
+    "source_cash_completeness_unverified_gaps": [
+      "TQQQ2016/17",
+      "UPRO2017",
+      "QLD2021"
+    ],
+    "sources_and_regimes_previously_exposed": true,
+    "split_date_source_conflict": "2025 issuer split announcement Nov20 vs source split CSV Nov21; no additional split applied",
+    "underlying_SPY_QQQ_SHY_source_uncertainties_retained": true,
+    "unknown_cash_omission_stress_not_a_completeness_bound": true
+  },
+  "schema": "qore-hub.released-nav-research-replay.v1",
+  "source_universe": [
+    "SPY",
+    "QQQ",
+    "SHY",
+    "TQQQ",
+    "UPRO",
+    "QLD"
+  ],
+  "status": "REVIEWABLE_RELEASED_REPRODUCTION_PENDING_INDEPENDENT_HANDOFF_AUDIT"
+}

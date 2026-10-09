@@ -1,0 +1,145 @@
+{
+  "approval_gate": "Separate parent approval marker must bind exact contract, manifest and audit hashes before app read. Historical replay only; no feeds, actual paper execution, brokers, live trading or orders.",
+  "audited_utc": "2026-10-02T21:46:35.176596+00:00",
+  "checks": {
+    "all_daily_equity_returns_drawdown_metric_arithmetic": "PASS",
+    "hash_closure_release_chronology": "PASS",
+    "historical_only_input_null_order_feed_scope": "PASS",
+    "independent_bisection_funding_fees_cash_terminal": "PASS",
+    "monthly_next_session_signal_targets": "PASS",
+    "saved_original_metrics_equity": "PASS",
+    "synthetic_rule_cases_prefix_future_perturbations": "PASS"
+  },
+  "frozen_bindings_verified": 133,
+  "independent_ledger_artifacts_verified": 2,
+  "independent_profiles": {
+    "TQQQ_50_QQQ_static": {
+      "cagr": 0.41622489781447625,
+      "fees_dollars": 583.0636895893042,
+      "max_drawdown": -0.423195174383203,
+      "net_return": 1.6002722075920217,
+      "sharpe": 1.0520187873696925
+    },
+    "lev_core_relative_leverage_sleeves_v3": {
+      "cagr": 0.39409642294596603,
+      "fees_dollars": 1713.9671838376992,
+      "max_drawdown": -0.37022310986799556,
+      "net_return": 1.4902178844298128,
+      "sharpe": 1.0872229448816477
+    }
+  },
+  "limitations": [
+    "NAV proxy has no exchange execution claim.",
+    "Historical selection remains retrospective; reproducibility is not alpha.",
+    "Candidate raw return is below static 50% TQQQ/50% QQQ; historical drawdown is smaller.",
+    "Cash-completeness/source and paid-cash reinvestment confounding remain.",
+    "Dollar funding checks use exported marks, not newly loaded NAV inputs."
+  ],
+  "manifest_files_verified": 16,
+  "maximum_absolute_discrepancies": {
+    "cash_dollars": 4.359801408782005e-11,
+    "drawdown": 0,
+    "equity_dollars": 0,
+    "event_equity": 0,
+    "event_fee": 5.684341886080802e-14,
+    "fee_dollars": 5.684341886080802e-14,
+    "funded_holdings": 2.9103830456733704e-11,
+    "gross_traded": 0,
+    "mark_weights": 1.1102230246251565e-16,
+    "market_pnl": 0,
+    "metric_annual_turnover": 1.7763568394002505e-15,
+    "metric_cagr": 0,
+    "metric_fees_dollars": 2.2737367544323206e-13,
+    "metric_max_contract_equity_exposure_proxy": 0,
+    "metric_max_drawdown": 0,
+    "metric_max_levered_exposure": 0,
+    "metric_max_top_weight": 0,
+    "metric_mean_contract_equity_exposure_proxy": 0,
+    "metric_mean_funded_exposure": 0,
+    "metric_mean_hhi": 0,
+    "metric_mean_levered_exposure": 0,
+    "metric_mean_stock_exposure": 0,
+    "metric_mean_top_weight": 0,
+    "metric_net_return": 0,
+    "metric_sessions": 0,
+    "metric_sharpe": 0,
+    "metric_trade_day_fraction": 0,
+    "metric_volatility": 0,
+    "metric_years": 0,
+    "original_annual_turnover": 1.7763568394002505e-15,
+    "original_cagr": 0,
+    "original_fees_dollars": 2.2737367544323206e-13,
+    "original_max_contract_equity_exposure_proxy": 0,
+    "original_max_drawdown": 0,
+    "original_max_levered_exposure": 0,
+    "original_max_top_weight": 0,
+    "original_mean_contract_equity_exposure_proxy": 0,
+    "original_mean_funded_exposure": 0,
+    "original_mean_hhi": 0,
+    "original_mean_levered_exposure": 0,
+    "original_mean_stock_exposure": 0,
+    "original_mean_top_weight": 0,
+    "original_net_return": 0,
+    "original_sessions": 0,
+    "original_sharpe": 0,
+    "original_trade_day_fraction": 0,
+    "original_volatility": 0,
+    "original_years": 0,
+    "pretrade_wealth": 0,
+    "prior_equity": 0,
+    "returns": 0,
+    "trade_dollars": 0,
+    "turnover": 0
+  },
+  "old_audit_artifacts_verified": 23,
+  "production_defects_found": [],
+  "rows": {
+    "daily": 1380,
+    "events": 68,
+    "metric_fields_per_definition": 21,
+    "sessions_per_definition": 690,
+    "targets": 1380
+  },
+  "scope": "Two previously released definitions; zero new strategy trials, source-price reads or model simulations. Invented synthetic prices only for rule checks.",
+  "status": "PASS_RELEASED_HISTORICAL_REPLAY_ONLY",
+  "subject": {
+    "builder_sha256": "8603fa6c785b9165f70abd0e4dbf61d47f3d52e5f128db0a21123364da5dd6f2",
+    "contract_sha256": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f",
+    "manifest_sha256": "dc3b1838f4ea281ef41b6a232fd88fedb7cd57cccd27338ae0a5cb046ec2f845"
+  },
+  "synthetic_rejection_cases": 5,
+  "synthetic_rule_cases": {
+    "both_negative": [
+      0.5,
+      0.5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "broad_wins": [
+      0,
+      0.5,
+      0,
+      0,
+      0.5,
+      0
+    ],
+    "positive_tie": [
+      0.5,
+      0.5,
+      0,
+      0,
+      0,
+      0
+    ],
+    "tech_wins": [
+      0.5,
+      0,
+      0,
+      0.5,
+      0,
+      0
+    ]
+  }
+}

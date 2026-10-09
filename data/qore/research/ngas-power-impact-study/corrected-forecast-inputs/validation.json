@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "validationId": "fresh-corrected-summer-weather-20260722",
+  "generatedAt": "2026-07-23T04:10:55.247Z",
+  "root": ".local/qore/research/corrected-summer-v2-20260722",
+  "complete": true,
+  "sources": [
+    {
+      "sourceId": "gfs",
+      "complete": true,
+      "scoreRowCount": 840,
+      "locationRowCount": 15120,
+      "returnRowCount": 1680,
+      "firstIssueDate": "2021-05-01",
+      "lastIssueDate": "2026-07-14",
+      "firstTargetDate": "2021-05-08",
+      "lastTargetDate": "2026-07-21",
+      "countsByIssueYear": {
+        "2021": 146,
+        "2022": 153,
+        "2023": 153,
+        "2024": 153,
+        "2025": 153,
+        "2026": 82
+      },
+      "manifestSummary": {
+        "generatedAt": "2026-07-23T04:08:08.896Z",
+        "range": {
+          "startDate": "2021-05-01",
+          "issueEndDate": "2026-07-14",
+          "targetEndDate": "2026-07-21"
+        },
+        "expectedScoreRows": 840,
+        "finalCompleteRows": 840,
+        "missingCompleteRows": 0,
+        "failureCount": 0,
+        "allowPartial": false
+      },
+      "temporal": {
+        "schemaVersion": 2,
+        "contractId": "summer-target-local-day-four-sample-mean-v1",
+        "complete": true,
+        "promotionEligible": true,
+        "sourceId": "gfs",
+        "scoreRowCount": 840,
+        "locationRowCount": 15120,
+        "failures": []
+      },
+      "physicalTemperatureQuality": {
+        "policy": "source-issue-target-lead-atomic",
+        "mode": "reject",
+        "boundsF": {
+          "minimum": -150,
+          "maximum": 160
+        },
+        "anomalyToleranceF": 0.01,
+        "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+        "inputLocationRowCount": 15120,
+        "acceptedLocationRowCount": 15120,
+        "quarantinedLocationRowCount": 0,
+        "inputScoreRowCount": 840,
+        "acceptedScoreRowCount": 840,
+        "quarantinedScoreRowCount": 0,
+        "quarantinedGroupCount": 0,
+        "quarantinedGroups": []
+      },
+      "invariantFailures": [],
+      "files": {
+        "scores": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/research/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv",
+          "byteLength": 2248438,
+          "digestSha256": "8faaf8c9ab429961a146f5925bf1ab59b3853acd69215897ccf9b49fdb87c3e3"
+        },
+        "locations": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv",
+          "byteLength": 9421574,
+          "digestSha256": "41d645628d336a1c827f1950303a2ca1c03206b3c7cb333fab04f06a81cccc63"
+        },
+        "returns": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/research/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-returns.csv",
+          "byteLength": 286033,
+          "digestSha256": "cfd2b59832f2e32d07efd7b5dd0d7e4ee1fdb5d4c572f6a69a5a1523c6a1e51d"
+        },
+        "manifest": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gfs/gfs-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json",
+          "byteLength": 6604,
+          "digestSha256": "7f1acbfea09131fea28740e59690e26288d7c99906a5627ba10f7792b5dbaf5c"
+        }
+      }
+    },
+    {
+      "sourceId": "gefs-mean",
+      "complete": true,
+      "scoreRowCount": 840,
+      "locationRowCount": 15120,
+      "returnRowCount": 1680,
+      "firstIssueDate": "2021-05-01",
+      "lastIssueDate": "2026-07-14",
+      "firstTargetDate": "2021-05-08",
+      "lastTargetDate": "2026-07-21",
+      "countsByIssueYear": {
+        "2021": 146,
+        "2022": 153,
+        "2023": 153,
+        "2024": 153,
+        "2025": 153,
+        "2026": 82
+      },
+      "manifestSummary": {
+        "generatedAt": "2026-07-23T04:00:31.700Z",
+        "range": {
+          "startDate": "2021-05-01",
+          "issueEndDate": "2026-07-14",
+          "targetEndDate": "2026-07-21"
+        },
+        "expectedScoreRows": 840,
+        "finalCompleteRows": 840,
+        "missingCompleteRows": 0,
+        "failureCount": 0,
+        "allowPartial": false
+      },
+      "temporal": {
+        "schemaVersion": 2,
+        "contractId": "summer-target-local-day-four-sample-mean-v1",
+        "complete": true,
+        "promotionEligible": true,
+        "sourceId": "gefs-mean",
+        "scoreRowCount": 840,
+        "locationRowCount": 15120,
+        "failures": []
+      },
+      "physicalTemperatureQuality": {
+        "policy": "source-issue-target-lead-atomic",
+        "mode": "reject",
+        "boundsF": {
+          "minimum": -150,
+          "maximum": 160
+        },
+        "anomalyToleranceF": 0.01,
+        "scoreLocationAggregateContractId": "qore-executable-score-location-aggregate-v1",
+        "inputLocationRowCount": 15120,
+        "acceptedLocationRowCount": 15120,
+        "quarantinedLocationRowCount": 0,
+        "inputScoreRowCount": 840,
+        "acceptedScoreRowCount": 840,
+        "quarantinedScoreRowCount": 0,
+        "quarantinedGroupCount": 0,
+        "quarantinedGroups": []
+      },
+      "invariantFailures": [],
+      "files": {
+        "scores": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-scores.csv",
+          "byteLength": 2348788,
+          "digestSha256": "0a93009220da7653186a109b6fb9e6490a030a080baccb031f15ebb5e5b8f3ef"
+        },
+        "locations": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-location-anomalies.csv",
+          "byteLength": 9622028,
+          "digestSha256": "f1667bd6a698cb9a3fcaf7431de2c42530b7b4ba3c82645082bf3d0307d82853"
+        },
+        "returns": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/research/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-signal-returns.csv",
+          "byteLength": 284359,
+          "digestSha256": "b3bd1957f3240d0d564502a150024f63ea2986887882b88bc49c5c939faa716d"
+        },
+        "manifest": {
+          "path": ".local/qore/research/corrected-summer-v2-20260722/weather/noaa-gefs/gefs-mean-00z-daily-forecast-calendar-2021-05-01-2026-07-21-leads-7-hours-6-12-18-24-manifest.json",
+          "byteLength": 6650,
+          "digestSha256": "7e760ebb28de7c1d6a01a11b2a1e72a4bcf769cf281738e5b8af1004d161f664"
+        }
+      }
+    }
+  ]
+}

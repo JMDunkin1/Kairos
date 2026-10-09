@@ -1,0 +1,36 @@
+{
+  "completedAtUTC": "2026-10-02T23:36:31.588421+00:00",
+  "commit": "bd8342a01c54ea6a84b5cd968ae4d26f181b56d2",
+  "branch": "codex/strategy-hub-desktop",
+  "workingTree": "clean",
+  "sourceFiles": 24,
+  "independentReview": "No remaining actionable findings; two findings fixed and independently re-reviewed.",
+  "checksPassed": [
+    "lint",
+    "build",
+    "test:hub (including insolvency and atomic publication regressions)",
+    "test:ui-accounting",
+    "test:ui-requests",
+    "headless native QA regressions",
+    "QA and production native compilation",
+    "strict signature verification",
+    "final bounded native QA with visually verified measured deposit chart"
+  ],
+  "nativeQA": {
+    "appPid": 34883,
+    "servicePid": 34888,
+    "status": "passed",
+    "exit": {
+      "code": 0,
+      "signal": null
+    },
+    "appStopped": true,
+    "serviceStopped": true,
+    "timedOut": false,
+    "errors": [],
+    "checkCount": 24
+  },
+  "runnableApp": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-hub/.local/desktop/QORE Strategy Hub.app",
+  "evidence": "/Users/jamesdunkin/Documents/Codex/2026-10-02/task-7/qore-hub/.local/native-qa/qa-launch-and-stop.json",
+  "limitations": "Synthetic paper simulation only; broker and actual account reporting unconfigured; email inactive; approved research replay integration pending."
+}

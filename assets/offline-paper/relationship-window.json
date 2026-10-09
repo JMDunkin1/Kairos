@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "study_id": "QORE-20261008-RELATIONSHIP-FINANCIAL-WINDOW-20261102-01",
+  "created_utc": "2026-10-08T21:57:51.533247+00:00",
+  "status": "DATED_FUTURE_WINDOW_SELECTED_SOURCE_ABSENT_NOT_ACTIVATED",
+  "classification": "PROSPECTIVE_TIMESTAMPED_REFERENCE_EVALUATION",
+  "purpose": "Select one exact future financial evaluation window before any of its outcomes; no new hypothesis, parameter, adaptive weight or trading authorization.",
+  "rule_ids": [
+    "rv_xle_brent_residual",
+    "rv_ief_barbell_residual"
+  ],
+  "existing_v3": {
+    "economic_contract": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/CONTRACT.json",
+      "bytes": 11819,
+      "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+    },
+    "adapter": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/adapter_guard_v3.py",
+      "bytes": 23379,
+      "sha256": "7f77a430c3759402e8c238f19139bd2afb1bfe5d7477f4364b03d9a591a3015b"
+    },
+    "freeze": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/FREEZE_GUARD_V3.json",
+      "bytes": 6228,
+      "sha256": "6d4a7f04a335676070e69fc6d85b1e319f85555605bb0b291fec3dfcc816ed13"
+    },
+    "compatibility": "ExistingV3 accepts a prospective evaluation_start on/after2026-10-08 and exactly252selectedsessions. This datedwindow selects2026-11-02 within that permitted range; it does not edit economiccode/contract or silently slide the separateOct8observer."
+  },
+  "dated_window": {
+    "evaluation_start": "2026-11-02",
+    "first_funded_reference_close_utc": "2026-11-02T21:00:00Z",
+    "evaluation_sessions": 252,
+    "calendar_ordinal_definition": "Nov2 is ordinal1, inclusive. Ordinal63 is implementation review only; ordinal252 is the sole terminal financial reference.",
+    "implementation_review_session": "2027-02-02",
+    "implementation_review_planned_close_utc": "2027-02-02T21:00:00Z",
+    "evaluation_end_planned": "2027-11-02",
+    "terminal_planned_reference_close_utc": "2027-11-02T20:00:00Z",
+    "planned_calendar": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/PLANNED_XNYS_252_SESSIONS.csv",
+      "bytes": 30468,
+      "sha256": "e6533c49b276c0d6c4f237e21fffb452aafccb0f4dc91595beae7076f3c0ecec"
+    },
+    "calendar_qualification": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/CALENDAR_QUALIFICATION.json",
+      "bytes": 2413,
+      "sha256": "85ea43e4851217662163743eee022a0af2ae9877b9e25bb9f669574be13305be"
+    },
+    "deadline": "Warmup snapshot and any required pre-start model/input qualification must exist strictly before2026-11-02T21:00:00Z. Equality is late.",
+    "no_date_reselection": "Missing/late/unqualifiedpre-startsource means this fixedwindow is unstarted/blocked. Do not automatically move the start or search for a more favorable252session period.",
+    "calendar_changes": "Archive any official unexpected closure/amendment with its original publication clock. A deviation from the frozen plannedcalendar creates a source/calendarqualificationblock; this metadata provides no permission to rewrite the start/end, skip a missing valid session or choose replacement dates after outcomes.",
+    "immutable_selection_binding": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/prospective_window_20261102/WINDOW_SELECTION.json",
+      "bytes": 1080,
+      "sha256": "10ce89c2681c655b1e9a19ba029a2795669b5c0bd988dd48667e7e19daedbf83"
+    }
+  },
+  "source_readiness": {
+    "numeric_source_packet": null,
+    "warmup_snapshot": null,
+    "warmup_snapshot_known_at_utc": null,
+    "actual_future_NAVs": null,
+    "actual_future_Brent_releases": null,
+    "actual_future_decisions": null,
+    "owned_units": null,
+    "owned_cash": null,
+    "capital_funding_record": null,
+    "warmup": "Atleast273priorlevels for the5funds and conventionallyeligibleBrent. Exposed current-vintage snapshot, with bytehash and actualknown-at clock strictly before firstfundedreference; no pristinehistoricalPIT claim.",
+    "future": "Actual supplied expectedcalendar must be source-stamped and match each valid planned session. FivefundNAVobservation IDs/sourcehash/valuation/referenceclose/actualavailability/decisionclock; Brentobservation/publication/firstseen/asofeligibility; actualinvocation and next-referencecutoff must satisfy unchangedV3causality.",
+    "failure": "No forwardfill, backdatedpublication, invented reference or missing-NAV-as-holiday. Late/missing/changedsource/clock failures retain a first-stop record. No automaticretry/date reset.",
+    "assurance": "PlannedNYSEhours do not establish issuerNAVpublication, liquidity, exchangeexecution or realcash rights."
+  },
+  "fixed_financial_cases": {
+    "case_count": 30,
+    "rule_count": 2,
+    "control_count": 8,
+    "cost_bps": [
+      5,
+      10,
+      20
+    ],
+    "cartesian_definition": "(2unchangedrules+8unchangedcontrols) \u00d73grosscostassumptions =30fundedreferencecases.",
+    "controls": {
+      "SPY_BUYHOLD": {
+        "weights": {
+          "SPY": 1
+        },
+        "monthly_rebalance": false
+      },
+      "XLE_BUYHOLD": {
+        "weights": {
+          "XLE": 1
+        },
+        "monthly_rebalance": false
+      },
+      "IEF_BUYHOLD": {
+        "weights": {
+          "IEF": 1
+        },
+        "monthly_rebalance": false
+      },
+      "SHY_BUYHOLD": {
+        "weights": {
+          "SHY": 1
+        },
+        "monthly_rebalance": false
+      },
+      "TLT_BUYHOLD": {
+        "weights": {
+          "TLT": 1
+        },
+        "monthly_rebalance": false
+      },
+      "SHY_TLT_50_MONTHLY": {
+        "weights": {
+          "SHY": 0.5,
+          "TLT": 0.5
+        },
+        "monthly_rebalance": true
+      },
+      "rv_xle_brent_residual_FROZEN_VALIDATION_STATIC": {
+        "weights": {
+          "SPY": 0.9005964214711729,
+          "XLE": 0.09940357852882704,
+          "IEF": 0.0,
+          "SHY": 0.0,
+          "TLT": 0.0
+        },
+        "monthly_rebalance": true
+      },
+      "rv_ief_barbell_residual_FROZEN_VALIDATION_STATIC": {
+        "weights": {
+          "SPY": 0.0,
+          "XLE": 0.0,
+          "IEF": 0.11928429423459244,
+          "SHY": 0.8671508770633,
+          "TLT": 0.013564828702107538
+        },
+        "monthly_rebalance": true
+      }
+    },
+    "capital_reference_USD_per_case": 100000,
+    "funding": "Unchangedfunded fractional totalNAVreferenceunits, residualzeroyieldcash, no borrow/topup. Initialentry atNov2referenceusinglatestalready-laggedtarget; one terminal liquidation at252ndreference. Buy/sellcosts separately,5bpprimary10/20bpstresses; embeddedNAVexpenses/action/reinvestmenteffects once.",
+    "exposure": "No nominalshares, dividendcashpayment/settlement or observedprivatefill certification; retain separateowned-unit/cash state and plannedtargets.",
+    "selection": "No retuning, threshold/cost/control/weight/date selection, automaticranking or outcome-based replacement. Reportall30cases, failures, actualentry/exits, fees, exposure, standalonebenchmarks and stability; independentlyauditbefore changing recommendations.",
+    "portfolio": "Existingseparatefundedcontributiondiagnostics remain separate. This datedwindow adds noallocation orarithmeticallyblendedportfolio and does not count sharedtechnology/equitytrend exposure as diversification."
+  },
+  "review": {
+    "at63": "Availability/schema/clock/implementation/error review only. Do not run the252-session economic engine on63rows, force partial liquidation, select parameters or make a performance shortlist from this checkpoint.",
+    "at252": "Root may issue separately reviewed exactV3financialrelease only after complete actualsource qualification, matching this registered datedprotocol. One durable originalprospective attempt, all30cases and independent outcome/wallet audit; preserve all previous opened/failed historicalscreens.",
+    "datebinding": "OriginalV3 validates its releasedstart/end/sessioncount. This datedmetadata must be bound by root external-release/preflight evidence; this protocol itself executes nothing."
+  },
+  "daily_observer": {
+    "original_oct8_contract": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/OBSERVER_CONTRACT.json",
+      "bytes": 2259,
+      "sha256": "93740c1ae94996030f306f5f3f25f751589c86652856152c08fd994e6d8ad112"
+    },
+    "original_oct8_freeze": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer/FREEZE.json",
+      "bytes": 1628,
+      "sha256": "58a0b3cdf5ab653efc86f86f5f3504eeca377607d0f440c69564852402eb66d3"
+    },
+    "original_status": "Preservedsource-absentOct8prefix observer; do not feed aNov2prefix to this unchanged observer or relabelits freeze.",
+    "nov2_status": "IMPLEMENTED_SEPARATE_ANNEX_FROZEN_REVIEW_PENDING_SOURCE_ABSENT",
+    "required_before_actual_packet": "Independent exactannex/sourceclock/code review and separate canonical registration/root-pinnedpacketrelease; completeactualsourcepacket muststillqualify. No collector, wallet or order activation. OriginalOct8files remain unchanged.",
+    "nov2_contract": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/OBSERVER_CONTRACT.json",
+      "bytes": 4104,
+      "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+    },
+    "nov2_adapter": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/observer.py",
+      "bytes": 13287,
+      "sha256": "736cd467a04dd1fc1ffbd5918c9c34158c6014a53d63c88d58d9a4927e0dccb9"
+    },
+    "nov2_freeze": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/FREEZE.json",
+      "bytes": 2139,
+      "sha256": "60e3ccc3a2dab51f9ee1f9827f3cbf6ad43f120387b810ff891d98162a87c579"
+    },
+    "nov2_invented_test_report": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/relationships/daily_observer_nov02/INVENTED_TEST_RESULTS.json",
+      "bytes": 1517,
+      "sha256": "e64f521810dd952c2362ee47d6bbb0bea6d18b87a6071313d903f70799bb1a0e"
+    }
+  },
+  "btc_existing_window": {
+    "contract": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/CONTRACT.json",
+      "bytes": 9214,
+      "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+    },
+    "unchanged": "Nov2026UTCsource month; hypotheticalfundingDec1,cashDec1\u20132; firstdecisionDec3,2026 00UTC,lastNov3,2027;12fixeddecisions; terminalNov30,2027inventorymark,noDecemberdecision/forcedsale."
+  },
+  "data_exposure": "Datedwindowbegins whollyafterthisfreeze. No prospective market outcomes exist in suppliedinputs. Historicalwarmup and prior2024\u20132026releasedfinals are exposed; oldfinals are not recycled as newvalidation.",
+  "permissions": {
+    "allow_network": false,
+    "allow_trading": false,
+    "allow_publication": false,
+    "allow_runtime_changes": false,
+    "collector_active": false,
+    "account_active": false,
+    "orders_active": false,
+    "new_hypotheses": 0,
+    "new_parameters": 0,
+    "new_economic_outcomes": 0,
+    "new_validated_strategies": 0
+  }
+}

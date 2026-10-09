@@ -1,0 +1,45 @@
+{
+  "executable_snapshot_equity_max_abs_differences": {
+    "TQQQ_50_QQQ_static": 0.0,
+    "lev_core_relative_leverage_sleeves_v3": 0.0
+  },
+  "executable_target_prefix_and_future_perturbation_checks": true,
+  "export_date_max": "2026-10-01",
+  "export_date_min": "2024-01-02",
+  "final_metric_absolute_tolerance": 1e-10,
+  "idle_cash_yield": 0,
+  "independent_handoff_audit": "PENDING_PARENT_REVIEW",
+  "maximum_metric_absolute_difference": 0.0,
+  "metric_fields_compared_per_rule": 21,
+  "original_audit_artifacts_verified": 23,
+  "original_audit_status": "PASS",
+  "original_bindings_verified": 133,
+  "original_completion_registered_once": true,
+  "original_gate_before_released_data_load": true,
+  "original_supporting_ledger_artifacts_verified": 2,
+  "purpose": "Released reproduction, zero new strategy trials",
+  "released_sessions_per_rule": 690,
+  "replay_rules": 2,
+  "status": "PASS",
+  "terminal_inventory_zero": true,
+  "trace_vs_frozen_engine_and_original_equity_max_abs_differences": {
+    "TQQQ_50_QQQ_static": {
+      "cash": 0.0,
+      "equity": 0.0,
+      "fees": 0.0,
+      "original_saved_equity": 0.0,
+      "returns": 0.0,
+      "turnover": 0.0,
+      "weights": 0.0
+    },
+    "lev_core_relative_leverage_sleeves_v3": {
+      "cash": 0.0,
+      "equity": 0.0,
+      "fees": 0.0,
+      "original_saved_equity": 0.0,
+      "returns": 0.0,
+      "turnover": 0.0,
+      "weights": 0.0
+    }
+  }
+}

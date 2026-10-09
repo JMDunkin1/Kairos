@@ -10,6 +10,17 @@ Use a practical burden of proof appropriate to a personal, higher-risk research 
 
 Preserve the existing all-year natural-gas engine and its accounting/security contracts. Extend QORE's broader strategy research and portfolio hub through isolated adapters; do not silently change deployed runtime.
 
+## Desktop hub
+
+- `/Applications/Kairos.app` is the single installed application; build it from this repository with `npm run app:install`. Installation deletes its temporary files and the replaced app rather than retaining archives or alternate app bundles. Preserve QORE protocol identifiers, runtime paths and historical evidence when changing the product brand.
+- `config/qore-desktop.json` is the expandable product registry. Build toward diverse symphonies of dozens of strategies without a fixed catalogue or sleeve count. Add new reviewed definitions through isolated adapters; comparison baselines and seasonal components remain supporting records. Registration alone never establishes an edge or authorizes trading.
+- The desktop entry point is `desktop.html` and `src/hub/`. The isolated NGAS entry point keeps its existing `command` and `backtest` routes. Do not mix account telemetry with historical or simulated results.
+- The desktop has no strategy execution endpoint. Its only POST proxies the existing read-only broker status refresh; it must never submit or reconcile orders.
+- Read the canonical experiment ledger through `scripts/lib/qore-hub-ledger.mjs`; its research owner controls appends. Preserve failed, blocked, skipped and successful outcomes and their retry conditions.
+- Preserve exact evidence manifests, contracts, reviews and approved frozen exports under `assets/` and `docs/desktop/provenance/`. Never edit an old manifest to describe a new release.
+- Synthetic examples belong only in `scripts/test-fixtures/portfolio/`. They must not appear as selectable products or be packaged in the native app.
+- Obtain fresh independent review for broad desktop changes. Validate hub, ledger, historical replay, paper evidence, portfolio accounting and UI tests alongside the standard checks.
+
 ## NGAS product invariants
 
 These invariants apply to the existing NGAS subsystem.

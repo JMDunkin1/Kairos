@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "study_id": "QORE-20261007-BTC-MONTH-LOSS-PAPER-ADAPTER-01-FIDELITY",
+  "adapter_id": "QORE-OFFLINE-BTC-MONTH-LOSS-ADAPTER-20261007",
+  "scope": "One completed native familiar fidelity replay verified via exact code/release/trace/receipt, original journal census and unchanged old evidence bindings. No independent economic rerun or new validation.",
+  "counts": {
+    "funded_paths": 14,
+    "daily.csv": 15344,
+    "trades.csv": 373,
+    "decisions.csv": 144,
+    "transfers.csv": 210
+  },
+  "fresh_validation": false,
+  "new_economic_hypotheses": 0,
+  "checks": {
+    "completed_fidelity_status": true,
+    "exact_original_primary_double_journal_counts": true,
+    "old_verified_code_metadata_journals_unchanged": true,
+    "only_four_compact_attempt_files": true,
+    "original_terminal_native_equality": "Checked by exact frozen adapter; old independent source-derived economic audit reused by binding, not newly asserted by native replay.",
+    "later_archives": "Released original2018Decwarmup/2019-2021roles only; adapter has no later provider/collector path and reviewer opened no2022+panel."
+  },
+  "activity": {
+    "production_replay_by_reviewer": false,
+    "new_signal_or_returns": false,
+    "numerical_market_source_panel_read_by_reviewer": false,
+    "old_journal_scope_read": "Scenario/count strings and preservation hashes only",
+    "network": false,
+    "canonical_write": false
+  },
+  "deferred_source_not_read_by_reviewer": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/data_convergence_20261004/binance_vision/development_qualified.csv",
+      "sha256": "e364ca5f54cbe2a051a991cc6914afbb50d0cd61f2b7c012defb56ec11c4c6e9",
+      "reviewer_bytes_read": false
+    }
+  ],
+  "bindings": [
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/ROOT_REPLAY_RELEASE.json",
+      "bytes": 1537,
+      "sha256": "4ca4c5ac1254c39ffa0f4b30871538928dbad65119c39b9c01b37fee721dbe4b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/audit/BTC_REPLAY_LAUNCH_REVIEW.json",
+      "bytes": 3730,
+      "sha256": "07abe93bc63f62be777206d6443a6b3399da57a99f50f5f9ee25076b42fd0c45"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/ATTEMPT_STARTED.json",
+      "bytes": 383,
+      "sha256": "b253936bf02a2fb21a7514983eb50971550ac86a83582a068ec1a9bade9308cb"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/COMPLETED.json",
+      "bytes": 521,
+      "sha256": "96d58fbf307c20795ecabc4ffa60e33bf7bf3e7642894f6d9274ecdc397621f4"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/EVENT_RECEIPT.json",
+      "bytes": 954,
+      "sha256": "4cc6bbdc546910bd7fd5095f32db7fdd50df65d5ce8b3e1ea62b3e22561b490b"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/paper_replay_contracts_20261007/btc/replay_attempt_0001/FIDELITY_RECEIPT.json",
+      "bytes": 728,
+      "sha256": "1b6c753eddd2b9211650553591c1e0d8d1575a9947f64082ebe7b893d6ca3519"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/PREREGISTRATION.json",
+      "bytes": 11644,
+      "sha256": "01cd214ee7188595a355743b3d2ac5ce56760eb17047df62209aeb5217510f17"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/run.py",
+      "bytes": 21998,
+      "sha256": "9ef72fff4c53cf0e03beb3776535b73951f153df3b2c178e0b0fe1a43ffde2af"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/CODE_FREEZE.json",
+      "bytes": 806,
+      "sha256": "c319ef9c4c200c99382061a4a6340910d8e06fed7e0874652117e4bb1ad5314a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/REAL_RESULT_REVIEW.json",
+      "bytes": 51392,
+      "sha256": "676897f38592b80401a1e601562b716c880f0bc67179366dddb66e317f6f18b5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/APP_STRATEGY_DEFINITION.json",
+      "bytes": 6199,
+      "sha256": "4c37e33a252a4b098d7facf4ecc7b10057849b5a38bd8cda349462dcce76737d"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/STRATEGY_LEDGER.json",
+      "bytes": 4235,
+      "sha256": "e0856f493eaa9f0b4a0139799d8a9edd3ecbd48106da346a2e479ac6dc4bed17"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/OUTPUT_MANIFEST.json",
+      "bytes": 650,
+      "sha256": "f1136018788d08c4e42a9329743f478de4adecca176943a8218477e6c922747e"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/daily.csv",
+      "bytes": 9318968,
+      "sha256": "0699a91f69ea80c84e5fd314df56fe7eace3a6aa7a9274cdedbbe3ec423059b3"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/trades.csv",
+      "bytes": 280799,
+      "sha256": "ce7c9d228337b62a943b0b43117d83407defe180ce266f4dfbe9349ca8a6d2a5"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/decisions.csv",
+      "bytes": 39792,
+      "sha256": "d52c92b6da742992b56ca4c7d57bf690d87297a84997a376d92f41411599e513"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/transfers.csv",
+      "bytes": 137570,
+      "sha256": "52ef274cb322909ca10eab584dfe0dbf39a167c345c4db8f4a8d67bd191843d9"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/terminal_wallets.json",
+      "bytes": 8492,
+      "sha256": "609c27a6e6d830ffb547f384cc654d83ad9bbdc04cd650db499a4b00e2fd687a"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/risk_off_test_20261005/results_01/summary.json",
+      "bytes": 83069,
+      "sha256": "fc87d82606e8ee8682f74c6cd09887e649c9aeb7adba6385da28d8e407236597"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/data_convergence_20261004/binance_vision/capital_1000_exploratory/accounting_repair_01/engine/run.py",
+      "bytes": 35880,
+      "sha256": "17b449d17052ec41d4717f3e89c53dfa366cc0aba8ad216eab4a0cc4123f57db"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/data_convergence_20261004/binance_vision/capital_1000_exploratory/accounting_repair_01/DATA_QUALIFICATION.json",
+      "bytes": 3146,
+      "sha256": "fe8cfac2c0475d071714af9aecdf2afc18d3cce4aab8053d016fb20e517b5a63"
+    },
+    {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/research/data_convergence_20261004/binance_vision/PROTOCOL_UNIT_REVIEW.json",
+      "bytes": 2565,
+      "sha256": "690cb2f562300401c8194ea374e15efb7fbc96c99ec063797b6fc99cd2708b4b"
+    }
+  ]
+}

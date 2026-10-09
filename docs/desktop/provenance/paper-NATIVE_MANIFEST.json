@@ -1,0 +1,336 @@
+{
+  "status": "STAGED_NATIVE_APP_NOT_INSTALLED_OR_LAUNCHED",
+  "app": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app",
+  "files": {
+    "Contents/Info.plist": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Info.plist",
+      "bytes": 775,
+      "sha256": "1489e350846e141ba2a99e7bb9e0195df34f6ab84ec7cc3015a0e07f805f0b9d"
+    },
+    "Contents/MacOS/QoreDesktop": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/MacOS/QoreDesktop",
+      "bytes": 171216,
+      "sha256": "4fc2fdf78d9460c78a6f6101e3704c7b92a4dc02d826754690a8dafc76e38103"
+    },
+    "Contents/Resources/hub/assets/offline-paper/MANIFEST.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/MANIFEST.json",
+      "bytes": 9017,
+      "sha256": "5b9f5987e41c10b3931511a1d32b8d3210807c7f27267aec9e6461d28cb96a88"
+    },
+    "Contents/Resources/hub/assets/offline-paper/btc/daily.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/btc/daily.csv",
+      "bytes": 9318968,
+      "sha256": "0699a91f69ea80c84e5fd314df56fe7eace3a6aa7a9274cdedbbe3ec423059b3"
+    },
+    "Contents/Resources/hub/assets/offline-paper/btc/summary.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/btc/summary.json",
+      "bytes": 83069,
+      "sha256": "fc87d82606e8ee8682f74c6cd09887e649c9aeb7adba6385da28d8e407236597"
+    },
+    "Contents/Resources/hub/assets/offline-paper/btc-contract.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/btc-contract.json",
+      "bytes": 9214,
+      "sha256": "eff4bbf49ca182555da0c895fcb47ac90344f94112fa51dab9a03577705d503a"
+    },
+    "Contents/Resources/hub/assets/offline-paper/btc-fidelity-audit.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/btc-fidelity-audit.json",
+      "bytes": 7427,
+      "sha256": "2df21598121a8aa9879a1a01a1268cc0137e6a4dbbdfd1137b18f956f14d5652"
+    },
+    "Contents/Resources/hub/assets/offline-paper/catalogue.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/catalogue.json",
+      "bytes": 16893,
+      "sha256": "09bd8308c599f4731e3780d562e6444294b88dcf9fa279853156d88771058dd7"
+    },
+    "Contents/Resources/hub/assets/offline-paper/compact-definitions.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/compact-definitions.json",
+      "bytes": 29728,
+      "sha256": "a48aa9413f31cfbdd3d6d42bde7503de34fe4ec1b919dd0d42b642f277996f87"
+    },
+    "Contents/Resources/hub/assets/offline-paper/export-review.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/export-review.json",
+      "bytes": 24767,
+      "sha256": "cf927f92a777897651ab5357f7d8fa4a5ad3f15d10d5ba10cfb847c4962e29c0"
+    },
+    "Contents/Resources/hub/assets/offline-paper/index-admission.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/index-admission.json",
+      "bytes": 8512,
+      "sha256": "3ff7c87aa5240f34941d9db6c2a8ba62aa810ac0f9c68c5f8048751cd69c82ee"
+    },
+    "Contents/Resources/hub/assets/offline-paper/index-review.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/index-review.json",
+      "bytes": 19630,
+      "sha256": "7a410709b7b50882543e223ece1436da166cc04e1c8c4c59cfd1601cc35ae40b"
+    },
+    "Contents/Resources/hub/assets/offline-paper/index.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/index.json",
+      "bytes": 36445,
+      "sha256": "3611ce0a75b007f005d5cf1ae5c0a2181a52a063498941639c15495be2b9b1ec"
+    },
+    "Contents/Resources/hub/assets/offline-paper/observations/btc_familiar_fidelity.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/observations/btc_familiar_fidelity.json",
+      "bytes": 998,
+      "sha256": "2e05f3de0a16f8d35b09a1cf94ff22f0ec81c728104e79dff9abe04949f55caf"
+    },
+    "Contents/Resources/hub/assets/offline-paper/observations/btc_invented_next_decision.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/observations/btc_invented_next_decision.json",
+      "bytes": 1225,
+      "sha256": "b1c99b35e01b8d1db1604d2b57772f4936e80a245451e20095b50295f6f026d8"
+    },
+    "Contents/Resources/hub/assets/offline-paper/observations/btc_invented_owned_state.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/observations/btc_invented_owned_state.json",
+      "bytes": 5059,
+      "sha256": "af6f2c84faff81b032e3efeac561310b1fef061b16c4720976f03eaee57497a3"
+    },
+    "Contents/Resources/hub/assets/offline-paper/observations/rv_ief_barbell_residual_familiar_state.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/observations/rv_ief_barbell_residual_familiar_state.json",
+      "bytes": 30341,
+      "sha256": "db49f61194de8510e4a5d3decabd38688814ceed681e8cd0e492aa3ddea533ce"
+    },
+    "Contents/Resources/hub/assets/offline-paper/observations/rv_xle_brent_residual_familiar_state.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/observations/rv_xle_brent_residual_familiar_state.json",
+      "bytes": 30351,
+      "sha256": "c3f59ccf9219fd32b07b0c26fd0aa85d9bf4d8ead9b964a9c271d55f35fcb920"
+    },
+    "Contents/Resources/hub/assets/offline-paper/post-append-review.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/post-append-review.json",
+      "bytes": 76644,
+      "sha256": "8410a91ab0a8b745c3091fabf863441a3253179b1bf13f2c6c07ed90b988c6cf"
+    },
+    "Contents/Resources/hub/assets/offline-paper/relationship-contract.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/relationship-contract.json",
+      "bytes": 11819,
+      "sha256": "867cdcecda07690f2c67a3a1b0a9fb33f1e26ada82c22d8701ea16b9e466eb4c"
+    },
+    "Contents/Resources/hub/assets/offline-paper/relationship-fidelity-audit.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/relationship-fidelity-audit.json",
+      "bytes": 33453,
+      "sha256": "abca861418d5be01dd1caa524eb531d9659f6b64dcd2a5b1eb0b9a31d3d1f500"
+    },
+    "Contents/Resources/hub/assets/offline-paper/relationship-observer.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/relationship-observer.json",
+      "bytes": 4104,
+      "sha256": "3e9e0d541f1d5e30120716176b6fef69a1e19bf8677f6936916a28b20772e96a"
+    },
+    "Contents/Resources/hub/assets/offline-paper/relationship-window.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/relationship-window.json",
+      "bytes": 11888,
+      "sha256": "f9c47bc53f0551df0e14ffb02594c7831c0c6e3aa2789c9fac06875e6298985d"
+    },
+    "Contents/Resources/hub/assets/offline-paper/start-rationale.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/start-rationale.json",
+      "bytes": 2693,
+      "sha256": "8f2d640da5aef16eee8e9a1d702575dd8bf5662d6af291691d03b0accee95405"
+    },
+    "Contents/Resources/hub/assets/offline-paper/states/rv_ief_barbell_residual.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/states/rv_ief_barbell_residual.json",
+      "bytes": 7022538,
+      "sha256": "47e99e04c021dc492ed491f9778ebb8790b72e03380786a3045aff24446b3d7b"
+    },
+    "Contents/Resources/hub/assets/offline-paper/states/rv_xle_brent_residual.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/states/rv_xle_brent_residual.json",
+      "bytes": 6961515,
+      "sha256": "9d3b15f887b81963b7b3fd356daedd434ee83c22ba45e7c26b83455d5f726ab2"
+    },
+    "Contents/Resources/hub/assets/offline-paper/tested-ledger.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/offline-paper/tested-ledger.json",
+      "bytes": 7286,
+      "sha256": "b57153c56bd43994509566af902aee2e2ecd941b1c9679e1f9b6d2d55c32eb75"
+    },
+    "Contents/Resources/hub/assets/released-replay/HANDOFF_AUDIT.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/HANDOFF_AUDIT.json",
+      "bytes": 4708,
+      "sha256": "07787d8e3a11b0cba343e315ae9a3a3938cd302b1985a0ac3afb88f3934c43c4"
+    },
+    "Contents/Resources/hub/assets/released-replay/HANDOFF_AUDIT.md": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/HANDOFF_AUDIT.md",
+      "bytes": 2022,
+      "sha256": "bc634b70709da20fc503b81e1e32739bc1e59ae10293e6e999b74e3602789b67"
+    },
+    "Contents/Resources/hub/assets/released-replay/MANIFEST.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/MANIFEST.json",
+      "bytes": 2405,
+      "sha256": "dc3b1838f4ea281ef41b6a232fd88fedb7cd57cccd27338ae0a5cb046ec2f845"
+    },
+    "Contents/Resources/hub/assets/released-replay/README.md": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/README.md",
+      "bytes": 8908,
+      "sha256": "aa037011c3e66fb8362873b03efd787d641adbf9503755a694539d9fd670ec34"
+    },
+    "Contents/Resources/hub/assets/released-replay/RELEASED_REPLAY_APPROVAL.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/RELEASED_REPLAY_APPROVAL.json",
+      "bytes": 1666,
+      "sha256": "d5d76309adb225e172b339f1021b313575dfa34a11f3674205d11bc15d978dd0"
+    },
+    "Contents/Resources/hub/assets/released-replay/code/definitions.py": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/code/definitions.py",
+      "bytes": 3392,
+      "sha256": "2fcc39d544340ef31cc3a1d2b0e27787f94a92ed399796d44e8893edb365d5f5"
+    },
+    "Contents/Resources/hub/assets/released-replay/code/engine.py": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/code/engine.py",
+      "bytes": 5744,
+      "sha256": "c2fde06bdcf026fb48f70d38cca67cc7f1faa40902f3da95521be967c55c51f0"
+    },
+    "Contents/Resources/hub/assets/released-replay/code/lev_engine.py": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/code/lev_engine.py",
+      "bytes": 7749,
+      "sha256": "1dd88b853fc19862147079bc36400bf6692e0e1ea145ea47ac83a77704175404"
+    },
+    "Contents/Resources/hub/assets/released-replay/code/lev_families_core.py": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/code/lev_families_core.py",
+      "bytes": 4539,
+      "sha256": "22777c51450294dbd0c580a6976e1323991f654935181f953285685dd6f77e36"
+    },
+    "Contents/Resources/hub/assets/released-replay/contract.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/contract.json",
+      "bytes": 8131,
+      "sha256": "2cb8e0a2dbbb6850211a6a323e9b30b666174b765c3d3a2e19d31ab5f2c5083f"
+    },
+    "Contents/Resources/hub/assets/released-replay/daily_nav_replay.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/daily_nav_replay.csv",
+      "bytes": 518734,
+      "sha256": "3b2761045f4daab003bc33da762a810624e7571d6ba37ba99fb6bb37d3d9c18a"
+    },
+    "Contents/Resources/hub/assets/released-replay/execution_events.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/execution_events.csv",
+      "bytes": 14998,
+      "sha256": "df588b7a15a25561402f9b57bf1e0f0a37cec915f740a830ec4ec8adb919520f"
+    },
+    "Contents/Resources/hub/assets/released-replay/known_candidate_cost_delay_stresses.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/known_candidate_cost_delay_stresses.csv",
+      "bytes": 4622,
+      "sha256": "cbf7c6eb802fad041ea2b4e7a4bcca526d245ae3902047f7c422b6d1378f77e1"
+    },
+    "Contents/Resources/hub/assets/released-replay/metric_comparison_checks.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/metric_comparison_checks.csv",
+      "bytes": 3811,
+      "sha256": "8ace0906fdd4c1da5e2b966168dc5429fb6e3f9d3c8be376d4569e73f45c8067"
+    },
+    "Contents/Resources/hub/assets/released-replay/metrics_reproduction.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/metrics_reproduction.csv",
+      "bytes": 1148,
+      "sha256": "0ff394ea017d26b22c4b165d09e945061e502be82dc245f6a5436356c8027a18"
+    },
+    "Contents/Resources/hub/assets/released-replay/provenance.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/provenance.json",
+      "bytes": 41259,
+      "sha256": "ef611153857348493636be905faf6b12802a537fd3d45cec0899a819ff86b852"
+    },
+    "Contents/Resources/hub/assets/released-replay/released_comparison_metrics.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/released_comparison_metrics.csv",
+      "bytes": 10966,
+      "sha256": "55dc5a2b1af8248d8e7ff8f0782bd61d2ab0c45968ff3fe9154d8f7a496b529a"
+    },
+    "Contents/Resources/hub/assets/released-replay/reproduction_checks.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/reproduction_checks.json",
+      "bytes": 1418,
+      "sha256": "5d08ccb7d26ea511cab15175f1d330e5db6dc5769d40c294dcb9c903f8dc4bee"
+    },
+    "Contents/Resources/hub/assets/released-replay/rules.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/rules.json",
+      "bytes": 1515,
+      "sha256": "19b4f6358228549cb85819e43d4503de593bf8a065973c21df095663b7238597"
+    },
+    "Contents/Resources/hub/assets/released-replay/targets_and_execution.csv": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/assets/released-replay/targets_and_execution.csv",
+      "bytes": 181053,
+      "sha256": "9c036071ecc67ac55b8de60b1f627dc24a68c35de34777cacecf77ad6135f596"
+    },
+    "Contents/Resources/hub/dist/assets/index-B-DlZ0sD.js": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/dist/assets/index-B-DlZ0sD.js",
+      "bytes": 253488,
+      "sha256": "9c7470d56a3aaec99fead3c6e34f0a734e8a0f0eba320931ae2e3f14185619b3"
+    },
+    "Contents/Resources/hub/dist/assets/index-CJT-75O8.js": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/dist/assets/index-CJT-75O8.js",
+      "bytes": 253354,
+      "sha256": "e383938865213de9f6198f86a6c226af2e3c2ca32ef81701ff3dc1909e13a14a"
+    },
+    "Contents/Resources/hub/dist/assets/index-r6iXG36g.css": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/dist/assets/index-r6iXG36g.css",
+      "bytes": 17925,
+      "sha256": "41adb968618fce55e40e37c46faf341f68481f86a5ed9ec35c5f1042fe121b6b"
+    },
+    "Contents/Resources/hub/dist/favicon.svg": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/dist/favicon.svg",
+      "bytes": 531,
+      "sha256": "a1e2db6484a0149eb9dca667d215e122ac82174e4ec72fa677ed0bb8ee3f1802"
+    },
+    "Contents/Resources/hub/dist/index.html": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/dist/index.html",
+      "bytes": 631,
+      "sha256": "9ac14d2a6cbf9bf94bf386d99fd3f251defb5fce0aa380fce53d8757bb5bbd42"
+    },
+    "Contents/Resources/hub/package.json": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/package.json",
+      "bytes": 18,
+      "sha256": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-ledger.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-ledger.mjs",
+      "bytes": 7967,
+      "sha256": "8c315090cbf142a53d4ed486504c495b9b015b6dd07ed4649f0052f705340f80"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-paper.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-paper.mjs",
+      "bytes": 11503,
+      "sha256": "c3865c4f1ec820701c30cf0072bc6395c4943c2544d4a644dddbc05a3ed6f7bf"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-replay.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-replay.mjs",
+      "bytes": 7101,
+      "sha256": "4d64e435f32a636d7bebd324cec8de42a969707f04b47c37ae5af8cffd0cde4b"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-runtime.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-runtime.mjs",
+      "bytes": 307,
+      "sha256": "8d36617524ab51aea50e569b32b691ef086d3724e8b686290f3e15788f0497f8"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-state-migration.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-state-migration.mjs",
+      "bytes": 8987,
+      "sha256": "920993b2495eea47c2cf00d483ba809b183c6345dd8d81f5ec07ce4c02ef2708"
+    },
+    "Contents/Resources/hub/scripts/lib/qore-hub-store.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/lib/qore-hub-store.mjs",
+      "bytes": 5812,
+      "sha256": "ae6e6adcefa0b836b07932af524aca4423c1febe4a64d42b1c6617f47c787308"
+    },
+    "Contents/Resources/hub/scripts/qore-hub-service.mjs": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/scripts/qore-hub-service.mjs",
+      "bytes": 10794,
+      "sha256": "d3a81eab720bf3f9c6cca660e6f1fa559c5578285be1185611dcd7b679c6d4c7"
+    },
+    "Contents/Resources/hub/src/hub/fixture.ts": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/src/hub/fixture.ts",
+      "bytes": 1232,
+      "sha256": "2295d37489b686ad44dc61635c57bf5e3831e5506623d570a4fc8e80d76c513b"
+    },
+    "Contents/Resources/hub/src/hub/simulation.ts": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/src/hub/simulation.ts",
+      "bytes": 15615,
+      "sha256": "cb20602844502de2c7f90aa0313446b19ab97ac94c539117152d39b96f158388"
+    },
+    "Contents/Resources/hub/src/hub/strategies.ts": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/src/hub/strategies.ts",
+      "bytes": 3791,
+      "sha256": "d70dee74b6984a6a448dea619e7a89f24107195f056be494b5bfa08840f2d7e7"
+    },
+    "Contents/Resources/hub/src/hub/types.ts": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/hub/src/hub/types.ts",
+      "bytes": 3947,
+      "sha256": "8b1479ae505be4db699f88ce7ebce35b67b33c3633546c68afef04c4d72d3a0f"
+    },
+    "Contents/Resources/runtime/node": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/Resources/runtime/node",
+      "bytes": 112296448,
+      "sha256": "6594c3f63ecd7cb30d99f65e53566da90cbfdf132e25cc579a5fab7e96119fb9"
+    },
+    "Contents/_CodeSignature/CodeResources": {
+      "path": "/Users/jamesdunkin/Documents/Codex/2026-10-03/task-3/implementation/holistic_hub/candidate/.local/desktop/QORE Strategy Hub.app/Contents/_CodeSignature/CodeResources",
+      "bytes": 20676,
+      "sha256": "12457a03b607887c8df32c840f473f61c215fb256b84030f2456fea159fab43d"
+    }
+  }
+}

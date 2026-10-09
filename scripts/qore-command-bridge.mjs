@@ -6,7 +6,8 @@ import path from 'node:path'
 import process from 'node:process'
 
 const host = '127.0.0.1'
-const port = validPort(process.env.QORE_COMMAND_BRIDGE_PORT ?? process.env.QORE_DASHBOARD_SERVICE_PORT) ?? 4775
+const configuredPort = process.env.QORE_COMMAND_BRIDGE_PORT ?? process.env.QORE_DASHBOARD_SERVICE_PORT
+const port = configuredPort === '0' ? 0 : validPort(configuredPort) ?? 4775
 const remoteHost = process.env.QORE_COMMAND_REMOTE_HOST ?? '100.81.167.107'
 const remoteName = process.env.QORE_COMMAND_REMOTE_NAME ?? 'm1-server'
 const remoteUser = process.env.QORE_COMMAND_REMOTE_USER ?? 'jdunkin'
@@ -50,6 +51,10 @@ const testUpstreamUrl = process.env.NODE_ENV === 'test' && process.env.QORE_COMM
   : null
 
 let shuttingDown = false
+const parentPid = Number(process.env.QORE_COMMAND_PARENT_PID ?? 0)
+const parentWatch = Number.isInteger(parentPid) && parentPid > 1
+  ? setInterval(() => { if (process.ppid !== parentPid) shutdown() }, 1000)
+  : null
 let cachedTelemetry = null
 let telemetryReadAt = 0
 let activeRead = null
@@ -419,13 +424,14 @@ const server = createServer((request, response) => {
 })
 
 server.listen(port, host, () => {
-  console.log(`QORE Command bridge: http://${host}:${port}`)
+  console.log(`QORE Command bridge: http://${host}:${server.address().port}`)
   void connect(true)
 })
 
 function shutdown() {
   if (shuttingDown) return
   shuttingDown = true
+  clearInterval(parentWatch)
   for (const child of activeChildren) child.kill('SIGTERM')
   server.close(() => process.exit(0))
 }
