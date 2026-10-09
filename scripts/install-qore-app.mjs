@@ -36,8 +36,12 @@ try {
   fs.cpSync(path.join(repo, 'dist'), path.join(hub, 'dist'), { recursive: true })
   for (const directory of ['assets/offline-paper', 'assets/released-replay']) fs.cpSync(path.join(repo, directory), path.join(hub, directory), { recursive: true })
   for (const name of ['qore-hub-service.mjs', 'qore-command-bridge.mjs']) fs.copyFileSync(path.join(repo, 'scripts', name), path.join(hub, 'scripts', name))
-  for (const name of ['qore-hub-ledger.mjs', 'qore-hub-replay.mjs', 'qore-hub-paper.mjs', 'qore-desktop-telemetry.mjs']) fs.copyFileSync(path.join(repo, 'scripts/lib', name), path.join(hub, 'scripts/lib', name))
+  for (const name of ['qore-hub-ledger.mjs', 'qore-hub-replay.mjs', 'qore-hub-paper.mjs', 'qore-desktop-telemetry.mjs', 'qore-portfolio-control.mjs', 'qore-portfolio-plan.mjs', 'qore-portfolio-shadow.mjs']) fs.copyFileSync(path.join(repo, 'scripts/lib', name), path.join(hub, 'scripts/lib', name))
   fs.copyFileSync(path.join(repo, 'config/qore-desktop.json'), path.join(hub, 'config/qore-desktop.json'))
+  fs.copyFileSync(path.join(repo, 'config/qore-portfolio-adapters.json'), path.join(hub, 'config/qore-portfolio-adapters.json'))
+  fs.copyFileSync(path.join(repo, 'config/qore-portfolio-shadow.json'), path.join(hub, 'config/qore-portfolio-shadow.json'))
+  fs.mkdirSync(path.join(hub, 'data/qore/market'), { recursive: true })
+  fs.copyFileSync(path.join(repo, 'data/qore/market/index-basket-config.json'), path.join(hub, 'data/qore/market/index-basket-config.json'))
   fs.writeFileSync(path.join(hub, 'package.json'), '{"type":"module"}\n')
   fs.copyFileSync(process.execPath, path.join(resources, 'runtime/node')); fs.chmodSync(path.join(resources, 'runtime/node'), 0o755)
   const architecture = { arm64: 'arm64', x64: 'x86_64' }[process.arch]

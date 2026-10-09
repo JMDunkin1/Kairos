@@ -46,7 +46,7 @@
     "report:run": "node scripts/qore-portfolio-report.mjs --loop",
     "service:install:linux": "node scripts/install-linux-live-service.mjs",
     "app:install": "node scripts/install-qore-app.mjs",
-    "test": "npm run test:command-bridge && npm run test:dashboard-service && npm run test:live-trading && npm run test:live-inference && npm run test:weather-data-quality && npm run test:summer-shadow && npm run test:winter-shadow && npm run test:weather-refresh && npm run test:data-boundaries && npm run test:research-execution && npm run test:research-statistics && npm run test:summer-forecast-contract && npm run test:summer-forecast-coverage && npm run test:gefs-v12-reforecast && npm run test:live-target-parity && npm run test:validation-integrity && npm run test:broker-execution-profile && npm run test:overnight-risk && npm run test:portfolio-report && npm run test:summer-supply && npm run test:simplification && npm run test:hub && npm run test:hub-paper && npm run test:hub-replay && npm run test:hub-ledger && npm run test:portfolio-engine && npm run test:ui-accounting && npm run test:ui-requests",
+    "test": "npm run test:command-bridge && npm run test:dashboard-service && npm run test:live-trading && npm run test:live-inference && npm run test:weather-data-quality && npm run test:summer-shadow && npm run test:winter-shadow && npm run test:weather-refresh && npm run test:data-boundaries && npm run test:research-execution && npm run test:research-statistics && npm run test:summer-forecast-contract && npm run test:summer-forecast-coverage && npm run test:gefs-v12-reforecast && npm run test:live-target-parity && npm run test:validation-integrity && npm run test:broker-execution-profile && npm run test:overnight-risk && npm run test:portfolio-report && npm run test:summer-supply && npm run test:simplification && npm run test:hub && npm run test:hub-paper && npm run test:hub-replay && npm run test:hub-ledger && npm run test:portfolio-engine && npm run test:ui-accounting && npm run test:ui-requests && npm run test:portfolio-control",
     "test:command-bridge": "node scripts/test-qore-command-bridge.mjs",
     "test:dashboard-service": "node scripts/test-qore-dashboard-service.mjs",
     "test:live-trading": "node scripts/test-qore-live-trading.mjs",
@@ -79,7 +79,14 @@
     "test:hub-ledger": "node scripts/test-qore-hub-ledger-events.mjs",
     "test:portfolio-engine": "node scripts/test-qore-portfolio-engine.mjs",
     "test:ui-accounting": "node scripts/test-qore-ui-accounting.mjs",
-    "test:ui-requests": "node scripts/test-qore-ui-requests.mjs"
+    "test:ui-requests": "node scripts/test-qore-ui-requests.mjs",
+    "portfolio:plan": "node scripts/qore-portfolio-control.mjs plan",
+    "portfolio:status": "node scripts/qore-portfolio-control.mjs status",
+    "portfolio:capture": "node scripts/qore-portfolio-control.mjs capture",
+    "portfolio:quotes": "node scripts/qore-portfolio-control.mjs quotes",
+    "portfolio:observe": "node scripts/qore-portfolio-control.mjs observe",
+    "portfolio:run": "node scripts/qore-portfolio-control.mjs run",
+    "test:portfolio-control": "node scripts/test-qore-portfolio-control.mjs"
   },
   "dependencies": {
     "@mattnucc/gribberish": "^0.30.2",

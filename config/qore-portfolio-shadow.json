@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "policyId": "prospective-etf-shadow-v1",
+  "ordersEnabled": false,
+  "feeBps": 1,
+  "slippageBps": 2,
+  "shortBorrowAprPct": 5,
+  "debitAprPct": 8,
+  "maxQuoteAgeSeconds": 30,
+  "maxSpreadBps": 75,
+  "maxPendingAgeSeconds": 120,
+  "limitations": [
+    "Modeled prospective reference fills; no Alpaca order submission or actual sleeve ownership.",
+    "Bid/ask plus explicit impact and fee assumptions; liquidity, borrow availability and actual fills are not established.",
+    "Distributions, corporate actions and tax are not modeled. Do not use these estimates as promotion evidence without reconciliation."
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "ordersEnabled": false,
+  "adapters": [
+    { "strategyId": "ngas-all-year-beta", "kind": "ngas-telemetry", "version": "ngas-telemetry-preview-v1" }
+  ]
+}

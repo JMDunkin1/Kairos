@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react'
 import type { Experiment } from './types'
 import { HistoricalReplay } from './HistoricalReplay'
 import { PaperCandidates } from './PaperCandidates'
+import { PortfolioControl } from './PortfolioControl'
 import './hub.css'
 
 type Strategy = { id: string; name: string; stage: string; label: string; description: string; view: 'ngas' | 'leverage' | 'paper' | 'unconfigured' }
 type Catalog = { strategies: Strategy[]; brokerSubmissionEnabled: false }
 type Ledger = { status: string; error?: string; experiments: Experiment[]; historyCount: number; pendingAppend: boolean }
-type View = 'strategies' | 'experiments' | 'connections'
-const views: View[] = ['strategies', 'experiments', 'connections']
+type View = 'strategies' | 'portfolio' | 'experiments' | 'connections'
+const views: View[] = ['strategies', 'portfolio', 'experiments', 'connections']
 const initialView = (): View => views.includes(window.location.hash.slice(1) as View) ? window.location.hash.slice(1) as View : 'strategies'
 
 async function read<T>(endpoint: string, signal?: AbortSignal): Promise<T> {
@@ -20,6 +21,7 @@ async function read<T>(endpoint: string, signal?: AbortSignal): Promise<T> {
 
 export function StrategyHub() {
   const [view, setView] = useState<View>(initialView)
+  const [portfolioVisited, setPortfolioVisited] = useState(() => initialView() === 'portfolio')
   const [catalog, setCatalog] = useState<Catalog | null>(null)
   const [selectedId, setSelectedId] = useState('ngas-all-year-beta')
   const [ledger, setLedger] = useState<Ledger | null>(null)
@@ -33,7 +35,7 @@ export function StrategyHub() {
   useEffect(() => {
     const controller = new AbortController()
     read<Catalog>('catalog', controller.signal).then(setCatalog).catch(e => { if (!controller.signal.aborted) setError(e.message) })
-    const change = () => setView(initialView())
+    const change = () => { const next = initialView(); setView(next); if (next === 'portfolio') setPortfolioVisited(true) }
     window.addEventListener('hashchange', change)
     return () => { controller.abort(); window.removeEventListener('hashchange', change) }
   }, [])
@@ -45,7 +47,7 @@ export function StrategyHub() {
     return () => controller.abort()
   }, [view, ledgerRefresh])
 
-  const navigate = (next: View) => { window.location.hash = next; setView(next); setError('') }
+  const navigate = (next: View) => { window.location.hash = next; setView(next); if (next === 'portfolio') setPortfolioVisited(true); setError('') }
   const selected = catalog?.strategies.find(s => s.id === selectedId) ?? catalog?.strategies[0]
   const registeredStrategies = catalog?.strategies.filter(s => `${s.name} ${s.label} ${s.description}`.toLowerCase().includes(strategyQuery.toLowerCase())) ?? []
   const experiments = ledger?.experiments.filter(e => (!kind || e.kind === kind) && `${e.title} ${e.id} ${e.status} ${e.theory} ${e.retry}`.toLowerCase().includes(query.toLowerCase())) ?? []
@@ -57,8 +59,10 @@ export function StrategyHub() {
       <nav aria-label="Primary">{views.map(v => <button key={v} className={view === v ? 'active' : ''} aria-current={view === v ? 'page' : undefined} onClick={() => navigate(v)}>{v === 'experiments' ? 'Ledger' : v[0].toUpperCase() + v.slice(1)}</button>)}</nav>
     </header>
     <main className="workspace">
-      <div className="workspace-heading"><div><p className="eyebrow">Kairos / {view === 'experiments' ? 'Research ledger' : view}</p><h1>{view === 'strategies' ? 'Your strategies' : view === 'experiments' ? 'Research ledger' : 'Connections'}</h1></div><span className="hub-status">Read-only desktop · Order routing disabled</span></div>
+      <div className="workspace-heading"><div><p className="eyebrow">Kairos / {view === 'experiments' ? 'Research ledger' : view}</p><h1>{view === 'strategies' ? 'Your strategies' : view === 'portfolio' ? 'Compose your portfolio' : view === 'experiments' ? 'Research ledger' : 'Connections'}</h1></div><span className="hub-status">Portfolio planning · Order routing disabled</span></div>
       {error && <div className="notice warning" role="alert">{error}</div>}
+      {portfolioVisited && catalog && <div hidden={view !== 'portfolio'}><PortfolioControl strategies={catalog.strategies} active={view === 'portfolio'} /></div>}
+      {view === 'portfolio' && !catalog && <p role="status">Loading the strategy catalogue…</p>}
       {view === 'strategies' && <>
         {!catalog ? <p role="status">Loading the strategy catalogue…</p> : <>
           <section className="data-section"><header className="section-header"><h2>Strategy catalogue</h2><span>Runtime and research status kept distinct</span></header>

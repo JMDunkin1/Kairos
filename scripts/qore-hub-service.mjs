@@ -6,6 +6,8 @@ import { readExperimentLedger, canonicalLedgerRoot } from './lib/qore-hub-ledger
 import { loadHistoricalReplay } from './lib/qore-hub-replay.mjs'
 import { paperReadResponse, paperIds } from './lib/qore-hub-paper.mjs'
 import { desktopTelemetry } from './lib/qore-desktop-telemetry.mjs'
+import { portfolioStore, portfolioSnapshot, portfolioTelemetry } from './lib/qore-portfolio-control.mjs'
+import { shadowSummary } from './lib/qore-portfolio-shadow.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const internalIdentities = new Set(['ngas-summer-alpha', 'ngas-winter-alpha', 'trend-core', 'reversion-core', 'relative-value', 'TQQQ_50_QQQ_static'])
@@ -26,7 +28,7 @@ export function desktopCatalog(catalog = JSON.parse(fs.readFileSync(path.join(ro
   return { schemaVersion: 1, application: catalog.application, brokerSubmissionEnabled: false, strategies }
 }
 
-export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = canonicalLedgerRoot, telemetryEnabled = false, telemetryFactory = desktopTelemetry } = {}) {
+export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = canonicalLedgerRoot, portfolioRoot = path.join(root, '.local/qore/portfolio-control'), telemetryEnabled = false, telemetryFactory = desktopTelemetry } = {}) {
   if (host !== '127.0.0.1' || !Number.isInteger(port) || port < 0 || port > 65535) throw new Error('Kairos requires a valid loopback listener.')
   let expectedHost = ''
   let telemetry = null
@@ -37,6 +39,22 @@ export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = cano
       const origin = `http://${expectedHost}`
       if (req.headers.origin && req.headers.origin !== origin) return json(res, 403, { error: 'Origin rejected.' })
       const url = new URL(req.url, origin)
+      if (url.pathname === '/api/hub/portfolio' && req.method === 'PUT') {
+        if (req.headers.origin !== origin) return json(res, 403, { error: 'Local application requests only.' })
+        if (req.headers['content-type'] !== 'application/json') return json(res, 415, { error: 'Portfolio changes require application/json.' })
+        let bytes = 0
+        const chunks = []
+        for await (const chunk of req) {
+          bytes += chunk.length
+          if (bytes > 256 * 1024) return json(res, 413, { error: 'Portfolio configuration is too large.' })
+          chunks.push(chunk)
+        }
+        try {
+          const payload = JSON.parse(Buffer.concat(chunks).toString())
+          if (!payload || Object.keys(payload).sort().join(',') !== 'config,expectedRevision') throw new Error('Invalid portfolio save request.')
+          return json(res, 200, { ...portfolioStore(portfolioRoot, desktopCatalog().strategies).save(payload.config, payload.expectedRevision), ordersEnabled: false })
+        } catch (error) { return json(res, error.status ?? 400, { error: error.status === 409 ? error.message : 'Portfolio save failed. Check capital, risk ranges and the strategy allocation list.' }) }
+      }
       if (['/api/live/status', '/api/connection/status', '/api/live/refresh'].includes(url.pathname)) {
         const allowed = (req.method === 'GET' && url.pathname !== '/api/live/refresh') || (req.method === 'POST' && url.pathname === '/api/live/refresh')
         if (!allowed) return json(res, 405, { error: 'Unsupported read-only request.' })
@@ -47,8 +65,18 @@ export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = cano
         return json(res, result.status, result.body)
       }
       if (req.method !== 'GET') return json(res, 405, { error: 'This application has no strategy or broker submission endpoint.' })
-      if (url.pathname === '/api/hub/health') return json(res, 200, { status: 'ready', mode: 'read-only-strategy-hub' })
+      if (url.pathname === '/api/hub/health') return json(res, 200, { status: 'ready', mode: 'strategy-hub-with-portfolio-planning', ordersEnabled: false })
       if (url.pathname === '/api/hub/catalog') return json(res, 200, desktopCatalog())
+      if (url.pathname === '/api/hub/portfolio') return json(res, 200, { ...portfolioStore(portfolioRoot, desktopCatalog().strategies).read(), ordersEnabled: false })
+      if (url.pathname === '/api/hub/portfolio/shadow') return json(res, 200, shadowSummary(portfolioRoot))
+      if (url.pathname === '/api/hub/portfolio/targets') {
+        let context = null
+        if (telemetryEnabled) {
+          telemetry ??= telemetryFactory(origin, root)
+          try { const result = await telemetry.read('/api/live/status', 'GET'); if (result.status === 200) context = portfolioTelemetry(result.body) } catch { /* Missing telemetry remains blocked, without exposing upstream errors. */ }
+        }
+        return json(res, 200, { ...portfolioSnapshot({ root, stateDirectory: portfolioRoot, strategies: desktopCatalog().strategies, telemetry: context }), telemetry: context })
+      }
       if (url.pathname === '/api/hub/experiments') return json(res, 200, readExperimentLedger(ledgerRoot))
       if (url.pathname === '/api/hub/replay') return json(res, 200, loadHistoricalReplay())
       const paperResponse = paperReadResponse(url)
@@ -75,7 +103,7 @@ export async function startHub({ port = 0, host = '127.0.0.1', ledgerRoot = cano
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const { origin, stop } = await startHub({ ledgerRoot: process.env.QORE_HUB_LEDGER_ROOT, telemetryEnabled: process.env.QORE_HUB_ENABLE_TELEMETRY === '1' })
+  const { origin, stop } = await startHub({ ledgerRoot: process.env.QORE_HUB_LEDGER_ROOT, portfolioRoot: process.env.QORE_HUB_PORTFOLIO_ROOT, telemetryEnabled: process.env.QORE_HUB_ENABLE_TELEMETRY === '1' })
   console.log(origin)
   let stopping = false
   const shutdown = () => { if (!stopping) { stopping = true; clearInterval(parentWatch); void stop().then(() => process.exit(0)) } }

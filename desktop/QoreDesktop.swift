@@ -48,6 +48,7 @@ final class QoreDesktop: NSObject, NSApplicationDelegate, WKNavigationDelegate {
         // The telemetry child may use the existing read-only SSH identity in HOME.
         process.environment = ["PATH": "/usr/bin:/bin", "HOME": FileManager.default.homeDirectoryForCurrentUser.path,
             "QORE_HUB_LEDGER_ROOT": URL(fileURLWithPath: repository).appendingPathComponent("research/experiment-log").path,
+            "QORE_HUB_PORTFOLIO_ROOT": URL(fileURLWithPath: repository).appendingPathComponent(".local/qore/portfolio-control").path,
             "QORE_HUB_ENABLE_TELEMETRY": "1", "QORE_HUB_PARENT_PID": String(ProcessInfo.processInfo.processIdentifier)]
         let pipe = Pipe(); readyPipe = pipe; process.standardOutput = pipe; process.standardError = FileHandle.nullDevice
         pipe.fileHandleForReading.readabilityHandler = { [weak self] handle in
